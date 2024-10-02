@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "wptravel/cart-button",
+  "version": "0.1.0",
+  "title": "Cart Button",
+  "category": "wp-travel-blocks",
+  "icon": "cart",
+  "description": "Display the cart button.",
+  "usesContext": [
+    "postId",
+    "postType",
+    "queryId"
+  ],
+  "attributes": {
+    "textColor": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "textColorHover": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundColorHover": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonStyle": {
+      "type": "string",
+      "default": "normal"
+    },
+    "buttonLabel": {
+      "type": "string",
+      "default": "Cart"
+    },
+    "borderRadius": {
+      "type": "number",
+      "default": 3
+    },
+    "borderRadiusHover": {
+      "type": "number",
+      "default": 3
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "cart-button",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

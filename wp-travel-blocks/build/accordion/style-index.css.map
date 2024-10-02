@@ -1,0 +1,1 @@
+{"version":3,"file":"accordion/style-index.css","mappings":";;;AAAA;;EAEI;AACJ,C","sources":["webpack://wp-travel-blocks/./src/accordion/style.scss"],"sourcesContent":[".ac-header,\r\n.ac-panel {\r\n    padding: 0px 20px;\r\n}"],"names":[],"sourceRoot":""}

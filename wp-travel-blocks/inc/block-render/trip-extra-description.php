@@ -1,0 +1,30 @@
+<?php
+/**
+ * 
+ * Render Callback For Trip Extras Description
+ * 
+ */
+
+function wptravel_block_trip_extra_description_render( $attributes ) {
+    ob_start();
+
+    $trip_extras_description        = get_post_meta( get_the_id(), 'wp_travel_tour_extras_metas', true )['extras_item_description'];
+
+    ?>
+
+    <p class="wptravel-trip-extra-description-block">
+        <?php
+
+            if( $trip_extras_description ){
+                echo esc_html( $trip_extras_description ); 
+            }else{
+                echo esc_html__( 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet.."', 'wp-travel-blocks' );
+            }
+           
+        ?>
+    </p>
+
+    <?php
+
+	return ob_get_clean();
+}

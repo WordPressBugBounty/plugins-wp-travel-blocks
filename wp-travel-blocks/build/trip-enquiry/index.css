@@ -1,0 +1,55 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/trip-enquiry/editor.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.modal-disable #wptravel-block-trip-enquiry {
+  display: block;
+}
+
+#wp-travel-enquiries {
+  max-width: 100%;
+  top: 0;
+  background: #fff;
+  padding: 0px;
+  width: 100%;
+  position: relative;
+  display: block;
+  border-radius: 5px;
+}
+#wp-travel-enquiries .wp-travel-form-field {
+  margin: 10px 0;
+  width: 100%;
+  display: inline-block;
+}
+#wp-travel-enquiries .wp-travel-form-field label {
+  width: 100%;
+  display: block;
+}
+#wp-travel-enquiries .wp-travel-form-field input {
+  width: 100%;
+  height: 40px;
+}
+#wp-travel-enquiries .wp-travel-form-field input#wp-travel-enquiry-submit {
+  height: auto;
+}
+#wp-travel-enquiries .wp-travel-form-field .radio-checkbox-label input {
+  height: auto;
+}
+#wp-travel-enquiries .wp-travel-form-field input[type=checkbox] {
+  width: auto;
+}
+#wp-travel-enquiries .wp-travel-form-field textarea {
+  width: inherit;
+}
+
+#wptravel-block-trip-enquiry label[for=wp-travel-subscribe],
+#wptravel-block-trip-enquiry label[for=wp-travel-enquiry-post-id],
+#wptravel-block-trip-enquiry #wp-travel-enquiry-post-id {
+  display: none;
+}
+
+/*# sourceMappingURL=index.css.map*/

@@ -1,0 +1,183 @@
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/trip-gallery/style.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-travel-advanced-gallery-items-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0 !important;
+}
+
+.wptravel-block-trip-gallery .slick-next:before {
+  content: "→";
+}
+
+.wptravel-block-trip-gallery .slick-prev:before {
+  content: "←";
+}
+
+.alignfull .wp-block-wp-travel-blocks-trip-gallery,
+.alignfull #wptravel-block-trip-gallery {
+  max-width: 100% !important;
+}
+
+.wptravel-block-trip-gallery .slick-dots {
+  bottom: 0px;
+}
+.wptravel-block-trip-gallery .slick-next {
+  right: 60px !important;
+}
+.wptravel-block-trip-gallery .slick-prev {
+  left: 40px !important;
+  z-index: 10;
+}
+
+.wptravel-block-trip-gallery.slick-next:before, .wptravel-block-trip-gallery.slick-prev:before {
+  font-size: 30px;
+}
+
+.wptravel-block-trip-gallery .slick-dots li button:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "•";
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: #fff;
+  opacity: 0.25;
+}
+
+.wptravel-block-trip-gallery .wp-travel-advanced-gallery-items-list.wp-travel-advanced-gallery-items-list-grid .item {
+  padding: 0px 5px;
+}
+
+#wptravel-block-trip-gallery {
+  position: relative;
+}
+#wptravel-block-trip-gallery.wptravel-block-trip-gallery.slider .wp-travel-advanced-gallery-items-list.slick-slider .item {
+  padding: 0;
+}
+#wptravel-block-trip-gallery.wptravel-block-trip-gallery.slider .wp-travel-advanced-gallery-items-list .slick-next:before, #wptravel-block-trip-gallery.wptravel-block-trip-gallery.slider .wp-travel-advanced-gallery-items-list .slick-prev:before, #wptravel-block-trip-gallery.wptravel-block-trip-gallery.slider .wp-travel-advanced-gallery-items-list .slick-dots:before {
+  font-family: "Font Awesome 5 Free";
+  padding: 5px 10px 10px 10px;
+  font-size: 20px;
+  border: 1px solid #FFF;
+}
+#wptravel-block-trip-gallery.wptravel-block-trip-gallery.slider .wp-travel-advanced-gallery-items-list .slick-next {
+  right: 40px;
+}
+#wptravel-block-trip-gallery.wptravel-block-trip-gallery.slider .wp-travel-advanced-gallery-items-list .slick-list .slick-track {
+  display: flex;
+}
+#wptravel-block-trip-gallery.wptravel-block-trip-gallery.slider .wp-travel-advanced-gallery-items-list .slick-dots {
+  bottom: 10px;
+}
+#wptravel-block-trip-gallery.wptravel-block-trip-gallery.slider .wp-travel-advanced-gallery-items-list .slick-dots li.slick-active button {
+  opacity: 1;
+}
+#wptravel-block-trip-gallery.wptravel-block-trip-gallery.slider .wp-travel-advanced-gallery-items-list .slick-dots li button {
+  background-color: black;
+  opacity: 0.25;
+  height: 10px;
+  width: 13px;
+}
+#wptravel-block-trip-gallery.wptravel-block-trip-gallery.slider .wp-travel-advanced-gallery-items-list .slick-dots li button:before {
+  content: "";
+}
+
+.wp-travel-advanced-gallery-items-list .slick-arrow:before {
+  background-color: #000 !important;
+  border-color: #000 !important;
+  color: #fff !important;
+}
+
+#wptravel-block-trip-gallery.wptravel-block-trip-gallery button:focus,
+#wptravel-block-trip-gallery.wptravel-block-trip-gallery button:hover {
+  background-color: transparent !important;
+}
+
+.slick-track div {
+  padding-right: 5px;
+  padding-left: 10px;
+}
+
+.slick-track div:first-child {
+  padding-left: 5px;
+}
+
+.wptravel-block-trip-gallery {
+  visibility: hidden;
+  animation: showElement 0.5s forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes showElement {
+  to {
+    visibility: visible;
+  }
+}
+.wptravel-block-trip-gallery .slick-track div {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.wptravel-block-trip-gallery .slick-slide {
+  margin: 0 10px; /* Adjust the value as needed to set the gap */
+}
+
+/* To ensure the spacing works correctly, you might need to adjust the width of the slides */
+.wptravel-block-trip-gallery .slick-list {
+  margin: 0 -10px; /* This should match the half of the margin value to ensure correct alignment */
+}
+
+.wptravel-block-trip-gallery .slick-track .slick-slide a {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+}
+
+.wptravel-block-trip-gallery .gallery-icon {
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+}
+
+.wptravel-block-trip-gallery .gallery-icon span {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.gallery-icon span {
+  padding: 5px 10px;
+  background: aliceblue;
+  margin: 0px 5px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.gallery-icon span:hover {
+  color: var(--wp--preset--color--primary) !important;
+}
+
+.open-video .trip-video {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 992px) {
+  .wptravel-block-trip-gallery .wp-travel-advanced-gallery-items-list.slick-slider .wptag__thumbnail img {
+    min-height: 250px;
+    max-height: 250px;
+  }
+}
+
+/*# sourceMappingURL=style-index.css.map*/

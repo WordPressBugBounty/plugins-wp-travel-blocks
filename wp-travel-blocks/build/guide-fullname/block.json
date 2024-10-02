@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "wptravel/guide-fullname",
+  "version": "0.1.0",
+  "title": "Guide Full Name",
+  "category": "wp-travel-guide-blocks",
+  "icon": "businessman",
+  "description": "Display guide full name.",
+  "attributes": {
+    "enableLink": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "supports": {
+    "html": false,
+    "color": {
+      "background": false,
+      "color": true
+    },
+    "typography": {
+      "fontSize": true
+    }
+  },
+  "textdomain": "guide-fullname",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

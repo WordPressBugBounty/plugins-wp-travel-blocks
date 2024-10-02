@@ -1,0 +1,1 @@
+{"version":3,"file":"trip-extra-gallery/index.css","mappings":";;;AAAA;EACI;EACA;AACJ,C","sources":["webpack://wp-travel-blocks/./src/trip-extra-gallery/editor.scss"],"sourcesContent":[".wptravel-trip-extra-gallery-block .editor-note{\r\n    padding: 20px;\r\n    background: #cfcfcf;\r\n}"],"names":[],"sourceRoot":""}

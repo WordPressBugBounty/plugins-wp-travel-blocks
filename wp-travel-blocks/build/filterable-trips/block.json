@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "wptravel/filterable-trips",
+  "version": "0.1.0",
+  "title": "Filterable Trips",
+  "category": "wp-travel-blocks",
+  "icon": "grid-view",
+  "description": "Filter the Trips as per selected taxonomies (Type, Destination and Activities)",
+  "attributes": {
+    "query": {
+      "type": "object",
+      "default": {
+        "numberOfItems": 3,
+        "orderBy": "title",
+        "order": "asc"
+      }
+    },
+    "layoutType": {
+      "type": "string",
+      "default": "default-layout"
+    },
+    "cardLayout": {
+      "type": "string",
+      "default": "grid-view"
+    },
+    "filterType": {
+      "type": "string",
+      "default": "itinerary_types"
+    }
+  },
+  "supports": {
+    "html": false,
+    "color": true,
+    "align": [
+      "wide",
+      "full"
+    ],
+    "spacing": {
+      "margin": [
+        "horizontal",
+        "vertical"
+      ],
+      "padding": [
+        "horizontal",
+        "vertical"
+      ]
+    }
+  },
+  "textdomain": "trips-list",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
