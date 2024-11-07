@@ -196,7 +196,7 @@ function Edit(props) {
     colorSettings: btnBorderColorSettings,
     initialOpen: false
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_5___default()), {
-    block: "wptravel/trip-calendar",
+    block: "wp-travel-blocks/trip-calendar",
     attributes: props.attributes
   }));
 }
@@ -379,7 +379,7 @@ module.exports = window["wp"]["serverSideRender"];
   \**************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/trip-calendar","version":"0.1.0","title":"Trip Calendar","category":"wp-travel-single-trip-blocks","icon":"calendar-alt","description":"Display date picker with available trip booking dates.","attributes":{"textAlign":{"type":"string","default":"left"},"tooltipColor":{"type":"string","default":""},"tooltipBgColor":{"type":"string","default":""},"tooltipBorderColor":{"type":"string","default":""},"btnBackgroundColor":{"type":"string","default":""},"btnIconBackgroundColor":{"type":"string","default":""},"iconColor":{"type":"string","default":""},"btnTextColor":{"type":"string","default":""},"btnBorderRadius":{"type":"number","default":3},"btnBordercolor":{"type":"string","default":""}},"supports":{"html":false},"textdomain":"trip-calendar","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trip-calendar","version":"0.1.0","title":"Trip Calendar","category":"wp-travel-single-trip-blocks","icon":"calendar-alt","description":"Display date picker with available trip booking dates.","attributes":{"textAlign":{"type":"string","default":"left"},"tooltipColor":{"type":"string","default":""},"tooltipBgColor":{"type":"string","default":""},"tooltipBorderColor":{"type":"string","default":""},"btnBackgroundColor":{"type":"string","default":""},"btnIconBackgroundColor":{"type":"string","default":""},"iconColor":{"type":"string","default":""},"btnTextColor":{"type":"string","default":""},"btnBorderRadius":{"type":"number","default":3},"btnBordercolor":{"type":"string","default":""}},"supports":{"html":false},"textdomain":"trip-calendar","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

@@ -154,7 +154,7 @@ function Edit(props) {
       searchBorderRadius: value
     })
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_5___default()), {
-    block: "wptravel/trip-search",
+    block: "wp-travel-blocks/trip-search",
     attributes: props.attributes
   }));
 }
@@ -337,7 +337,7 @@ module.exports = window["wp"]["serverSideRender"];
   \************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/trip-search","version":"0.1.0","title":"Trip Search","category":"wp-travel-blocks","icon":"search","description":"Trip search form to search your trips.","attributes":{"showInput":{"type":"boolean","default":true},"showTripType":{"type":"boolean","default":true},"showLocation":{"type":"boolean","default":true},"showSubmit":{"type":"boolean","default":true},"buttonBackgroundColor":{"type":"string","default":""},"buttonTextColor":{"type":"string","default":""},"searchButtonLabel":{"type":"string","default":"Search"},"inputBorderColor":{"type":"string","default":""},"inputBorder":{"type":"object","default":{"color":"var(--wp--preset--color--primary)","style":"solid","width":"1px"}},"searchBorderRadius":{"type":"number","default":3},"inputBorderRadius":{"type":"number","default":3}},"supports":{"html":false,"color":true,"align":["wide","full"],"spacing":{"margin":["horizontal","vertical"],"padding":["horizontal","vertical"]}},"textdomain":"trip-search","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trip-search","version":"0.1.0","title":"Trip Search","category":"wp-travel-blocks","icon":"search","description":"Trip search form to search your trips.","attributes":{"showInput":{"type":"boolean","default":true},"showTripType":{"type":"boolean","default":true},"showLocation":{"type":"boolean","default":true},"showSubmit":{"type":"boolean","default":true},"buttonBackgroundColor":{"type":"string","default":""},"buttonTextColor":{"type":"string","default":""},"searchButtonLabel":{"type":"string","default":"Search"},"inputBorderColor":{"type":"string","default":""},"inputBorder":{"type":"object","default":{"color":"var(--wp--preset--color--primary)","style":"solid","width":"1px"}},"searchBorderRadius":{"type":"number","default":3},"inputBorderRadius":{"type":"number","default":3}},"supports":{"html":false,"color":true,"align":["wide","full"],"spacing":{"margin":["horizontal","vertical"],"padding":["horizontal","vertical"]}},"textdomain":"trip-search","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

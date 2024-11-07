@@ -1,11 +1,11 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "wp-travel-block/slides",
+  "name": "wp-travel-blocks/slides",
   "title": "Slides",
   "category": "widgets",
   "parent": [
-    "wp-travel-block/slider"
+    "wp-travel-blocks/slider"
   ],
   "description": "Single Slide block to be used with Slider block",
   "supports": {

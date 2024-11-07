@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "wp-travel-blocks/countdown",
+  "version": "0.1.0",
+  "title": "CountDown",
+  "category": "wp-travel-blocks",
+  "icon": "clock",
+  "description": "Display countdown.",
+  "attributes": {
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "endDate": {
+      "type": "string",
+      "default": "Jan 01, 2030 12:00:00"
+    },
+    "daysLabel": {
+      "type": "string",
+      "default": "Days - "
+    },
+    "hoursLabel": {
+      "type": "string",
+      "default": "Hours - "
+    },
+    "minutesLabel": {
+      "type": "string",
+      "default": "Minutes - "
+    },
+    "secondsLabel": {
+      "type": "string",
+      "default": "Seconds"
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "countdown",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

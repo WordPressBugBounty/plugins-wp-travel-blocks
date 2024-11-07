@@ -157,7 +157,7 @@ function Edit(props) {
     colorSettings: downloadbtntextColorSettings,
     initialOpen: false
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_4___default()), {
-    block: "wptravel/trip-downloads",
+    block: "wp-travel-blocks/trip-downloads",
     attributes: props.attributes
   }));
 }
@@ -330,7 +330,7 @@ module.exports = window["wp"]["serverSideRender"];
   \***************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/trip-downloads","version":"0.1.0","title":"Trip Downloads","category":"wp-travel-single-trip-blocks","icon":"download","description":"Display trip download Button.","attributes":{"extraClass":{"type":"string","default":""},"textColor":{"type":"string","default":""},"titleContainerColor":{"type":"string","default":""},"emailContainerColor":{"type":"string","default":""},"sendbtnbgColor":{"type":"string","default":""},"sendbtntextColor":{"type":"string","default":""},"downloadbtnbgColor":{"type":"string","default":""},"downloadbtntextColor":{"type":"string","default":""}},"supports":{"html":false},"textdomain":"trip-downloads","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trip-downloads","version":"0.1.0","title":"Trip Downloads","category":"wp-travel-single-trip-blocks","icon":"download","description":"Display trip download Button.","attributes":{"extraClass":{"type":"string","default":""},"textColor":{"type":"string","default":""},"titleContainerColor":{"type":"string","default":""},"emailContainerColor":{"type":"string","default":""},"sendbtnbgColor":{"type":"string","default":""},"sendbtntextColor":{"type":"string","default":""},"downloadbtnbgColor":{"type":"string","default":""},"downloadbtntextColor":{"type":"string","default":""}},"supports":{"html":false},"textdomain":"trip-downloads","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

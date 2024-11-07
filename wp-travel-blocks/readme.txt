@@ -5,7 +5,7 @@ Donate link:        https://wptravel.io/
 Requires at least:  6.0.0
 Tested up to:       6.6.0
 Requires PHP:       7.4.0
-Stable tag:         3.8.0
+Stable tag:         3.8.1
 License:            GPLv3
 License URI:        http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -235,8 +235,13 @@ Before updating the plugin please check ["our latest release notes"](#developers
 
 == Changelog ==
 
+= 3.8.1 = 
+Release Date:  7th November 2024
+
+* Patch release
+
 = 3.8.0 = 
-Release Date:  23rd September 2024
+Release Date:  7th November 2024
 
 Fixes:
 * Escaped breadcrumb separator with htmlspecialchars_decode so that it wont replaced special character to unicode

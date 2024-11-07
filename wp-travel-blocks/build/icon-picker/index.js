@@ -350,14 +350,16 @@ function save(props) {
     linkURL
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, linkURL == "" || linkURL == null ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(),
+    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     style: {
       textAlign: textAlign
     }
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
     className: icon
-  })) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(),
+  }))) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     style: {
       textAlign: textAlign
     }
@@ -365,7 +367,7 @@ function save(props) {
     href: linkURL
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
     className: icon
-  }))));
+  })))));
 }
 
 /***/ }),
@@ -3913,7 +3915,7 @@ function _setPrototypeOf(o, p) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/icon-picker","version":"0.1.0","title":"Icon Picker","category":"wp-travel-blocks","icon":"info","description":"FontAwesome icons for you to use.","attributes":{"textAlign":{"type":"string","default":"left"},"icon":{"type":"string","default":"fas fa-user"},"linkURL":{"type":"string","default":""}},"supports":{"html":false},"textdomain":"icon-picker","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/icon-picker","version":"0.1.0","title":"Icon Picker","category":"wp-travel-blocks","icon":"info","description":"FontAwesome icons for you to use.","attributes":{"textAlign":{"type":"string","default":"left"},"icon":{"type":"string","default":"fas fa-user"},"linkURL":{"type":"string","default":""}},"supports":{"html":false},"textdomain":"icon-picker","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

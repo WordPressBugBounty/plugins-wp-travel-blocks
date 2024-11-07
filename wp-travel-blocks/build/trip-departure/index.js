@@ -59,7 +59,7 @@ function Edit(props) {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_4___default()), {
-    block: "wptravel/trip-departure"
+    block: "wp-travel-blocks/trip-departure"
   }));
 }
 
@@ -231,7 +231,7 @@ module.exports = window["wp"]["serverSideRender"];
   \***************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/trip-departure","version":"0.1.0","title":"Trip Departure","category":"wp-travel-single-trip-blocks","icon":"airplane","description":"Display Departure Date added for the trip.","attributes":{},"supports":{"html":false},"textdomain":"trip-departure","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trip-departure","version":"0.1.0","title":"Trip Departure","category":"wp-travel-single-trip-blocks","icon":"airplane","description":"Display Departure Date added for the trip.","attributes":{},"supports":{"html":false},"textdomain":"trip-departure","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

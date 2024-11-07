@@ -265,7 +265,7 @@ function Edit(props) {
       });
     }
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_6___default()), {
-    block: "wptravel/filterable-trips",
+    block: "wp-travel-blocks/filterable-trips",
     attributes: props.attributes
   }));
 }
@@ -458,7 +458,7 @@ module.exports = window["wp"]["serverSideRender"];
   \*****************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/filterable-trips","version":"0.1.0","title":"Filterable Trips","category":"wp-travel-blocks","icon":"grid-view","description":"Filter the Trips as per selected taxonomies (Type, Destination and Activities)","attributes":{"query":{"type":"object","default":{"numberOfItems":3,"orderBy":"title","order":"asc"}},"layoutType":{"type":"string","default":"default-layout"},"cardLayout":{"type":"string","default":"grid-view"},"filterType":{"type":"string","default":"itinerary_types"}},"supports":{"html":false,"color":true,"align":["wide","full"],"spacing":{"margin":["horizontal","vertical"],"padding":["horizontal","vertical"]}},"textdomain":"trips-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/filterable-trips","version":"0.1.0","title":"Filterable Trips","category":"wp-travel-blocks","icon":"grid-view","description":"Filter the Trips as per selected taxonomies (Type, Destination and Activities)","attributes":{"query":{"type":"object","default":{"numberOfItems":3,"orderBy":"title","order":"asc"}},"layoutType":{"type":"string","default":"default-layout"},"cardLayout":{"type":"string","default":"grid-view"},"filterType":{"type":"string","default":"itinerary_types"}},"supports":{"html":false,"color":true,"align":["wide","full"],"spacing":{"margin":["horizontal","vertical"],"padding":["horizontal","vertical"]}},"textdomain":"trips-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

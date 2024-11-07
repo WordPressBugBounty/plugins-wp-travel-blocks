@@ -88,8 +88,8 @@ const {
  * @constant
  * @type {string[]}
  */
-const ALLOWED_BLOCKS = ["wp-travel-block/slides"];
-const TEMPLATE = [["wp-travel-block/slides"], ["wp-travel-block/slides"]];
+const ALLOWED_BLOCKS = ["wp-travel-blocks/slides"];
+const TEMPLATE = [["wp-travel-blocks/slides"], ["wp-travel-blocks/slides"]];
 function SliderEditContainer({
   attributes,
   setAttributes,
@@ -268,7 +268,7 @@ const SliderEditContainerWrapper = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5
     const isAddingColumn = newColumns > previousColumns;
     if (isAddingColumn) {
       innerBlocks = [...innerBlocks, ...(0,lodash__WEBPACK_IMPORTED_MODULE_1__.times)(newColumns - previousColumns, () => {
-        return (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_6__.createBlock)("wp-travel-block/slides");
+        return (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_6__.createBlock)("wp-travel-blocks/slides");
       })];
     } else {
       // The removed column will be the last of the inner blocks.
@@ -14010,7 +14010,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-block/slider","title":"Slider","category":"wp-travel-blocks","description":"Block to add slider to your content.","attributes":{"blockId":{"type":"string"},"slidesPerPage":{"type":"number","default":1},"controls":{"type":"boolean","default":true},"autoplay":{"type":"boolean","default":true},"autoplayDelay":{"type":"string","default":"3000"},"dot":{"type":"boolean","default":false},"dotPosition":{"type":"string","default":"horizontal-inside-slider-bottom-center"},"axis":{"type":"string","default":"horizontal"},"slideBy":{"type":"number","default":1},"center":{"type":"boolean","default":false}},"supports":{"anchor":true,"align":["wide","full"],"html":false},"textdomain":"slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","script":"wp-travel-blocks-slider-script"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/slider","title":"Slider","category":"wp-travel-blocks","description":"Block to add slider to your content.","attributes":{"blockId":{"type":"string"},"slidesPerPage":{"type":"number","default":1},"controls":{"type":"boolean","default":true},"autoplay":{"type":"boolean","default":true},"autoplayDelay":{"type":"string","default":"3000"},"dot":{"type":"boolean","default":false},"dotPosition":{"type":"string","default":"horizontal-inside-slider-bottom-center"},"axis":{"type":"string","default":"horizontal"},"slideBy":{"type":"number","default":1},"center":{"type":"boolean","default":false}},"supports":{"anchor":true,"align":["wide","full"],"html":false},"textdomain":"slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","script":"wp-travel-blocks-slider-script"}');
 
 /***/ })
 

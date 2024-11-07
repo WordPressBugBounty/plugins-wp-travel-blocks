@@ -156,7 +156,7 @@ module.exports = window["wp"]["i18n"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/accordion-item","title":"Accordion Item","parent":["wptravel/accordion"],"description":"Single Slide block to be used with Slider block","category":"wp-travel-blocks","supports":{"html":false},"textdomain":"accordion-item","editorScript":"file:./index.js","editorStyle":"file:./index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/accordion-item","title":"Accordion Item","parent":["wp-travel-blocks/accordion"],"description":"Single Slide block to be used with Slider block","category":"wp-travel-blocks","supports":{"html":false},"textdomain":"accordion-item","editorScript":"file:./index.js","editorStyle":"file:./index.css"}');
 
 /***/ })
 

@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "wptravel/trip-downloads",
+  "name": "wp-travel-blocks/trip-downloads",
   "version": "0.1.0",
   "title": "Trip Downloads",
   "category": "wp-travel-single-trip-blocks",

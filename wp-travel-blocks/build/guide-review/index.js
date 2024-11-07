@@ -80,7 +80,7 @@ function Edit(props) {
       enableText: !enableText
     })
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_5___default()), {
-    block: "wptravel/guide-review",
+    block: "wp-travel-blocks/guide-review",
     attributes: props.attributes
   }));
 }
@@ -263,7 +263,7 @@ module.exports = window["wp"]["serverSideRender"];
   \*************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/guide-review","version":"0.1.0","title":"Guide Review","category":"wp-travel-guide-blocks","icon":"location","description":"Display guide review.","attributes":{"enableText":{"type":"boolean","default":false}},"supports":{"html":false,"color":{"background":false,"color":true},"typography":{"fontSize":true}},"textdomain":"guide-review","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/guide-review","version":"0.1.0","title":"Guide Review","category":"wp-travel-guide-blocks","icon":"location","description":"Display guide review.","attributes":{"enableText":{"type":"boolean","default":false}},"supports":{"html":false,"color":{"background":false,"color":true},"typography":{"fontSize":true}},"textdomain":"guide-review","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

@@ -2987,7 +2987,7 @@ module.exports = window["wp"]["plugins"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-block/templates","title":"Templates","icon":"download","category":"wp-travel-blocks","description":"Block to add pre made patterns.","textdomain":"templates","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/templates","title":"Templates","icon":"download","category":"wp-travel-blocks","description":"Block to add pre made patterns.","textdomain":"templates","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

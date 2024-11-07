@@ -78,7 +78,8 @@ function Edit(props) {
     btnBorderColor,
     btnBackgroundColor,
     btnTextColor,
-    btnBorderRadius
+    btnBorderRadius,
+    btnWidth
   } = attributes;
   const btnBackgroundColorSettings = [{
     value: btnBackgroundColor,
@@ -177,6 +178,15 @@ function Edit(props) {
     min: 2,
     max: 100,
     value: btnBorderRadius
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Button Width', 'wp-travel-blocks'),
+    onChange: value => setAttributes({
+      btnWidth: value
+    }),
+    shiftStep: 1,
+    min: 2,
+    max: 1000,
+    value: btnWidth
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PanelColorSettings, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Text Color', 'wp-travel-blocks'),
     colorSettings: textColorSettings,
@@ -202,7 +212,7 @@ function Edit(props) {
     colorSettings: btnTextColorSettings,
     initialOpen: false
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_5___default()), {
-    block: "wptravel/trip-filters",
+    block: "wp-travel-blocks/trip-filters",
     attributes: props.attributes
   }));
 }
@@ -385,7 +395,7 @@ module.exports = window["wp"]["serverSideRender"];
   \*************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/trip-filters","version":"0.1.0","title":"Trip Filters","category":"wp-travel-blocks","icon":"filter","description":"Display trip search filter form with which trip can be searched through different filters.","attributes":{"keyWordSearch":{"type":"boolean","default":true},"tripFact":{"type":"boolean","default":true},"tripTypeFilter":{"type":"boolean","default":true},"tripLocationFilter":{"type":"boolean","default":true},"priceOrderFilter":{"type":"boolean","default":true},"priceRangeFilter":{"type":"boolean","default":true},"tripDateFilter":{"type":"boolean","default":true},"textColor":{"type":"string","default":""},"inputBackgroundColor":{"type":"string","default":""},"inputBorderColor":{"type":"string","default":""},"btnBorderColor":{"type":"string","default":""},"btnBackgroundColor":{"type":"string","default":""},"btnTextColor":{"type":"string","default":""},"btnBorderRadius":{"type":"number","default":3}},"supports":{"html":false,"color":true,"align":["wide","full"],"spacing":{"margin":["horizontal","vertical"],"padding":["horizontal","vertical"]}},"textdomain":"trip-filters","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trip-filters","version":"0.1.0","title":"Trip Filters","category":"wp-travel-blocks","icon":"filter","description":"Display trip search filter form with which trip can be searched through different filters.","attributes":{"keyWordSearch":{"type":"boolean","default":true},"tripFact":{"type":"boolean","default":true},"tripTypeFilter":{"type":"boolean","default":true},"tripLocationFilter":{"type":"boolean","default":true},"priceOrderFilter":{"type":"boolean","default":true},"priceRangeFilter":{"type":"boolean","default":true},"tripDateFilter":{"type":"boolean","default":true},"textColor":{"type":"string","default":""},"inputBackgroundColor":{"type":"string","default":""},"inputBorderColor":{"type":"string","default":""},"btnBorderColor":{"type":"string","default":""},"btnBackgroundColor":{"type":"string","default":""},"btnTextColor":{"type":"string","default":""},"btnBorderRadius":{"type":"number","default":3},"btnWidth":{"type":"number","default":100}},"supports":{"html":false,"color":true,"align":["wide","full"],"spacing":{"margin":["horizontal","vertical"],"padding":["horizontal","vertical"]}},"textdomain":"trip-filters","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

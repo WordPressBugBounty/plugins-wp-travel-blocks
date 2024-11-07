@@ -145,7 +145,7 @@ function Edit(props) {
     max: 100,
     value: progressNum
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Width', 'wp-travel-blocks'),
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Circle Diameter', 'wp-travel-blocks'),
     onChange: value => setAttributes({
       progressBarWidth: value
     }),
@@ -3229,7 +3229,7 @@ module.exports = window["wp"]["i18n"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/progress-bar","version":"0.1.0","title":"Progress Bar","category":"wp-travel-blocks","icon":"minus","description":"Display Progress Bar.","usesContext":["postId","postType","queryId"],"attributes":{"textAlign":{"type":"string","default":"left"},"progressBarType":{"type":"string","default":"line"},"progressNum":{"type":"number","default":95},"progressBarColor":{"type":"string","default":"#FFEA82"},"progressBarPathColor":{"type":"string","default":"#eee"},"progressBarWidth":{"type":"number","default":100}},"supports":{"html":false},"textdomain":"progress-bar","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/progress-bar","version":"0.1.0","title":"Progress Bar","category":"wp-travel-blocks","icon":"minus","description":"Display Progress Bar.","usesContext":["postId","postType","queryId"],"attributes":{"textAlign":{"type":"string","default":"left"},"progressBarType":{"type":"string","default":"line"},"progressNum":{"type":"number","default":95},"progressBarColor":{"type":"string","default":"#FFEA82"},"progressBarPathColor":{"type":"string","default":"#eee"},"progressBarWidth":{"type":"number","default":100}},"supports":{"html":false},"textdomain":"progress-bar","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

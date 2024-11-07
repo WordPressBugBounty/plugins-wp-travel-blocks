@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "wptravel/pickup-points",
+  "name": "wp-travel-blocks/pickup-points",
   "version": "0.1.0",
   "title": "Trip Pickup Location",
   "category": "wp-travel-single-trip-blocks",

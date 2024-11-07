@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "wptravel/trip-extra-gallery",
+  "name": "wp-travel-blocks/trip-extra-gallery",
   "version": "0.1.0",
   "title": "Trip Extra Gallery",
   "category": "wp-travel-trip-extra-blocks",

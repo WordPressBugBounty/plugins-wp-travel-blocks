@@ -64,8 +64,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // Allowed blocks and template constants
-const ALLOWED_BLOCKS = ["wptravel/accordion-item"];
-const TEMPLATE = [["wptravel/accordion-item"], ["wptravel/accordion-item"]];
+const ALLOWED_BLOCKS = ["wp-travel-blocks/accordion-item"];
+const TEMPLATE = [["wp-travel-blocks/accordion-item"], ["wp-travel-blocks/accordion-item"]];
 function AccordionEditContainer({
   attributes,
   setAttributes,
@@ -143,7 +143,7 @@ const AccordionEditContainerWrapper = (0,_wordpress_data__WEBPACK_IMPORTED_MODUL
     let innerBlocks = getBlocks(clientId);
     const isAddingColumn = newColumns > previousColumns;
     if (isAddingColumn) {
-      innerBlocks = [...innerBlocks, ...(0,lodash__WEBPACK_IMPORTED_MODULE_2__.times)(newColumns - previousColumns, () => (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_8__.createBlock)("wptravel/accordion-item"))];
+      innerBlocks = [...innerBlocks, ...(0,lodash__WEBPACK_IMPORTED_MODULE_2__.times)(newColumns - previousColumns, () => (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_8__.createBlock)("wp-travel-blocks/accordion-item"))];
     } else {
       innerBlocks = (0,lodash__WEBPACK_IMPORTED_MODULE_2__.dropRight)(innerBlocks, previousColumns - newColumns);
     }
@@ -401,7 +401,7 @@ module.exports = window["wp"]["i18n"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/accordion","title":"Accordion","description":"Block to add slider to your content.","category":"wp-travel-blocks","attributes":{"blockId":{"type":"string"},"slidesPerPage":{"type":"number","default":1},"controls":{"type":"boolean","default":true},"autoplay":{"type":"boolean","default":true},"autoplayDelay":{"type":"string","default":"3000"},"dot":{"type":"boolean","default":false},"dotPosition":{"type":"string","default":"horizontal-inside-slider-bottom-center"},"axis":{"type":"string","default":"horizontal"},"slideBy":{"type":"number","default":1},"center":{"type":"boolean","default":false}},"supports":{"anchor":true,"align":["wide","full"],"html":false},"textdomain":"accordion","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/accordion","title":"Accordion","description":"Block to add slider to your content.","category":"wp-travel-blocks","attributes":{"blockId":{"type":"string"},"slidesPerPage":{"type":"number","default":1},"controls":{"type":"boolean","default":true},"autoplay":{"type":"boolean","default":true},"autoplayDelay":{"type":"string","default":"3000"},"dot":{"type":"boolean","default":false},"dotPosition":{"type":"string","default":"horizontal-inside-slider-bottom-center"},"axis":{"type":"string","default":"horizontal"},"slideBy":{"type":"number","default":1},"center":{"type":"boolean","default":false}},"supports":{"anchor":true,"align":["wide","full"],"html":false},"textdomain":"accordion","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

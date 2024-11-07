@@ -59,7 +59,7 @@ function Edit(props) {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_4___default()), {
-    block: "wptravel/map",
+    block: "wp-travel-blocks/map",
     attributes: props.attributes
   }));
 }
@@ -232,7 +232,7 @@ module.exports = window["wp"]["serverSideRender"];
   \*********************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/map","version":"0.1.0","title":"Trip Map","category":"wp-travel-single-trip-blocks","icon":"location-alt","description":"Display map for the location added for the trip.","attributes":{"blockClientId":{"type":"string","default":""},"blockStyles":{"type":"object","default":{"backgroundColor":"#fff"}},"isSaved":{"type":"boolean","default":false},"height":{"type":"number"}},"supports":{"html":false},"textdomain":"map","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/map","version":"0.1.0","title":"Trip Map","category":"wp-travel-single-trip-blocks","icon":"location-alt","description":"Display map for the location added for the trip.","attributes":{"blockClientId":{"type":"string","default":""},"blockStyles":{"type":"object","default":{"backgroundColor":"#fff"}},"isSaved":{"type":"boolean","default":false},"height":{"type":"number"}},"supports":{"html":false},"textdomain":"map","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

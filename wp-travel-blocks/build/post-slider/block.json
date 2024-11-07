@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "wp-travel-blocks/post-slider",
+  "version": "0.1.0",
+  "title": "Post Slider",
+  "category": "wp-travel-blocks",
+  "icon": "info",
+  "description": "Dispaly post slider.",
+  "attributes": {
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "contentType": {
+      "type": "string",
+      "default": "recent"
+    },
+    "postIds": {
+      "type": "string",
+      "default": ""
+    },
+    "categoryIds": {
+      "type": "string",
+      "default": ""
+    },
+    "numPosts": {
+      "type": "number",
+      "default": 3
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "post-slider",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

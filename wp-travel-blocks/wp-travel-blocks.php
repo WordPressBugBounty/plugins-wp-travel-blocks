@@ -5,7 +5,7 @@
  * Requires at least: 	6.0
  * Requires Plugins:    wp-travel
  * Requires PHP:      	7.4
- * Version:         	3.8.0
+ * Version:         	3.8.1
  * Tested up to: 		6.6.0
  * Author:           	WP Travel
  * Author URI: 			http://wptravel.io

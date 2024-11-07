@@ -75,7 +75,7 @@ function Edit(props) {
       });
     }
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_4___default()), {
-    block: "wptravel/trip-sale",
+    block: "wp-travel-blocks/trip-sale",
     attributes: props.attributes
   }));
 }
@@ -248,7 +248,7 @@ module.exports = window["wp"]["serverSideRender"];
   \**********************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/trip-sale","version":"0.1.0","title":"Trip Sale","category":"wp-travel-single-trip-blocks","icon":"yes","description":"Display trip discount for the trip.","attributes":{"textAlign":{"type":"string","default":"left"},"fontSize":{"type":"number","default":22}},"supports":{"html":false},"textdomain":"trip-sale","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trip-sale","version":"0.1.0","title":"Trip Sale","category":"wp-travel-single-trip-blocks","icon":"yes","description":"Display trip discount for the trip.","attributes":{"textAlign":{"type":"string","default":"left"},"fontSize":{"type":"number","default":22}},"supports":{"html":false},"textdomain":"trip-sale","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

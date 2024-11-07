@@ -285,7 +285,7 @@ module.exports = window["wp"]["i18n"];
   \********************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/counter","version":"0.1.0","title":"Counter","category":"wp-travel-blocks","icon":"clock","description":"Display Counter Number.","usesContext":["postId","postType","queryId"],"attributes":{"textAlign":{"type":"string","default":"left"},"counter":{"type":"string","default":"99"}},"supports":{"html":false,"color":{"background":false,"color":true},"typography":{"fontSize":true}},"textdomain":"book-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/counter","version":"0.1.0","title":"Counter","category":"wp-travel-blocks","icon":"clock","description":"Display Counter Number.","usesContext":["postId","postType","queryId"],"attributes":{"textAlign":{"type":"string","default":"left"},"counter":{"type":"string","default":"99"}},"supports":{"html":false,"color":{"background":false,"color":true},"typography":{"fontSize":true}},"textdomain":"book-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

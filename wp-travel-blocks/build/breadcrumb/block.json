@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "wptravel/breadcrumb",
+  "name": "wp-travel-blocks/breadcrumb",
   "version": "0.1.0",
   "title": "Breadcrumb",
   "category": "wp-travel-blocks",

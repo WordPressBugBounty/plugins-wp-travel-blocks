@@ -79,7 +79,7 @@ function Edit(props) {
       tripButtonText: value
     })
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_5___default()), {
-    block: "wptravel/trip-button",
+    block: "wp-travel-blocks/trip-button",
     attributes: props.attributes
   }));
 }
@@ -262,7 +262,7 @@ module.exports = window["wp"]["serverSideRender"];
   \************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/trip-button","version":"0.1.0","title":"Trip Button","category":"wp-travel-single-trip-blocks","icon":"admin-links","description":"Display the button added for trip.","usesContext":["postId","postType","queryId"],"attributes":{"tripButtonText":{"type":"string","default":"Explore"}},"supports":{"html":false},"textdomain":"trip-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trip-button","version":"0.1.0","title":"Trip Button","category":"wp-travel-single-trip-blocks","icon":"admin-links","description":"Display the button added for trip.","usesContext":["postId","postType","queryId"],"attributes":{"tripButtonText":{"type":"string","default":"Explore"}},"supports":{"html":false},"textdomain":"trip-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

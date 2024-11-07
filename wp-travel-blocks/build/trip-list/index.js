@@ -863,7 +863,7 @@ function Edit(props) {
       class: "wptravel-blocks-trip-offer-price"
     }, "$3999"))))));
   })))) || (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_6___default()), {
-    block: "wptravel/trips-list",
+    block: "wp-travel-blocks/trips-list",
     attributes: props.attributes
   }));
 }
@@ -5841,7 +5841,7 @@ module.exports = window["wp"]["serverSideRender"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/trips-list","version":"0.1.0","title":"Trip List","category":"wp-travel-blocks","icon":"grid-view","description":"Display the Trips as per selected taxonomies (Trip Type, destination, activities, keywords etc.)","attributes":{"blockId":{"type":"string","default":"not set"},"relatedTrip":{"type":"boolean","default":false},"relatedTripBy":{"type":"string","default":"itinerary-types"},"inheritTrips":{"type":"boolean","default":false},"query":{"type":"object","default":{"numberOfItems":3,"orderBy":"title","order":"asc"}},"saleTrip":{"type":"boolean","default":false},"layoutType":{"type":"string","default":"default-layout"},"cardLayout":{"type":"string","default":"grid-view"},"featuredTrip":{"type":"boolean","default":false}},"supports":{"html":false,"color":true,"align":["wide","full"],"spacing":{"margin":["horizontal","vertical"],"padding":["horizontal","vertical"]}},"textdomain":"trips-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trips-list","version":"0.1.0","title":"Trip List","category":"wp-travel-blocks","icon":"grid-view","description":"Display the Trips as per selected taxonomies (Trip Type, destination, activities, keywords etc.)","attributes":{"blockId":{"type":"string","default":"not set"},"relatedTrip":{"type":"boolean","default":false},"relatedTripBy":{"type":"string","default":"itinerary-types"},"inheritTrips":{"type":"boolean","default":false},"query":{"type":"object","default":{"numberOfItems":3,"orderBy":"title","order":"asc"}},"saleTrip":{"type":"boolean","default":false},"layoutType":{"type":"string","default":"default-layout"},"cardLayout":{"type":"string","default":"grid-view"},"featuredTrip":{"type":"boolean","default":false}},"supports":{"html":false,"color":true,"align":["wide","full"],"spacing":{"margin":["horizontal","vertical"],"padding":["horizontal","vertical"]}},"textdomain":"trips-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

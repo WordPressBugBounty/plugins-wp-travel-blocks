@@ -60,7 +60,7 @@ function Edit(props) {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_4___default()), {
-    block: "wptravel/trip-extra-gallery",
+    block: "wp-travel-blocks/trip-extra-gallery",
     attributes: props.attributes
   }));
 }
@@ -233,7 +233,7 @@ module.exports = window["wp"]["serverSideRender"];
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/trip-extra-gallery","version":"0.1.0","title":"Trip Extra Gallery","category":"wp-travel-trip-extra-blocks","icon":"format-gallery","description":"Display Trip Extra Gallery.","attributes":{},"textdomain":"trip-extra-gallery","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trip-extra-gallery","version":"0.1.0","title":"Trip Extra Gallery","category":"wp-travel-trip-extra-blocks","icon":"format-gallery","description":"Display Trip Extra Gallery.","attributes":{},"textdomain":"trip-extra-gallery","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

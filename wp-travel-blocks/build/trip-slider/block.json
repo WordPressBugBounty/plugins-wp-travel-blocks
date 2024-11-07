@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "wptravel/trip-slider",
+  "name": "wp-travel-blocks/trip-slider",
   "version": "0.1.0",
   "title": "Trip Slider",
   "category": "wp-travel-blocks",

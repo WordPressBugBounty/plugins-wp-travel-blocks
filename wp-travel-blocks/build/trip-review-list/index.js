@@ -231,7 +231,7 @@ module.exports = window["wp"]["i18n"];
   \*****************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/trip-reviews-list","version":"0.1.0","title":"Trip Review List","category":"wp-travel-single-trip-blocks","icon":"admin-comments","description":"Display trip review list for the trip.","attributes":{},"supports":{"html":false},"textdomain":"trip-reviews-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trip-reviews-list","version":"0.1.0","title":"Trip Review List","category":"wp-travel-single-trip-blocks","icon":"admin-comments","description":"Display trip review list for the trip.","attributes":{},"supports":{"html":false},"textdomain":"trip-reviews-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

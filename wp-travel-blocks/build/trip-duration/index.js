@@ -97,7 +97,7 @@ function Edit(props) {
       });
     }
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_5___default()), {
-    block: "wptravel/trip-duration-date",
+    block: "wp-travel-blocks/trip-duration-date",
     attributes: props.attributes
   }));
 }
@@ -280,7 +280,7 @@ module.exports = window["wp"]["serverSideRender"];
   \**************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/trip-duration-date","version":"0.1.0","title":"Trip Duration","category":"wp-travel-single-trip-blocks","icon":"clock","description":"Display trip duration added for trip.","attributes":{"extraClass":{"type":"string","default":""},"textAlign":{"type":"string","default":"left"},"textColor":{"type":"string","default":""},"durationFormat":{"type":"string","default":"day_night"},"daysPlaceholderText":{"type":"string","default":"Days"},"nightsPlaceholderText":{"type":"string","default":"Nights"},"hourPlaceholderText":{"type":"string","default":"Hours"},"minutePlaceholderText":{"type":"string","default":"Minutes"}},"supports":{"html":false},"textdomain":"trip-duration-date","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trip-duration-date","version":"0.1.0","title":"Trip Duration","category":"wp-travel-single-trip-blocks","icon":"clock","description":"Display trip duration added for trip.","attributes":{"extraClass":{"type":"string","default":""},"textAlign":{"type":"string","default":"left"},"textColor":{"type":"string","default":""},"durationFormat":{"type":"string","default":"day_night"},"daysPlaceholderText":{"type":"string","default":"Days"},"nightsPlaceholderText":{"type":"string","default":"Nights"},"hourPlaceholderText":{"type":"string","default":"Hours"},"minutePlaceholderText":{"type":"string","default":"Minutes"}},"supports":{"html":false},"textdomain":"trip-duration-date","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

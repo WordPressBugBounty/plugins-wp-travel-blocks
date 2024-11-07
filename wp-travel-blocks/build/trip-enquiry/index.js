@@ -182,7 +182,7 @@ function Edit(props) {
     max: 100,
     value: verticalPadding
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_5___default()), {
-    block: "wptravel/trip-enquiry",
+    block: "wp-travel-blocks/trip-enquiry",
     attributes: props.attributes
   }));
 }
@@ -365,7 +365,7 @@ module.exports = window["wp"]["serverSideRender"];
   \*************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/trip-enquiry","version":"0.1.0","title":"Trip Enquiry","category":"wp-travel-blocks","icon":"editor-help","description":"Display trip Enquiry form which is used to submit enquiry about trip.","attributes":{"enableModal":{"type":"boolean","default":true},"textEnquiry":{"type":"string","default":"Trip Enquiry"},"textColor":{"type":"string","default":""},"backgroundColor":{"type":"string","default":""},"borderColor":{"type":"string","default":""},"buttonWidth":{"type":"number","default":160},"borderRadius":{"type":"number","default":2},"fontSize":{"type":"number","default":18},"borderWidth":{"type":"number","default":0},"horizontalPadding":{"type":"number","default":20},"verticalPadding":{"type":"number","default":10}},"supports":{"html":false},"textdomain":"trip-enquiry","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trip-enquiry","version":"0.1.0","title":"Trip Enquiry","category":"wp-travel-blocks","icon":"editor-help","description":"Display trip Enquiry form which is used to submit enquiry about trip.","attributes":{"enableModal":{"type":"boolean","default":true},"textEnquiry":{"type":"string","default":"Trip Enquiry"},"textColor":{"type":"string","default":""},"backgroundColor":{"type":"string","default":""},"borderColor":{"type":"string","default":""},"buttonWidth":{"type":"number","default":160},"borderRadius":{"type":"number","default":2},"fontSize":{"type":"number","default":18},"borderWidth":{"type":"number","default":0},"horizontalPadding":{"type":"number","default":20},"verticalPadding":{"type":"number","default":10}},"supports":{"html":false},"textdomain":"trip-enquiry","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

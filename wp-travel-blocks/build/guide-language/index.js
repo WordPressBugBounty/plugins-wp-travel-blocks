@@ -60,7 +60,7 @@ function Edit(props) {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_4___default()), {
-    block: "wptravel/guide-language",
+    block: "wp-travel-blocks/guide-language",
     attributes: props.attributes
   }));
 }
@@ -233,7 +233,7 @@ module.exports = window["wp"]["serverSideRender"];
   \***************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/guide-language","version":"0.1.0","title":"Guide Language","category":"wp-travel-guide-blocks","icon":"admin-site-alt3","description":"Display languages spoken by guide.","attributes":{},"supports":{"html":false,"color":{"background":false,"color":true},"typography":{"fontSize":true}},"textdomain":"guide-language","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/guide-language","version":"0.1.0","title":"Guide Language","category":"wp-travel-guide-blocks","icon":"admin-site-alt3","description":"Display languages spoken by guide.","attributes":{},"supports":{"html":false,"color":{"background":false,"color":true},"typography":{"fontSize":true}},"textdomain":"guide-language","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

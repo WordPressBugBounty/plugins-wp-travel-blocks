@@ -93,7 +93,7 @@ function Edit(props) {
     colorSettings: textColorSettings,
     initialOpen: false
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_4___default()), {
-    block: "wptravel/trip-code",
+    block: "wp-travel-blocks/trip-code",
     attributes: props.attributes
   }));
 }
@@ -266,7 +266,7 @@ module.exports = window["wp"]["serverSideRender"];
   \**********************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/trip-code","version":"0.1.0","title":"Trip Code","category":"wp-travel-single-trip-blocks","icon":"clipboard","description":"Display the unique code added for trip.","usesContext":["postId","postType","queryId"],"attributes":{"textAlign":{"type":"string","default":"left"},"extraClass":{"type":"string","default":""},"textColor":{"type":"string","default":""}},"supports":{"html":false},"textdomain":"trip-code","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trip-code","version":"0.1.0","title":"Trip Code","category":"wp-travel-single-trip-blocks","icon":"clipboard","description":"Display the unique code added for trip.","usesContext":["postId","postType","queryId"],"attributes":{"textAlign":{"type":"string","default":"left"},"extraClass":{"type":"string","default":""},"textColor":{"type":"string","default":""}},"supports":{"html":false},"textdomain":"trip-code","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

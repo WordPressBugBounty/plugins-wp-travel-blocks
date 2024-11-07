@@ -1,9 +1,9 @@
 <?php 
 
 
-if( get_option( 'wptravel-blocks-migration-status' ) == true ){
-    return;
-}
+// if( get_option( 'wptravel-blocks-migration-status' ) == true ){
+//     return;
+// }
 
 // Renaming block name slug from 'wptravel' to 'wp-travel-blocks'
 function wptravel_blocks_replace_content_in_files($directory, $search, $replace) {

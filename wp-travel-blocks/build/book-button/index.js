@@ -149,7 +149,7 @@ function Edit(props) {
     max: 100,
     value: borderRadiusHover
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_5___default()), {
-    block: "wptravel/book-button",
+    block: "wp-travel-blocks/book-button",
     attributes: props.attributes
   }));
 }
@@ -332,7 +332,7 @@ module.exports = window["wp"]["serverSideRender"];
   \************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wptravel/book-button","version":"0.1.0","title":"Book Button","category":"wp-travel-single-trip-blocks","icon":"tickets-alt","description":"Display the book button.","usesContext":["postId","postType","queryId"],"attributes":{"textColor":{"type":"string","default":""},"backgroundColor":{"type":"string","default":""},"textColorHover":{"type":"string","default":""},"backgroundColorHover":{"type":"string","default":""},"buttonStyle":{"type":"string","default":"normal"},"buttonLabel":{"type":"string","default":"Book Now"},"borderRadius":{"type":"number","default":3},"borderRadiusHover":{"type":"number","default":3}},"supports":{"html":false},"textdomain":"book-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/book-button","version":"0.1.0","title":"Book Button","category":"wp-travel-single-trip-blocks","icon":"tickets-alt","description":"Display the book button.","usesContext":["postId","postType","queryId"],"attributes":{"textColor":{"type":"string","default":""},"backgroundColor":{"type":"string","default":""},"textColorHover":{"type":"string","default":""},"backgroundColorHover":{"type":"string","default":""},"buttonStyle":{"type":"string","default":"normal"},"buttonLabel":{"type":"string","default":"Book Now"},"borderRadius":{"type":"number","default":3},"borderRadiusHover":{"type":"number","default":3}},"supports":{"html":false},"textdomain":"book-button","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

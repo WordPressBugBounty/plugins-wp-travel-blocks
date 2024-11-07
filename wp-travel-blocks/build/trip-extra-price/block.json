@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "wptravel/trip-extra-price",
+  "name": "wp-travel-blocks/trip-extra-price",
   "version": "0.1.0",
   "title": "Trip Extra Price",
   "category": "wp-travel-trip-extra-blocks",

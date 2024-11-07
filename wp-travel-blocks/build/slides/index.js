@@ -145,7 +145,7 @@ module.exports = window["wp"]["i18n"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-block/slides","title":"Slides","category":"widgets","parent":["wp-travel-block/slider"],"description":"Single Slide block to be used with Slider block","supports":{"anchor":true,"reusable":false,"html":false,"color":{"gradients":true,"link":true,"__experimentalDefaultControls":{"background":true,"text":true}},"spacing":{"padding":true,"__experimentalDefaultControls":{"padding":true}},"__experimentalLayout":true},"textdomain":"slides","editorScript":"file:./index.js","editorStyle":"file:./index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/slides","title":"Slides","category":"widgets","parent":["wp-travel-blocks/slider"],"description":"Single Slide block to be used with Slider block","supports":{"anchor":true,"reusable":false,"html":false,"color":{"gradients":true,"link":true,"__experimentalDefaultControls":{"background":true,"text":true}},"spacing":{"padding":true,"__experimentalDefaultControls":{"padding":true}},"__experimentalLayout":true},"textdomain":"slides","editorScript":"file:./index.js","editorStyle":"file:./index.css"}');
 
 /***/ })
 
