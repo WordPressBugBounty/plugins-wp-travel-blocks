@@ -61,7 +61,7 @@ function wptravel_block_trip_price_render( $attributes ) {
 					<span class="person-count">
 						<ins>
 							<span>			
-								<span class="wp-travel-trip-price-figure">20.00</span> 
+								<span class="wp-travel-trip-price-figure"><?php echo esc_html__( '20.00', 'wp-travel-blocks' ); ?></span> 
 								<span class="wp-travel-trip-currency">$</span>
 							</span>
 						</ins>
@@ -93,7 +93,7 @@ function wptravel_block_trip_price_render( $attributes ) {
 							<span class="person-count">
 								<ins>
 									<span>			
-										<span class="wp-travel-trip-price-figure">20.00</span> 
+										<span class="wp-travel-trip-price-figure"><?php echo esc_html__( '20.00', 'wp-travel-blocks' ); ?></span> 
 										<span class="wp-travel-trip-currency">$</span>
 									</span>
 								</ins>

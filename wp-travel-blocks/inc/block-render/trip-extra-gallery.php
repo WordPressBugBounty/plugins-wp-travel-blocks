@@ -43,7 +43,7 @@ function wptravel_block_trip_extra_gallery_render( $attributes ) {
             if( !get_the_id() ):
             ?>
             <div class="editor-note">
-                Trip Extras Gallery block is only visible in frontend.
+                <?php echo esc_html__( 'Trip Extras Gallery block is only visible in frontend.', 'wp-travel-blocks' ); ?>
             </div>
             <?php
             endif;

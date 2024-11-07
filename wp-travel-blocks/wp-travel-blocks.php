@@ -5,8 +5,8 @@
  * Requires at least: 	6.0
  * Requires Plugins:    wp-travel
  * Requires PHP:      	7.4
- * Version:         	3.7.0
- * Tested up to: 		6.5
+ * Version:         	3.8.0
+ * Tested up to: 		6.6.0
  * Author:           	WP Travel
  * Author URI: 			http://wptravel.io
  * License:          	GPLv3
@@ -56,7 +56,7 @@ if( ! class_exists( 'WP_Travel_Blocks' )):
 		 * 
 		 * @var string 
 		 */
-		public $version = '3.7.0';
+		public $version = '3.8.0';
 
 		/**
 		 * The single instance of the class
@@ -132,11 +132,21 @@ if( ! class_exists( 'WP_Travel_Blocks' )):
 			
 			
 			add_action( 'plugins_loaded', array( $this, 'load_textdomain' ));
+
+			add_filter('body_class',  array( $this, 'wp_travel_blocks_body_classes' ));
 		}
 
 		public function load_textdomain() {
 			load_plugin_textdomain( 'wp-travel-blocks', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 		}
+
+		public function wp_travel_blocks_body_classes( $classes ) {
+
+			$classes[] = 'wp-travel-blocks-frontend';
+		
+			return $classes;
+		}
+		
 		
 		// public function admin_scripts(){
 
@@ -172,6 +182,11 @@ if( ! class_exists( 'WP_Travel_Blocks' )):
 			);
 
 			wp_enqueue_style( 
+				'splide-css', 
+				plugin_dir_url( __FILE__ ) . 'assets/css/splide.css', 
+			);
+
+			wp_enqueue_style( 
 				'wp-travel-blocks-front-css', 
 				plugin_dir_url( __FILE__ ) . 'assets/css/frontend.css', 
 			);
@@ -184,6 +199,9 @@ if( ! class_exists( 'WP_Travel_Blocks' )):
 
 			wp_enqueue_script( 'progressbar-js', plugin_dir_url( __FILE__ ) . 'assets/js/progressbar.js' , array( 'jquery' ), '', true );
 			
+			wp_enqueue_script( 'splide-js', plugin_dir_url( __FILE__ ) . 'assets/js/splide.js' , array( 'jquery' ), '', true );
+			
+
 			wp_enqueue_script( 'slick-js', plugin_dir_url( __FILE__ ) . 'assets/js/slick.js' , array( 'jquery' ), '', true );
 			wp_enqueue_style( 'slick-css', plugin_dir_url( __FILE__ ) . 'assets/slick/slick.css');
 			wp_enqueue_style( 'slick-theme-css', plugin_dir_url( __FILE__ ) . 'assets/slick/slick-theme.css');
@@ -346,6 +364,10 @@ if( ! class_exists( 'WP_Travel_Blocks' )):
 			register_block_type( __DIR__ . '/build/book-button', array(
 				'render_callback' => 'wptravel_block_book_button_render'
 			) );
+
+			register_block_type( __DIR__ . '/build/countdown', array(
+				'render_callback' => 'wptravel_block_countdown_render'
+			) );
 			
 			// if( class_exists( 'WP_Travel_Pro' ) ){
 			// 	register_block_type( __DIR__ . '/build/templates' );
@@ -453,6 +475,12 @@ if( ! class_exists( 'WP_Travel_Blocks' )):
 
 			register_block_type( __DIR__ . '/build/icon-picker' );
 
+			// register_block_type( __DIR__ . '/build/modal' );
+
+			// register_block_type( __DIR__ . '/build/post-slider', array(
+			// 	'render_callback' => 'wptravel_block_post_slider_render'
+			// ) );
+
 			register_block_type( __DIR__ . '/build/counter' );
 
 			register_block_type( __DIR__ . '/build/progress-bar' );
@@ -469,6 +497,8 @@ if( ! class_exists( 'WP_Travel_Blocks' )):
 			// include sprintf( '%s/inc/class-templates.php', dirname( __FILE__ ) );
 			include sprintf( '%s/inc/importer/importer.php', dirname( __FILE__ ) );
 			include sprintf( '%s/inc/demo.php', dirname( __FILE__ ) );
+			include sprintf( '%s/inc/post-slider-rest.php', dirname( __FILE__ ) );
+			include sprintf( '%s/inc/migration.php', dirname( __FILE__ ) );
 
 			//render block 
 			include sprintf( '%s/inc/block-render/trip-search.php', dirname( __FILE__ ) );
@@ -508,6 +538,8 @@ if( ! class_exists( 'WP_Travel_Blocks' )):
 			include sprintf( '%s/inc/block-render/filterable-trips.php', dirname( __FILE__ ) );
 			include sprintf( '%s/inc/block-render/cart-button.php', dirname( __FILE__ ) );
 			include sprintf( '%s/inc/block-render/book-button.php', dirname( __FILE__ ) );
+			include sprintf( '%s/inc/block-render/countdown.php', dirname( __FILE__ ) );
+			include sprintf( '%s/inc/block-render/post-slider.php', dirname( __FILE__ ) );
 
 			// Guide Render Blocks
 

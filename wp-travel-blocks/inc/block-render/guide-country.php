@@ -9,7 +9,7 @@ function wptravel_block_guide_country_render( $attributes ) {
     ob_start();
     $guide_data = get_user_by( 'login', get_the_title() )->data;
     $font_color = "#000";
-    $font_size = "16px";
+    $font_size = "16";
 
     if( isset( $attributes['textColor'] ) ){
         $font_color = "var(--wp--preset--color--".$attributes['textColor'].")";
@@ -46,6 +46,7 @@ function wptravel_block_guide_country_render( $attributes ) {
     </p>
     <style>
         .wptravel-guide-country-block{
+            text-transform: capitalize;
             color: <?php echo esc_attr( $font_color ); ?>;
             font-size: <?php echo esc_attr( $font_size ); ?>;
         }

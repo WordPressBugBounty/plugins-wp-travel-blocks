@@ -8,6 +8,8 @@
 function wptravel_block_trip_group_size_render( $attributes = array() ) {
 	$trip_id    = get_the_ID();
 	$group_size = wptravel_get_group_size( $trip_id );
+	$min_group_size = wptravel_get_group_size( $trip_id, 'min_pax' );
+
 
 	$strings               = WpTravel_Helpers_Strings::get();
 	$pax_text              = isset( $strings['bookings']['pax'] ) ? $strings['bookings']['pax'] : __( 'Pax', 'wp-travel-blocks' );
@@ -22,7 +24,7 @@ function wptravel_block_trip_group_size_render( $attributes = array() ) {
 	}else{
 		if( get_post()->post_type == 'itineraries' ){
 			if ( (int) $group_size && $group_size < 999 ) {
-				printf( apply_filters( 'wp_travel_template_group_size_text', __( '%1$d %2$s', 'wp-travel-blocks' ) ), esc_html( $group_size ), esc_html( ( $pax_text ) ) );
+				printf( apply_filters( 'wp_travel_template_group_size_text', __( '%1$d %2$s - %3$d %4$s', 'wp-travel-blocks' ) ), esc_html( $min_group_size ), 'Min', esc_html( $group_size ), 'Max' );
 			} else {
 				echo esc_html( apply_filters( 'wp_travel_default_group_size_text', $empty_group_size_text ) ); 		
 			}

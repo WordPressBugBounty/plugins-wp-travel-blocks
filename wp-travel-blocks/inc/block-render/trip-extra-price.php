@@ -50,8 +50,8 @@ function wptravel_block_trip_extra_price_render( $attributes ) {
                ?>
                <div class="wptravel-trip-extra-price-block">
                     <div class="wp-tour-extras-detail-pricing">
-                        <del>$ 200.00</del>
-                        <ins>$ 180.00 / unit</ins>                                            
+                        <del><?php echo esc_html__( '$ 200.00', 'wp-travel-blocks' ); ?></del>
+                        <ins><?php echo esc_html__( '$ 180.00 / unit', 'wp-travel-blocks' ); ?></ins>                                            
                     </div>
                 </div>
                <?php

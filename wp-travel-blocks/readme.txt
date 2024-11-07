@@ -5,7 +5,7 @@ Donate link:        https://wptravel.io/
 Requires at least:  6.0.0
 Tested up to:       6.6.0
 Requires PHP:       7.4.0
-Stable tag:         3.7.0
+Stable tag:         3.8.0
 License:            GPLv3
 License URI:        http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -234,6 +234,21 @@ WP Travel has a dedicated team for Support to resolve your issues and enquiries[
 Before updating the plugin please check ["our latest release notes"](#developers).
 
 == Changelog ==
+
+= 3.8.0 = 
+Release Date:  23rd September 2024
+
+Fixes:
+* Escaped breadcrumb separator with htmlspecialchars_decode so that it wont replaced special character to unicode
+* Removed the local site url form breadcrumb 
+* Fixed fontsize issue with all guides blocks
+* Fixed missing string translation on trip tab and trip review lists block
+* Fixed icon picker font size issue
+* Changed the block name slug from 'wptravel' to 'wp-travel-blocks'
+
+Enhancements:
+* Refined trip gallery styles
+* Added responsive support on trip gallery slider
 
 = 3.7.0 = 
 Release Date:  3rd September 2024

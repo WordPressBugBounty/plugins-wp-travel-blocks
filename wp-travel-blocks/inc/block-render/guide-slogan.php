@@ -46,7 +46,7 @@ function wptravel_block_guide_slogan_render( $attributes ) {
     </p>
     <style>
         .wptravel-guide-slogan-block{
-            color: <?php echo esc_attr( $font_color ); ?>;
+            color: <?php echo esc_attr( $font_color ); ?>;         
             font-size: <?php echo esc_attr( $font_size ); ?>;
         }
     </style>

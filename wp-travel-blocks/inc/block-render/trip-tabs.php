@@ -145,7 +145,7 @@ function wptravel_block_trip_tabs_render( $attributes ) {
 
                                                                         <?php if ( $comment->comment_approved == '0' ) : ?>
 
-                                                                            <p class="meta"><em><?php esc_html_e( apply_filters( 'wp_travel_single_archive_comment_approve_message', 'Your comment is awaiting approval' ), 'wp-travel-blocks' ); ?></em></p>
+                                                                            <p class="meta"><em><?php echo apply_filters( 'wp_travel_single_archive_comment_approve_message', __( 'Your comment is awaiting approval', 'wp-travel-blocks' ) ); ?></em></p>
 
                                                                         <?php else : ?>
 
@@ -173,7 +173,7 @@ function wptravel_block_trip_tabs_render( $attributes ) {
                                                                             $link = '<a rel="nofollow" href="' . wp_login_url( get_permalink() ) . '">' . $login_text . '</a>';
                                                                         } else {
 
-                                                                            $link = "<a class='comment-reply-link' href='" . esc_url( add_query_arg( 'replytocom', $comment->comment_ID ) ) . '#respond' . "' onclick='return addComment.moveForm(\"comment-$comment->comment_ID\", \"$comment->comment_ID\", \"respond\", \"$post_id\")'>" . esc_html( 'Reply', 'wp-travel-blocks' ) . '</a>';
+                                                                            $link = "<a class='comment-reply-link' href='" . esc_url( add_query_arg( 'replytocom', $comment->comment_ID ) ) . '#respond' . "' onclick='return addComment.moveForm(\"comment-$comment->comment_ID\", \"$comment->comment_ID\", \"respond\", \"$post_id\")'>" . esc_html__( 'Reply', 'wp-travel-blocks' ) . '</a>';
                                                                         }
                                                                         echo apply_filters( 'wp_travel_comment_reply_link', $link );
                                                                         ?>
@@ -205,7 +205,7 @@ function wptravel_block_trip_tabs_render( $attributes ) {
 
                                                     <?php else : ?>
 
-                                                        <p class="wp-travel-noreviews"><?php esc_html_e( apply_filters( 'wp_travel_single_archive_no_review_message', 'There are no reviews yet.' ), 'wp-travel-blocks' ); ?></p>
+                                                        <p class="wp-travel-noreviews"><?php echo apply_filters( 'wp_travel_single_archive_no_review_message', __( 'There are no reviews yet.', 'wp-travel-blocks' ) ); ?></p>
 
                                                     <?php endif; ?>
                                                 </div>
@@ -216,7 +216,7 @@ function wptravel_block_trip_tabs_render( $attributes ) {
                                                         $commenter = wp_get_current_commenter();
 
                                                         $comment_form = array(
-                                                            'title_reply'          => count( $the_query->comments ) > 0 ? __( apply_filters( 'wp_travel_single_archive_page_form_add_txt', 'Add a review' ), 'wp-travel-blocks' ) : sprintf( __( 'Be the first to review &ldquo;%s&rdquo;', 'wp-travel-blocks' ), get_the_title() ),
+                                                            'title_reply'          => count( $the_query->comments ) > 0 ? apply_filters( 'wp_travel_single_archive_page_form_add_txt', __( 'Add a review', 'wp-travel-blocks' ) ) : sprintf( __( 'Be the first to review &ldquo;%s&rdquo;', 'wp-travel-blocks' ), get_the_title() ),
                                                             'title_reply_to'       => __( 'Leave a Reply to %s', 'wp-travel-blocks' ),
                                                             'comment_notes_before' => '',
                                                             'comment_notes_after'  => '',
@@ -226,7 +226,7 @@ function wptravel_block_trip_tabs_render( $attributes ) {
                                                                 'email'  => '<p class="comment-form-email"><label for="email">' . __( 'Email', 'wp-travel-blocks' ) . ' <span class="required">*</span></label> ' .
                                                                             '<input id="email" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" aria-required="true" /></p>',
                                                             ),
-                                                            'label_submit'         => __( apply_filters( 'wp_travel_single_archive_comment_form_submit', 'Submit' ), 'wp-travel-blocks' ),
+                                                            'label_submit'         => apply_filters( 'wp_travel_single_archive_comment_form_submit', __( 'Submit', 'wp-travel-blocks' ) ),
                                                             'logged_in_as'         => '',
                                                             'comment_field'        => '',
                                                         );
@@ -239,7 +239,7 @@ function wptravel_block_trip_tabs_render( $attributes ) {
                                                             global $current_user;
 
                                                             if ( $settings['disable_admin_review'] == 'no' ) {
-                                                                $comment_form['comment_field'] = '<p class="comment-form-rating"><label for="wp_travel_rate_val">' . __( apply_filters( 'wp_travel_single_archive_your_ratting', 'Your ratting' ), 'wp-travel-blocks' ) . '</label><div id="wp-travel_rate" class="clearfix">
+                                                                $comment_form['comment_field'] = '<p class="comment-form-rating"><label for="wp_travel_rate_val">' . apply_filters( 'wp_travel_single_archive_your_ratting', __( 'Your ratting', 'wp-travel-blocks' ) ) . '</label><div id="wp-travel_rate" class="clearfix">
                                                                             <a href="#" class="rate_label far fa-star" data-id="1"></a>
                                                                             <a href="#" class="rate_label far fa-star" data-id="2"></a>
                                                                             <a href="#" class="rate_label far fa-star" data-id="3"></a>
@@ -248,10 +248,10 @@ function wptravel_block_trip_tabs_render( $attributes ) {
                                                                         </div>
                                                                         <input type="hidden" value="0" name="wp_travel_rate_val" id="wp_travel_rate_val" ></p>';
 
-                                                                $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . __( apply_filters( 'wp_travel_single_archive_your_review', 'Your review' ), 'wp-travel-blocks' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>';
+                                                                $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . apply_filters( 'wp_travel_single_archive_your_review', __( 'Your review', 'wp-travel-blocks' ) ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>';
                                                             }else{
                                                                 if ( !in_array( get_user_by('login', $current_user->user_login )->roles[0], array( 'administrator', 'editor', 'author' )) ) { 
-                                                                    $comment_form['comment_field'] = '<p class="comment-form-rating"><label for="wp_travel_rate_val">' . __( apply_filters( 'wp_classified_single_archive_ratting', 'Your ratting' ), 'wp-travel-blocks' ) . '</label><div id="wp-travel_rate" class="clearfix">
+                                                                    $comment_form['comment_field'] = '<p class="comment-form-rating"><label for="wp_travel_rate_val">' . apply_filters( 'wp_classified_single_archive_ratting', __( 'Your ratting', 'wp-travel-blocks' ) ) . '</label><div id="wp-travel_rate" class="clearfix">
                                                                         <a href="#" class="rate_label far fa-star" data-id="1"></a>
                                                                         <a href="#" class="rate_label far fa-star" data-id="2"></a>
                                                                         <a href="#" class="rate_label far fa-star" data-id="3"></a>
@@ -260,13 +260,13 @@ function wptravel_block_trip_tabs_render( $attributes ) {
                                                                     </div>
                                                                     <input type="hidden" value="0" name="wp_travel_rate_val" id="wp_travel_rate_val" ></p>';
 
-                                                                    $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . __( apply_filters( 'wp_travel_singel_archive_reviews', 'Your review' ), 'wp-travel-blocks' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>';
+                                                                    $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . apply_filters( 'wp_travel_singel_archive_reviews', __( 'Your review', 'wp-travel-blocks' ) ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>';
                                                                 }else{
-                                                                    $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . __( apply_filters( 'wp_travel_single_archive_replys', 'Your reply' ), 'wp-travel-blocks' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>';
+                                                                    $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . apply_filters( 'wp_travel_single_archive_replys', __( 'Your reply', 'wp-travel-blocks' ) ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>';
                                                                 }
                                                             }
                                                         }else{
-                                                            $comment_form['comment_field'] = '<p class="comment-form-rating"><label for="wp_travel_rate_val">' . __( apply_filters( 'wp_travel_single_archive_rate', 'Your ratting' ), 'wp-travel-blocks' ) . '</label><div id="wp-travel_rate" class="clearfix">
+                                                            $comment_form['comment_field'] = '<p class="comment-form-rating"><label for="wp_travel_rate_val">' . apply_filters( 'wp_travel_single_archive_rate', __( 'Your ratting', 'wp-travel-blocks' ) ) . '</label><div id="wp-travel_rate" class="clearfix">
                                                                         <a href="#" class="rate_label far fa-star" data-id="1"></a>
                                                                         <a href="#" class="rate_label far fa-star" data-id="2"></a>
                                                                         <a href="#" class="rate_label far fa-star" data-id="3"></a>
@@ -275,7 +275,7 @@ function wptravel_block_trip_tabs_render( $attributes ) {
                                                                     </div>
                                                                     <input type="hidden" value="0" name="wp_travel_rate_val" id="wp_travel_rate_val" ></p>';
 
-                                                            $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . __( apply_filters( 'wp_travel_single_archive_rv', 'Your review' ), 'wp-travel-blocks' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>';
+                                                            $comment_form['comment_field'] .= '<p class="comment-form-comment"><label for="comment">' . apply_filters( 'wp_travel_single_archive_rv', __( 'Your review', 'wp-travel-blocks' ) ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>';
                                                         }
                                                         
                                                         apply_filters( 'wp_travel_single_archive_comment_form', comment_form( apply_filters( 'wp_travel_product_review_comment_form_args', $comment_form ) ) );

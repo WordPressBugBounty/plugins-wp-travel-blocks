@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+	
 
 	if ($('#sticky-trip-tab').length) {
 		// Element exists in the DOM
@@ -176,9 +177,52 @@ jQuery(document).ready(function($) {
 			}
 		});
 	}
-	
-	
+
+	//modal code 
+	$('.wp-travel-blocks-main-modal svg').click(function() {
+		$(this).closest('.wp-travel-blocks-main-modal').hide();
+	});
+
+	$('.wp-travel-blocks-modal-btn button').click(function() {
+		$(this).closest('.wp-travel-blocks-modal-wrapper').find('.wp-travel-blocks-main-modal').show();
+	});
+
+	function showModal() {
+        $('.wp-travel-blocks-main-modal.autoModalShow').show();
+        localStorage.setItem('modalShown', 'true');
+    }
+
+    // Check if modal has been shown before
+    if (!localStorage.getItem('modalShown')) {
+        showModal();
+    }
+
+	let resetTimeout;
+
+	document.addEventListener('visibilitychange', function() {
+		if (document.visibilityState === 'hidden') {
+			// Start a timer for 1 hour (3600000 milliseconds)
+			resetTimeout = setTimeout(() => {
+				localStorage.removeItem('modalShown');
+			}, 3600000);
+		} else if (document.visibilityState === 'visible') {
+			// User has returned to the page, cancel the timeout
+			if (resetTimeout) {
+				clearTimeout(resetTimeout);
+			}
+		}
+	});
+	//end modal code
+
+	const checkoutElement = document.getElementById('wp-travel-one-page-checkout-enables');
+
+	if (checkoutElement) {
+		const btnLabel = checkoutElement.getAttribute('data-btn-label');
+		document.querySelector('.wptravel-book-your-trips').textContent = btnLabel;
+	}
 });
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize Accordion for each container

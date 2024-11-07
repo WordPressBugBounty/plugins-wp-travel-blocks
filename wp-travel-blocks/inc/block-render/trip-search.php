@@ -228,10 +228,6 @@ function wptravel_block_trip_search_render( $attributes ){
 				<p class="wp-travel-search"><input type="submit" name="wp-travel_search" id="wp-travel-search" class="button wp-block-button__link button-primary" value="<?php echo esc_attr( $search_label ); ?>"  /></p>
 			</form>
 		</div>
-		<?php
-		// $content = apply_filters( 'wp_travel_search_form', ob_get_clean() );
-		// echo $content; // @phpcs:ignore
-		?>
 	</div>
 	<?php
 	$html = ob_get_clean();

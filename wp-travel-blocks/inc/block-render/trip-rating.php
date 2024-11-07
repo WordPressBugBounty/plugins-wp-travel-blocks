@@ -31,7 +31,7 @@ function wptravel_block_trip_rating_render( $attributes ) {
 		<div class="wp-travel-average-review" title="Rated 4.33 out of 5">
 			<a href="#">
 				<span style="width:86.6%">
-					<strong itemprop="ratingValue" class="rating">4.33</strong> out of <span itemprop="bestRating">5</span>	
+					<strong itemprop="ratingValue" class="rating"><?php echo esc_html__( '4.33', 'wp-travel-blocks' ); ?></strong> <?php echo esc_html__( 'out of', 'wp-travel-blocks' ); ?> <span itemprop="bestRating">5</span>	
 				</span>
 			</a>
 
@@ -43,7 +43,7 @@ function wptravel_block_trip_rating_render( $attributes ) {
 			<div class="wp-travel-average-review" title="Rated 4.33 out of 5">
 				<a href="#">
 					<span style="width:86.6%">
-						<strong itemprop="ratingValue" class="rating">4.33</strong> out of <span itemprop="bestRating">5</span>	
+						<strong itemprop="ratingValue" class="rating"><?php echo esc_html__( '4.33', 'wp-travel-blocks' ); ?></strong> <?php echo esc_html__( 'out of', 'wp-travel-blocks' ); ?> <span itemprop="bestRating">5</span>
 					</span>
 				</a>
 

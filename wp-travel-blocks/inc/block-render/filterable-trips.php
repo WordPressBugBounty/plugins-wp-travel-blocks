@@ -185,7 +185,6 @@ function wptravel_block_filterable_trips_render( $attributes, $content ){
                 var filter = $(this).data('filter');
                 $(this).siblings("button").removeClass(" active").end().addClass(" active");
 
-                // $('.wptravel-filterable-trips-grid .wp-travel-itinerary-item').hide();
                 $(".wptravel-filterable-trips-grid").removeClass(" active").end();
                 $('#category-' + filter).addClass(" active");
             });

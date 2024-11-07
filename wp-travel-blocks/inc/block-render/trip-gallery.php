@@ -7,6 +7,7 @@
 
 function wptravel_block_trip_gallery_render( $attributes ) {
 
+	// var_dump($attributes );
 	ob_start();
 	$tab_data = wptravel_get_frontend_tabs();
 
@@ -96,61 +97,92 @@ function wptravel_block_trip_gallery_render( $attributes ) {
 			}
 		</style>
 		<script>
-			jQuery(document).ready(function(n) {
-				n('#wptravel-block-trip-gallery .wp-travel-advanced-gallery-items-list').slick({
+		jQuery(document).ready(function(n) {
+			n('#wptravel-block-trip-gallery .wp-travel-advanced-gallery-items-list').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				<?php 
+					if( $sliderAutoplay ){
+					?>
+					autoplay: true,
+					<?php
+					}else{
+					?>
+					autoplay: false,
+					<?php
+					}
+				?>
+				<?php 
+					if( $sliderArrow ){
+					?>
+					arrows: true,
+					<?php
+					}else{
+					?>
+					arrows: false,
+					<?php
+					}
+				?>
+				<?php 
+					if( $sliderDots ){
+					?>
+					dots: true,
+					<?php
+					}else{
+					?>
+					dots: false,
+					<?php
+					}
+				?>
+				<?php 
+					if( $trips_to_show ){
+					?>
+					slidesToShow: <?php echo absint( $trips_to_show ); ?>,
+					<?php
+					}else{
+					?>
 					slidesToShow: 1,
-					slidesToScroll: 1,
-					<?php 
-						if( $sliderAutoplay ){
-						?>
-						autoplay: true,
-						<?php
-						}else{
-						?>
-						autoplay: false,
-						<?php
+					<?php
+					}
+				?>
+				infinite: false,
+
+				// Add responsive behavior
+				responsive: [
+					{
+						breakpoint: 1024,
+						settings: {
+							slidesToShow: <?php echo absint( $trips_to_show ) > 3 ? 3 : absint( $trips_to_show ); ?>, // Show 3 slides on tablet or less
+							slidesToScroll: 1,
+							arrows: false, // Example: hide arrows on tablet
+							dots: true
 						}
-					?>
-					<?php 
-						if( $sliderArrow ){
-						?>
-						arrows: true,
-						<?php
-						}else{
-						?>
-						arrows: false,
-						<?php
+					},
+					{
+						breakpoint: 768,
+						settings: {
+							slidesToShow: 2, // Show 2 slides on mobile
+							slidesToScroll: 1,
+							arrows: false,
+							dots: true
 						}
-					?>
-					<?php 
-						if( $sliderDots ){
-						?>
-						dots: true,
-						<?php
-						}else{
-						?>
-						dots: false,
-						<?php
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							slidesToShow: 1, // Show 1 slide on smaller screens
+							slidesToScroll: 1,
+							arrows: false,
+							dots: true
 						}
-					?>
-					<?php 
-						if( $trips_to_show ){
-						?>
-						slidesToShow: <?php echo absint( $trips_to_show ); ?>,
-						<?php
-						}else{
-						?>
-						slidesToShow: 1,
-						<?php
-						}
-					?>
-					infinite: false,
-				});
+					}
+				]
 			});
-			function wptravelOpenImageViwer(){
-				var firstSlideLink = document.querySelector('.slick-track .slick-slide:first-of-type a');
-				firstSlideLink.click();
-			}
+		});
+		function wptravelOpenImageViwer(){
+			var firstSlideLink = document.querySelector('.slick-track .slick-slide:first-of-type a');
+			firstSlideLink.click();
+		}
 		</script>
 	<?php
 	}

@@ -22,8 +22,8 @@ function wptravel_block_slider_render( $attr, $content ) {
         $main_wrapper_class .= ' pagination-enabled';
     }
     
-    $content = str_replace( 'wp-block-wp-travel-block-slider', 'wp-block-wp-travel-block-slider swiper-wrapper', $content );
-    $content = str_replace( 'wp-block-wp-travel-block-slides', 'wp-block-wp-travel-block-slides swiper-slide', $content );
+    $content = str_replace( 'wp-block-wp-travel-blocks-slider', 'wp-block-wp-travel-block-slider swiper-wrapper', $content );
+    $content = str_replace( 'wp-block-wp-travel-blocks-slides', 'wp-block-wp-travel-block-slides swiper-slide', $content );
     ob_start();
    ?>
     <div class="<?php echo esc_attr( $main_wrapper_class ); ?>" id="<?php echo esc_attr( $block_id ); ?>">

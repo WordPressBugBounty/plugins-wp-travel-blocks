@@ -1,0 +1,510 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Travel Gutenberg Blocks\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-19 09:48+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.11; wp-6.6\n"
+"X-Domain: wp-travel-blocks"
+
+#: inc/block-render/trip-sale.php:20 inc/block-render/trip-sale.php:30
+msgid " % off"
+msgstr ""
+
+#: inc/block-render/guide-review.php:55
+msgid " reviews"
+msgstr ""
+
+#: inc/block-render/guide-code.php:41
+msgid "#TG2202403"
+msgstr ""
+
+#: inc/block-render/trip-group-size.php:21
+#: inc/block-render/trip-group-size.php:25
+#: inc/block-render/trip-group-size.php:30
+#, php-format
+msgid "%1$d %2$s"
+msgstr ""
+
+#: inc/block-render/trip-duration.php:52 inc/block-render/trip-duration.php:88
+#, php-format
+msgid "%1$s Day(s) %2$s Night(s)"
+msgstr ""
+
+#: inc/block-render/trip-review.php:19
+#, php-format
+msgid "%s Review"
+msgid_plural "%s Reviews"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/block-render/guide-contact-number.php:42
+msgid "+0321654987"
+msgstr ""
+
+#: inc/block-render/guide-review.php:64
+msgid "2 reviews"
+msgstr ""
+
+#: inc/block-render/guide-age.php:41
+msgid "20"
+msgstr ""
+
+#: inc/block-render/guide-join-year.php:42
+msgid "2024"
+msgstr ""
+
+#: inc/block-render/trip-timespan.php:87
+msgid "3 Day(s) 2 Night(s)"
+msgstr ""
+
+#: inc/block-render/trip-facts.php:68
+msgid "3000 meters"
+msgstr ""
+
+#: inc/block-render/trip-timespan.php:29
+msgid "4 Day(s) 3 Night(s)"
+msgstr ""
+
+#: inc/breadcrumb-class.php:267
+msgid "404 Not Found"
+msgstr ""
+
+#: inc/block-render/trip-facts.php:54
+msgid "Accomodation"
+msgstr ""
+
+#: inc/block-render/trip-review-list.php:46 inc/block-render/trip-tabs.php:114
+msgid "Admin"
+msgstr ""
+
+#: inc/breadcrumb-class.php:268
+msgid "Archives"
+msgstr ""
+
+#: inc/block-render/trip-facts.php:98
+msgid "Available"
+msgstr ""
+
+#: inc/block-render/trip-review-list.php:150 inc/block-render/trip-tabs.php:218
+#, php-format
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr ""
+
+#: inc/block-render/trip-facts.php:74
+msgid "Best Season"
+msgstr ""
+
+#: inc/block-render/breadcrumb.php:70
+msgid "Blog"
+msgstr ""
+
+#: inc/breadcrumb-class.php:265
+msgctxt "breadcrumbs aria label"
+msgid "Breadcrumbs"
+msgstr ""
+
+#: inc/breadcrumb-class.php:264
+msgid "Browse:"
+msgstr ""
+
+#: inc/block-render/trip-facts.php:48
+msgid "Bus,Jeep"
+msgstr ""
+
+#: inc/block-render/guide-city.php:43
+msgid "City Name"
+msgstr ""
+
+#: inc/block-render/trip-faqs.php:34 inc/block-render/trip-outline.php:22
+msgid "Close All"
+msgstr ""
+
+#. %s is the page number.
+#: inc/breadcrumb-class.php:274
+#, php-format
+msgid "Comment Page %s"
+msgstr ""
+
+#: inc/block-render/guide-country.php:42
+msgid "Country Name"
+msgstr ""
+
+#: inc/breadcrumb-class.php:790 inc/breadcrumb-class.php:1219
+msgctxt "daily archives date format"
+msgid "j"
+msgstr ""
+
+#: inc/block-render/trip-timespan.php:20 inc/block-render/trip-timespan.php:40
+#: inc/block-render/trip-timespan.php:77
+msgid "Departure"
+msgstr ""
+
+#: inc/block-render/trip-facts.php:114
+msgid "Departure From"
+msgstr ""
+
+#: inc/block-render/trip-timespan.php:58
+msgid "Duration"
+msgstr ""
+
+#: inc/block-render/trip-review-list.php:157 inc/block-render/trip-tabs.php:225
+msgid "Email"
+msgstr ""
+
+#: inc/block-render/trip-facts.php:108
+msgid "Enghish,Chinese,French"
+msgstr ""
+
+#: inc/block-render/guide-featured-trip.php:148
+#: inc/block-render/guide-featured-trip.php:257
+#: inc/block-render/guide-featured-trip.php:355
+#: inc/block-render/guide-featured-trip.php:449
+#: inc/block-render/trip-button.php:10 inc/block-render/trip-list.php:277
+#: inc/block-render/trip-list.php:386 inc/block-render/trip-list.php:484
+#: inc/block-render/trip-list.php:578 inc/block-render/trip-list.php:732
+#: inc/block-render/trip-list.php:841 inc/block-render/trip-list.php:939
+#: inc/block-render/trip-list.php:1033
+#: inc/layouts/grid-layouts/layout-one.php:69
+#: inc/layouts/grid-layouts/layout-three.php:66
+#: inc/layouts/grid-layouts/layout-two.php:71
+msgid "Explore"
+msgstr ""
+
+#: inc/block-render/guide-featured-trip.php:184
+#: inc/block-render/guide-featured-trip.php:372
+#: inc/block-render/trip-list.php:313 inc/block-render/trip-list.php:501
+#: inc/block-render/trip-list.php:768 inc/block-render/trip-list.php:956
+#: inc/layouts/grid-layouts/layout-one.php:9
+#: inc/layouts/grid-layouts/layout-three.php:10
+msgid "Featured"
+msgstr ""
+
+#: inc/block-render/trip-facts.php:78
+msgid "feb,mar,apr"
+msgstr ""
+
+#: inc/block-render/trip-gallery.php:76
+msgid "Gallery"
+msgstr ""
+
+#: inc/block-render/guide-gender.php:50
+msgid "Gender"
+msgstr ""
+
+#: inc/block-render/guide-fullname.php:46
+msgid "Guide Full Name"
+msgstr ""
+
+#: inc/breadcrumb-class.php:266 inc/block-render/breadcrumb.php:66
+msgid "Home"
+msgstr ""
+
+#: inc/block-render/trip-facts.php:58
+msgid "Home Stay"
+msgstr ""
+
+#: inc/breadcrumb-class.php:772
+msgctxt "hour archives time format"
+msgid "g a"
+msgstr ""
+
+#: inc/block-render/trip-faqs.php:79
+msgid "How do I get around once I arrive?"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://wptravel.io"
+msgstr ""
+
+#: inc/block-render/guide-email.php:39
+msgid "info@info.com"
+msgstr ""
+
+#: inc/block-render/trip-departure.php:18
+#: inc/block-render/trip-departure.php:34
+msgid "January 1, 2023"
+msgstr ""
+
+#: inc/block-render/trip-facts.php:104
+msgid "Language"
+msgstr ""
+
+#: inc/block-render/guide-language.php:43
+msgid "Language one, Language two"
+msgstr ""
+
+#: inc/block-render/trip-review-list.php:151 inc/block-render/trip-tabs.php:219
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: inc/block-render/trip-faqs.php:71 inc/block-render/trip-faqs.php:86
+#: inc/block-render/trip-faqs.php:101
+msgid ""
+"Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
+"Lorem Ipsum has been the industry standard dummy text ever since the 1500s"
+msgstr ""
+
+#: inc/block-render/guide-biography.php:42
+#: inc/block-render/guide-short-description.php:42
+msgid ""
+"Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
+"Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, "
+"when an unknown printer took a galley of type and scrambled it to make a "
+"type specimen book."
+msgstr ""
+
+#: inc/block-render/guide-gender.php:37 inc/block-render/guide-gender.php:39
+msgid "Male"
+msgstr ""
+
+#: inc/block-render/trip-facts.php:64
+msgid "Maximum Altitude"
+msgstr ""
+
+#: inc/block-render/trip-facts.php:84
+msgid "Meals"
+msgstr ""
+
+#. Minute archive title. %s is the minute time format.
+#: inc/breadcrumb-class.php:276
+#, php-format
+msgid "Minute %s"
+msgstr ""
+
+#: inc/breadcrumb-class.php:738
+msgctxt "minute and hour archives time format"
+msgid "g:i a"
+msgstr ""
+
+#: inc/breadcrumb-class.php:755
+msgctxt "minute archives time format"
+msgid "i"
+msgstr ""
+
+#: inc/breadcrumb-class.php:789 inc/breadcrumb-class.php:845
+#: inc/breadcrumb-class.php:1215
+msgctxt "monthly archives date format"
+msgid "F"
+msgstr ""
+
+#: inc/block-render/trip-duration.php:80
+msgid "N/A"
+msgstr ""
+
+#: inc/block-render/trip-review-list.php:155 inc/block-render/trip-tabs.php:223
+msgid "Name"
+msgstr ""
+
+#: inc/block-render/trip-tabs.php:15
+msgid "No details found."
+msgstr ""
+
+#: inc/block-render/guide-featured-trip.php:462
+msgid "No featured trips found.."
+msgstr ""
+
+#: inc/block-render/trip-list.php:594 inc/block-render/trip-list.php:1044
+msgid "No related trips found.."
+msgstr ""
+
+#: inc/block-render/guide-review.php:40
+msgid "No review yet. Be first to give review"
+msgstr ""
+
+#: inc/block-render/guide-featured-trip.php:135
+#: inc/block-render/guide-featured-trip.php:250
+#: inc/block-render/guide-featured-trip.php:320
+#: inc/block-render/guide-featured-trip.php:441
+#: inc/block-render/trip-group-size.php:14 inc/block-render/trip-list.php:379
+#: inc/block-render/trip-list.php:570 inc/block-render/trip-list.php:719
+#: inc/block-render/trip-list.php:834 inc/block-render/trip-list.php:904
+#: inc/block-render/trip-list.php:1025
+msgid "No Size Limit"
+msgstr ""
+
+#: inc/block-render/trip-faqs.php:33 inc/block-render/trip-outline.php:21
+msgid "Open All"
+msgstr ""
+
+#: inc/block-render/guide-gender.php:41
+msgid "Others"
+msgstr ""
+
+#: inc/block-render/trip-review-list.php:53
+#: inc/block-render/trip-review-list.php:62
+#: inc/block-render/trip-review-list.php:70 inc/block-render/trip-tabs.php:121
+#: inc/block-render/trip-tabs.php:130 inc/block-render/trip-tabs.php:138
+msgid "out of 5"
+msgstr ""
+
+#. %s is the page number.
+#: inc/breadcrumb-class.php:272
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: inc/block-render/trip-group-size.php:13
+msgid "Pax"
+msgstr ""
+
+#: inc/block-render/trip-review-list.php:101 inc/block-render/trip-tabs.php:169
+msgid "please login to review"
+msgstr ""
+
+#: inc/block-render/trip-facts.php:118
+msgid "Pokhara"
+msgstr ""
+
+#: inc/block-render/breadcrumb.php:74
+msgid "Post Title"
+msgstr ""
+
+#: inc/block-render/trip-review-list.php:51
+#: inc/block-render/trip-review-list.php:60
+#: inc/block-render/trip-review-list.php:68 inc/block-render/trip-tabs.php:119
+#: inc/block-render/trip-tabs.php:128 inc/block-render/trip-tabs.php:136
+msgid "Rated %d out of 5"
+msgstr ""
+
+#: inc/block-render/trip-sale.php:32
+msgid "SALE"
+msgstr ""
+
+#: inc/block-render/guide-featured-trip.php:331
+#: inc/block-render/guide-featured-trip.php:402
+#: inc/block-render/trip-list.php:287 inc/block-render/trip-list.php:352
+#: inc/block-render/trip-list.php:460 inc/block-render/trip-list.php:531
+#: inc/block-render/trip-list.php:742 inc/block-render/trip-list.php:807
+#: inc/block-render/trip-list.php:915 inc/block-render/trip-list.php:986
+msgid "Save "
+msgstr ""
+
+#. %s is the search query.
+#: inc/breadcrumb-class.php:270
+#, php-format
+msgid "Search results for: %s"
+msgstr ""
+
+#: inc/block-render/trip-calendar.php:81
+msgid "Select a Date"
+msgstr ""
+
+#: inc/block-render/trip-calendar.php:24
+msgid "Select a Date to view available pricings and other options."
+msgstr ""
+
+#: inc/class-rest.php:438
+msgid "Settings data not found."
+msgstr ""
+
+#: inc/class-rest.php:423
+msgid "Template data not found."
+msgstr ""
+
+#: inc/class-rest.php:318
+msgid "Templates not found."
+msgstr ""
+
+#: inc/block-render/guide-slogan.php:42
+msgid "This is slogan by travel guide."
+msgstr ""
+
+#: inc/block-render/trip-facts.php:94
+msgid "Tour Guide"
+msgstr ""
+
+#: inc/block-render/trip-facts.php:44
+msgid "Transportation"
+msgstr ""
+
+#: inc/block-render/trip-category.php:33 inc/block-render/trip-category.php:44
+msgid "Trip Type"
+msgstr ""
+
+#: inc/block-render/trip-featured-category.php:52
+#: inc/block-render/trip-featured-category.php:64
+#: inc/block-render/trip-featured-category.php:89
+#: inc/block-render/trip-featured-category.php:113
+msgid "Trips Available"
+msgstr ""
+
+#: inc/class-rest.php:449
+msgid "User don't have permissions to change options."
+msgstr ""
+
+#: inc/block-render/trip-facts.php:88
+msgid "Veg,Non Veg"
+msgstr ""
+
+#: inc/block-render/trip-gallery.php:79
+msgid "Video"
+msgstr ""
+
+#. Weekly archive title. %s is the week date format.
+#: inc/breadcrumb-class.php:278
+#, php-format
+msgid "Week %s"
+msgstr ""
+
+#: inc/breadcrumb-class.php:818
+msgctxt "weekly archives date format"
+msgid "W"
+msgstr ""
+
+#: inc/block-render/trip-faqs.php:94
+msgid "What are the must-see attractions and activities?"
+msgstr ""
+
+#: inc/block-render/trip-faqs.php:64
+msgid "What should I pack?"
+msgstr ""
+
+#. Author of the plugin
+msgid "WP Travel"
+msgstr ""
+
+#: wp-travel-blocks.php:108
+msgid "WP Travel Blocks"
+msgstr ""
+
+#: wp-travel-blocks.php:116
+msgid "WP Travel Guide Blocks"
+msgstr ""
+
+#. Name of the plugin
+msgid "WP Travel Gutenberg Blocks"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"WP Travel Gutenberg blocks is a free plugin which integrates seamlessly with "
+"the WP Travel plugin and helps you display your trips and tours packages "
+"just the way you want through elegantly crafted custom blocks."
+msgstr ""
+
+#: wp-travel-blocks.php:112
+msgid "WP Travel Single Trip Blocks"
+msgstr ""
+
+#: inc/breadcrumb-class.php:788 inc/breadcrumb-class.php:817
+#: inc/breadcrumb-class.php:844 inc/breadcrumb-class.php:871
+#: inc/breadcrumb-class.php:1211
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: inc/block-render/trip-review-list.php:166 inc/block-render/trip-tabs.php:234
+#, php-format
+msgid "You must be <a href=\"%1s\">logged in</a> to post a review."
+msgstr ""

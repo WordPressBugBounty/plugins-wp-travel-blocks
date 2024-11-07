@@ -43,7 +43,7 @@ function wptravel_block_breadcrumb_render( $attributes ) {
 		<?php }	?>	
 
 		#wptravel-breadcrumb-block .trail-items li.trail-item::after {
-			content: "<?php echo esc_attr( $attributes['seperator'] ); ?>";
+			content: "<?php echo htmlspecialchars_decode( $attributes['seperator'] ); ?>";
 		}
 	
 	</style>
@@ -62,11 +62,11 @@ function wptravel_block_breadcrumb_render( $attributes ) {
 					<meta name="numberOfItems" content="3">
 					<meta name="itemListOrder" content="Ascending">
 					<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" class="trail-item trail-begin">
-						<a href="http://main.local/" rel="home" itemprop="item"><span itemprop="name"><?php echo esc_html__( 'Home', 'wp-travel-blocks' ); ?></span></a>
+						<a href="#" rel="home" itemprop="item"><span itemprop="name"><?php echo esc_html__( 'Home', 'wp-travel-blocks' ); ?></span></a>
 						<meta itemprop="position" content="1">
 					</li>
 					<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" class="trail-item">
-						<a href="http://main.local/itinerary/" itemprop="item"><span itemprop="name"><?php echo esc_html__( 'Blog', 'wp-travel-blocks' ); ?></span></a>
+						<a href="#" itemprop="item"><span itemprop="name"><?php echo esc_html__( 'Blog', 'wp-travel-blocks' ); ?></span></a>
 						<meta itemprop="position" content="2">
 					</li>
 					<li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" class="trail-item trail-end">

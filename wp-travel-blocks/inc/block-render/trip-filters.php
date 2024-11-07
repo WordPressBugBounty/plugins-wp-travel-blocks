@@ -43,6 +43,7 @@ function wptravel_block_trip_filters_render( $attributes ) {
 			border-color: <?php echo esc_attr($attributes['btnBorderColor']); ?>;
 			border-radius: <?php echo esc_attr($attributes['btnBorderRadius']); ?>px;
 			color: <?php echo esc_attr($attributes['btnTextColor']); ?>;
+			width: <?php echo esc_attr($attributes['btnWidth']); ?>px;
 		}
 	</style>
 	<div id="wptravel-block-trip-filters" class="wptravel-block-wrapper wptravel-block-trip-filters">
