@@ -5,8 +5,8 @@
  * Requires at least: 	6.0
  * Requires Plugins:    wp-travel
  * Requires PHP:      	7.4
- * Version:         	3.8.1
- * Tested up to: 		6.6.0
+ * Version:         	3.8.2
+ * Tested up to: 		6.7
  * Author:           	WP Travel
  * Author URI: 			http://wptravel.io
  * License:          	GPLv3
@@ -56,7 +56,7 @@ if( ! class_exists( 'WP_Travel_Blocks' )):
 		 * 
 		 * @var string 
 		 */
-		public $version = '3.8.0';
+		public $version = '3.8.2';
 
 		/**
 		 * The single instance of the class

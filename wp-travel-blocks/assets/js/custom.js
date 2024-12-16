@@ -218,7 +218,9 @@ jQuery(document).ready(function($) {
 
 	if (checkoutElement) {
 		const btnLabel = checkoutElement.getAttribute('data-btn-label');
-		document.querySelector('.wptravel-book-your-trips').textContent = btnLabel;
+		if(btnLabel ){
+			document.querySelector('.wptravel-book-your-trips').textContent = btnLabel;
+		}
 	}
 });
 

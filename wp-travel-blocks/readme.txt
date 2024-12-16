@@ -3,9 +3,9 @@ Contributors:       wptravel
 Tags:               gutenberg blocks editor, blocks, tour booking, tour operator, travel agency
 Donate link:        https://wptravel.io/
 Requires at least:  6.0.0
-Tested up to:       6.6.0
+Tested up to:       6.7
 Requires PHP:       7.4.0
-Stable tag:         3.8.1
+Stable tag:         3.8.2
 License:            GPLv3
 License URI:        http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -234,6 +234,11 @@ WP Travel has a dedicated team for Support to resolve your issues and enquiries[
 Before updating the plugin please check ["our latest release notes"](#developers).
 
 == Changelog ==
+
+= 3.8.2 = 
+Release Date:  16th December 2024
+
+* Fixed conflict issue with "Book Now" button on trip page 
 
 = 3.8.1 = 
 Release Date:  7th November 2024
