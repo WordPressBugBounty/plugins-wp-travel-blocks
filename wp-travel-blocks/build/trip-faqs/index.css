@@ -1,1 +1,132 @@
-#faq .wp-collapse-open{display:flex;justify-content:right;margin-bottom:30px}#faq .panel-body{display:none}#collapse1 .panel-body{display:block}#faq .wp-collapse-open a{border:1px solid #8b8b8b;margin-left:10px;padding:5px 10px;text-decoration:none}#faq .panel-default{background-color:#fff;margin-bottom:.5em}#faq .panel-heading{position:relative}#faq .panel-heading h4{margin-bottom:0;margin-top:10px}#faq .panel-heading h4 a{border:1px solid #ddd;display:block;font-weight:400;margin:0;padding:10px 40px 10px 15px;position:relative;text-decoration:none}#faq .panel-heading h4 a .collapse-icon{border-radius:50%;float:right;height:20px;position:absolute;right:15px;text-align:center;top:5px;width:20px}#faq .panel-heading [data-toggle=collapse] span.collapse-icon:after{content:"";font-family:Font Awesome\ 5 Free;font-size:15px;font-weight:900;position:absolute;top:7px}#faq .collapse.in{display:block}#faq .panel-collapse{border:1px solid #ddd;border-top:none;height:auto!important;padding:0}#faq .panel-collapse .panel-body{padding:10px 15px}#faq .panel-collapse .panel-body p{margin-bottom:10px;margin-top:0}.wptravel-block-trip-faqs.second-design .wp-collapse-open a{border-radius:30px;font-size:10px}.wptravel-block-trip-faqs.second-design .panel-heading [data-toggle=collapse].collapsed span.collapse-icon:after{content:""!important}.wptravel-block-trip-faqs.second-design .panel-heading [data-toggle=collapse] span.collapse-icon:after{content:""!important}.wptravel-block-trip-faqs.second-design h4:focus{outline:none!important}.wptravel-block-trip-faqs.second-design h4 a{border:none!important;font-size:18px!important;outline:none!important;padding:10px 0 20px!important}.wptravel-block-trip-faqs.second-design .panel-collapse{border:none!important}.wptravel-block-trip-faqs.second-design .panel-default{background-color:transparent!important;border-bottom:1px solid #ddd!important;margin-bottom:0!important;position:relative!important}.wptravel-block-trip-faqs.second-design .panel-default:last-child{border-bottom:none!important}.wptravel-block-trip-faqs.second-design h4:hover{background-color:transparent!important}
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/trip-faqs/editor.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+#faq .wp-collapse-open {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: right;
+}
+
+#faq .panel-body {
+  display: none;
+}
+
+#collapse1 .panel-body {
+  display: block;
+}
+
+#faq .wp-collapse-open a {
+  padding: 5px 10px;
+  border: 1px solid #8b8b8b;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+#faq .panel-default {
+  margin-bottom: 0.5em;
+  background-color: #fff;
+}
+
+#faq .panel-heading {
+  position: relative;
+}
+#faq .panel-heading h4 {
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+#faq .panel-heading h4 a {
+  border: 1px solid #ddd;
+  padding: 10px 40px 10px 15px;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+  display: block;
+  text-decoration: none;
+}
+#faq .panel-heading h4 a .collapse-icon {
+  position: absolute;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  float: right;
+  text-align: center;
+  top: 5px;
+  border-radius: 50%;
+}
+
+#faq .panel-heading [data-toggle=collapse] span.collapse-icon::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 15px;
+  content: "\f077";
+  position: absolute;
+  top: 7px;
+}
+
+#faq .collapse.in {
+  display: block;
+}
+
+#faq .panel-collapse {
+  height: auto !important;
+  padding: 0;
+  border: 1px solid #ddd;
+  border-top: none;
+}
+#faq .panel-collapse .panel-body {
+  padding: 10px 15px;
+}
+#faq .panel-collapse .panel-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.wptravel-block-trip-faqs.second-design .wp-collapse-open a {
+  border-radius: 30px;
+  font-size: 10px;
+}
+
+.wptravel-block-trip-faqs.second-design .panel-heading [data-toggle=collapse].collapsed span.collapse-icon:after {
+  content: "\f055" !important;
+}
+
+.wptravel-block-trip-faqs.second-design .panel-heading [data-toggle=collapse] span.collapse-icon:after {
+  content: "\f056" !important;
+}
+
+.wptravel-block-trip-faqs.second-design h4:focus {
+  outline: none !important;
+}
+
+.wptravel-block-trip-faqs.second-design h4 a {
+  font-size: 18px !important;
+  border: none !important;
+  padding: 10px 0px 20px 0px !important;
+  outline: none !important;
+}
+
+.wptravel-block-trip-faqs.second-design .panel-collapse {
+  border: none !important;
+}
+
+.wptravel-block-trip-faqs.second-design .panel-default {
+  background-color: transparent !important;
+  margin-bottom: 0px !important;
+  border-bottom: 1px solid #ddd !important;
+  position: relative !important;
+}
+
+.wptravel-block-trip-faqs.second-design .panel-default:last-child {
+  border-bottom: none !important;
+}
+
+.wptravel-block-trip-faqs.second-design h4:hover {
+  background-color: transparent !important;
+}
+
+/*# sourceMappingURL=index.css.map*/

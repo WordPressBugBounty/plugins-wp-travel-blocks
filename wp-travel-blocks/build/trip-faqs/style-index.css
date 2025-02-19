@@ -1,1 +1,57 @@
-.wptravel-block-trip-faqs .panel-title a{font-size:22px}.wptravel-block-trip-faqs.second-design .wp-collapse-open a{border-radius:30px;font-size:10px}.wptravel-block-trip-faqs.second-design .panel-heading [data-toggle=collapse].collapsed span.collapse-icon:after{content:""!important}.wptravel-block-trip-faqs.second-design .panel-heading [data-toggle=collapse] span.collapse-icon:after{content:""!important}.wptravel-block-trip-faqs.second-design h4:focus{outline:none!important}.wptravel-block-trip-faqs.second-design h4 a{border:none!important;font-size:18px!important;outline:none!important;padding:10px 0 20px!important}.wptravel-block-trip-faqs.second-design .panel-collapse{border:none!important}.wptravel-block-trip-faqs.second-design .panel-default{background-color:transparent!important;border-bottom:1px solid #ddd!important;margin-bottom:0!important;position:relative!important}.wptravel-block-trip-faqs.second-design .panel-default:last-child{border-bottom:none!important}.wptravel-block-trip-faqs.second-design h4:hover{background-color:transparent!important}
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/trip-faqs/style.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wptravel-block-trip-faqs .panel-title a {
+  font-size: 22px;
+}
+
+.wptravel-block-trip-faqs.second-design .wp-collapse-open a {
+  border-radius: 30px;
+  font-size: 10px;
+}
+
+.wptravel-block-trip-faqs.second-design .panel-heading [data-toggle=collapse].collapsed span.collapse-icon:after {
+  content: "\f055" !important;
+}
+
+.wptravel-block-trip-faqs.second-design .panel-heading [data-toggle=collapse] span.collapse-icon:after {
+  content: "\f056" !important;
+}
+
+.wptravel-block-trip-faqs.second-design h4:focus {
+  outline: none !important;
+}
+
+.wptravel-block-trip-faqs.second-design h4 a {
+  font-size: 18px !important;
+  border: none !important;
+  padding: 10px 0px 20px 0px !important;
+  outline: none !important;
+}
+
+.wptravel-block-trip-faqs.second-design .panel-collapse {
+  border: none !important;
+}
+
+.wptravel-block-trip-faqs.second-design .panel-default {
+  background-color: transparent !important;
+  margin-bottom: 0px !important;
+  border-bottom: 1px solid #ddd !important;
+  position: relative !important;
+}
+
+.wptravel-block-trip-faqs.second-design .panel-default:last-child {
+  border-bottom: none !important;
+}
+
+.wptravel-block-trip-faqs.second-design h4:hover {
+  background-color: transparent !important;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

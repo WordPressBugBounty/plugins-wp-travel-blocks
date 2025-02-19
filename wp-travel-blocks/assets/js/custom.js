@@ -1,5 +1,11 @@
 jQuery(document).ready(function($) {
 	
+	$('#trip-booking').click(function () {
+        $(".resp-tab-content").css("display", "none");
+		$("#booking").closest(".resp-tab-content").addClass( 'resp-tab-content-active' );
+        $("#booking").closest(".resp-tab-content").css("display", "block");
+
+    });
 
 	if ($('#sticky-trip-tab').length) {
 		// Element exists in the DOM
@@ -233,3 +239,4 @@ document.addEventListener('DOMContentLoaded', () => {
         new Accordion(container);
     });
 });
+

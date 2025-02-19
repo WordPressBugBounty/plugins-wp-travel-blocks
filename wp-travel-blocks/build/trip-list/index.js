@@ -1,1 +1,6026 @@
-(()=>{var e,t={2564:(e,t,r)=>{"use strict";const n=window.wp.blocks,i=window.wp.element,a=window.wp.i18n,o=window.wp.blockEditor,l=window.wp.components,s=window.wp.data,c=window.wp.serverSideRender;var u=r.n(c),d=r(6066);r(9196);const p=JSON.parse('{"u2":"wp-travel-blocks/trips-list"}');(0,n.registerBlockType)(p.u2,{edit:function(e){var t,r,n,c,p,f,v,h;const m={post_type:"itineraries",per_page:100},y=(0,s.useSelect)((e=>e("core").getEntityRecords("taxonomy","itinerary_types",m)),[]),b=(0,s.useSelect)((e=>e("core").getEntityRecords("taxonomy","travel_locations",m)),[]),w=(0,s.useSelect)((e=>e("core").getEntityRecords("taxonomy","activity",m)),[]),g=(0,s.useSelect)((e=>e("core").getEntityRecords("taxonomy","travel_keywords",m)),[]),{setAttributes:k,attributes:S}=e,{relatedTrip:E,inheritTrips:O,query:_,saleTrip:T,featuredTrip:x,layoutType:j,cardLayout:P,relatedTripBy:C}=S,{orderBy:L,order:M,selectedCategories:N,selectedTripTypes:z,selectedTripDestinations:R,selectedTripActivities:D,selectedTripKeywords:H,numberOfItems:A}=_,W=null!==(t=y?.reduce(((e,t)=>({...e,[t.name]:t})),{}))&&void 0!==t?t:{};let I=[];z&&z.length>0&&(I=z.map((e=>e.name)));const q=null!==(r=b?.reduce(((e,t)=>({...e,[t.name]:t})),{}))&&void 0!==r?r:{};let F=[];R&&R.length>0&&(F=R.map((e=>e.name)));const B=null!==(n=w?.reduce(((e,t)=>({...e,[t.name]:t})),{}))&&void 0!==n?n:{};let X=[];D&&D.length>0&&(X=D.map((e=>e.name)));const G=null!==(c=g?.reduce(((e,t)=>({...e,[t.name]:t})),{}))&&void 0!==c?c:{};let Y=[];H&&H.length>0&&(Y=H.map((e=>e.name)));const $={dots:!1,arrows:!0,autoplay:!0,infinite:!0,speed:500,slidesToShow:void 0===S.align?2:3,slidesToScroll:1},[U,K]=(0,i.useState)([]);return(0,s.useSelect)((()=>{fetch(_wp_travel.site_url+"/wp-json/wp-travel-block/v1/get-trip-lists?arg="+JSON.stringify(S),{method:"GET"}).then((e=>e.json())).then((e=>K(e))).catch((e=>console.error(e)))}),[]),(0,i.createElement)("div",{...(0,o.useBlockProps)()},(0,i.createElement)(i.Fragment,null,(0,i.createElement)(o.InspectorControls,null,(0,i.createElement)(l.PanelBody,{title:(0,a.__)("Filters","wp-travel-blocks")},(0,i.createElement)(l.ToggleControl,{label:(0,a.__)("Inherit Trips","wp-travel-blocks"),checked:O,onChange:()=>k({inheritTrips:!O})}),(0,i.createElement)(l.ToggleControl,{label:(0,a.__)("Show Related Trip","wp-travel-blocks"),checked:E,onChange:()=>k({relatedTrip:!E})}),E&&(0,i.createElement)(l.SelectControl,{label:(0,a.__)("Related Trip By","wp-travel-blocks"),value:C,options:[{label:(0,a.__)("Itinerary Types","wp-travel-blocks"),value:"itinerary-types"},{label:(0,a.__)("Travel Location","wp-travel-blocks"),value:"travel-locations"},{label:(0,a.__)("Travel Keywords","wp-travel-blocks"),value:"travel-keywords"},{label:(0,a.__)("Travel Activity","wp-travel-blocks"),value:"activity"}],onChange:e=>k({relatedTripBy:e})}),(0,i.createElement)(l.SelectControl,{label:(0,a.__)("Select Layout","wp-travel-blocks"),value:j,options:"slider-view"!==P&&[{label:(0,a.__)("Default Layout","wp-travel-blocks"),value:"default-layout"},{label:(0,a.__)("Layout One","wp-travel-blocks"),value:"layout-one"},{label:(0,a.__)("Layout Two","wp-travel-blocks"),value:"layout-two"},{label:(0,a.__)("Layout Three","wp-travel-blocks"),value:"layout-three"},{label:(0,a.__)("Layout Four","wp-travel-blocks"),value:"layout-four"}]||[{label:(0,a.__)("Layout One","wp-travel-blocks"),value:"layout-one"},{label:(0,a.__)("Layout Two","wp-travel-blocks"),value:"layout-two"},{label:(0,a.__)("Layout Three","wp-travel-blocks"),value:"layout-three"},{label:(0,a.__)("Layout Four","wp-travel-blocks"),value:"layout-four"}],onChange:e=>k({layoutType:e})}),"default-layout"!=j&&(0,i.createElement)(l.SelectControl,{label:(0,a.__)("Card Layout","wp-travel-blocks"),value:P,options:[{label:(0,a.__)("Slider","wp-travel-blocks"),value:"slider-view"},{label:(0,a.__)("Grid","wp-travel-blocks"),value:"grid-view"},{label:(0,a.__)("List","wp-travel-blocks"),value:"list-view"}],onChange:e=>k({cardLayout:e})}),!O&&!E&&(0,i.createElement)(i.Fragment,null,(0,i.createElement)(l.QueryControls,{orderBy:L,order:M,numberOfItems:A,onNumberOfItemsChange:e=>k({query:{..._,numberOfItems:e}})}),(0,i.createElement)(l.SelectControl,{label:(0,a.__)("Order by","wp-travel-blocks"),value:L+"/"+M,options:[{label:(0,a.__)("Newest to oldest","wp-travel-blocks"),value:"date/desc"},{label:(0,a.__)("Oldest to newest","wp-travel-blocks"),value:"date/asc"},{label:(0,a.__)("A → Z","wp-travel-blocks"),value:"title/asc"},{label:(0,a.__)("Z → A","wp-travel-blocks"),value:"title/desc"}],onChange:e=>{let t=e.split("/"),r=t[0],n=t[1];k({query:{..._,orderBy:r,order:n}})}}),(0,i.createElement)(l.FormTokenField,{label:(0,a.__)("Trip Type"),value:null!==(p=I)&&void 0!==p?p:[],suggestions:Object.keys(W).map((e=>e)),onChange:e=>{const t=e.map((e=>{const t="string"==typeof e?W[e]:e;return{count:t.count,id:t.id,description:t.description,link:t.link,taxonomy:t.taxonomy,name:t.name,slug:t.slug}}));k({query:{..._,selectedTripTypes:t}})}}),(0,i.createElement)(l.FormTokenField,{label:(0,a.__)("Trip Destinations"),value:null!==(f=F)&&void 0!==f?f:[],suggestions:Object.keys(q).map((e=>e)),onChange:e=>{const t=e.map((e=>{const t="string"==typeof e?q[e]:e;return{count:t.count,id:t.id,description:t.description,link:t.link,taxonomy:t.taxonomy,name:t.name,slug:t.slug}}));k({query:{..._,selectedTripDestinations:t}})}}),(0,i.createElement)(l.FormTokenField,{label:(0,a.__)("Trip Activities","wp-travel-blocks"),value:null!==(v=X)&&void 0!==v?v:[],suggestions:Object.keys(B).map((e=>e)),onChange:e=>{const t=e.map((e=>{const t="string"==typeof e?B[e]:e;return{count:t.count,id:t.id,description:t.description,link:t.link,taxonomy:t.taxonomy,name:t.name,slug:t.slug}}));k({query:{..._,selectedTripActivities:t}})}}),(0,i.createElement)(l.FormTokenField,{label:(0,a.__)("Trip Keywords","wp-travel-blocks"),value:null!==(h=Y)&&void 0!==h?h:[],suggestions:Object.keys(G).map((e=>e)),onChange:e=>{const t=e.map((e=>{const t="string"==typeof e?G[e]:e;return{count:t.count,id:t.id,description:t.description,link:t.link,taxonomy:t.taxonomy,name:t.name,slug:t.slug}}));k({query:{..._,selectedTripKeywords:t}})}}),(0,i.createElement)(l.ToggleControl,{label:(0,a.__)("Sale Trip","wp-travel-blocks"),checked:T,onChange:()=>k({saleTrip:!T})}),(0,i.createElement)(l.ToggleControl,{label:(0,a.__)("Featured Trip","wp-travel-blocks"),checked:x,onChange:()=>k({featuredTrip:!x})}))))),"slider-view"===P&&(0,i.createElement)("div",{id:"wptravel-block-trips-list",className:"wptravel-block-wrapper wptravel-block-trips-list wptravel-block-preview "+j},(0,i.createElement)("div",{className:"wp-travel-itinerary-items"},(0,i.createElement)(d.Z,{className:"wp-travel-itinerary-items wptravel-archive-wrapper slider-view grid-view",...$},U.map((e=>(0,i.createElement)(i.Fragment,null,"default-layout"===j&&(0,i.createElement)("div",{className:"wptravel-blocks-trip-card"},(0,i.createElement)("div",{className:"wptravel-blocks-trip-card-img-container"},(0,i.createElement)("img",{fetchpriority:"high",width:"1024",height:"684",src:e.featured_img,sizes:"(max-width: 1024px) 100vw, 1024px"}),(0,i.createElement)("div",{className:"wptravel-blocks-img-overlay"},"yes"==e.is_featured_trip&&(0,i.createElement)("div",{class:"wptravel-blocks-trip-featured"},(0,i.createElement)("i",{class:"fas fa-crown"})," Featured"))),(0,i.createElement)("div",{className:"wptravel-blocks-card-body"},(0,i.createElement)("div",{className:"wptravel-blocks-card-body-top"},(0,i.createElement)("div",{className:"wptravel-blocks-floating-container"},(0,i.createElement)("div",{className:"wptravel-blocks-trip-code"},(0,i.createElement)("span",{className:"code-hash"},"#")," ",e.trip_code)),(0,i.createElement)("div",{className:"wptravel-blocks-card-body-header"},(0,i.createElement)("a",{href:"#"},(0,i.createElement)("h3",{className:"wptravel-blocks-card-title"},e.trip_title)),(0,i.createElement)("div",{class:"favourite"},(0,i.createElement)("a",{href:"#","data-id":"1375","data-event":"add",title:"Add to wishlists",class:"wp-travel-add-to-wishlists",tabindex:"0"},(0,i.createElement)("i",{class:"far fa-bookmark"})," Add to wishlists"))),(0,i.createElement)("div",{className:"wptravel-blocks-card-content"},(0,i.createElement)("div",{className:"wptravel-blocks-trip-meta"},(0,i.createElement)("i",{className:"far fa-calendar-alt"})," Date"),(0,i.createElement)("div",{className:"wptravel-blocks-trip-meta"},(0,i.createElement)("i",{className:"fas fa-map-marker-alt"}),(0,i.createElement)("a",{href:"#"},"Destination")),(0,i.createElement)("div",{className:"wptravel-blocks-trip-meta"},(0,i.createElement)("i",{className:"fas fa-users"})," Group Size"))),(0,i.createElement)("div",{className:"wptravel-blocks-card-footer"},(0,i.createElement)("div",{className:"wptravel-blocks-footer-left"},(0,i.createElement)("div",{className:"wptravel-blocks-trip-rating"},(0,i.createElement)("i",{className:"fa fa-star"}),(0,i.createElement)("i",{className:"fa fa-star"}),(0,i.createElement)("i",{className:"fa fa-star"}),(0,i.createElement)("i",{className:"fa fa-star"}),(0,i.createElement)("i",{className:"fa fa-star"})),(0,i.createElement)("div",{className:"wptravel-blocks-trip-explore"},(0,i.createElement)("a",{href:"#"},(0,i.createElement)("button",{className:"wp-block-button__link wptravel-blocks-explore-btn"},"Explore")))),(0,i.createElement)("div",{className:"wptravel-blocks-footer-right"},(0,i.createElement)("div",{className:"wptravel-blocks-trip-offer"},"Save 20%"),(0,i.createElement)("div",{className:"wptravel-blocks-trip-original-price"},(0,i.createElement)("del",null,"$4999")),(0,i.createElement)("div",{className:"wptravel-blocks-trip-offer-price"},"$3999"))))),"layout-one"===j&&(0,i.createElement)("div",{className:"wptravel-blocks-trip-card"},(0,i.createElement)("div",{className:"same-height wptravel-blocks-trip-card-img-container"},(0,i.createElement)("img",{fetchpriority:"high",width:"1024",height:"684",src:e.featured_img,sizes:"(max-width: 1024px) 100vw, 1024px"}),(0,i.createElement)("div",{className:"wptravel-blocks-img-overlay"},"yes"==e.is_featured_trip&&(0,i.createElement)("div",{class:"wptravel-blocks-trip-featured"},(0,i.createElement)("i",{class:"fas fa-crown"})," Featured"))),(0,i.createElement)("div",{className:"wptravel-blocks-card-body"},(0,i.createElement)("div",{className:"wptravel-blocks-card-body-top"},(0,i.createElement)("div",{className:"wptravel-blocks-floating-container"},(0,i.createElement)("div",{className:"wptravel-blocks-trip-code"},(0,i.createElement)("span",{className:"code-hash"},"#")," ",e.trip_code)),(0,i.createElement)("div",{className:"wptravel-blocks-card-body-header"},(0,i.createElement)("a",{href:"#"},(0,i.createElement)("h3",{className:"wptravel-blocks-card-title"},e.trip_title)),(0,i.createElement)("div",{class:"favourite"},(0,i.createElement)("a",{href:"#","data-id":"1375","data-event":"add",title:"Add to wishlists",class:"wp-travel-add-to-wishlists",tabindex:"0"},(0,i.createElement)("i",{class:"far fa-bookmark"})," Add to wishlists"))),(0,i.createElement)("div",{className:"wptravel-blocks-card-content"},(0,i.createElement)("div",{className:"wptravel-blocks-trip-meta"},(0,i.createElement)("i",{className:"far fa-calendar-alt"})," Date"),(0,i.createElement)("div",{className:"wptravel-blocks-trip-meta"},(0,i.createElement)("i",{className:"fas fa-map-marker-alt"}),(0,i.createElement)("a",{href:"#"},"Destination")),(0,i.createElement)("div",{className:"wptravel-blocks-trip-meta"},(0,i.createElement)("i",{className:"fas fa-users"})," Group Size"))),(0,i.createElement)("div",{className:"wptravel-blocks-card-footer"},(0,i.createElement)("div",{className:"wptravel-blocks-footer-left"},(0,i.createElement)("div",{className:"wptravel-blocks-trip-rating"},(0,i.createElement)("i",{className:"fa fa-star"}),(0,i.createElement)("i",{className:"fa fa-star"}),(0,i.createElement)("i",{className:"fa fa-star"}),(0,i.createElement)("i",{className:"fa fa-star"}),(0,i.createElement)("i",{className:"fa fa-star"})),(0,i.createElement)("div",{className:"wptravel-blocks-trip-explore"},(0,i.createElement)("a",{href:"#"},(0,i.createElement)("button",{className:"wp-block-button__link wptravel-blocks-explore-btn"},"Explore")))),(0,i.createElement)("div",{className:"wptravel-blocks-footer-right"},(0,i.createElement)("div",{className:"wptravel-blocks-trip-offer"},"Save 20%"),(0,i.createElement)("div",{className:"wptravel-blocks-trip-original-price"},(0,i.createElement)("del",null,"$4999")),(0,i.createElement)("div",{className:"wptravel-blocks-trip-offer-price"},"$3999"))))),"layout-two"===j&&(0,i.createElement)("div",{class:"wptravel-blocks-trip-card"},(0,i.createElement)("div",{class:"wptravel-blocks-trip-card-img-container"},(0,i.createElement)("img",{fetchpriority:"high",width:"1024",height:"684",src:e.featured_img,sizes:"(max-width: 1024px) 100vw, 1024px"}),(0,i.createElement)("div",{class:"wptravel-blocks-img-overlay-base"},(0,i.createElement)("div",{class:"wptravel-blocks-img-overlay"},"yes"==e.is_featured_trip&&(0,i.createElement)("div",{class:"wptravel-blocks-trip-featured"},(0,i.createElement)("i",{class:"fas fa-crown"})," Featured")))),(0,i.createElement)("div",{class:"wptravel-blocks-card-body"},(0,i.createElement)("div",{class:"wptravel-blocks-card-body-top"},(0,i.createElement)("div",{class:"wptravel-blocks-card-body-header"},(0,i.createElement)("a",{href:"#"},(0,i.createElement)("h3",{class:"wptravel-blocks-card-title"},e.trip_title)),(0,i.createElement)("div",{class:"wptravel-blocks-trip-rating"},(0,i.createElement)("i",{class:"fas fa-star"})," 4.7")),(0,i.createElement)("div",{class:"wptravel-blocks-card-content"},(0,i.createElement)("div",{class:"wptravel-blocks-trip-excerpt"},e.excerpt))),(0,i.createElement)("div",{class:"wptravel-blocks-card-footer"},(0,i.createElement)("div",{class:"wptravel-blocks-footer-left"},(0,i.createElement)("div",{class:"wptravel-blocks-trip-meta"},(0,i.createElement)("i",{class:"far fa-clock"})," Duration"),(0,i.createElement)("div",{class:"wptravel-blocks-trip-meta"},(0,i.createElement)("i",{class:"fas fa-users"})," Group Size"),(0,i.createElement)("div",{class:"wptravel-blocks-trip-explore"},(0,i.createElement)("a",{href:"#"},(0,i.createElement)("button",{class:"wp-block-button__link wptravel-blocks-explore-btn"},"Explore")))),(0,i.createElement)("div",{class:"wptravel-blocks-footer-right"},(0,i.createElement)("div",{class:"wptravel-blocks-trip-offer"},"Save 20%"),(0,i.createElement)("div",{class:"wptravel-blocks-trip-original-price"},(0,i.createElement)("del",null,"$4999")),(0,i.createElement)("div",{class:"wptravel-blocks-trip-offer-price"},"$3999"))))),"layout-three"===j&&(0,i.createElement)("div",{class:"wptravel-blocks-trip-card"},(0,i.createElement)("div",{class:"wptravel-blocks-trip-card-img-container"},(0,i.createElement)("img",{fetchpriority:"high",width:"1024",height:"684",src:e.featured_img,sizes:"(max-width: 1024px) 100vw, 1024px"}),(0,i.createElement)("div",{class:"wptravel-blocks-img-overlay-base"},(0,i.createElement)("div",{class:"wptravel-blocks-img-overlay"},"yes"==e.is_featured_trip&&(0,i.createElement)("div",{class:"wptravel-blocks-trip-featured"},(0,i.createElement)("i",{class:"fas fa-crown"})," Featured")),(0,i.createElement)("div",{class:"wptravel-blocks-trip-meta-container"},(0,i.createElement)("div",{class:"wptravel-blocks-trip-meta"},(0,i.createElement)("i",{class:"fas fa-map-marker-alt"}),(0,i.createElement)("a",{href:"#"},"Destination")),(0,i.createElement)("div",{class:"wptravel-blocks-trip-meta"},(0,i.createElement)("i",{class:"far fa-calendar-alt"})," Date"),(0,i.createElement)("div",{class:"wptravel-blocks-trip-meta"},(0,i.createElement)("i",{class:"fas fa-users"})," Group Size")))),(0,i.createElement)("div",{class:"wptravel-blocks-card-body"},(0,i.createElement)("div",{class:"wptravel-blocks-card-body-top"},(0,i.createElement)("div",{class:"wptravel-blocks-card-body-header"},(0,i.createElement)("a",{href:"#"},(0,i.createElement)("h3",{class:"wptravel-blocks-card-title"},e.trip_title)),(0,i.createElement)("div",{class:"favourite"},(0,i.createElement)("a",{href:"#","data-id":"1375","data-event":"add",title:"Add to wishlists",class:"wp-travel-add-to-wishlists",tabindex:"0"},(0,i.createElement)("i",{class:"far fa-bookmark"})," Add to wishlists"))),(0,i.createElement)("div",{class:"wptravel-blocks-card-content"},(0,i.createElement)("div",{class:"wptravel-blocks-trip-excerpt"},e.trip_excerpt))),(0,i.createElement)("div",{class:"wptravel-blocks-card-footer"},(0,i.createElement)("div",{class:"wptravel-blocks-footer-left"},(0,i.createElement)("div",{class:"wptravel-blocks-trip-rating"},(0,i.createElement)("i",{className:"fa fa-star"}),(0,i.createElement)("i",{className:"fa fa-star"}),(0,i.createElement)("i",{className:"fa fa-star"}),(0,i.createElement)("i",{className:"fa fa-star"}),(0,i.createElement)("i",{className:"fa fa-star"})),(0,i.createElement)("div",{class:"wptravel-blocks-trip-explore"},(0,i.createElement)("a",{href:"#"},(0,i.createElement)("button",{class:"wp-block-button__link wptravel-blocks-explore-btn"},"Explore")))),(0,i.createElement)("div",{class:"wptravel-blocks-footer-right"},(0,i.createElement)("div",{class:"wptravel-blocks-trip-offer"},"Save 20%"),(0,i.createElement)("div",{class:"wptravel-blocks-trip-original-price"},(0,i.createElement)("del",null,"$4999")),(0,i.createElement)("div",{class:"wptravel-blocks-trip-offer-price"},"$3999"))))),"layout-four"===j&&(0,i.createElement)("div",{class:"wptravel-blocks-trip-card"},(0,i.createElement)("div",{class:"wptravel-blocks-trip-card-img-container"},(0,i.createElement)("img",{fetchpriority:"high",width:"1024",height:"684",src:e.featured_img,sizes:"(max-width: 1024px) 100vw, 1024px"}),(0,i.createElement)("div",{class:"wptravel-blocks-img-overlay-base"},(0,i.createElement)("div",{class:"wptravel-blocks-img-overlay"},(0,i.createElement)("div",{class:"wptravel-blocks-trip-offer"},"Save 20%"),"yes"==e.is_featured_trip&&(0,i.createElement)("div",{class:"wptravel-blocks-trip-featured"},(0,i.createElement)("i",{class:"fas fa-crown"}))))),(0,i.createElement)("div",{class:"wptravel-blocks-card-body"},(0,i.createElement)("div",{class:"wptravel-blocks-card-body-top"},(0,i.createElement)("div",{class:"wptravel-blocks-card-body-header"},(0,i.createElement)("div",{class:"wptravel-blocks-header-left"},(0,i.createElement)("a",{href:"#"},(0,i.createElement)("h3",{class:"wptravel-blocks-card-title"},e.trip_title)),(0,i.createElement)("div",{class:"wptravel-blocks-trip-code"},(0,i.createElement)("span",{class:"code-hash"},"#")," ",e.trip_code)),(0,i.createElement)("div",{class:"favourite"},(0,i.createElement)("a",{href:"#","data-id":"1375","data-event":"add",title:"Add to wishlists",class:"wp-travel-add-to-wishlists",tabindex:"0"},(0,i.createElement)("i",{class:"far fa-bookmark"})," Add to wishlists"))),(0,i.createElement)("div",{class:"wptravel-blocks-card-content"},(0,i.createElement)("div",{class:"wptravel-blocks-trip-excerpt"},e.trip_excerpt),(0,i.createElement)("div",{class:"wptravel-blocks-trip-meta-container"},(0,i.createElement)("div",{class:"wptravel-blocks-trip-meta"},(0,i.createElement)("i",{class:"far fa-clock"})," Duration"),(0,i.createElement)("div",{class:"wptravel-blocks-trip-meta"},(0,i.createElement)("i",{class:"fas fa-map-marker-alt"}),(0,i.createElement)("a",{href:"#"},"Destination")),(0,i.createElement)("div",{class:"wptravel-blocks-trip-meta"},(0,i.createElement)("i",{class:"fas fa-users"})," Group Size")))),(0,i.createElement)("div",{class:"wptravel-blocks-card-footer"},(0,i.createElement)("div",{class:"wptravel-blocks-footer-left"},(0,i.createElement)("div",{class:"wptravel-blocks-trip-rating"},(0,i.createElement)("i",{className:"fa fa-star"}),(0,i.createElement)("i",{className:"fa fa-star"}),(0,i.createElement)("i",{className:"fa fa-star"}),(0,i.createElement)("i",{className:"fa fa-star"}),(0,i.createElement)("i",{className:"fa fa-star"}))),(0,i.createElement)("div",{class:"wptravel-blocks-footer-right"},(0,i.createElement)("div",{class:"wptravel-blocks-trip-original-price"},(0,i.createElement)("del",null,"$4999")),(0,i.createElement)("div",{class:"wptravel-blocks-trip-offer-price"},"$3999")))))))))))||(0,i.createElement)(u(),{block:"wp-travel-blocks/trips-list",attributes:e.attributes}))},save:function(){return null}})},4184:(e,t)=>{var r;!function(){"use strict";var n={}.hasOwnProperty;function i(){for(var e=[],t=0;t<arguments.length;t++){var r=arguments[t];if(r){var a=typeof r;if("string"===a||"number"===a)e.push(r);else if(Array.isArray(r)){if(r.length){var o=i.apply(null,r);o&&e.push(o)}}else if("object"===a){if(r.toString!==Object.prototype.toString&&!r.toString.toString().includes("[native code]")){e.push(r.toString());continue}for(var l in r)n.call(r,l)&&r[l]&&e.push(l)}}}return e.join(" ")}e.exports?(i.default=i,e.exports=i):void 0===(r=function(){return i}.apply(t,[]))||(e.exports=r)}()},2988:(e,t,r)=>{var n=r(1755),i=r(6665).each;function a(e,t){this.query=e,this.isUnconditional=t,this.handlers=[],this.mql=window.matchMedia(e);var r=this;this.listener=function(e){r.mql=e.currentTarget||e,r.assess()},this.mql.addListener(this.listener)}a.prototype={constuctor:a,addHandler:function(e){var t=new n(e);this.handlers.push(t),this.matches()&&t.on()},removeHandler:function(e){var t=this.handlers;i(t,(function(r,n){if(r.equals(e))return r.destroy(),!t.splice(n,1)}))},matches:function(){return this.mql.matches||this.isUnconditional},clear:function(){i(this.handlers,(function(e){e.destroy()})),this.mql.removeListener(this.listener),this.handlers.length=0},assess:function(){var e=this.matches()?"on":"off";i(this.handlers,(function(t){t[e]()}))}},e.exports=a},8177:(e,t,r)=>{var n=r(2988),i=r(6665),a=i.each,o=i.isFunction,l=i.isArray;function s(){if(!window.matchMedia)throw new Error("matchMedia not present, legacy browsers require a polyfill");this.queries={},this.browserIsIncapable=!window.matchMedia("only all").matches}s.prototype={constructor:s,register:function(e,t,r){var i=this.queries,s=r&&this.browserIsIncapable;return i[e]||(i[e]=new n(e,s)),o(t)&&(t={match:t}),l(t)||(t=[t]),a(t,(function(t){o(t)&&(t={match:t}),i[e].addHandler(t)})),this},unregister:function(e,t){var r=this.queries[e];return r&&(t?r.removeHandler(t):(r.clear(),delete this.queries[e])),this}},e.exports=s},1755:e=>{function t(e){this.options=e,!e.deferSetup&&this.setup()}t.prototype={constructor:t,setup:function(){this.options.setup&&this.options.setup(),this.initialised=!0},on:function(){!this.initialised&&this.setup(),this.options.match&&this.options.match()},off:function(){this.options.unmatch&&this.options.unmatch()},destroy:function(){this.options.destroy?this.options.destroy():this.off()},equals:function(e){return this.options===e||this.options.match===e}},e.exports=t},6665:e=>{e.exports={isFunction:function(e){return"function"==typeof e},isArray:function(e){return"[object Array]"===Object.prototype.toString.apply(e)},each:function(e,t){for(var r=0,n=e.length;r<n&&!1!==t(e[r],r);r++);}}},4974:(e,t,r)=>{var n=r(8177);e.exports=new n},973:(e,t,r)=>{var n=r(1169),i=function(e){var t="",r=Object.keys(e);return r.forEach((function(i,a){var o=e[i];(function(e){return/[height|width]$/.test(e)})(i=n(i))&&"number"==typeof o&&(o+="px"),t+=!0===o?i:!1===o?"not "+i:"("+i+": "+o+")",a<r.length-1&&(t+=" and ")})),t};e.exports=function(e){var t="";return"string"==typeof e?e:e instanceof Array?(e.forEach((function(r,n){t+=i(r),n<e.length-1&&(t+=", ")})),t):i(e)}},1296:(e,t,r)=>{var n=/^\s+|\s+$/g,i=/^[-+]0x[0-9a-f]+$/i,a=/^0b[01]+$/i,o=/^0o[0-7]+$/i,l=parseInt,s="object"==typeof r.g&&r.g&&r.g.Object===Object&&r.g,c="object"==typeof self&&self&&self.Object===Object&&self,u=s||c||Function("return this")(),d=Object.prototype.toString,p=Math.max,f=Math.min,v=function(){return u.Date.now()};function h(e){var t=typeof e;return!!e&&("object"==t||"function"==t)}function m(e){if("number"==typeof e)return e;if(function(e){return"symbol"==typeof e||function(e){return!!e&&"object"==typeof e}(e)&&"[object Symbol]"==d.call(e)}(e))return NaN;if(h(e)){var t="function"==typeof e.valueOf?e.valueOf():e;e=h(t)?t+"":t}if("string"!=typeof e)return 0===e?e:+e;e=e.replace(n,"");var r=a.test(e);return r||o.test(e)?l(e.slice(2),r?2:8):i.test(e)?NaN:+e}e.exports=function(e,t,r){var n,i,a,o,l,s,c=0,u=!1,d=!1,y=!0;if("function"!=typeof e)throw new TypeError("Expected a function");function b(t){var r=n,a=i;return n=i=void 0,c=t,o=e.apply(a,r)}function w(e){var r=e-s;return void 0===s||r>=t||r<0||d&&e-c>=a}function g(){var e=v();if(w(e))return k(e);l=setTimeout(g,function(e){var r=t-(e-s);return d?f(r,a-(e-c)):r}(e))}function k(e){return l=void 0,y&&n?b(e):(n=i=void 0,o)}function S(){var e=v(),r=w(e);if(n=arguments,i=this,s=e,r){if(void 0===l)return function(e){return c=e,l=setTimeout(g,t),u?b(e):o}(s);if(d)return l=setTimeout(g,t),b(s)}return void 0===l&&(l=setTimeout(g,t)),o}return t=m(t)||0,h(r)&&(u=!!r.leading,a=(d="maxWait"in r)?p(m(r.maxWait)||0,t):a,y="trailing"in r?!!r.trailing:y),S.cancel=function(){void 0!==l&&clearTimeout(l),c=0,n=s=i=l=void 0},S.flush=function(){return void 0===l?o:k(v())},S}},8205:(e,t,r)=>{"use strict";function n(e){return n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},n(e)}Object.defineProperty(t,"__esModule",{value:!0}),t.PrevArrow=t.NextArrow=void 0;var i=l(r(9196)),a=l(r(4184)),o=r(5518);function l(e){return e&&e.__esModule?e:{default:e}}function s(){return s=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(e[n]=r[n])}return e},s.apply(this,arguments)}function c(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(e);t&&(n=n.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),r.push.apply(r,n)}return r}function u(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?c(Object(r),!0).forEach((function(t){d(e,t,r[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):c(Object(r)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))}))}return e}function d(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}function p(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function f(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function v(e,t,r){return t&&f(e.prototype,t),r&&f(e,r),Object.defineProperty(e,"prototype",{writable:!1}),e}function h(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),Object.defineProperty(e,"prototype",{writable:!1}),t&&m(e,t)}function m(e,t){return m=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e},m(e,t)}function y(e){var t=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],(function(){}))),!0}catch(e){return!1}}();return function(){var r,i=b(e);if(t){var a=b(this).constructor;r=Reflect.construct(i,arguments,a)}else r=i.apply(this,arguments);return function(e,t){if(t&&("object"===n(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");return function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e)}(this,r)}}function b(e){return b=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)},b(e)}var w=function(e){h(r,e);var t=y(r);function r(){return p(this,r),t.apply(this,arguments)}return v(r,[{key:"clickHandler",value:function(e,t){t&&t.preventDefault(),this.props.clickHandler(e,t)}},{key:"render",value:function(){var e={"slick-arrow":!0,"slick-prev":!0},t=this.clickHandler.bind(this,{message:"previous"});!this.props.infinite&&(0===this.props.currentSlide||this.props.slideCount<=this.props.slidesToShow)&&(e["slick-disabled"]=!0,t=null);var r={key:"0","data-role":"none",className:(0,a.default)(e),style:{display:"block"},onClick:t},n={currentSlide:this.props.currentSlide,slideCount:this.props.slideCount};return this.props.prevArrow?i.default.cloneElement(this.props.prevArrow,u(u({},r),n)):i.default.createElement("button",s({key:"0",type:"button"},r)," ","Previous")}}]),r}(i.default.PureComponent);t.PrevArrow=w;var g=function(e){h(r,e);var t=y(r);function r(){return p(this,r),t.apply(this,arguments)}return v(r,[{key:"clickHandler",value:function(e,t){t&&t.preventDefault(),this.props.clickHandler(e,t)}},{key:"render",value:function(){var e={"slick-arrow":!0,"slick-next":!0},t=this.clickHandler.bind(this,{message:"next"});(0,o.canGoNext)(this.props)||(e["slick-disabled"]=!0,t=null);var r={key:"1","data-role":"none",className:(0,a.default)(e),style:{display:"block"},onClick:t},n={currentSlide:this.props.currentSlide,slideCount:this.props.slideCount};return this.props.nextArrow?i.default.cloneElement(this.props.nextArrow,u(u({},r),n)):i.default.createElement("button",s({key:"1",type:"button"},r)," ","Next")}}]),r}(i.default.PureComponent);t.NextArrow=g},3492:(e,t,r)=>{"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var n,i=(n=r(9196))&&n.__esModule?n:{default:n},a={accessibility:!0,adaptiveHeight:!1,afterChange:null,appendDots:function(e){return i.default.createElement("ul",{style:{display:"block"}},e)},arrows:!0,autoplay:!1,autoplaySpeed:3e3,beforeChange:null,centerMode:!1,centerPadding:"50px",className:"",cssEase:"ease",customPaging:function(e){return i.default.createElement("button",null,e+1)},dots:!1,dotsClass:"slick-dots",draggable:!0,easing:"linear",edgeFriction:.35,fade:!1,focusOnSelect:!1,infinite:!0,initialSlide:0,lazyLoad:null,nextArrow:null,onEdge:null,onInit:null,onLazyLoadError:null,onReInit:null,pauseOnDotsHover:!1,pauseOnFocus:!1,pauseOnHover:!0,prevArrow:null,responsive:null,rows:1,rtl:!1,slide:"div",slidesPerRow:1,slidesToScroll:1,slidesToShow:1,speed:500,swipe:!0,swipeEvent:null,swipeToSlide:!1,touchMove:!0,touchThreshold:5,useCSS:!0,useTransform:!0,variableWidth:!1,vertical:!1,waitForAnimate:!0};t.default=a},6329:(e,t,r)=>{"use strict";function n(e){return n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},n(e)}Object.defineProperty(t,"__esModule",{value:!0}),t.Dots=void 0;var i=l(r(9196)),a=l(r(4184)),o=r(5518);function l(e){return e&&e.__esModule?e:{default:e}}function s(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(e);t&&(n=n.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),r.push.apply(r,n)}return r}function c(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}function u(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function d(e,t){return d=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e},d(e,t)}function p(e){return p=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)},p(e)}var f=function(e){!function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),Object.defineProperty(e,"prototype",{writable:!1}),t&&d(e,t)}(h,e);var t,r,l,f,v=(l=h,f=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],(function(){}))),!0}catch(e){return!1}}(),function(){var e,t=p(l);if(f){var r=p(this).constructor;e=Reflect.construct(t,arguments,r)}else e=t.apply(this,arguments);return function(e,t){if(t&&("object"===n(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");return function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e)}(this,e)});function h(){return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,h),v.apply(this,arguments)}return t=h,r=[{key:"clickHandler",value:function(e,t){t.preventDefault(),this.props.clickHandler(e)}},{key:"render",value:function(){for(var e,t=this.props,r=t.onMouseEnter,n=t.onMouseOver,l=t.onMouseLeave,u=t.infinite,d=t.slidesToScroll,p=t.slidesToShow,f=t.slideCount,v=t.currentSlide,h=(e={slideCount:f,slidesToScroll:d,slidesToShow:p,infinite:u}).infinite?Math.ceil(e.slideCount/e.slidesToScroll):Math.ceil((e.slideCount-e.slidesToShow)/e.slidesToScroll)+1,m={onMouseEnter:r,onMouseOver:n,onMouseLeave:l},y=[],b=0;b<h;b++){var w=(b+1)*d-1,g=u?w:(0,o.clamp)(w,0,f-1),k=g-(d-1),S=u?k:(0,o.clamp)(k,0,f-1),E=(0,a.default)({"slick-active":u?v>=S&&v<=g:v===S}),O={message:"dots",index:b,slidesToScroll:d,currentSlide:v},_=this.clickHandler.bind(this,O);y=y.concat(i.default.createElement("li",{key:b,className:E},i.default.cloneElement(this.props.customPaging(b),{onClick:_})))}return i.default.cloneElement(this.props.appendDots(y),function(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?s(Object(r),!0).forEach((function(t){c(e,t,r[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):s(Object(r)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))}))}return e}({className:this.props.dotsClass},m))}}],r&&u(t.prototype,r),Object.defineProperty(t,"prototype",{writable:!1}),h}(i.default.PureComponent);t.Dots=f},6066:(e,t,r)=>{"use strict";var n;t.Z=void 0;var i=((n=r(5798))&&n.__esModule?n:{default:n}).default;t.Z=i},6948:(e,t)=>{"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;t.default={animating:!1,autoplaying:null,currentDirection:0,currentLeft:null,currentSlide:0,direction:1,dragging:!1,edgeDragged:!1,initialized:!1,lazyLoadedList:[],listHeight:null,listWidth:null,scrolling:!1,slideCount:null,slideHeight:null,slideWidth:null,swipeLeft:null,swiped:!1,swiping:!1,touchObject:{startX:0,startY:0,curX:0,curY:0},trackStyle:{},trackWidth:0,targetSlide:0}},8517:(e,t,r)=>{"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.InnerSlider=void 0;var n=p(r(9196)),i=p(r(6948)),a=p(r(1296)),o=p(r(4184)),l=r(5518),s=r(4740),c=r(6329),u=r(8205),d=p(r(1033));function p(e){return e&&e.__esModule?e:{default:e}}function f(e){return f="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},f(e)}function v(){return v=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(e[n]=r[n])}return e},v.apply(this,arguments)}function h(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(e);t&&(n=n.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),r.push.apply(r,n)}return r}function m(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?h(Object(r),!0).forEach((function(t){k(e,t,r[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):h(Object(r)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))}))}return e}function y(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function b(e,t){return b=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e},b(e,t)}function w(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function g(e){return g=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)},g(e)}function k(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}var S=function(e){!function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),Object.defineProperty(e,"prototype",{writable:!1}),t&&b(e,t)}(E,e);var t,r,p,h,S=(p=E,h=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],(function(){}))),!0}catch(e){return!1}}(),function(){var e,t=g(p);if(h){var r=g(this).constructor;e=Reflect.construct(t,arguments,r)}else e=t.apply(this,arguments);return function(e,t){if(t&&("object"===f(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");return w(e)}(this,e)});function E(e){var t;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,E),k(w(t=S.call(this,e)),"listRefHandler",(function(e){return t.list=e})),k(w(t),"trackRefHandler",(function(e){return t.track=e})),k(w(t),"adaptHeight",(function(){if(t.props.adaptiveHeight&&t.list){var e=t.list.querySelector('[data-index="'.concat(t.state.currentSlide,'"]'));t.list.style.height=(0,l.getHeight)(e)+"px"}})),k(w(t),"componentDidMount",(function(){if(t.props.onInit&&t.props.onInit(),t.props.lazyLoad){var e=(0,l.getOnDemandLazySlides)(m(m({},t.props),t.state));e.length>0&&(t.setState((function(t){return{lazyLoadedList:t.lazyLoadedList.concat(e)}})),t.props.onLazyLoad&&t.props.onLazyLoad(e))}var r=m({listRef:t.list,trackRef:t.track},t.props);t.updateState(r,!0,(function(){t.adaptHeight(),t.props.autoplay&&t.autoPlay("update")})),"progressive"===t.props.lazyLoad&&(t.lazyLoadTimer=setInterval(t.progressiveLazyLoad,1e3)),t.ro=new d.default((function(){t.state.animating?(t.onWindowResized(!1),t.callbackTimers.push(setTimeout((function(){return t.onWindowResized()}),t.props.speed))):t.onWindowResized()})),t.ro.observe(t.list),document.querySelectorAll&&Array.prototype.forEach.call(document.querySelectorAll(".slick-slide"),(function(e){e.onfocus=t.props.pauseOnFocus?t.onSlideFocus:null,e.onblur=t.props.pauseOnFocus?t.onSlideBlur:null})),window.addEventListener?window.addEventListener("resize",t.onWindowResized):window.attachEvent("onresize",t.onWindowResized)})),k(w(t),"componentWillUnmount",(function(){t.animationEndCallback&&clearTimeout(t.animationEndCallback),t.lazyLoadTimer&&clearInterval(t.lazyLoadTimer),t.callbackTimers.length&&(t.callbackTimers.forEach((function(e){return clearTimeout(e)})),t.callbackTimers=[]),window.addEventListener?window.removeEventListener("resize",t.onWindowResized):window.detachEvent("onresize",t.onWindowResized),t.autoplayTimer&&clearInterval(t.autoplayTimer),t.ro.disconnect()})),k(w(t),"componentDidUpdate",(function(e){if(t.checkImagesLoad(),t.props.onReInit&&t.props.onReInit(),t.props.lazyLoad){var r=(0,l.getOnDemandLazySlides)(m(m({},t.props),t.state));r.length>0&&(t.setState((function(e){return{lazyLoadedList:e.lazyLoadedList.concat(r)}})),t.props.onLazyLoad&&t.props.onLazyLoad(r))}t.adaptHeight();var i=m(m({listRef:t.list,trackRef:t.track},t.props),t.state),a=t.didPropsChange(e);a&&t.updateState(i,a,(function(){t.state.currentSlide>=n.default.Children.count(t.props.children)&&t.changeSlide({message:"index",index:n.default.Children.count(t.props.children)-t.props.slidesToShow,currentSlide:t.state.currentSlide}),t.props.autoplay?t.autoPlay("update"):t.pause("paused")}))})),k(w(t),"onWindowResized",(function(e){t.debouncedResize&&t.debouncedResize.cancel(),t.debouncedResize=(0,a.default)((function(){return t.resizeWindow(e)}),50),t.debouncedResize()})),k(w(t),"resizeWindow",(function(){var e=!(arguments.length>0&&void 0!==arguments[0])||arguments[0];if(Boolean(t.track&&t.track.node)){var r=m(m({listRef:t.list,trackRef:t.track},t.props),t.state);t.updateState(r,e,(function(){t.props.autoplay?t.autoPlay("update"):t.pause("paused")})),t.setState({animating:!1}),clearTimeout(t.animationEndCallback),delete t.animationEndCallback}})),k(w(t),"updateState",(function(e,r,i){var a=(0,l.initializedState)(e);e=m(m(m({},e),a),{},{slideIndex:a.currentSlide});var o=(0,l.getTrackLeft)(e);e=m(m({},e),{},{left:o});var s=(0,l.getTrackCSS)(e);(r||n.default.Children.count(t.props.children)!==n.default.Children.count(e.children))&&(a.trackStyle=s),t.setState(a,i)})),k(w(t),"ssrInit",(function(){if(t.props.variableWidth){var e=0,r=0,i=[],a=(0,l.getPreClones)(m(m(m({},t.props),t.state),{},{slideCount:t.props.children.length})),o=(0,l.getPostClones)(m(m(m({},t.props),t.state),{},{slideCount:t.props.children.length}));t.props.children.forEach((function(t){i.push(t.props.style.width),e+=t.props.style.width}));for(var s=0;s<a;s++)r+=i[i.length-1-s],e+=i[i.length-1-s];for(var c=0;c<o;c++)e+=i[c];for(var u=0;u<t.state.currentSlide;u++)r+=i[u];var d={width:e+"px",left:-r+"px"};if(t.props.centerMode){var p="".concat(i[t.state.currentSlide],"px");d.left="calc(".concat(d.left," + (100% - ").concat(p,") / 2 ) ")}return{trackStyle:d}}var f=n.default.Children.count(t.props.children),v=m(m(m({},t.props),t.state),{},{slideCount:f}),h=(0,l.getPreClones)(v)+(0,l.getPostClones)(v)+f,y=100/t.props.slidesToShow*h,b=100/h,w=-b*((0,l.getPreClones)(v)+t.state.currentSlide)*y/100;return t.props.centerMode&&(w+=(100-b*y/100)/2),{slideWidth:b+"%",trackStyle:{width:y+"%",left:w+"%"}}})),k(w(t),"checkImagesLoad",(function(){var e=t.list&&t.list.querySelectorAll&&t.list.querySelectorAll(".slick-slide img")||[],r=e.length,n=0;Array.prototype.forEach.call(e,(function(e){var i=function(){return++n&&n>=r&&t.onWindowResized()};if(e.onclick){var a=e.onclick;e.onclick=function(){a(),e.parentNode.focus()}}else e.onclick=function(){return e.parentNode.focus()};e.onload||(t.props.lazyLoad?e.onload=function(){t.adaptHeight(),t.callbackTimers.push(setTimeout(t.onWindowResized,t.props.speed))}:(e.onload=i,e.onerror=function(){i(),t.props.onLazyLoadError&&t.props.onLazyLoadError()}))}))})),k(w(t),"progressiveLazyLoad",(function(){for(var e=[],r=m(m({},t.props),t.state),n=t.state.currentSlide;n<t.state.slideCount+(0,l.getPostClones)(r);n++)if(t.state.lazyLoadedList.indexOf(n)<0){e.push(n);break}for(var i=t.state.currentSlide-1;i>=-(0,l.getPreClones)(r);i--)if(t.state.lazyLoadedList.indexOf(i)<0){e.push(i);break}e.length>0?(t.setState((function(t){return{lazyLoadedList:t.lazyLoadedList.concat(e)}})),t.props.onLazyLoad&&t.props.onLazyLoad(e)):t.lazyLoadTimer&&(clearInterval(t.lazyLoadTimer),delete t.lazyLoadTimer)})),k(w(t),"slideHandler",(function(e){var r=arguments.length>1&&void 0!==arguments[1]&&arguments[1],n=t.props,i=n.asNavFor,a=n.beforeChange,o=n.onLazyLoad,s=n.speed,c=n.afterChange,u=t.state.currentSlide,d=(0,l.slideHandler)(m(m(m({index:e},t.props),t.state),{},{trackRef:t.track,useCSS:t.props.useCSS&&!r})),p=d.state,f=d.nextState;if(p){a&&a(u,p.currentSlide);var v=p.lazyLoadedList.filter((function(e){return t.state.lazyLoadedList.indexOf(e)<0}));o&&v.length>0&&o(v),!t.props.waitForAnimate&&t.animationEndCallback&&(clearTimeout(t.animationEndCallback),c&&c(u),delete t.animationEndCallback),t.setState(p,(function(){i&&t.asNavForIndex!==e&&(t.asNavForIndex=e,i.innerSlider.slideHandler(e)),f&&(t.animationEndCallback=setTimeout((function(){var e=f.animating,r=function(e,t){if(null==e)return{};var r,n,i=function(e,t){if(null==e)return{};var r,n,i={},a=Object.keys(e);for(n=0;n<a.length;n++)r=a[n],t.indexOf(r)>=0||(i[r]=e[r]);return i}(e,t);if(Object.getOwnPropertySymbols){var a=Object.getOwnPropertySymbols(e);for(n=0;n<a.length;n++)r=a[n],t.indexOf(r)>=0||Object.prototype.propertyIsEnumerable.call(e,r)&&(i[r]=e[r])}return i}(f,["animating"]);t.setState(r,(function(){t.callbackTimers.push(setTimeout((function(){return t.setState({animating:e})}),10)),c&&c(p.currentSlide),delete t.animationEndCallback}))}),s))}))}})),k(w(t),"changeSlide",(function(e){var r=arguments.length>1&&void 0!==arguments[1]&&arguments[1],n=m(m({},t.props),t.state),i=(0,l.changeSlide)(n,e);if((0===i||i)&&(!0===r?t.slideHandler(i,r):t.slideHandler(i),t.props.autoplay&&t.autoPlay("update"),t.props.focusOnSelect)){var a=t.list.querySelectorAll(".slick-current");a[0]&&a[0].focus()}})),k(w(t),"clickHandler",(function(e){!1===t.clickable&&(e.stopPropagation(),e.preventDefault()),t.clickable=!0})),k(w(t),"keyHandler",(function(e){var r=(0,l.keyHandler)(e,t.props.accessibility,t.props.rtl);""!==r&&t.changeSlide({message:r})})),k(w(t),"selectHandler",(function(e){t.changeSlide(e)})),k(w(t),"disableBodyScroll",(function(){window.ontouchmove=function(e){(e=e||window.event).preventDefault&&e.preventDefault(),e.returnValue=!1}})),k(w(t),"enableBodyScroll",(function(){window.ontouchmove=null})),k(w(t),"swipeStart",(function(e){t.props.verticalSwiping&&t.disableBodyScroll();var r=(0,l.swipeStart)(e,t.props.swipe,t.props.draggable);""!==r&&t.setState(r)})),k(w(t),"swipeMove",(function(e){var r=(0,l.swipeMove)(e,m(m(m({},t.props),t.state),{},{trackRef:t.track,listRef:t.list,slideIndex:t.state.currentSlide}));r&&(r.swiping&&(t.clickable=!1),t.setState(r))})),k(w(t),"swipeEnd",(function(e){var r=(0,l.swipeEnd)(e,m(m(m({},t.props),t.state),{},{trackRef:t.track,listRef:t.list,slideIndex:t.state.currentSlide}));if(r){var n=r.triggerSlideHandler;delete r.triggerSlideHandler,t.setState(r),void 0!==n&&(t.slideHandler(n),t.props.verticalSwiping&&t.enableBodyScroll())}})),k(w(t),"touchEnd",(function(e){t.swipeEnd(e),t.clickable=!0})),k(w(t),"slickPrev",(function(){t.callbackTimers.push(setTimeout((function(){return t.changeSlide({message:"previous"})}),0))})),k(w(t),"slickNext",(function(){t.callbackTimers.push(setTimeout((function(){return t.changeSlide({message:"next"})}),0))})),k(w(t),"slickGoTo",(function(e){var r=arguments.length>1&&void 0!==arguments[1]&&arguments[1];if(e=Number(e),isNaN(e))return"";t.callbackTimers.push(setTimeout((function(){return t.changeSlide({message:"index",index:e,currentSlide:t.state.currentSlide},r)}),0))})),k(w(t),"play",(function(){var e;if(t.props.rtl)e=t.state.currentSlide-t.props.slidesToScroll;else{if(!(0,l.canGoNext)(m(m({},t.props),t.state)))return!1;e=t.state.currentSlide+t.props.slidesToScroll}t.slideHandler(e)})),k(w(t),"autoPlay",(function(e){t.autoplayTimer&&clearInterval(t.autoplayTimer);var r=t.state.autoplaying;if("update"===e){if("hovered"===r||"focused"===r||"paused"===r)return}else if("leave"===e){if("paused"===r||"focused"===r)return}else if("blur"===e&&("paused"===r||"hovered"===r))return;t.autoplayTimer=setInterval(t.play,t.props.autoplaySpeed+50),t.setState({autoplaying:"playing"})})),k(w(t),"pause",(function(e){t.autoplayTimer&&(clearInterval(t.autoplayTimer),t.autoplayTimer=null);var r=t.state.autoplaying;"paused"===e?t.setState({autoplaying:"paused"}):"focused"===e?"hovered"!==r&&"playing"!==r||t.setState({autoplaying:"focused"}):"playing"===r&&t.setState({autoplaying:"hovered"})})),k(w(t),"onDotsOver",(function(){return t.props.autoplay&&t.pause("hovered")})),k(w(t),"onDotsLeave",(function(){return t.props.autoplay&&"hovered"===t.state.autoplaying&&t.autoPlay("leave")})),k(w(t),"onTrackOver",(function(){return t.props.autoplay&&t.pause("hovered")})),k(w(t),"onTrackLeave",(function(){return t.props.autoplay&&"hovered"===t.state.autoplaying&&t.autoPlay("leave")})),k(w(t),"onSlideFocus",(function(){return t.props.autoplay&&t.pause("focused")})),k(w(t),"onSlideBlur",(function(){return t.props.autoplay&&"focused"===t.state.autoplaying&&t.autoPlay("blur")})),k(w(t),"render",(function(){var e,r,i,a=(0,o.default)("slick-slider",t.props.className,{"slick-vertical":t.props.vertical,"slick-initialized":!0}),d=m(m({},t.props),t.state),p=(0,l.extractObject)(d,["fade","cssEase","speed","infinite","centerMode","focusOnSelect","currentSlide","lazyLoad","lazyLoadedList","rtl","slideWidth","slideHeight","listHeight","vertical","slidesToShow","slidesToScroll","slideCount","trackStyle","variableWidth","unslick","centerPadding","targetSlide","useCSS"]),f=t.props.pauseOnHover;if(p=m(m({},p),{},{onMouseEnter:f?t.onTrackOver:null,onMouseLeave:f?t.onTrackLeave:null,onMouseOver:f?t.onTrackOver:null,focusOnSelect:t.props.focusOnSelect&&t.clickable?t.selectHandler:null}),!0===t.props.dots&&t.state.slideCount>=t.props.slidesToShow){var h=(0,l.extractObject)(d,["dotsClass","slideCount","slidesToShow","currentSlide","slidesToScroll","clickHandler","children","customPaging","infinite","appendDots"]),y=t.props.pauseOnDotsHover;h=m(m({},h),{},{clickHandler:t.changeSlide,onMouseEnter:y?t.onDotsLeave:null,onMouseOver:y?t.onDotsOver:null,onMouseLeave:y?t.onDotsLeave:null}),e=n.default.createElement(c.Dots,h)}var b=(0,l.extractObject)(d,["infinite","centerMode","currentSlide","slideCount","slidesToShow","prevArrow","nextArrow"]);b.clickHandler=t.changeSlide,t.props.arrows&&(r=n.default.createElement(u.PrevArrow,b),i=n.default.createElement(u.NextArrow,b));var w=null;t.props.vertical&&(w={height:t.state.listHeight});var g=null;!1===t.props.vertical?!0===t.props.centerMode&&(g={padding:"0px "+t.props.centerPadding}):!0===t.props.centerMode&&(g={padding:t.props.centerPadding+" 0px"});var k=m(m({},w),g),S=t.props.touchMove,E={className:"slick-list",style:k,onClick:t.clickHandler,onMouseDown:S?t.swipeStart:null,onMouseMove:t.state.dragging&&S?t.swipeMove:null,onMouseUp:S?t.swipeEnd:null,onMouseLeave:t.state.dragging&&S?t.swipeEnd:null,onTouchStart:S?t.swipeStart:null,onTouchMove:t.state.dragging&&S?t.swipeMove:null,onTouchEnd:S?t.touchEnd:null,onTouchCancel:t.state.dragging&&S?t.swipeEnd:null,onKeyDown:t.props.accessibility?t.keyHandler:null},O={className:a,dir:"ltr",style:t.props.style};return t.props.unslick&&(E={className:"slick-list"},O={className:a}),n.default.createElement("div",O,t.props.unslick?"":r,n.default.createElement("div",v({ref:t.listRefHandler},E),n.default.createElement(s.Track,v({ref:t.trackRefHandler},p),t.props.children)),t.props.unslick?"":i,t.props.unslick?"":e)})),t.list=null,t.track=null,t.state=m(m({},i.default),{},{currentSlide:t.props.initialSlide,slideCount:n.default.Children.count(t.props.children)}),t.callbackTimers=[],t.clickable=!0,t.debouncedResize=null;var r=t.ssrInit();return t.state=m(m({},t.state),r),t}return t=E,(r=[{key:"didPropsChange",value:function(e){for(var t=!1,r=0,i=Object.keys(this.props);r<i.length;r++){var a=i[r];if(!e.hasOwnProperty(a)){t=!0;break}if("object"!==f(e[a])&&"function"!=typeof e[a]&&e[a]!==this.props[a]){t=!0;break}}return t||n.default.Children.count(this.props.children)!==n.default.Children.count(e.children)}}])&&y(t.prototype,r),Object.defineProperty(t,"prototype",{writable:!1}),E}(n.default.Component);t.InnerSlider=S},5798:(e,t,r)=>{"use strict";function n(e){return n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},n(e)}Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var i=c(r(9196)),a=r(8517),o=c(r(973)),l=c(r(3492)),s=r(5518);function c(e){return e&&e.__esModule?e:{default:e}}function u(){return u=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(e[n]=r[n])}return e},u.apply(this,arguments)}function d(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(e);t&&(n=n.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),r.push.apply(r,n)}return r}function p(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?d(Object(r),!0).forEach((function(t){y(e,t,r[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):d(Object(r)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))}))}return e}function f(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function v(e,t){return v=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e},v(e,t)}function h(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function m(e){return m=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)},m(e)}function y(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}var b=(0,s.canUseDOM)()&&r(4974),w=function(e){!function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),Object.defineProperty(e,"prototype",{writable:!1}),t&&v(e,t)}(g,e);var t,r,c,d,w=(c=g,d=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],(function(){}))),!0}catch(e){return!1}}(),function(){var e,t=m(c);if(d){var r=m(this).constructor;e=Reflect.construct(t,arguments,r)}else e=t.apply(this,arguments);return function(e,t){if(t&&("object"===n(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");return h(e)}(this,e)});function g(e){var t;return function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,g),y(h(t=w.call(this,e)),"innerSliderRefHandler",(function(e){return t.innerSlider=e})),y(h(t),"slickPrev",(function(){return t.innerSlider.slickPrev()})),y(h(t),"slickNext",(function(){return t.innerSlider.slickNext()})),y(h(t),"slickGoTo",(function(e){var r=arguments.length>1&&void 0!==arguments[1]&&arguments[1];return t.innerSlider.slickGoTo(e,r)})),y(h(t),"slickPause",(function(){return t.innerSlider.pause("paused")})),y(h(t),"slickPlay",(function(){return t.innerSlider.autoPlay("play")})),t.state={breakpoint:null},t._responsiveMediaHandlers=[],t}return t=g,(r=[{key:"media",value:function(e,t){b.register(e,t),this._responsiveMediaHandlers.push({query:e,handler:t})}},{key:"componentDidMount",value:function(){var e=this;if(this.props.responsive){var t=this.props.responsive.map((function(e){return e.breakpoint}));t.sort((function(e,t){return e-t})),t.forEach((function(r,n){var i;i=0===n?(0,o.default)({minWidth:0,maxWidth:r}):(0,o.default)({minWidth:t[n-1]+1,maxWidth:r}),(0,s.canUseDOM)()&&e.media(i,(function(){e.setState({breakpoint:r})}))}));var r=(0,o.default)({minWidth:t.slice(-1)[0]});(0,s.canUseDOM)()&&this.media(r,(function(){e.setState({breakpoint:null})}))}}},{key:"componentWillUnmount",value:function(){this._responsiveMediaHandlers.forEach((function(e){b.unregister(e.query,e.handler)}))}},{key:"render",value:function(){var e,t,r=this;(e=this.state.breakpoint?"unslick"===(t=this.props.responsive.filter((function(e){return e.breakpoint===r.state.breakpoint})))[0].settings?"unslick":p(p(p({},l.default),this.props),t[0].settings):p(p({},l.default),this.props)).centerMode&&(e.slidesToScroll,e.slidesToScroll=1),e.fade&&(e.slidesToShow,e.slidesToScroll,e.slidesToShow=1,e.slidesToScroll=1);var n=i.default.Children.toArray(this.props.children);n=n.filter((function(e){return"string"==typeof e?!!e.trim():!!e})),e.variableWidth&&(e.rows>1||e.slidesPerRow>1)&&(console.warn("variableWidth is not supported in case of rows > 1 or slidesPerRow > 1"),e.variableWidth=!1);for(var o=[],s=null,c=0;c<n.length;c+=e.rows*e.slidesPerRow){for(var d=[],f=c;f<c+e.rows*e.slidesPerRow;f+=e.slidesPerRow){for(var v=[],h=f;h<f+e.slidesPerRow&&(e.variableWidth&&n[h].props.style&&(s=n[h].props.style.width),!(h>=n.length));h+=1)v.push(i.default.cloneElement(n[h],{key:100*c+10*f+h,tabIndex:-1,style:{width:"".concat(100/e.slidesPerRow,"%"),display:"inline-block"}}));d.push(i.default.createElement("div",{key:10*c+f},v))}e.variableWidth?o.push(i.default.createElement("div",{key:c,style:{width:s}},d)):o.push(i.default.createElement("div",{key:c},d))}if("unslick"===e){var m="regular slider "+(this.props.className||"");return i.default.createElement("div",{className:m},n)}return o.length<=e.slidesToShow&&(e.unslick=!0),i.default.createElement(a.InnerSlider,u({style:this.props.style,ref:this.innerSliderRefHandler},e),o)}}])&&f(t.prototype,r),Object.defineProperty(t,"prototype",{writable:!1}),g}(i.default.Component);t.default=w},4740:(e,t,r)=>{"use strict";function n(e){return n="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},n(e)}Object.defineProperty(t,"__esModule",{value:!0}),t.Track=void 0;var i=l(r(9196)),a=l(r(4184)),o=r(5518);function l(e){return e&&e.__esModule?e:{default:e}}function s(){return s=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(e[n]=r[n])}return e},s.apply(this,arguments)}function c(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function u(e,t){return u=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e},u(e,t)}function d(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}function p(e){return p=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)},p(e)}function f(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(e);t&&(n=n.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),r.push.apply(r,n)}return r}function v(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?f(Object(r),!0).forEach((function(t){h(e,t,r[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):f(Object(r)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))}))}return e}function h(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}var m=function(e){var t,r,n,i,a;return n=(a=e.rtl?e.slideCount-1-e.index:e.index)<0||a>=e.slideCount,e.centerMode?(i=Math.floor(e.slidesToShow/2),r=(a-e.currentSlide)%e.slideCount==0,a>e.currentSlide-i-1&&a<=e.currentSlide+i&&(t=!0)):t=e.currentSlide<=a&&a<e.currentSlide+e.slidesToShow,{"slick-slide":!0,"slick-active":t,"slick-center":r,"slick-cloned":n,"slick-current":a===(e.targetSlide<0?e.targetSlide+e.slideCount:e.targetSlide>=e.slideCount?e.targetSlide-e.slideCount:e.targetSlide)}},y=function(e,t){return e.key||t},b=function(e){!function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),Object.defineProperty(e,"prototype",{writable:!1}),t&&u(e,t)}(w,e);var t,r,l,f,b=(l=w,f=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],(function(){}))),!0}catch(e){return!1}}(),function(){var e,t=p(l);if(f){var r=p(this).constructor;e=Reflect.construct(t,arguments,r)}else e=t.apply(this,arguments);return function(e,t){if(t&&("object"===n(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");return d(e)}(this,e)});function w(){var e;!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,w);for(var t=arguments.length,r=new Array(t),n=0;n<t;n++)r[n]=arguments[n];return h(d(e=b.call.apply(b,[this].concat(r))),"node",null),h(d(e),"handleRef",(function(t){e.node=t})),e}return t=w,(r=[{key:"render",value:function(){var e=function(e){var t,r=[],n=[],l=[],s=i.default.Children.count(e.children),c=(0,o.lazyStartIndex)(e),u=(0,o.lazyEndIndex)(e);return i.default.Children.forEach(e.children,(function(d,p){var f,h={message:"children",index:p,slidesToScroll:e.slidesToScroll,currentSlide:e.currentSlide};f=!e.lazyLoad||e.lazyLoad&&e.lazyLoadedList.indexOf(p)>=0?d:i.default.createElement("div",null);var b=function(e){var t={};return void 0!==e.variableWidth&&!1!==e.variableWidth||(t.width=e.slideWidth),e.fade&&(t.position="relative",e.vertical?t.top=-e.index*parseInt(e.slideHeight):t.left=-e.index*parseInt(e.slideWidth),t.opacity=e.currentSlide===e.index?1:0,e.useCSS&&(t.transition="opacity "+e.speed+"ms "+e.cssEase+", visibility "+e.speed+"ms "+e.cssEase)),t}(v(v({},e),{},{index:p})),w=f.props.className||"",g=m(v(v({},e),{},{index:p}));if(r.push(i.default.cloneElement(f,{key:"original"+y(f,p),"data-index":p,className:(0,a.default)(g,w),tabIndex:"-1","aria-hidden":!g["slick-active"],style:v(v({outline:"none"},f.props.style||{}),b),onClick:function(t){f.props&&f.props.onClick&&f.props.onClick(t),e.focusOnSelect&&e.focusOnSelect(h)}})),e.infinite&&!1===e.fade){var k=s-p;k<=(0,o.getPreClones)(e)&&s!==e.slidesToShow&&((t=-k)>=c&&(f=d),g=m(v(v({},e),{},{index:t})),n.push(i.default.cloneElement(f,{key:"precloned"+y(f,t),"data-index":t,tabIndex:"-1",className:(0,a.default)(g,w),"aria-hidden":!g["slick-active"],style:v(v({},f.props.style||{}),b),onClick:function(t){f.props&&f.props.onClick&&f.props.onClick(t),e.focusOnSelect&&e.focusOnSelect(h)}}))),s!==e.slidesToShow&&((t=s+p)<u&&(f=d),g=m(v(v({},e),{},{index:t})),l.push(i.default.cloneElement(f,{key:"postcloned"+y(f,t),"data-index":t,tabIndex:"-1",className:(0,a.default)(g,w),"aria-hidden":!g["slick-active"],style:v(v({},f.props.style||{}),b),onClick:function(t){f.props&&f.props.onClick&&f.props.onClick(t),e.focusOnSelect&&e.focusOnSelect(h)}})))}})),e.rtl?n.concat(r,l).reverse():n.concat(r,l)}(this.props),t=this.props,r={onMouseEnter:t.onMouseEnter,onMouseOver:t.onMouseOver,onMouseLeave:t.onMouseLeave};return i.default.createElement("div",s({ref:this.handleRef,className:"slick-track",style:this.props.trackStyle},r),e)}}])&&c(t.prototype,r),Object.defineProperty(t,"prototype",{writable:!1}),w}(i.default.PureComponent);t.Track=b},5518:(e,t,r)=>{"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.checkSpecKeys=t.checkNavigable=t.changeSlide=t.canUseDOM=t.canGoNext=void 0,t.clamp=s,t.swipeStart=t.swipeMove=t.swipeEnd=t.slidesOnRight=t.slidesOnLeft=t.slideHandler=t.siblingDirection=t.safePreventDefault=t.lazyStartIndex=t.lazySlidesOnRight=t.lazySlidesOnLeft=t.lazyEndIndex=t.keyHandler=t.initializedState=t.getWidth=t.getTrackLeft=t.getTrackCSS=t.getTrackAnimateCSS=t.getTotalSlides=t.getSwipeDirection=t.getSlideCount=t.getRequiredLazySlides=t.getPreClones=t.getPostClones=t.getOnDemandLazySlides=t.getNavigableIndexes=t.getHeight=t.extractObject=void 0;var n,i=(n=r(9196))&&n.__esModule?n:{default:n};function a(e,t){var r=Object.keys(e);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(e);t&&(n=n.filter((function(t){return Object.getOwnPropertyDescriptor(e,t).enumerable}))),r.push.apply(r,n)}return r}function o(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{};t%2?a(Object(r),!0).forEach((function(t){l(e,t,r[t])})):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(r)):a(Object(r)).forEach((function(t){Object.defineProperty(e,t,Object.getOwnPropertyDescriptor(r,t))}))}return e}function l(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}function s(e,t,r){return Math.max(t,Math.min(e,r))}var c=function(e){["onTouchStart","onTouchMove","onWheel"].includes(e._reactName)||e.preventDefault()};t.safePreventDefault=c;var u=function(e){for(var t=[],r=d(e),n=p(e),i=r;i<n;i++)e.lazyLoadedList.indexOf(i)<0&&t.push(i);return t};t.getOnDemandLazySlides=u,t.getRequiredLazySlides=function(e){for(var t=[],r=d(e),n=p(e),i=r;i<n;i++)t.push(i);return t};var d=function(e){return e.currentSlide-f(e)};t.lazyStartIndex=d;var p=function(e){return e.currentSlide+v(e)};t.lazyEndIndex=p;var f=function(e){return e.centerMode?Math.floor(e.slidesToShow/2)+(parseInt(e.centerPadding)>0?1:0):0};t.lazySlidesOnLeft=f;var v=function(e){return e.centerMode?Math.floor((e.slidesToShow-1)/2)+1+(parseInt(e.centerPadding)>0?1:0):e.slidesToShow};t.lazySlidesOnRight=v;var h=function(e){return e&&e.offsetWidth||0};t.getWidth=h;var m=function(e){return e&&e.offsetHeight||0};t.getHeight=m;var y=function(e){var t,r,n,i,a=arguments.length>1&&void 0!==arguments[1]&&arguments[1];return t=e.startX-e.curX,r=e.startY-e.curY,n=Math.atan2(r,t),(i=Math.round(180*n/Math.PI))<0&&(i=360-Math.abs(i)),i<=45&&i>=0||i<=360&&i>=315?"left":i>=135&&i<=225?"right":!0===a?i>=35&&i<=135?"up":"down":"vertical"};t.getSwipeDirection=y;var b=function(e){var t=!0;return e.infinite||(e.centerMode&&e.currentSlide>=e.slideCount-1||e.slideCount<=e.slidesToShow||e.currentSlide>=e.slideCount-e.slidesToShow)&&(t=!1),t};t.canGoNext=b,t.extractObject=function(e,t){var r={};return t.forEach((function(t){return r[t]=e[t]})),r},t.initializedState=function(e){var t,r=i.default.Children.count(e.children),n=e.listRef,a=Math.ceil(h(n)),l=e.trackRef&&e.trackRef.node,s=Math.ceil(h(l));if(e.vertical)t=a;else{var c=e.centerMode&&2*parseInt(e.centerPadding);"string"==typeof e.centerPadding&&"%"===e.centerPadding.slice(-1)&&(c*=a/100),t=Math.ceil((a-c)/e.slidesToShow)}var d=n&&m(n.querySelector('[data-index="0"]')),p=d*e.slidesToShow,f=void 0===e.currentSlide?e.initialSlide:e.currentSlide;e.rtl&&void 0===e.currentSlide&&(f=r-1-e.initialSlide);var v=e.lazyLoadedList||[],y=u(o(o({},e),{},{currentSlide:f,lazyLoadedList:v})),b={slideCount:r,slideWidth:t,listWidth:a,trackWidth:s,currentSlide:f,slideHeight:d,listHeight:p,lazyLoadedList:v=v.concat(y)};return null===e.autoplaying&&e.autoplay&&(b.autoplaying="playing"),b},t.slideHandler=function(e){var t=e.waitForAnimate,r=e.animating,n=e.fade,i=e.infinite,a=e.index,l=e.slideCount,c=e.lazyLoad,d=e.currentSlide,p=e.centerMode,f=e.slidesToScroll,v=e.slidesToShow,h=e.useCSS,m=e.lazyLoadedList;if(t&&r)return{};var y,w,g,k=a,S={},T={},x=i?a:s(a,0,l-1);if(n){if(!i&&(a<0||a>=l))return{};a<0?k=a+l:a>=l&&(k=a-l),c&&m.indexOf(k)<0&&(m=m.concat(k)),S={animating:!0,currentSlide:k,lazyLoadedList:m,targetSlide:k},T={animating:!1,targetSlide:k}}else y=k,k<0?(y=k+l,i?l%f!=0&&(y=l-l%f):y=0):!b(e)&&k>d?k=y=d:p&&k>=l?(k=i?l:l-1,y=i?0:l-1):k>=l&&(y=k-l,i?l%f!=0&&(y=0):y=l-v),!i&&k+v>=l&&(y=l-v),w=_(o(o({},e),{},{slideIndex:k})),g=_(o(o({},e),{},{slideIndex:y})),i||(w===g&&(k=y),w=g),c&&(m=m.concat(u(o(o({},e),{},{currentSlide:k})))),h?(S={animating:!0,currentSlide:y,trackStyle:O(o(o({},e),{},{left:w})),lazyLoadedList:m,targetSlide:x},T={animating:!1,currentSlide:y,trackStyle:E(o(o({},e),{},{left:g})),swipeLeft:null,targetSlide:x}):S={currentSlide:y,trackStyle:E(o(o({},e),{},{left:g})),lazyLoadedList:m,targetSlide:x};return{state:S,nextState:T}},t.changeSlide=function(e,t){var r,n,i,a,l=e.slidesToScroll,s=e.slidesToShow,c=e.slideCount,u=e.currentSlide,d=e.targetSlide,p=e.lazyLoad,f=e.infinite;if(r=c%l!=0?0:(c-u)%l,"previous"===t.message)a=u-(i=0===r?l:s-r),p&&!f&&(a=-1==(n=u-i)?c-1:n),f||(a=d-l);else if("next"===t.message)a=u+(i=0===r?l:r),p&&!f&&(a=(u+l)%c+r),f||(a=d+l);else if("dots"===t.message)a=t.index*t.slidesToScroll;else if("children"===t.message){if(a=t.index,f){var v=P(o(o({},e),{},{targetSlide:a}));a>t.currentSlide&&"left"===v?a-=c:a<t.currentSlide&&"right"===v&&(a+=c)}}else"index"===t.message&&(a=Number(t.index));return a},t.keyHandler=function(e,t,r){return e.target.tagName.match("TEXTAREA|INPUT|SELECT")||!t?"":37===e.keyCode?r?"next":"previous":39===e.keyCode?r?"previous":"next":""},t.swipeStart=function(e,t,r){return"IMG"===e.target.tagName&&c(e),!t||!r&&-1!==e.type.indexOf("mouse")?"":{dragging:!0,touchObject:{startX:e.touches?e.touches[0].pageX:e.clientX,startY:e.touches?e.touches[0].pageY:e.clientY,curX:e.touches?e.touches[0].pageX:e.clientX,curY:e.touches?e.touches[0].pageY:e.clientY}}},t.swipeMove=function(e,t){var r=t.scrolling,n=t.animating,i=t.vertical,a=t.swipeToSlide,l=t.verticalSwiping,s=t.rtl,u=t.currentSlide,d=t.edgeFriction,p=t.edgeDragged,f=t.onEdge,v=t.swiped,h=t.swiping,m=t.slideCount,w=t.slidesToScroll,g=t.infinite,k=t.touchObject,S=t.swipeEvent,O=t.listHeight,T=t.listWidth;if(!r){if(n)return c(e);i&&a&&l&&c(e);var x,j={},P=_(t);k.curX=e.touches?e.touches[0].pageX:e.clientX,k.curY=e.touches?e.touches[0].pageY:e.clientY,k.swipeLength=Math.round(Math.sqrt(Math.pow(k.curX-k.startX,2)));var C=Math.round(Math.sqrt(Math.pow(k.curY-k.startY,2)));if(!l&&!h&&C>10)return{scrolling:!0};l&&(k.swipeLength=C);var L=(s?-1:1)*(k.curX>k.startX?1:-1);l&&(L=k.curY>k.startY?1:-1);var M=Math.ceil(m/w),N=y(t.touchObject,l),z=k.swipeLength;return g||(0===u&&("right"===N||"down"===N)||u+1>=M&&("left"===N||"up"===N)||!b(t)&&("left"===N||"up"===N))&&(z=k.swipeLength*d,!1===p&&f&&(f(N),j.edgeDragged=!0)),!v&&S&&(S(N),j.swiped=!0),x=i?P+z*(O/T)*L:s?P-z*L:P+z*L,l&&(x=P+z*L),j=o(o({},j),{},{touchObject:k,swipeLeft:x,trackStyle:E(o(o({},t),{},{left:x}))}),Math.abs(k.curX-k.startX)<.8*Math.abs(k.curY-k.startY)||k.swipeLength>10&&(j.swiping=!0,c(e)),j}},t.swipeEnd=function(e,t){var r=t.dragging,n=t.swipe,i=t.touchObject,a=t.listWidth,l=t.touchThreshold,s=t.verticalSwiping,u=t.listHeight,d=t.swipeToSlide,p=t.scrolling,f=t.onSwipe,v=t.targetSlide,h=t.currentSlide,m=t.infinite;if(!r)return n&&c(e),{};var b=s?u/l:a/l,w=y(i,s),S={dragging:!1,edgeDragged:!1,scrolling:!1,swiping:!1,swiped:!1,swipeLeft:null,touchObject:{}};if(p)return S;if(!i.swipeLength)return S;if(i.swipeLength>b){var E,T;c(e),f&&f(w);var x=m?h:v;switch(w){case"left":case"up":T=x+k(t),E=d?g(t,T):T,S.currentDirection=0;break;case"right":case"down":T=x-k(t),E=d?g(t,T):T,S.currentDirection=1;break;default:E=x}S.triggerSlideHandler=E}else{var j=_(t);S.trackStyle=O(o(o({},t),{},{left:j}))}return S};var w=function(e){for(var t=e.infinite?2*e.slideCount:e.slideCount,r=e.infinite?-1*e.slidesToShow:0,n=e.infinite?-1*e.slidesToShow:0,i=[];r<t;)i.push(r),r=n+e.slidesToScroll,n+=Math.min(e.slidesToScroll,e.slidesToShow);return i};t.getNavigableIndexes=w;var g=function(e,t){var r=w(e),n=0;if(t>r[r.length-1])t=r[r.length-1];else for(var i in r){if(t<r[i]){t=n;break}n=r[i]}return t};t.checkNavigable=g;var k=function(e){var t=e.centerMode?e.slideWidth*Math.floor(e.slidesToShow/2):0;if(e.swipeToSlide){var r,n=e.listRef,i=n.querySelectorAll&&n.querySelectorAll(".slick-slide")||[];if(Array.from(i).every((function(n){if(e.vertical){if(n.offsetTop+m(n)/2>-1*e.swipeLeft)return r=n,!1}else if(n.offsetLeft-t+h(n)/2>-1*e.swipeLeft)return r=n,!1;return!0})),!r)return 0;var a=!0===e.rtl?e.slideCount-e.currentSlide:e.currentSlide;return Math.abs(r.dataset.index-a)||1}return e.slidesToScroll};t.getSlideCount=k;var S=function(e,t){return t.reduce((function(t,r){return t&&e.hasOwnProperty(r)}),!0)?null:console.error("Keys Missing:",e)};t.checkSpecKeys=S;var E=function(e){var t,r;S(e,["left","variableWidth","slideCount","slidesToShow","slideWidth"]);var n=e.slideCount+2*e.slidesToShow;e.vertical?r=n*e.slideHeight:t=j(e)*e.slideWidth;var i={opacity:1,transition:"",WebkitTransition:""};if(e.useTransform){var a=e.vertical?"translate3d(0px, "+e.left+"px, 0px)":"translate3d("+e.left+"px, 0px, 0px)",l=e.vertical?"translate3d(0px, "+e.left+"px, 0px)":"translate3d("+e.left+"px, 0px, 0px)",s=e.vertical?"translateY("+e.left+"px)":"translateX("+e.left+"px)";i=o(o({},i),{},{WebkitTransform:a,transform:l,msTransform:s})}else e.vertical?i.top=e.left:i.left=e.left;return e.fade&&(i={opacity:1}),t&&(i.width=t),r&&(i.height=r),window&&!window.addEventListener&&window.attachEvent&&(e.vertical?i.marginTop=e.left+"px":i.marginLeft=e.left+"px"),i};t.getTrackCSS=E;var O=function(e){S(e,["left","variableWidth","slideCount","slidesToShow","slideWidth","speed","cssEase"]);var t=E(e);return e.useTransform?(t.WebkitTransition="-webkit-transform "+e.speed+"ms "+e.cssEase,t.transition="transform "+e.speed+"ms "+e.cssEase):e.vertical?t.transition="top "+e.speed+"ms "+e.cssEase:t.transition="left "+e.speed+"ms "+e.cssEase,t};t.getTrackAnimateCSS=O;var _=function(e){if(e.unslick)return 0;S(e,["slideIndex","trackRef","infinite","centerMode","slideCount","slidesToShow","slidesToScroll","slideWidth","listWidth","variableWidth","slideHeight"]);var t,r,n=e.slideIndex,i=e.trackRef,a=e.infinite,o=e.centerMode,l=e.slideCount,s=e.slidesToShow,c=e.slidesToScroll,u=e.slideWidth,d=e.listWidth,p=e.variableWidth,f=e.slideHeight,v=e.fade,h=e.vertical;if(v||1===e.slideCount)return 0;var m=0;if(a?(m=-T(e),l%c!=0&&n+c>l&&(m=-(n>l?s-(n-l):l%c)),o&&(m+=parseInt(s/2))):(l%c!=0&&n+c>l&&(m=s-l%c),o&&(m=parseInt(s/2))),t=h?n*f*-1+m*f:n*u*-1+m*u,!0===p){var y,b=i&&i.node;if(y=n+T(e),t=(r=b&&b.childNodes[y])?-1*r.offsetLeft:0,!0===o){y=a?n+T(e):n,r=b&&b.children[y],t=0;for(var w=0;w<y;w++)t-=b&&b.children[w]&&b.children[w].offsetWidth;t-=parseInt(e.centerPadding),t+=r&&(d-r.offsetWidth)/2}}return t};t.getTrackLeft=_;var T=function(e){return e.unslick||!e.infinite?0:e.variableWidth?e.slideCount:e.slidesToShow+(e.centerMode?1:0)};t.getPreClones=T;var x=function(e){return e.unslick||!e.infinite?0:e.slideCount};t.getPostClones=x;var j=function(e){return 1===e.slideCount?1:T(e)+e.slideCount+x(e)};t.getTotalSlides=j;var P=function(e){return e.targetSlide>e.currentSlide?e.targetSlide>e.currentSlide+C(e)?"left":"right":e.targetSlide<e.currentSlide-L(e)?"right":"left"};t.siblingDirection=P;var C=function(e){var t=e.slidesToShow,r=e.centerMode,n=e.rtl,i=e.centerPadding;if(r){var a=(t-1)/2+1;return parseInt(i)>0&&(a+=1),n&&t%2==0&&(a+=1),a}return n?0:t-1};t.slidesOnRight=C;var L=function(e){var t=e.slidesToShow,r=e.centerMode,n=e.rtl,i=e.centerPadding;if(r){var a=(t-1)/2+1;return parseInt(i)>0&&(a+=1),n||t%2!=0||(a+=1),a}return n?t-1:0};t.slidesOnLeft=L,t.canUseDOM=function(){return!("undefined"==typeof window||!window.document||!window.document.createElement)}},1033:(e,t,r)=>{"use strict";r.r(t),r.d(t,{default:()=>E});var n=function(){if("undefined"!=typeof Map)return Map;function e(e,t){var r=-1;return e.some((function(e,n){return e[0]===t&&(r=n,!0)})),r}return function(){function t(){this.__entries__=[]}return Object.defineProperty(t.prototype,"size",{get:function(){return this.__entries__.length},enumerable:!0,configurable:!0}),t.prototype.get=function(t){var r=e(this.__entries__,t),n=this.__entries__[r];return n&&n[1]},t.prototype.set=function(t,r){var n=e(this.__entries__,t);~n?this.__entries__[n][1]=r:this.__entries__.push([t,r])},t.prototype.delete=function(t){var r=this.__entries__,n=e(r,t);~n&&r.splice(n,1)},t.prototype.has=function(t){return!!~e(this.__entries__,t)},t.prototype.clear=function(){this.__entries__.splice(0)},t.prototype.forEach=function(e,t){void 0===t&&(t=null);for(var r=0,n=this.__entries__;r<n.length;r++){var i=n[r];e.call(t,i[1],i[0])}},t}()}(),i="undefined"!=typeof window&&"undefined"!=typeof document&&window.document===document,a=void 0!==r.g&&r.g.Math===Math?r.g:"undefined"!=typeof self&&self.Math===Math?self:"undefined"!=typeof window&&window.Math===Math?window:Function("return this")(),o="function"==typeof requestAnimationFrame?requestAnimationFrame.bind(a):function(e){return setTimeout((function(){return e(Date.now())}),1e3/60)},l=["top","right","bottom","left","width","height","size","weight"],s="undefined"!=typeof MutationObserver,c=function(){function e(){this.connected_=!1,this.mutationEventsAdded_=!1,this.mutationsObserver_=null,this.observers_=[],this.onTransitionEnd_=this.onTransitionEnd_.bind(this),this.refresh=function(e,t){var r=!1,n=!1,i=0;function a(){r&&(r=!1,e()),n&&s()}function l(){o(a)}function s(){var e=Date.now();if(r){if(e-i<2)return;n=!0}else r=!0,n=!1,setTimeout(l,t);i=e}return s}(this.refresh.bind(this),20)}return e.prototype.addObserver=function(e){~this.observers_.indexOf(e)||this.observers_.push(e),this.connected_||this.connect_()},e.prototype.removeObserver=function(e){var t=this.observers_,r=t.indexOf(e);~r&&t.splice(r,1),!t.length&&this.connected_&&this.disconnect_()},e.prototype.refresh=function(){this.updateObservers_()&&this.refresh()},e.prototype.updateObservers_=function(){var e=this.observers_.filter((function(e){return e.gatherActive(),e.hasActive()}));return e.forEach((function(e){return e.broadcastActive()})),e.length>0},e.prototype.connect_=function(){i&&!this.connected_&&(document.addEventListener("transitionend",this.onTransitionEnd_),window.addEventListener("resize",this.refresh),s?(this.mutationsObserver_=new MutationObserver(this.refresh),this.mutationsObserver_.observe(document,{attributes:!0,childList:!0,characterData:!0,subtree:!0})):(document.addEventListener("DOMSubtreeModified",this.refresh),this.mutationEventsAdded_=!0),this.connected_=!0)},e.prototype.disconnect_=function(){i&&this.connected_&&(document.removeEventListener("transitionend",this.onTransitionEnd_),window.removeEventListener("resize",this.refresh),this.mutationsObserver_&&this.mutationsObserver_.disconnect(),this.mutationEventsAdded_&&document.removeEventListener("DOMSubtreeModified",this.refresh),this.mutationsObserver_=null,this.mutationEventsAdded_=!1,this.connected_=!1)},e.prototype.onTransitionEnd_=function(e){var t=e.propertyName,r=void 0===t?"":t;l.some((function(e){return!!~r.indexOf(e)}))&&this.refresh()},e.getInstance=function(){return this.instance_||(this.instance_=new e),this.instance_},e.instance_=null,e}(),u=function(e,t){for(var r=0,n=Object.keys(t);r<n.length;r++){var i=n[r];Object.defineProperty(e,i,{value:t[i],enumerable:!1,writable:!1,configurable:!0})}return e},d=function(e){return e&&e.ownerDocument&&e.ownerDocument.defaultView||a},p=y(0,0,0,0);function f(e){return parseFloat(e)||0}function v(e){for(var t=[],r=1;r<arguments.length;r++)t[r-1]=arguments[r];return t.reduce((function(t,r){return t+f(e["border-"+r+"-width"])}),0)}var h="undefined"!=typeof SVGGraphicsElement?function(e){return e instanceof d(e).SVGGraphicsElement}:function(e){return e instanceof d(e).SVGElement&&"function"==typeof e.getBBox};function m(e){return i?h(e)?function(e){var t=e.getBBox();return y(0,0,t.width,t.height)}(e):function(e){var t=e.clientWidth,r=e.clientHeight;if(!t&&!r)return p;var n=d(e).getComputedStyle(e),i=function(e){for(var t={},r=0,n=["top","right","bottom","left"];r<n.length;r++){var i=n[r],a=e["padding-"+i];t[i]=f(a)}return t}(n),a=i.left+i.right,o=i.top+i.bottom,l=f(n.width),s=f(n.height);if("border-box"===n.boxSizing&&(Math.round(l+a)!==t&&(l-=v(n,"left","right")+a),Math.round(s+o)!==r&&(s-=v(n,"top","bottom")+o)),!function(e){return e===d(e).document.documentElement}(e)){var c=Math.round(l+a)-t,u=Math.round(s+o)-r;1!==Math.abs(c)&&(l-=c),1!==Math.abs(u)&&(s-=u)}return y(i.left,i.top,l,s)}(e):p}function y(e,t,r,n){return{x:e,y:t,width:r,height:n}}var b=function(){function e(e){this.broadcastWidth=0,this.broadcastHeight=0,this.contentRect_=y(0,0,0,0),this.target=e}return e.prototype.isActive=function(){var e=m(this.target);return this.contentRect_=e,e.width!==this.broadcastWidth||e.height!==this.broadcastHeight},e.prototype.broadcastRect=function(){var e=this.contentRect_;return this.broadcastWidth=e.width,this.broadcastHeight=e.height,e},e}(),w=function(e,t){var r,n,i,a,o,l,s,c=(n=(r=t).x,i=r.y,a=r.width,o=r.height,l="undefined"!=typeof DOMRectReadOnly?DOMRectReadOnly:Object,s=Object.create(l.prototype),u(s,{x:n,y:i,width:a,height:o,top:i,right:n+a,bottom:o+i,left:n}),s);u(this,{target:e,contentRect:c})},g=function(){function e(e,t,r){if(this.activeObservations_=[],this.observations_=new n,"function"!=typeof e)throw new TypeError("The callback provided as parameter 1 is not a function.");this.callback_=e,this.controller_=t,this.callbackCtx_=r}return e.prototype.observe=function(e){if(!arguments.length)throw new TypeError("1 argument required, but only 0 present.");if("undefined"!=typeof Element&&Element instanceof Object){if(!(e instanceof d(e).Element))throw new TypeError('parameter 1 is not of type "Element".');var t=this.observations_;t.has(e)||(t.set(e,new b(e)),this.controller_.addObserver(this),this.controller_.refresh())}},e.prototype.unobserve=function(e){if(!arguments.length)throw new TypeError("1 argument required, but only 0 present.");if("undefined"!=typeof Element&&Element instanceof Object){if(!(e instanceof d(e).Element))throw new TypeError('parameter 1 is not of type "Element".');var t=this.observations_;t.has(e)&&(t.delete(e),t.size||this.controller_.removeObserver(this))}},e.prototype.disconnect=function(){this.clearActive(),this.observations_.clear(),this.controller_.removeObserver(this)},e.prototype.gatherActive=function(){var e=this;this.clearActive(),this.observations_.forEach((function(t){t.isActive()&&e.activeObservations_.push(t)}))},e.prototype.broadcastActive=function(){if(this.hasActive()){var e=this.callbackCtx_,t=this.activeObservations_.map((function(e){return new w(e.target,e.broadcastRect())}));this.callback_.call(e,t,e),this.clearActive()}},e.prototype.clearActive=function(){this.activeObservations_.splice(0)},e.prototype.hasActive=function(){return this.activeObservations_.length>0},e}(),k="undefined"!=typeof WeakMap?new WeakMap:new n,S=function e(t){if(!(this instanceof e))throw new TypeError("Cannot call a class as a function.");if(!arguments.length)throw new TypeError("1 argument required, but only 0 present.");var r=c.getInstance(),n=new g(t,r,this);k.set(this,n)};["observe","unobserve","disconnect"].forEach((function(e){S.prototype[e]=function(){var t;return(t=k.get(this))[e].apply(t,arguments)}}));const E=void 0!==a.ResizeObserver?a.ResizeObserver:S},1169:e=>{e.exports=function(e){return e.replace(/[A-Z]/g,(function(e){return"-"+e.toLowerCase()})).toLowerCase()}},9196:e=>{"use strict";e.exports=window.React}},r={};function n(e){var i=r[e];if(void 0!==i)return i.exports;var a=r[e]={exports:{}};return t[e](a,a.exports,n),a.exports}n.m=t,e=[],n.O=(t,r,i,a)=>{if(!r){var o=1/0;for(u=0;u<e.length;u++){for(var[r,i,a]=e[u],l=!0,s=0;s<r.length;s++)(!1&a||o>=a)&&Object.keys(n.O).every((e=>n.O[e](r[s])))?r.splice(s--,1):(l=!1,a<o&&(o=a));if(l){e.splice(u--,1);var c=i();void 0!==c&&(t=c)}}return t}a=a||0;for(var u=e.length;u>0&&e[u-1][2]>a;u--)e[u]=e[u-1];e[u]=[r,i,a]},n.n=e=>{var t=e&&e.__esModule?()=>e.default:()=>e;return n.d(t,{a:t}),t},n.d=(e,t)=>{for(var r in t)n.o(t,r)&&!n.o(e,r)&&Object.defineProperty(e,r,{enumerable:!0,get:t[r]})},n.g=function(){if("object"==typeof globalThis)return globalThis;try{return this||new Function("return this")()}catch(e){if("object"==typeof window)return window}}(),n.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),n.r=e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},(()=>{var e={1743:0,4893:0};n.O.j=t=>0===e[t];var t=(t,r)=>{var i,a,[o,l,s]=r,c=0;if(o.some((t=>0!==e[t]))){for(i in l)n.o(l,i)&&(n.m[i]=l[i]);if(s)var u=s(n)}for(t&&t(r);c<o.length;c++)a=o[c],n.o(e,a)&&e[a]&&e[a][0](),e[a]=0;return n.O(u)},r=globalThis.webpackChunkwp_travel_blocks=globalThis.webpackChunkwp_travel_blocks||[];r.forEach(t.bind(null,0)),r.push=t.bind(null,r.push.bind(r))})();var i=n.O(void 0,[4893],(()=>n(2564)));i=n.O(i)})();
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/trip-list/edit.js":
+/*!*******************************!*\
+  !*** ./src/trip-list/edit.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Edit)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/trip-list/editor.scss");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
+/* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_data__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/server-side-render */ "@wordpress/server-side-render");
+/* harmony import */ var _wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var react_slick__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-slick */ "./node_modules/react-slick/lib/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
+
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
+ */
+
+
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
+ */
+
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * Those files can contain any CSS code that gets applied to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+
+/**
+ * The edit function describes the structure of your block in the context of the
+ * editor. This represents what the editor will render when the block is used.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
+ *
+ * @return {WPElement} Element to render.
+ */
+
+
+
+
+
+
+
+
+function Edit(props) {
+  var _tripTypes$reduce, _tripDestinations$red, _tripActivities$reduc, _tripKeywords$reduce, _selected_trip_types, _selected_trip_destin, _selected_trip_activi, _selected_trip_keywor;
+  const termsQuery = {
+    post_type: 'itineraries',
+    per_page: 100
+  };
+  const tripTypes = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.useSelect)(select => {
+    return select('core').getEntityRecords('taxonomy', 'itinerary_types', termsQuery);
+  }, []);
+  const tripDestinations = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.useSelect)(select => {
+    return select('core').getEntityRecords('taxonomy', 'travel_locations', termsQuery);
+  }, []);
+  const tripActivities = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.useSelect)(select => {
+    return select('core').getEntityRecords('taxonomy', 'activity', termsQuery);
+  }, []);
+  const tripKeywords = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.useSelect)(select => {
+    return select('core').getEntityRecords('taxonomy', 'travel_keywords', termsQuery);
+  }, []);
+  const {
+    setAttributes,
+    attributes
+  } = props;
+  const {
+    relatedTrip,
+    inheritTrips,
+    query,
+    saleTrip,
+    featuredTrip,
+    layoutType,
+    cardLayout,
+    relatedTripBy
+  } = attributes;
+  const {
+    orderBy,
+    order,
+    selectedCategories,
+    selectedTripTypes,
+    selectedTripDestinations,
+    selectedTripActivities,
+    selectedTripKeywords,
+    numberOfItems
+  } = query;
+  const TripTypeSuggestions = (_tripTypes$reduce = tripTypes?.reduce((accumulator, category) => ({
+    ...accumulator,
+    [category.name]: category
+  }), {})) !== null && _tripTypes$reduce !== void 0 ? _tripTypes$reduce : {};
+  let selected_trip_types = [];
+  if (selectedTripTypes && selectedTripTypes.length > 0) {
+    selected_trip_types = selectedTripTypes.map(type => {
+      return type.name;
+    });
+  }
+  const TripDestinationSuggestions = (_tripDestinations$red = tripDestinations?.reduce((accumulator, category) => ({
+    ...accumulator,
+    [category.name]: category
+  }), {})) !== null && _tripDestinations$red !== void 0 ? _tripDestinations$red : {};
+  let selected_trip_destinations = [];
+  if (selectedTripDestinations && selectedTripDestinations.length > 0) {
+    selected_trip_destinations = selectedTripDestinations.map(type => {
+      return type.name;
+    });
+  }
+  const TripActivitySuggestions = (_tripActivities$reduc = tripActivities?.reduce((accumulator, category) => ({
+    ...accumulator,
+    [category.name]: category
+  }), {})) !== null && _tripActivities$reduc !== void 0 ? _tripActivities$reduc : {};
+  let selected_trip_activities = [];
+  if (selectedTripActivities && selectedTripActivities.length > 0) {
+    selected_trip_activities = selectedTripActivities.map(type => {
+      return type.name;
+    });
+  }
+  const TripKeywordSuggestions = (_tripKeywords$reduce = tripKeywords?.reduce((accumulator, category) => ({
+    ...accumulator,
+    [category.name]: category
+  }), {})) !== null && _tripKeywords$reduce !== void 0 ? _tripKeywords$reduce : {};
+  let selected_trip_keywords = [];
+  if (selectedTripKeywords && selectedTripKeywords.length > 0) {
+    selected_trip_keywords = selectedTripKeywords.map(type => {
+      return type.name;
+    });
+  }
+
+  // const [sliderWidth, setSliderWidth] = useState(0);
+  // useEffect(() => {
+  //     try {
+  //         const sliderWPtravel = document.getElementsByClassName("wp-block-wptravel-trips-list")[0];
+  //         if (!sliderWPtravel) return;
+
+  //         const resizeObserver = new ResizeObserver(entries => {
+  //             for (let entry of entries) {
+  //                 if (entry.target === sliderWPtravel) {
+  //                     setSliderWidth(entry.contentRect.width);
+  //                 }
+  //             }
+  //         });
+
+  //         resizeObserver.observe(sliderWPtravel);
+
+  //         return () => {
+  //             resizeObserver.disconnect();
+  //         };
+  //     } catch (error) {
+  //         console.error('Error occurred in Trip List Slider:', error);
+  //     }
+  // }, []);
+
+  const slidesToShow = typeof attributes.align == 'undefined' ? 2 : 3;
+  const settings = {
+    dots: false,
+    arrows: true,
+    autoplay: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: slidesToShow,
+    slidesToScroll: 1
+  };
+  const [tripList, setTripLists] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_5__.useSelect)(() => {
+    fetch(_wp_travel.site_url + '/wp-json/wp-travel-block/v1/get-trip-lists?arg=' + JSON.stringify(attributes), {
+      method: "GET"
+    }).then(res => res.json()).then(data => setTripLists(data)).catch(err => console.error(err));
+  }, []);
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Filters', 'wp-travel-blocks')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Inherit Trips', 'wp-travel-blocks'),
+    checked: inheritTrips,
+    onChange: () => setAttributes({
+      inheritTrips: !inheritTrips
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Show Related Trip', 'wp-travel-blocks'),
+    checked: relatedTrip,
+    onChange: () => setAttributes({
+      relatedTrip: !relatedTrip
+    })
+  }), relatedTrip && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Related Trip By', 'wp-travel-blocks'),
+    value: relatedTripBy,
+    options: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Itinerary Types', 'wp-travel-blocks'),
+      value: 'itinerary-types'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Travel Location', 'wp-travel-blocks'),
+      value: 'travel-locations'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Travel Keywords', 'wp-travel-blocks'),
+      value: 'travel-keywords'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Travel Activity', 'wp-travel-blocks'),
+      value: 'activity'
+    }],
+    onChange: val => setAttributes({
+      relatedTripBy: val
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Select Layout', 'wp-travel-blocks'),
+    value: layoutType,
+    options: cardLayout !== 'slider-view' && [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Default Layout', 'wp-travel-blocks'),
+      value: 'default-layout'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Layout One', 'wp-travel-blocks'),
+      value: 'layout-one'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Layout Two', 'wp-travel-blocks'),
+      value: 'layout-two'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Layout Three', 'wp-travel-blocks'),
+      value: 'layout-three'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Layout Four', 'wp-travel-blocks'),
+      value: 'layout-four'
+    }] || [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Layout One', 'wp-travel-blocks'),
+      value: 'layout-one'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Layout Two', 'wp-travel-blocks'),
+      value: 'layout-two'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Layout Three', 'wp-travel-blocks'),
+      value: 'layout-three'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Layout Four', 'wp-travel-blocks'),
+      value: 'layout-four'
+    }],
+    onChange: val => setAttributes({
+      layoutType: val
+    })
+  }), layoutType != 'default-layout' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Card Layout', 'wp-travel-blocks'),
+    value: cardLayout,
+    options: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Slider', 'wp-travel-blocks'),
+      value: 'slider-view'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Grid', 'wp-travel-blocks'),
+      value: 'grid-view'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('List', 'wp-travel-blocks'),
+      value: 'list-view'
+    }],
+    onChange: val => setAttributes({
+      cardLayout: val
+    })
+  }), !inheritTrips && !relatedTrip && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.QueryControls, {
+    orderBy,
+    order,
+    numberOfItems,
+    onNumberOfItemsChange: newNumberOfItems => setAttributes({
+      query: {
+        ...query,
+        numberOfItems: newNumberOfItems
+      }
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Order by', 'wp-travel-blocks'),
+    value: orderBy + '/' + order,
+    options: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Newest to oldest', 'wp-travel-blocks'),
+      value: 'date/desc'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Oldest to newest', 'wp-travel-blocks'),
+      value: 'date/asc'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('A → Z', 'wp-travel-blocks'),
+      value: 'title/asc'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Z → A', 'wp-travel-blocks'),
+      value: 'title/desc'
+    }],
+    onChange: selectedVal => {
+      let values = selectedVal.split('/');
+      let newOrderBy = values[0];
+      let newOrder = values[1];
+      setAttributes({
+        query: {
+          ...query,
+          orderBy: newOrderBy,
+          order: newOrder
+        }
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.FormTokenField, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Trip Type'),
+    value: (_selected_trip_types = selected_trip_types) !== null && _selected_trip_types !== void 0 ? _selected_trip_types : [],
+    suggestions: Object.keys(TripTypeSuggestions).map(name => {
+      return name;
+    }),
+    onChange: tokens => {
+      const allCategories = tokens.map(token => {
+        const newData = typeof token === 'string' ? TripTypeSuggestions[token] : token;
+        const selected = {
+          count: newData.count,
+          id: newData.id,
+          description: newData.description,
+          link: newData.link,
+          taxonomy: newData.taxonomy,
+          name: newData.name,
+          slug: newData.slug
+        };
+        return selected;
+      });
+      setAttributes({
+        query: {
+          ...query,
+          selectedTripTypes: allCategories
+        }
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.FormTokenField, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Trip Destinations'),
+    value: (_selected_trip_destin = selected_trip_destinations) !== null && _selected_trip_destin !== void 0 ? _selected_trip_destin : [],
+    suggestions: Object.keys(TripDestinationSuggestions).map(name => {
+      return name;
+    }),
+    onChange: tokens => {
+      const allCategories = tokens.map(token => {
+        const newData = typeof token === 'string' ? TripDestinationSuggestions[token] : token;
+        const selected = {
+          count: newData.count,
+          id: newData.id,
+          description: newData.description,
+          link: newData.link,
+          taxonomy: newData.taxonomy,
+          name: newData.name,
+          slug: newData.slug
+        };
+        return selected;
+      });
+      setAttributes({
+        query: {
+          ...query,
+          selectedTripDestinations: allCategories
+        }
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.FormTokenField, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Trip Activities', 'wp-travel-blocks'),
+    value: (_selected_trip_activi = selected_trip_activities) !== null && _selected_trip_activi !== void 0 ? _selected_trip_activi : [],
+    suggestions: Object.keys(TripActivitySuggestions).map(name => {
+      return name;
+    }),
+    onChange: tokens => {
+      const allCategories = tokens.map(token => {
+        const newData = typeof token === 'string' ? TripActivitySuggestions[token] : token;
+        const selected = {
+          count: newData.count,
+          id: newData.id,
+          description: newData.description,
+          link: newData.link,
+          taxonomy: newData.taxonomy,
+          name: newData.name,
+          slug: newData.slug
+        };
+        return selected;
+      });
+      setAttributes({
+        query: {
+          ...query,
+          selectedTripActivities: allCategories
+        }
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.FormTokenField, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Trip Keywords', 'wp-travel-blocks'),
+    value: (_selected_trip_keywor = selected_trip_keywords) !== null && _selected_trip_keywor !== void 0 ? _selected_trip_keywor : [],
+    suggestions: Object.keys(TripKeywordSuggestions).map(name => {
+      return name;
+    }),
+    onChange: tokens => {
+      const allCategories = tokens.map(token => {
+        const newData = typeof token === 'string' ? TripKeywordSuggestions[token] : token;
+        const selected = {
+          count: newData.count,
+          id: newData.id,
+          description: newData.description,
+          link: newData.link,
+          taxonomy: newData.taxonomy,
+          name: newData.name,
+          slug: newData.slug
+        };
+        return selected;
+      });
+      setAttributes({
+        query: {
+          ...query,
+          selectedTripKeywords: allCategories
+        }
+      });
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Sale Trip', 'wp-travel-blocks'),
+    checked: saleTrip,
+    onChange: () => setAttributes({
+      saleTrip: !saleTrip
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Featured Trip', 'wp-travel-blocks'),
+    checked: featuredTrip,
+    onChange: () => setAttributes({
+      featuredTrip: !featuredTrip
+    })
+  }))))), cardLayout === 'slider-view' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    id: "wptravel-block-trips-list",
+    className: 'wptravel-block-wrapper wptravel-block-trips-list wptravel-block-preview ' + layoutType
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wp-travel-itinerary-items"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_slick__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    className: "wp-travel-itinerary-items wptravel-archive-wrapper slider-view grid-view",
+    ...settings
+  }, tripList.map(data => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, layoutType === 'default-layout' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-card"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-card-img-container"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      fetchpriority: "high",
+      width: "1024",
+      height: "684",
+      src: data.featured_img,
+      sizes: "(max-width: 1024px) 100vw, 1024px"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-img-overlay"
+    }, data.is_featured_trip == 'yes' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-featured"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "fas fa-crown"
+    }), " Featured"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-card-body"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-card-body-top"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-floating-container"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-code"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "code-hash"
+    }, "#"), " ", data.trip_code)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-card-body-header"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+      className: "wptravel-blocks-card-title"
+    }, data.trip_title)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "favourite"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#",
+      "data-id": "1375",
+      "data-event": "add",
+      title: "Add to wishlists",
+      class: "wp-travel-add-to-wishlists",
+      tabindex: "0"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "far fa-bookmark"
+    }), " Add to wishlists"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-card-content"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-meta"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "far fa-calendar-alt"
+    }), " Date"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-meta"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fas fa-map-marker-alt"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#"
+    }, "Destination")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-meta"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fas fa-users"
+    }), " Group Size"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-card-footer"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-footer-left"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-rating"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-explore"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+      className: "wp-block-button__link wptravel-blocks-explore-btn"
+    }, "Explore")))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-footer-right"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-offer"
+    }, "Save 20%"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-original-price"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("del", null, "$4999")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-offer-price"
+    }, "$3999"))))), layoutType === 'layout-one' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-card"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "same-height wptravel-blocks-trip-card-img-container"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      fetchpriority: "high",
+      width: "1024",
+      height: "684",
+      src: data.featured_img,
+      sizes: "(max-width: 1024px) 100vw, 1024px"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-img-overlay"
+    }, data.is_featured_trip == 'yes' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-featured"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "fas fa-crown"
+    }), " Featured"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-card-body"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-card-body-top"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-floating-container"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-code"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "code-hash"
+    }, "#"), " ", data.trip_code)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-card-body-header"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+      className: "wptravel-blocks-card-title"
+    }, data.trip_title)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "favourite"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#",
+      "data-id": "1375",
+      "data-event": "add",
+      title: "Add to wishlists",
+      class: "wp-travel-add-to-wishlists",
+      tabindex: "0"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "far fa-bookmark"
+    }), " Add to wishlists"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-card-content"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-meta"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "far fa-calendar-alt"
+    }), " Date"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-meta"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fas fa-map-marker-alt"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#"
+    }, "Destination")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-meta"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fas fa-users"
+    }), " Group Size"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-card-footer"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-footer-left"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-rating"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-explore"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+      className: "wp-block-button__link wptravel-blocks-explore-btn"
+    }, "Explore")))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-footer-right"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-offer"
+    }, "Save 20%"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-original-price"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("del", null, "$4999")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-offer-price"
+    }, "$3999"))))), layoutType === 'layout-two' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-card"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-card-img-container"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      fetchpriority: "high",
+      width: "1024",
+      height: "684",
+      src: data.featured_img,
+      sizes: "(max-width: 1024px) 100vw, 1024px"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-img-overlay-base"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-img-overlay"
+    }, data.is_featured_trip == 'yes' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-featured"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "fas fa-crown"
+    }), " Featured")))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-card-body"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-card-body-top"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-card-body-header"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+      class: "wptravel-blocks-card-title"
+    }, data.trip_title)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-rating"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "fas fa-star"
+    }), " 4.7")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-card-content"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-excerpt"
+    }, data.excerpt))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-card-footer"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-footer-left"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-meta"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "far fa-clock"
+    }), " Duration"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-meta"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "fas fa-users"
+    }), " Group Size"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-explore"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+      class: "wp-block-button__link wptravel-blocks-explore-btn"
+    }, "Explore")))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-footer-right"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-offer"
+    }, "Save 20%"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-original-price"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("del", null, "$4999")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-offer-price"
+    }, "$3999"))))), layoutType === 'layout-three' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-card"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-card-img-container"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      fetchpriority: "high",
+      width: "1024",
+      height: "684",
+      src: data.featured_img,
+      sizes: "(max-width: 1024px) 100vw, 1024px"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-img-overlay-base"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-img-overlay"
+    }, data.is_featured_trip == 'yes' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-featured"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "fas fa-crown"
+    }), " Featured")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-meta-container"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-meta"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "fas fa-map-marker-alt"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#"
+    }, "Destination")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-meta"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "far fa-calendar-alt"
+    }), " Date"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-meta"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "fas fa-users"
+    }), " Group Size")))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-card-body"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-card-body-top"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-card-body-header"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+      class: "wptravel-blocks-card-title"
+    }, data.trip_title)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "favourite"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#",
+      "data-id": "1375",
+      "data-event": "add",
+      title: "Add to wishlists",
+      class: "wp-travel-add-to-wishlists",
+      tabindex: "0"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "far fa-bookmark"
+    }), " Add to wishlists"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-card-content"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-excerpt"
+    }, data.trip_excerpt))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-card-footer"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-footer-left"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-rating"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-explore"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+      class: "wp-block-button__link wptravel-blocks-explore-btn"
+    }, "Explore")))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-footer-right"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-offer"
+    }, "Save 20%"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-original-price"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("del", null, "$4999")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-offer-price"
+    }, "$3999"))))), layoutType === 'layout-four' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-card"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-card-img-container"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      fetchpriority: "high",
+      width: "1024",
+      height: "684",
+      src: data.featured_img,
+      sizes: "(max-width: 1024px) 100vw, 1024px"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-img-overlay-base"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-img-overlay"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-offer"
+    }, "Save 20%"), data.is_featured_trip == 'yes' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-featured"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "fas fa-crown"
+    }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-card-body"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-card-body-top"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-card-body-header"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-header-left"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+      class: "wptravel-blocks-card-title"
+    }, data.trip_title)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-code"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      class: "code-hash"
+    }, "#"), " ", data.trip_code)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "favourite"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#",
+      "data-id": "1375",
+      "data-event": "add",
+      title: "Add to wishlists",
+      class: "wp-travel-add-to-wishlists",
+      tabindex: "0"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "far fa-bookmark"
+    }), " Add to wishlists"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-card-content"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-excerpt"
+    }, data.trip_excerpt), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-meta-container"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-meta"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "far fa-clock"
+    }), " Duration"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-meta"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "fas fa-map-marker-alt"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#"
+    }, "Destination")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-meta"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "fas fa-users"
+    }), " Group Size")))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-card-footer"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-footer-left"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-rating"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: "fa fa-star"
+    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-footer-right"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-original-price"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("del", null, "$4999")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-offer-price"
+    }, "$3999"))))));
+  })))) || (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_6___default()), {
+    block: "wp-travel-blocks/trips-list",
+    attributes: props.attributes
+  }));
+}
+
+/***/ }),
+
+/***/ "./src/trip-list/index.js":
+/*!********************************!*\
+  !*** ./src/trip-list/index.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/trip-list/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/trip-list/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/trip-list/save.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/trip-list/block.json");
+/**
+ * Registers a new block provided a unique name and an object defining its behavior.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * All files containing `style` keyword are bundled together. The code used
+ * gets applied both to the front of your site and to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+
+
+/**
+ * Internal dependencies
+ */
+
+
+
+
+/**
+ * Every block starts by registering a new block type definition.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ */
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_4__.name, {
+  /**
+   * @see ./edit.js
+   */
+  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
+  /**
+   * @see ./save.js
+   */
+  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./src/trip-list/save.js":
+/*!*******************************!*\
+  !*** ./src/trip-list/save.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ save)
+/* harmony export */ });
+/**
+ * React hook that is used to mark the block wrapper element.
+ * It provides all the necessary props like the class name.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
+ */
+
+/**
+ * The save function defines the way in which the different attributes should
+ * be combined into the final markup, which is then serialized by the block
+ * editor into `post_content`.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
+ *
+ * @return {WPElement} Element to render.
+ */
+function save() {
+  return null;
+}
+
+/***/ }),
+
+/***/ "./node_modules/classnames/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/classnames/index.js ***!
+  \******************************************/
+/***/ ((module, exports) => {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	Copyright (c) 2018 Jed Watson.
+	Licensed under the MIT License (MIT), see
+	http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+	var nativeCodeString = '[native code]';
+
+	function classNames() {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg)) {
+				if (arg.length) {
+					var inner = classNames.apply(null, arg);
+					if (inner) {
+						classes.push(inner);
+					}
+				}
+			} else if (argType === 'object') {
+				if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes('[native code]')) {
+					classes.push(arg.toString());
+					continue;
+				}
+
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if ( true && module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else if (true) {
+		// register as 'classnames', consistent with npm package name
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+			return classNames;
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {}
+}());
+
+
+/***/ }),
+
+/***/ "./node_modules/enquire.js/src/MediaQuery.js":
+/*!***************************************************!*\
+  !*** ./node_modules/enquire.js/src/MediaQuery.js ***!
+  \***************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var QueryHandler = __webpack_require__(/*! ./QueryHandler */ "./node_modules/enquire.js/src/QueryHandler.js");
+var each = (__webpack_require__(/*! ./Util */ "./node_modules/enquire.js/src/Util.js").each);
+
+/**
+ * Represents a single media query, manages it's state and registered handlers for this query
+ *
+ * @constructor
+ * @param {string} query the media query string
+ * @param {boolean} [isUnconditional=false] whether the media query should run regardless of whether the conditions are met. Primarily for helping older browsers deal with mobile-first design
+ */
+function MediaQuery(query, isUnconditional) {
+    this.query = query;
+    this.isUnconditional = isUnconditional;
+    this.handlers = [];
+    this.mql = window.matchMedia(query);
+
+    var self = this;
+    this.listener = function(mql) {
+        // Chrome passes an MediaQueryListEvent object, while other browsers pass MediaQueryList directly
+        self.mql = mql.currentTarget || mql;
+        self.assess();
+    };
+    this.mql.addListener(this.listener);
+}
+
+MediaQuery.prototype = {
+
+    constuctor : MediaQuery,
+
+    /**
+     * add a handler for this query, triggering if already active
+     *
+     * @param {object} handler
+     * @param {function} handler.match callback for when query is activated
+     * @param {function} [handler.unmatch] callback for when query is deactivated
+     * @param {function} [handler.setup] callback for immediate execution when a query handler is registered
+     * @param {boolean} [handler.deferSetup=false] should the setup callback be deferred until the first time the handler is matched?
+     */
+    addHandler : function(handler) {
+        var qh = new QueryHandler(handler);
+        this.handlers.push(qh);
+
+        this.matches() && qh.on();
+    },
+
+    /**
+     * removes the given handler from the collection, and calls it's destroy methods
+     *
+     * @param {object || function} handler the handler to remove
+     */
+    removeHandler : function(handler) {
+        var handlers = this.handlers;
+        each(handlers, function(h, i) {
+            if(h.equals(handler)) {
+                h.destroy();
+                return !handlers.splice(i,1); //remove from array and exit each early
+            }
+        });
+    },
+
+    /**
+     * Determine whether the media query should be considered a match
+     *
+     * @return {Boolean} true if media query can be considered a match, false otherwise
+     */
+    matches : function() {
+        return this.mql.matches || this.isUnconditional;
+    },
+
+    /**
+     * Clears all handlers and unbinds events
+     */
+    clear : function() {
+        each(this.handlers, function(handler) {
+            handler.destroy();
+        });
+        this.mql.removeListener(this.listener);
+        this.handlers.length = 0; //clear array
+    },
+
+    /*
+        * Assesses the query, turning on all handlers if it matches, turning them off if it doesn't match
+        */
+    assess : function() {
+        var action = this.matches() ? 'on' : 'off';
+
+        each(this.handlers, function(handler) {
+            handler[action]();
+        });
+    }
+};
+
+module.exports = MediaQuery;
+
+
+/***/ }),
+
+/***/ "./node_modules/enquire.js/src/MediaQueryDispatch.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/enquire.js/src/MediaQueryDispatch.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var MediaQuery = __webpack_require__(/*! ./MediaQuery */ "./node_modules/enquire.js/src/MediaQuery.js");
+var Util = __webpack_require__(/*! ./Util */ "./node_modules/enquire.js/src/Util.js");
+var each = Util.each;
+var isFunction = Util.isFunction;
+var isArray = Util.isArray;
+
+/**
+ * Allows for registration of query handlers.
+ * Manages the query handler's state and is responsible for wiring up browser events
+ *
+ * @constructor
+ */
+function MediaQueryDispatch () {
+    if(!window.matchMedia) {
+        throw new Error('matchMedia not present, legacy browsers require a polyfill');
+    }
+
+    this.queries = {};
+    this.browserIsIncapable = !window.matchMedia('only all').matches;
+}
+
+MediaQueryDispatch.prototype = {
+
+    constructor : MediaQueryDispatch,
+
+    /**
+     * Registers a handler for the given media query
+     *
+     * @param {string} q the media query
+     * @param {object || Array || Function} options either a single query handler object, a function, or an array of query handlers
+     * @param {function} options.match fired when query matched
+     * @param {function} [options.unmatch] fired when a query is no longer matched
+     * @param {function} [options.setup] fired when handler first triggered
+     * @param {boolean} [options.deferSetup=false] whether setup should be run immediately or deferred until query is first matched
+     * @param {boolean} [shouldDegrade=false] whether this particular media query should always run on incapable browsers
+     */
+    register : function(q, options, shouldDegrade) {
+        var queries         = this.queries,
+            isUnconditional = shouldDegrade && this.browserIsIncapable;
+
+        if(!queries[q]) {
+            queries[q] = new MediaQuery(q, isUnconditional);
+        }
+
+        //normalise to object in an array
+        if(isFunction(options)) {
+            options = { match : options };
+        }
+        if(!isArray(options)) {
+            options = [options];
+        }
+        each(options, function(handler) {
+            if (isFunction(handler)) {
+                handler = { match : handler };
+            }
+            queries[q].addHandler(handler);
+        });
+
+        return this;
+    },
+
+    /**
+     * unregisters a query and all it's handlers, or a specific handler for a query
+     *
+     * @param {string} q the media query to target
+     * @param {object || function} [handler] specific handler to unregister
+     */
+    unregister : function(q, handler) {
+        var query = this.queries[q];
+
+        if(query) {
+            if(handler) {
+                query.removeHandler(handler);
+            }
+            else {
+                query.clear();
+                delete this.queries[q];
+            }
+        }
+
+        return this;
+    }
+};
+
+module.exports = MediaQueryDispatch;
+
+
+/***/ }),
+
+/***/ "./node_modules/enquire.js/src/QueryHandler.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/enquire.js/src/QueryHandler.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+/**
+ * Delegate to handle a media query being matched and unmatched.
+ *
+ * @param {object} options
+ * @param {function} options.match callback for when the media query is matched
+ * @param {function} [options.unmatch] callback for when the media query is unmatched
+ * @param {function} [options.setup] one-time callback triggered the first time a query is matched
+ * @param {boolean} [options.deferSetup=false] should the setup callback be run immediately, rather than first time query is matched?
+ * @constructor
+ */
+function QueryHandler(options) {
+    this.options = options;
+    !options.deferSetup && this.setup();
+}
+
+QueryHandler.prototype = {
+
+    constructor : QueryHandler,
+
+    /**
+     * coordinates setup of the handler
+     *
+     * @function
+     */
+    setup : function() {
+        if(this.options.setup) {
+            this.options.setup();
+        }
+        this.initialised = true;
+    },
+
+    /**
+     * coordinates setup and triggering of the handler
+     *
+     * @function
+     */
+    on : function() {
+        !this.initialised && this.setup();
+        this.options.match && this.options.match();
+    },
+
+    /**
+     * coordinates the unmatch event for the handler
+     *
+     * @function
+     */
+    off : function() {
+        this.options.unmatch && this.options.unmatch();
+    },
+
+    /**
+     * called when a handler is to be destroyed.
+     * delegates to the destroy or unmatch callbacks, depending on availability.
+     *
+     * @function
+     */
+    destroy : function() {
+        this.options.destroy ? this.options.destroy() : this.off();
+    },
+
+    /**
+     * determines equality by reference.
+     * if object is supplied compare options, if function, compare match callback
+     *
+     * @function
+     * @param {object || function} [target] the target for comparison
+     */
+    equals : function(target) {
+        return this.options === target || this.options.match === target;
+    }
+
+};
+
+module.exports = QueryHandler;
+
+
+/***/ }),
+
+/***/ "./node_modules/enquire.js/src/Util.js":
+/*!*********************************************!*\
+  !*** ./node_modules/enquire.js/src/Util.js ***!
+  \*********************************************/
+/***/ ((module) => {
+
+/**
+ * Helper function for iterating over a collection
+ *
+ * @param collection
+ * @param fn
+ */
+function each(collection, fn) {
+    var i      = 0,
+        length = collection.length,
+        cont;
+
+    for(i; i < length; i++) {
+        cont = fn(collection[i], i);
+        if(cont === false) {
+            break; //allow early exit
+        }
+    }
+}
+
+/**
+ * Helper function for determining whether target object is an array
+ *
+ * @param target the object under test
+ * @return {Boolean} true if array, false otherwise
+ */
+function isArray(target) {
+    return Object.prototype.toString.apply(target) === '[object Array]';
+}
+
+/**
+ * Helper function for determining whether target object is a function
+ *
+ * @param target the object under test
+ * @return {Boolean} true if function, false otherwise
+ */
+function isFunction(target) {
+    return typeof target === 'function';
+}
+
+module.exports = {
+    isFunction : isFunction,
+    isArray : isArray,
+    each : each
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/enquire.js/src/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/enquire.js/src/index.js ***!
+  \**********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var MediaQueryDispatch = __webpack_require__(/*! ./MediaQueryDispatch */ "./node_modules/enquire.js/src/MediaQueryDispatch.js");
+module.exports = new MediaQueryDispatch();
+
+
+/***/ }),
+
+/***/ "./node_modules/json2mq/index.js":
+/*!***************************************!*\
+  !*** ./node_modules/json2mq/index.js ***!
+  \***************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var camel2hyphen = __webpack_require__(/*! string-convert/camel2hyphen */ "./node_modules/string-convert/camel2hyphen.js");
+
+var isDimension = function (feature) {
+  var re = /[height|width]$/;
+  return re.test(feature);
+};
+
+var obj2mq = function (obj) {
+  var mq = '';
+  var features = Object.keys(obj);
+  features.forEach(function (feature, index) {
+    var value = obj[feature];
+    feature = camel2hyphen(feature);
+    // Add px to dimension features
+    if (isDimension(feature) && typeof value === 'number') {
+      value = value + 'px';
+    }
+    if (value === true) {
+      mq += feature;
+    } else if (value === false) {
+      mq += 'not ' + feature;
+    } else {
+      mq += '(' + feature + ': ' + value + ')';
+    }
+    if (index < features.length-1) {
+      mq += ' and '
+    }
+  });
+  return mq;
+};
+
+var json2mq = function (query) {
+  var mq = '';
+  if (typeof query === 'string') {
+    return query;
+  }
+  // Handling array of media queries
+  if (query instanceof Array) {
+    query.forEach(function (q, index) {
+      mq += obj2mq(q);
+      if (index < query.length-1) {
+        mq += ', '
+      }
+    });
+    return mq;
+  }
+  // Handling single media query
+  return obj2mq(query);
+};
+
+module.exports = json2mq;
+
+/***/ }),
+
+/***/ "./node_modules/lodash.debounce/index.js":
+/*!***********************************************!*\
+  !*** ./node_modules/lodash.debounce/index.js ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+/**
+ * lodash (Custom Build) <https://lodash.com/>
+ * Build: `lodash modularize exports="npm" -o ./`
+ * Copyright jQuery Foundation and other contributors <https://jquery.org/>
+ * Released under MIT license <https://lodash.com/license>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ */
+
+/** Used as the `TypeError` message for "Functions" methods. */
+var FUNC_ERROR_TEXT = 'Expected a function';
+
+/** Used as references for various `Number` constants. */
+var NAN = 0 / 0;
+
+/** `Object#toString` result references. */
+var symbolTag = '[object Symbol]';
+
+/** Used to match leading and trailing whitespace. */
+var reTrim = /^\s+|\s+$/g;
+
+/** Used to detect bad signed hexadecimal string values. */
+var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
+
+/** Used to detect binary string values. */
+var reIsBinary = /^0b[01]+$/i;
+
+/** Used to detect octal string values. */
+var reIsOctal = /^0o[0-7]+$/i;
+
+/** Built-in method references without a dependency on `root`. */
+var freeParseInt = parseInt;
+
+/** Detect free variable `global` from Node.js. */
+var freeGlobal = typeof __webpack_require__.g == 'object' && __webpack_require__.g && __webpack_require__.g.Object === Object && __webpack_require__.g;
+
+/** Detect free variable `self`. */
+var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+
+/** Used as a reference to the global object. */
+var root = freeGlobal || freeSelf || Function('return this')();
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var objectToString = objectProto.toString;
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeMax = Math.max,
+    nativeMin = Math.min;
+
+/**
+ * Gets the timestamp of the number of milliseconds that have elapsed since
+ * the Unix epoch (1 January 1970 00:00:00 UTC).
+ *
+ * @static
+ * @memberOf _
+ * @since 2.4.0
+ * @category Date
+ * @returns {number} Returns the timestamp.
+ * @example
+ *
+ * _.defer(function(stamp) {
+ *   console.log(_.now() - stamp);
+ * }, _.now());
+ * // => Logs the number of milliseconds it took for the deferred invocation.
+ */
+var now = function() {
+  return root.Date.now();
+};
+
+/**
+ * Creates a debounced function that delays invoking `func` until after `wait`
+ * milliseconds have elapsed since the last time the debounced function was
+ * invoked. The debounced function comes with a `cancel` method to cancel
+ * delayed `func` invocations and a `flush` method to immediately invoke them.
+ * Provide `options` to indicate whether `func` should be invoked on the
+ * leading and/or trailing edge of the `wait` timeout. The `func` is invoked
+ * with the last arguments provided to the debounced function. Subsequent
+ * calls to the debounced function return the result of the last `func`
+ * invocation.
+ *
+ * **Note:** If `leading` and `trailing` options are `true`, `func` is
+ * invoked on the trailing edge of the timeout only if the debounced function
+ * is invoked more than once during the `wait` timeout.
+ *
+ * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
+ * until to the next tick, similar to `setTimeout` with a timeout of `0`.
+ *
+ * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
+ * for details over the differences between `_.debounce` and `_.throttle`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Function
+ * @param {Function} func The function to debounce.
+ * @param {number} [wait=0] The number of milliseconds to delay.
+ * @param {Object} [options={}] The options object.
+ * @param {boolean} [options.leading=false]
+ *  Specify invoking on the leading edge of the timeout.
+ * @param {number} [options.maxWait]
+ *  The maximum time `func` is allowed to be delayed before it's invoked.
+ * @param {boolean} [options.trailing=true]
+ *  Specify invoking on the trailing edge of the timeout.
+ * @returns {Function} Returns the new debounced function.
+ * @example
+ *
+ * // Avoid costly calculations while the window size is in flux.
+ * jQuery(window).on('resize', _.debounce(calculateLayout, 150));
+ *
+ * // Invoke `sendMail` when clicked, debouncing subsequent calls.
+ * jQuery(element).on('click', _.debounce(sendMail, 300, {
+ *   'leading': true,
+ *   'trailing': false
+ * }));
+ *
+ * // Ensure `batchLog` is invoked once after 1 second of debounced calls.
+ * var debounced = _.debounce(batchLog, 250, { 'maxWait': 1000 });
+ * var source = new EventSource('/stream');
+ * jQuery(source).on('message', debounced);
+ *
+ * // Cancel the trailing debounced invocation.
+ * jQuery(window).on('popstate', debounced.cancel);
+ */
+function debounce(func, wait, options) {
+  var lastArgs,
+      lastThis,
+      maxWait,
+      result,
+      timerId,
+      lastCallTime,
+      lastInvokeTime = 0,
+      leading = false,
+      maxing = false,
+      trailing = true;
+
+  if (typeof func != 'function') {
+    throw new TypeError(FUNC_ERROR_TEXT);
+  }
+  wait = toNumber(wait) || 0;
+  if (isObject(options)) {
+    leading = !!options.leading;
+    maxing = 'maxWait' in options;
+    maxWait = maxing ? nativeMax(toNumber(options.maxWait) || 0, wait) : maxWait;
+    trailing = 'trailing' in options ? !!options.trailing : trailing;
+  }
+
+  function invokeFunc(time) {
+    var args = lastArgs,
+        thisArg = lastThis;
+
+    lastArgs = lastThis = undefined;
+    lastInvokeTime = time;
+    result = func.apply(thisArg, args);
+    return result;
+  }
+
+  function leadingEdge(time) {
+    // Reset any `maxWait` timer.
+    lastInvokeTime = time;
+    // Start the timer for the trailing edge.
+    timerId = setTimeout(timerExpired, wait);
+    // Invoke the leading edge.
+    return leading ? invokeFunc(time) : result;
+  }
+
+  function remainingWait(time) {
+    var timeSinceLastCall = time - lastCallTime,
+        timeSinceLastInvoke = time - lastInvokeTime,
+        result = wait - timeSinceLastCall;
+
+    return maxing ? nativeMin(result, maxWait - timeSinceLastInvoke) : result;
+  }
+
+  function shouldInvoke(time) {
+    var timeSinceLastCall = time - lastCallTime,
+        timeSinceLastInvoke = time - lastInvokeTime;
+
+    // Either this is the first call, activity has stopped and we're at the
+    // trailing edge, the system time has gone backwards and we're treating
+    // it as the trailing edge, or we've hit the `maxWait` limit.
+    return (lastCallTime === undefined || (timeSinceLastCall >= wait) ||
+      (timeSinceLastCall < 0) || (maxing && timeSinceLastInvoke >= maxWait));
+  }
+
+  function timerExpired() {
+    var time = now();
+    if (shouldInvoke(time)) {
+      return trailingEdge(time);
+    }
+    // Restart the timer.
+    timerId = setTimeout(timerExpired, remainingWait(time));
+  }
+
+  function trailingEdge(time) {
+    timerId = undefined;
+
+    // Only invoke if we have `lastArgs` which means `func` has been
+    // debounced at least once.
+    if (trailing && lastArgs) {
+      return invokeFunc(time);
+    }
+    lastArgs = lastThis = undefined;
+    return result;
+  }
+
+  function cancel() {
+    if (timerId !== undefined) {
+      clearTimeout(timerId);
+    }
+    lastInvokeTime = 0;
+    lastArgs = lastCallTime = lastThis = timerId = undefined;
+  }
+
+  function flush() {
+    return timerId === undefined ? result : trailingEdge(now());
+  }
+
+  function debounced() {
+    var time = now(),
+        isInvoking = shouldInvoke(time);
+
+    lastArgs = arguments;
+    lastThis = this;
+    lastCallTime = time;
+
+    if (isInvoking) {
+      if (timerId === undefined) {
+        return leadingEdge(lastCallTime);
+      }
+      if (maxing) {
+        // Handle invocations in a tight loop.
+        timerId = setTimeout(timerExpired, wait);
+        return invokeFunc(lastCallTime);
+      }
+    }
+    if (timerId === undefined) {
+      timerId = setTimeout(timerExpired, wait);
+    }
+    return result;
+  }
+  debounced.cancel = cancel;
+  debounced.flush = flush;
+  return debounced;
+}
+
+/**
+ * Checks if `value` is the
+ * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+ * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(_.noop);
+ * // => true
+ *
+ * _.isObject(null);
+ * // => false
+ */
+function isObject(value) {
+  var type = typeof value;
+  return !!value && (type == 'object' || type == 'function');
+}
+
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not `null`
+ * and has a `typeof` result of "object".
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @example
+ *
+ * _.isObjectLike({});
+ * // => true
+ *
+ * _.isObjectLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isObjectLike(_.noop);
+ * // => false
+ *
+ * _.isObjectLike(null);
+ * // => false
+ */
+function isObjectLike(value) {
+  return !!value && typeof value == 'object';
+}
+
+/**
+ * Checks if `value` is classified as a `Symbol` primitive or object.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+ * @example
+ *
+ * _.isSymbol(Symbol.iterator);
+ * // => true
+ *
+ * _.isSymbol('abc');
+ * // => false
+ */
+function isSymbol(value) {
+  return typeof value == 'symbol' ||
+    (isObjectLike(value) && objectToString.call(value) == symbolTag);
+}
+
+/**
+ * Converts `value` to a number.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to process.
+ * @returns {number} Returns the number.
+ * @example
+ *
+ * _.toNumber(3.2);
+ * // => 3.2
+ *
+ * _.toNumber(Number.MIN_VALUE);
+ * // => 5e-324
+ *
+ * _.toNumber(Infinity);
+ * // => Infinity
+ *
+ * _.toNumber('3.2');
+ * // => 3.2
+ */
+function toNumber(value) {
+  if (typeof value == 'number') {
+    return value;
+  }
+  if (isSymbol(value)) {
+    return NAN;
+  }
+  if (isObject(value)) {
+    var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
+    value = isObject(other) ? (other + '') : other;
+  }
+  if (typeof value != 'string') {
+    return value === 0 ? value : +value;
+  }
+  value = value.replace(reTrim, '');
+  var isBinary = reIsBinary.test(value);
+  return (isBinary || reIsOctal.test(value))
+    ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
+    : (reIsBadHex.test(value) ? NAN : +value);
+}
+
+module.exports = debounce;
+
+
+/***/ }),
+
+/***/ "./src/trip-list/editor.scss":
+/*!***********************************!*\
+  !*** ./src/trip-list/editor.scss ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/trip-list/style.scss":
+/*!**********************************!*\
+  !*** ./src/trip-list/style.scss ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./node_modules/react-slick/lib/arrows.js":
+/*!************************************************!*\
+  !*** ./node_modules/react-slick/lib/arrows.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.PrevArrow = exports.NextArrow = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
+
+var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
+
+var _innerSliderUtils = __webpack_require__(/*! ./utils/innerSliderUtils */ "./node_modules/react-slick/lib/utils/innerSliderUtils.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var PrevArrow = /*#__PURE__*/function (_React$PureComponent) {
+  _inherits(PrevArrow, _React$PureComponent);
+
+  var _super = _createSuper(PrevArrow);
+
+  function PrevArrow() {
+    _classCallCheck(this, PrevArrow);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(PrevArrow, [{
+    key: "clickHandler",
+    value: function clickHandler(options, e) {
+      if (e) {
+        e.preventDefault();
+      }
+
+      this.props.clickHandler(options, e);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var prevClasses = {
+        "slick-arrow": true,
+        "slick-prev": true
+      };
+      var prevHandler = this.clickHandler.bind(this, {
+        message: "previous"
+      });
+
+      if (!this.props.infinite && (this.props.currentSlide === 0 || this.props.slideCount <= this.props.slidesToShow)) {
+        prevClasses["slick-disabled"] = true;
+        prevHandler = null;
+      }
+
+      var prevArrowProps = {
+        key: "0",
+        "data-role": "none",
+        className: (0, _classnames["default"])(prevClasses),
+        style: {
+          display: "block"
+        },
+        onClick: prevHandler
+      };
+      var customProps = {
+        currentSlide: this.props.currentSlide,
+        slideCount: this.props.slideCount
+      };
+      var prevArrow;
+
+      if (this.props.prevArrow) {
+        prevArrow = /*#__PURE__*/_react["default"].cloneElement(this.props.prevArrow, _objectSpread(_objectSpread({}, prevArrowProps), customProps));
+      } else {
+        prevArrow = /*#__PURE__*/_react["default"].createElement("button", _extends({
+          key: "0",
+          type: "button"
+        }, prevArrowProps), " ", "Previous");
+      }
+
+      return prevArrow;
+    }
+  }]);
+
+  return PrevArrow;
+}(_react["default"].PureComponent);
+
+exports.PrevArrow = PrevArrow;
+
+var NextArrow = /*#__PURE__*/function (_React$PureComponent2) {
+  _inherits(NextArrow, _React$PureComponent2);
+
+  var _super2 = _createSuper(NextArrow);
+
+  function NextArrow() {
+    _classCallCheck(this, NextArrow);
+
+    return _super2.apply(this, arguments);
+  }
+
+  _createClass(NextArrow, [{
+    key: "clickHandler",
+    value: function clickHandler(options, e) {
+      if (e) {
+        e.preventDefault();
+      }
+
+      this.props.clickHandler(options, e);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var nextClasses = {
+        "slick-arrow": true,
+        "slick-next": true
+      };
+      var nextHandler = this.clickHandler.bind(this, {
+        message: "next"
+      });
+
+      if (!(0, _innerSliderUtils.canGoNext)(this.props)) {
+        nextClasses["slick-disabled"] = true;
+        nextHandler = null;
+      }
+
+      var nextArrowProps = {
+        key: "1",
+        "data-role": "none",
+        className: (0, _classnames["default"])(nextClasses),
+        style: {
+          display: "block"
+        },
+        onClick: nextHandler
+      };
+      var customProps = {
+        currentSlide: this.props.currentSlide,
+        slideCount: this.props.slideCount
+      };
+      var nextArrow;
+
+      if (this.props.nextArrow) {
+        nextArrow = /*#__PURE__*/_react["default"].cloneElement(this.props.nextArrow, _objectSpread(_objectSpread({}, nextArrowProps), customProps));
+      } else {
+        nextArrow = /*#__PURE__*/_react["default"].createElement("button", _extends({
+          key: "1",
+          type: "button"
+        }, nextArrowProps), " ", "Next");
+      }
+
+      return nextArrow;
+    }
+  }]);
+
+  return NextArrow;
+}(_react["default"].PureComponent);
+
+exports.NextArrow = NextArrow;
+
+/***/ }),
+
+/***/ "./node_modules/react-slick/lib/default-props.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-slick/lib/default-props.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var defaultProps = {
+  accessibility: true,
+  adaptiveHeight: false,
+  afterChange: null,
+  appendDots: function appendDots(dots) {
+    return /*#__PURE__*/_react["default"].createElement("ul", {
+      style: {
+        display: "block"
+      }
+    }, dots);
+  },
+  arrows: true,
+  autoplay: false,
+  autoplaySpeed: 3000,
+  beforeChange: null,
+  centerMode: false,
+  centerPadding: "50px",
+  className: "",
+  cssEase: "ease",
+  customPaging: function customPaging(i) {
+    return /*#__PURE__*/_react["default"].createElement("button", null, i + 1);
+  },
+  dots: false,
+  dotsClass: "slick-dots",
+  draggable: true,
+  easing: "linear",
+  edgeFriction: 0.35,
+  fade: false,
+  focusOnSelect: false,
+  infinite: true,
+  initialSlide: 0,
+  lazyLoad: null,
+  nextArrow: null,
+  onEdge: null,
+  onInit: null,
+  onLazyLoadError: null,
+  onReInit: null,
+  pauseOnDotsHover: false,
+  pauseOnFocus: false,
+  pauseOnHover: true,
+  prevArrow: null,
+  responsive: null,
+  rows: 1,
+  rtl: false,
+  slide: "div",
+  slidesPerRow: 1,
+  slidesToScroll: 1,
+  slidesToShow: 1,
+  speed: 500,
+  swipe: true,
+  swipeEvent: null,
+  swipeToSlide: false,
+  touchMove: true,
+  touchThreshold: 5,
+  useCSS: true,
+  useTransform: true,
+  variableWidth: false,
+  vertical: false,
+  waitForAnimate: true
+};
+var _default = defaultProps;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-slick/lib/dots.js":
+/*!**********************************************!*\
+  !*** ./node_modules/react-slick/lib/dots.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.Dots = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
+
+var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
+
+var _innerSliderUtils = __webpack_require__(/*! ./utils/innerSliderUtils */ "./node_modules/react-slick/lib/utils/innerSliderUtils.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var getDotCount = function getDotCount(spec) {
+  var dots;
+
+  if (spec.infinite) {
+    dots = Math.ceil(spec.slideCount / spec.slidesToScroll);
+  } else {
+    dots = Math.ceil((spec.slideCount - spec.slidesToShow) / spec.slidesToScroll) + 1;
+  }
+
+  return dots;
+};
+
+var Dots = /*#__PURE__*/function (_React$PureComponent) {
+  _inherits(Dots, _React$PureComponent);
+
+  var _super = _createSuper(Dots);
+
+  function Dots() {
+    _classCallCheck(this, Dots);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(Dots, [{
+    key: "clickHandler",
+    value: function clickHandler(options, e) {
+      // In Autoplay the focus stays on clicked button even after transition
+      // to next slide. That only goes away by click somewhere outside
+      e.preventDefault();
+      this.props.clickHandler(options);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          onMouseEnter = _this$props.onMouseEnter,
+          onMouseOver = _this$props.onMouseOver,
+          onMouseLeave = _this$props.onMouseLeave,
+          infinite = _this$props.infinite,
+          slidesToScroll = _this$props.slidesToScroll,
+          slidesToShow = _this$props.slidesToShow,
+          slideCount = _this$props.slideCount,
+          currentSlide = _this$props.currentSlide;
+      var dotCount = getDotCount({
+        slideCount: slideCount,
+        slidesToScroll: slidesToScroll,
+        slidesToShow: slidesToShow,
+        infinite: infinite
+      });
+      var mouseEvents = {
+        onMouseEnter: onMouseEnter,
+        onMouseOver: onMouseOver,
+        onMouseLeave: onMouseLeave
+      };
+      var dots = [];
+
+      for (var i = 0; i < dotCount; i++) {
+        var _rightBound = (i + 1) * slidesToScroll - 1;
+
+        var rightBound = infinite ? _rightBound : (0, _innerSliderUtils.clamp)(_rightBound, 0, slideCount - 1);
+
+        var _leftBound = rightBound - (slidesToScroll - 1);
+
+        var leftBound = infinite ? _leftBound : (0, _innerSliderUtils.clamp)(_leftBound, 0, slideCount - 1);
+        var className = (0, _classnames["default"])({
+          "slick-active": infinite ? currentSlide >= leftBound && currentSlide <= rightBound : currentSlide === leftBound
+        });
+        var dotOptions = {
+          message: "dots",
+          index: i,
+          slidesToScroll: slidesToScroll,
+          currentSlide: currentSlide
+        };
+        var onClick = this.clickHandler.bind(this, dotOptions);
+        dots = dots.concat( /*#__PURE__*/_react["default"].createElement("li", {
+          key: i,
+          className: className
+        }, /*#__PURE__*/_react["default"].cloneElement(this.props.customPaging(i), {
+          onClick: onClick
+        })));
+      }
+
+      return /*#__PURE__*/_react["default"].cloneElement(this.props.appendDots(dots), _objectSpread({
+        className: this.props.dotsClass
+      }, mouseEvents));
+    }
+  }]);
+
+  return Dots;
+}(_react["default"].PureComponent);
+
+exports.Dots = Dots;
+
+/***/ }),
+
+/***/ "./node_modules/react-slick/lib/index.js":
+/*!***********************************************!*\
+  !*** ./node_modules/react-slick/lib/index.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _slider = _interopRequireDefault(__webpack_require__(/*! ./slider */ "./node_modules/react-slick/lib/slider.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var _default = _slider["default"];
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-slick/lib/initial-state.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-slick/lib/initial-state.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+var initialState = {
+  animating: false,
+  autoplaying: null,
+  currentDirection: 0,
+  currentLeft: null,
+  currentSlide: 0,
+  direction: 1,
+  dragging: false,
+  edgeDragged: false,
+  initialized: false,
+  lazyLoadedList: [],
+  listHeight: null,
+  listWidth: null,
+  scrolling: false,
+  slideCount: null,
+  slideHeight: null,
+  slideWidth: null,
+  swipeLeft: null,
+  swiped: false,
+  // used by swipeEvent. differentites between touch and swipe.
+  swiping: false,
+  touchObject: {
+    startX: 0,
+    startY: 0,
+    curX: 0,
+    curY: 0
+  },
+  trackStyle: {},
+  trackWidth: 0,
+  targetSlide: 0
+};
+var _default = initialState;
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ "./node_modules/react-slick/lib/inner-slider.js":
+/*!******************************************************!*\
+  !*** ./node_modules/react-slick/lib/inner-slider.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.InnerSlider = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
+
+var _initialState = _interopRequireDefault(__webpack_require__(/*! ./initial-state */ "./node_modules/react-slick/lib/initial-state.js"));
+
+var _lodash = _interopRequireDefault(__webpack_require__(/*! lodash.debounce */ "./node_modules/lodash.debounce/index.js"));
+
+var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
+
+var _innerSliderUtils = __webpack_require__(/*! ./utils/innerSliderUtils */ "./node_modules/react-slick/lib/utils/innerSliderUtils.js");
+
+var _track = __webpack_require__(/*! ./track */ "./node_modules/react-slick/lib/track.js");
+
+var _dots = __webpack_require__(/*! ./dots */ "./node_modules/react-slick/lib/dots.js");
+
+var _arrows = __webpack_require__(/*! ./arrows */ "./node_modules/react-slick/lib/arrows.js");
+
+var _resizeObserverPolyfill = _interopRequireDefault(__webpack_require__(/*! resize-observer-polyfill */ "./node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var InnerSlider = /*#__PURE__*/function (_React$Component) {
+  _inherits(InnerSlider, _React$Component);
+
+  var _super = _createSuper(InnerSlider);
+
+  function InnerSlider(props) {
+    var _this;
+
+    _classCallCheck(this, InnerSlider);
+
+    _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "listRefHandler", function (ref) {
+      return _this.list = ref;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "trackRefHandler", function (ref) {
+      return _this.track = ref;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "adaptHeight", function () {
+      if (_this.props.adaptiveHeight && _this.list) {
+        var elem = _this.list.querySelector("[data-index=\"".concat(_this.state.currentSlide, "\"]"));
+
+        _this.list.style.height = (0, _innerSliderUtils.getHeight)(elem) + "px";
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
+      _this.props.onInit && _this.props.onInit();
+
+      if (_this.props.lazyLoad) {
+        var slidesToLoad = (0, _innerSliderUtils.getOnDemandLazySlides)(_objectSpread(_objectSpread({}, _this.props), _this.state));
+
+        if (slidesToLoad.length > 0) {
+          _this.setState(function (prevState) {
+            return {
+              lazyLoadedList: prevState.lazyLoadedList.concat(slidesToLoad)
+            };
+          });
+
+          if (_this.props.onLazyLoad) {
+            _this.props.onLazyLoad(slidesToLoad);
+          }
+        }
+      }
+
+      var spec = _objectSpread({
+        listRef: _this.list,
+        trackRef: _this.track
+      }, _this.props);
+
+      _this.updateState(spec, true, function () {
+        _this.adaptHeight();
+
+        _this.props.autoplay && _this.autoPlay("update");
+      });
+
+      if (_this.props.lazyLoad === "progressive") {
+        _this.lazyLoadTimer = setInterval(_this.progressiveLazyLoad, 1000);
+      }
+
+      _this.ro = new _resizeObserverPolyfill["default"](function () {
+        if (_this.state.animating) {
+          _this.onWindowResized(false); // don't set trackStyle hence don't break animation
+
+
+          _this.callbackTimers.push(setTimeout(function () {
+            return _this.onWindowResized();
+          }, _this.props.speed));
+        } else {
+          _this.onWindowResized();
+        }
+      });
+
+      _this.ro.observe(_this.list);
+
+      document.querySelectorAll && Array.prototype.forEach.call(document.querySelectorAll(".slick-slide"), function (slide) {
+        slide.onfocus = _this.props.pauseOnFocus ? _this.onSlideFocus : null;
+        slide.onblur = _this.props.pauseOnFocus ? _this.onSlideBlur : null;
+      });
+
+      if (window.addEventListener) {
+        window.addEventListener("resize", _this.onWindowResized);
+      } else {
+        window.attachEvent("onresize", _this.onWindowResized);
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "componentWillUnmount", function () {
+      if (_this.animationEndCallback) {
+        clearTimeout(_this.animationEndCallback);
+      }
+
+      if (_this.lazyLoadTimer) {
+        clearInterval(_this.lazyLoadTimer);
+      }
+
+      if (_this.callbackTimers.length) {
+        _this.callbackTimers.forEach(function (timer) {
+          return clearTimeout(timer);
+        });
+
+        _this.callbackTimers = [];
+      }
+
+      if (window.addEventListener) {
+        window.removeEventListener("resize", _this.onWindowResized);
+      } else {
+        window.detachEvent("onresize", _this.onWindowResized);
+      }
+
+      if (_this.autoplayTimer) {
+        clearInterval(_this.autoplayTimer);
+      }
+
+      _this.ro.disconnect();
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "componentDidUpdate", function (prevProps) {
+      _this.checkImagesLoad();
+
+      _this.props.onReInit && _this.props.onReInit();
+
+      if (_this.props.lazyLoad) {
+        var slidesToLoad = (0, _innerSliderUtils.getOnDemandLazySlides)(_objectSpread(_objectSpread({}, _this.props), _this.state));
+
+        if (slidesToLoad.length > 0) {
+          _this.setState(function (prevState) {
+            return {
+              lazyLoadedList: prevState.lazyLoadedList.concat(slidesToLoad)
+            };
+          });
+
+          if (_this.props.onLazyLoad) {
+            _this.props.onLazyLoad(slidesToLoad);
+          }
+        }
+      } // if (this.props.onLazyLoad) {
+      //   this.props.onLazyLoad([leftMostSlide])
+      // }
+
+
+      _this.adaptHeight();
+
+      var spec = _objectSpread(_objectSpread({
+        listRef: _this.list,
+        trackRef: _this.track
+      }, _this.props), _this.state);
+
+      var setTrackStyle = _this.didPropsChange(prevProps);
+
+      setTrackStyle && _this.updateState(spec, setTrackStyle, function () {
+        if (_this.state.currentSlide >= _react["default"].Children.count(_this.props.children)) {
+          _this.changeSlide({
+            message: "index",
+            index: _react["default"].Children.count(_this.props.children) - _this.props.slidesToShow,
+            currentSlide: _this.state.currentSlide
+          });
+        }
+
+        if (_this.props.autoplay) {
+          _this.autoPlay("update");
+        } else {
+          _this.pause("paused");
+        }
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onWindowResized", function (setTrackStyle) {
+      if (_this.debouncedResize) _this.debouncedResize.cancel();
+      _this.debouncedResize = (0, _lodash["default"])(function () {
+        return _this.resizeWindow(setTrackStyle);
+      }, 50);
+
+      _this.debouncedResize();
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "resizeWindow", function () {
+      var setTrackStyle = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      var isTrackMounted = Boolean(_this.track && _this.track.node); // prevent warning: setting state on unmounted component (server side rendering)
+
+      if (!isTrackMounted) return;
+
+      var spec = _objectSpread(_objectSpread({
+        listRef: _this.list,
+        trackRef: _this.track
+      }, _this.props), _this.state);
+
+      _this.updateState(spec, setTrackStyle, function () {
+        if (_this.props.autoplay) _this.autoPlay("update");else _this.pause("paused");
+      }); // animating state should be cleared while resizing, otherwise autoplay stops working
+
+
+      _this.setState({
+        animating: false
+      });
+
+      clearTimeout(_this.animationEndCallback);
+      delete _this.animationEndCallback;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "updateState", function (spec, setTrackStyle, callback) {
+      var updatedState = (0, _innerSliderUtils.initializedState)(spec);
+      spec = _objectSpread(_objectSpread(_objectSpread({}, spec), updatedState), {}, {
+        slideIndex: updatedState.currentSlide
+      });
+      var targetLeft = (0, _innerSliderUtils.getTrackLeft)(spec);
+      spec = _objectSpread(_objectSpread({}, spec), {}, {
+        left: targetLeft
+      });
+      var trackStyle = (0, _innerSliderUtils.getTrackCSS)(spec);
+
+      if (setTrackStyle || _react["default"].Children.count(_this.props.children) !== _react["default"].Children.count(spec.children)) {
+        updatedState["trackStyle"] = trackStyle;
+      }
+
+      _this.setState(updatedState, callback);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "ssrInit", function () {
+      if (_this.props.variableWidth) {
+        var _trackWidth = 0,
+            _trackLeft = 0;
+        var childrenWidths = [];
+        var preClones = (0, _innerSliderUtils.getPreClones)(_objectSpread(_objectSpread(_objectSpread({}, _this.props), _this.state), {}, {
+          slideCount: _this.props.children.length
+        }));
+        var postClones = (0, _innerSliderUtils.getPostClones)(_objectSpread(_objectSpread(_objectSpread({}, _this.props), _this.state), {}, {
+          slideCount: _this.props.children.length
+        }));
+
+        _this.props.children.forEach(function (child) {
+          childrenWidths.push(child.props.style.width);
+          _trackWidth += child.props.style.width;
+        });
+
+        for (var i = 0; i < preClones; i++) {
+          _trackLeft += childrenWidths[childrenWidths.length - 1 - i];
+          _trackWidth += childrenWidths[childrenWidths.length - 1 - i];
+        }
+
+        for (var _i = 0; _i < postClones; _i++) {
+          _trackWidth += childrenWidths[_i];
+        }
+
+        for (var _i2 = 0; _i2 < _this.state.currentSlide; _i2++) {
+          _trackLeft += childrenWidths[_i2];
+        }
+
+        var _trackStyle = {
+          width: _trackWidth + "px",
+          left: -_trackLeft + "px"
+        };
+
+        if (_this.props.centerMode) {
+          var currentWidth = "".concat(childrenWidths[_this.state.currentSlide], "px");
+          _trackStyle.left = "calc(".concat(_trackStyle.left, " + (100% - ").concat(currentWidth, ") / 2 ) ");
+        }
+
+        return {
+          trackStyle: _trackStyle
+        };
+      }
+
+      var childrenCount = _react["default"].Children.count(_this.props.children);
+
+      var spec = _objectSpread(_objectSpread(_objectSpread({}, _this.props), _this.state), {}, {
+        slideCount: childrenCount
+      });
+
+      var slideCount = (0, _innerSliderUtils.getPreClones)(spec) + (0, _innerSliderUtils.getPostClones)(spec) + childrenCount;
+      var trackWidth = 100 / _this.props.slidesToShow * slideCount;
+      var slideWidth = 100 / slideCount;
+      var trackLeft = -slideWidth * ((0, _innerSliderUtils.getPreClones)(spec) + _this.state.currentSlide) * trackWidth / 100;
+
+      if (_this.props.centerMode) {
+        trackLeft += (100 - slideWidth * trackWidth / 100) / 2;
+      }
+
+      var trackStyle = {
+        width: trackWidth + "%",
+        left: trackLeft + "%"
+      };
+      return {
+        slideWidth: slideWidth + "%",
+        trackStyle: trackStyle
+      };
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "checkImagesLoad", function () {
+      var images = _this.list && _this.list.querySelectorAll && _this.list.querySelectorAll(".slick-slide img") || [];
+      var imagesCount = images.length,
+          loadedCount = 0;
+      Array.prototype.forEach.call(images, function (image) {
+        var handler = function handler() {
+          return ++loadedCount && loadedCount >= imagesCount && _this.onWindowResized();
+        };
+
+        if (!image.onclick) {
+          image.onclick = function () {
+            return image.parentNode.focus();
+          };
+        } else {
+          var prevClickHandler = image.onclick;
+
+          image.onclick = function () {
+            prevClickHandler();
+            image.parentNode.focus();
+          };
+        }
+
+        if (!image.onload) {
+          if (_this.props.lazyLoad) {
+            image.onload = function () {
+              _this.adaptHeight();
+
+              _this.callbackTimers.push(setTimeout(_this.onWindowResized, _this.props.speed));
+            };
+          } else {
+            image.onload = handler;
+
+            image.onerror = function () {
+              handler();
+              _this.props.onLazyLoadError && _this.props.onLazyLoadError();
+            };
+          }
+        }
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "progressiveLazyLoad", function () {
+      var slidesToLoad = [];
+
+      var spec = _objectSpread(_objectSpread({}, _this.props), _this.state);
+
+      for (var index = _this.state.currentSlide; index < _this.state.slideCount + (0, _innerSliderUtils.getPostClones)(spec); index++) {
+        if (_this.state.lazyLoadedList.indexOf(index) < 0) {
+          slidesToLoad.push(index);
+          break;
+        }
+      }
+
+      for (var _index = _this.state.currentSlide - 1; _index >= -(0, _innerSliderUtils.getPreClones)(spec); _index--) {
+        if (_this.state.lazyLoadedList.indexOf(_index) < 0) {
+          slidesToLoad.push(_index);
+          break;
+        }
+      }
+
+      if (slidesToLoad.length > 0) {
+        _this.setState(function (state) {
+          return {
+            lazyLoadedList: state.lazyLoadedList.concat(slidesToLoad)
+          };
+        });
+
+        if (_this.props.onLazyLoad) {
+          _this.props.onLazyLoad(slidesToLoad);
+        }
+      } else {
+        if (_this.lazyLoadTimer) {
+          clearInterval(_this.lazyLoadTimer);
+          delete _this.lazyLoadTimer;
+        }
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "slideHandler", function (index) {
+      var dontAnimate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var _this$props = _this.props,
+          asNavFor = _this$props.asNavFor,
+          beforeChange = _this$props.beforeChange,
+          onLazyLoad = _this$props.onLazyLoad,
+          speed = _this$props.speed,
+          afterChange = _this$props.afterChange; // capture currentslide before state is updated
+
+      var currentSlide = _this.state.currentSlide;
+
+      var _slideHandler = (0, _innerSliderUtils.slideHandler)(_objectSpread(_objectSpread(_objectSpread({
+        index: index
+      }, _this.props), _this.state), {}, {
+        trackRef: _this.track,
+        useCSS: _this.props.useCSS && !dontAnimate
+      })),
+          state = _slideHandler.state,
+          nextState = _slideHandler.nextState;
+
+      if (!state) return;
+      beforeChange && beforeChange(currentSlide, state.currentSlide);
+      var slidesToLoad = state.lazyLoadedList.filter(function (value) {
+        return _this.state.lazyLoadedList.indexOf(value) < 0;
+      });
+      onLazyLoad && slidesToLoad.length > 0 && onLazyLoad(slidesToLoad);
+
+      if (!_this.props.waitForAnimate && _this.animationEndCallback) {
+        clearTimeout(_this.animationEndCallback);
+        afterChange && afterChange(currentSlide);
+        delete _this.animationEndCallback;
+      }
+
+      _this.setState(state, function () {
+        // asNavForIndex check is to avoid recursive calls of slideHandler in waitForAnimate=false mode
+        if (asNavFor && _this.asNavForIndex !== index) {
+          _this.asNavForIndex = index;
+          asNavFor.innerSlider.slideHandler(index);
+        }
+
+        if (!nextState) return;
+        _this.animationEndCallback = setTimeout(function () {
+          var animating = nextState.animating,
+              firstBatch = _objectWithoutProperties(nextState, ["animating"]);
+
+          _this.setState(firstBatch, function () {
+            _this.callbackTimers.push(setTimeout(function () {
+              return _this.setState({
+                animating: animating
+              });
+            }, 10));
+
+            afterChange && afterChange(state.currentSlide);
+            delete _this.animationEndCallback;
+          });
+        }, speed);
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "changeSlide", function (options) {
+      var dontAnimate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+      var spec = _objectSpread(_objectSpread({}, _this.props), _this.state);
+
+      var targetSlide = (0, _innerSliderUtils.changeSlide)(spec, options);
+      if (targetSlide !== 0 && !targetSlide) return;
+
+      if (dontAnimate === true) {
+        _this.slideHandler(targetSlide, dontAnimate);
+      } else {
+        _this.slideHandler(targetSlide);
+      }
+
+      _this.props.autoplay && _this.autoPlay("update");
+
+      if (_this.props.focusOnSelect) {
+        var nodes = _this.list.querySelectorAll(".slick-current");
+
+        nodes[0] && nodes[0].focus();
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "clickHandler", function (e) {
+      if (_this.clickable === false) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+
+      _this.clickable = true;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "keyHandler", function (e) {
+      var dir = (0, _innerSliderUtils.keyHandler)(e, _this.props.accessibility, _this.props.rtl);
+      dir !== "" && _this.changeSlide({
+        message: dir
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "selectHandler", function (options) {
+      _this.changeSlide(options);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "disableBodyScroll", function () {
+      var preventDefault = function preventDefault(e) {
+        e = e || window.event;
+        if (e.preventDefault) e.preventDefault();
+        e.returnValue = false;
+      };
+
+      window.ontouchmove = preventDefault;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "enableBodyScroll", function () {
+      window.ontouchmove = null;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "swipeStart", function (e) {
+      if (_this.props.verticalSwiping) {
+        _this.disableBodyScroll();
+      }
+
+      var state = (0, _innerSliderUtils.swipeStart)(e, _this.props.swipe, _this.props.draggable);
+      state !== "" && _this.setState(state);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "swipeMove", function (e) {
+      var state = (0, _innerSliderUtils.swipeMove)(e, _objectSpread(_objectSpread(_objectSpread({}, _this.props), _this.state), {}, {
+        trackRef: _this.track,
+        listRef: _this.list,
+        slideIndex: _this.state.currentSlide
+      }));
+      if (!state) return;
+
+      if (state["swiping"]) {
+        _this.clickable = false;
+      }
+
+      _this.setState(state);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "swipeEnd", function (e) {
+      var state = (0, _innerSliderUtils.swipeEnd)(e, _objectSpread(_objectSpread(_objectSpread({}, _this.props), _this.state), {}, {
+        trackRef: _this.track,
+        listRef: _this.list,
+        slideIndex: _this.state.currentSlide
+      }));
+      if (!state) return;
+      var triggerSlideHandler = state["triggerSlideHandler"];
+      delete state["triggerSlideHandler"];
+
+      _this.setState(state);
+
+      if (triggerSlideHandler === undefined) return;
+
+      _this.slideHandler(triggerSlideHandler);
+
+      if (_this.props.verticalSwiping) {
+        _this.enableBodyScroll();
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "touchEnd", function (e) {
+      _this.swipeEnd(e);
+
+      _this.clickable = true;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "slickPrev", function () {
+      // this and fellow methods are wrapped in setTimeout
+      // to make sure initialize setState has happened before
+      // any of such methods are called
+      _this.callbackTimers.push(setTimeout(function () {
+        return _this.changeSlide({
+          message: "previous"
+        });
+      }, 0));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "slickNext", function () {
+      _this.callbackTimers.push(setTimeout(function () {
+        return _this.changeSlide({
+          message: "next"
+        });
+      }, 0));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "slickGoTo", function (slide) {
+      var dontAnimate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      slide = Number(slide);
+      if (isNaN(slide)) return "";
+
+      _this.callbackTimers.push(setTimeout(function () {
+        return _this.changeSlide({
+          message: "index",
+          index: slide,
+          currentSlide: _this.state.currentSlide
+        }, dontAnimate);
+      }, 0));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "play", function () {
+      var nextIndex;
+
+      if (_this.props.rtl) {
+        nextIndex = _this.state.currentSlide - _this.props.slidesToScroll;
+      } else {
+        if ((0, _innerSliderUtils.canGoNext)(_objectSpread(_objectSpread({}, _this.props), _this.state))) {
+          nextIndex = _this.state.currentSlide + _this.props.slidesToScroll;
+        } else {
+          return false;
+        }
+      }
+
+      _this.slideHandler(nextIndex);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "autoPlay", function (playType) {
+      if (_this.autoplayTimer) {
+        clearInterval(_this.autoplayTimer);
+      }
+
+      var autoplaying = _this.state.autoplaying;
+
+      if (playType === "update") {
+        if (autoplaying === "hovered" || autoplaying === "focused" || autoplaying === "paused") {
+          return;
+        }
+      } else if (playType === "leave") {
+        if (autoplaying === "paused" || autoplaying === "focused") {
+          return;
+        }
+      } else if (playType === "blur") {
+        if (autoplaying === "paused" || autoplaying === "hovered") {
+          return;
+        }
+      }
+
+      _this.autoplayTimer = setInterval(_this.play, _this.props.autoplaySpeed + 50);
+
+      _this.setState({
+        autoplaying: "playing"
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "pause", function (pauseType) {
+      if (_this.autoplayTimer) {
+        clearInterval(_this.autoplayTimer);
+        _this.autoplayTimer = null;
+      }
+
+      var autoplaying = _this.state.autoplaying;
+
+      if (pauseType === "paused") {
+        _this.setState({
+          autoplaying: "paused"
+        });
+      } else if (pauseType === "focused") {
+        if (autoplaying === "hovered" || autoplaying === "playing") {
+          _this.setState({
+            autoplaying: "focused"
+          });
+        }
+      } else {
+        // pauseType  is 'hovered'
+        if (autoplaying === "playing") {
+          _this.setState({
+            autoplaying: "hovered"
+          });
+        }
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onDotsOver", function () {
+      return _this.props.autoplay && _this.pause("hovered");
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onDotsLeave", function () {
+      return _this.props.autoplay && _this.state.autoplaying === "hovered" && _this.autoPlay("leave");
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onTrackOver", function () {
+      return _this.props.autoplay && _this.pause("hovered");
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onTrackLeave", function () {
+      return _this.props.autoplay && _this.state.autoplaying === "hovered" && _this.autoPlay("leave");
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onSlideFocus", function () {
+      return _this.props.autoplay && _this.pause("focused");
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onSlideBlur", function () {
+      return _this.props.autoplay && _this.state.autoplaying === "focused" && _this.autoPlay("blur");
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "render", function () {
+      var className = (0, _classnames["default"])("slick-slider", _this.props.className, {
+        "slick-vertical": _this.props.vertical,
+        "slick-initialized": true
+      });
+
+      var spec = _objectSpread(_objectSpread({}, _this.props), _this.state);
+
+      var trackProps = (0, _innerSliderUtils.extractObject)(spec, ["fade", "cssEase", "speed", "infinite", "centerMode", "focusOnSelect", "currentSlide", "lazyLoad", "lazyLoadedList", "rtl", "slideWidth", "slideHeight", "listHeight", "vertical", "slidesToShow", "slidesToScroll", "slideCount", "trackStyle", "variableWidth", "unslick", "centerPadding", "targetSlide", "useCSS"]);
+      var pauseOnHover = _this.props.pauseOnHover;
+      trackProps = _objectSpread(_objectSpread({}, trackProps), {}, {
+        onMouseEnter: pauseOnHover ? _this.onTrackOver : null,
+        onMouseLeave: pauseOnHover ? _this.onTrackLeave : null,
+        onMouseOver: pauseOnHover ? _this.onTrackOver : null,
+        focusOnSelect: _this.props.focusOnSelect && _this.clickable ? _this.selectHandler : null
+      });
+      var dots;
+
+      if (_this.props.dots === true && _this.state.slideCount >= _this.props.slidesToShow) {
+        var dotProps = (0, _innerSliderUtils.extractObject)(spec, ["dotsClass", "slideCount", "slidesToShow", "currentSlide", "slidesToScroll", "clickHandler", "children", "customPaging", "infinite", "appendDots"]);
+        var pauseOnDotsHover = _this.props.pauseOnDotsHover;
+        dotProps = _objectSpread(_objectSpread({}, dotProps), {}, {
+          clickHandler: _this.changeSlide,
+          onMouseEnter: pauseOnDotsHover ? _this.onDotsLeave : null,
+          onMouseOver: pauseOnDotsHover ? _this.onDotsOver : null,
+          onMouseLeave: pauseOnDotsHover ? _this.onDotsLeave : null
+        });
+        dots = /*#__PURE__*/_react["default"].createElement(_dots.Dots, dotProps);
+      }
+
+      var prevArrow, nextArrow;
+      var arrowProps = (0, _innerSliderUtils.extractObject)(spec, ["infinite", "centerMode", "currentSlide", "slideCount", "slidesToShow", "prevArrow", "nextArrow"]);
+      arrowProps.clickHandler = _this.changeSlide;
+
+      if (_this.props.arrows) {
+        prevArrow = /*#__PURE__*/_react["default"].createElement(_arrows.PrevArrow, arrowProps);
+        nextArrow = /*#__PURE__*/_react["default"].createElement(_arrows.NextArrow, arrowProps);
+      }
+
+      var verticalHeightStyle = null;
+
+      if (_this.props.vertical) {
+        verticalHeightStyle = {
+          height: _this.state.listHeight
+        };
+      }
+
+      var centerPaddingStyle = null;
+
+      if (_this.props.vertical === false) {
+        if (_this.props.centerMode === true) {
+          centerPaddingStyle = {
+            padding: "0px " + _this.props.centerPadding
+          };
+        }
+      } else {
+        if (_this.props.centerMode === true) {
+          centerPaddingStyle = {
+            padding: _this.props.centerPadding + " 0px"
+          };
+        }
+      }
+
+      var listStyle = _objectSpread(_objectSpread({}, verticalHeightStyle), centerPaddingStyle);
+
+      var touchMove = _this.props.touchMove;
+      var listProps = {
+        className: "slick-list",
+        style: listStyle,
+        onClick: _this.clickHandler,
+        onMouseDown: touchMove ? _this.swipeStart : null,
+        onMouseMove: _this.state.dragging && touchMove ? _this.swipeMove : null,
+        onMouseUp: touchMove ? _this.swipeEnd : null,
+        onMouseLeave: _this.state.dragging && touchMove ? _this.swipeEnd : null,
+        onTouchStart: touchMove ? _this.swipeStart : null,
+        onTouchMove: _this.state.dragging && touchMove ? _this.swipeMove : null,
+        onTouchEnd: touchMove ? _this.touchEnd : null,
+        onTouchCancel: _this.state.dragging && touchMove ? _this.swipeEnd : null,
+        onKeyDown: _this.props.accessibility ? _this.keyHandler : null
+      };
+      var innerSliderProps = {
+        className: className,
+        dir: "ltr",
+        style: _this.props.style
+      };
+
+      if (_this.props.unslick) {
+        listProps = {
+          className: "slick-list"
+        };
+        innerSliderProps = {
+          className: className
+        };
+      }
+
+      return /*#__PURE__*/_react["default"].createElement("div", innerSliderProps, !_this.props.unslick ? prevArrow : "", /*#__PURE__*/_react["default"].createElement("div", _extends({
+        ref: _this.listRefHandler
+      }, listProps), /*#__PURE__*/_react["default"].createElement(_track.Track, _extends({
+        ref: _this.trackRefHandler
+      }, trackProps), _this.props.children)), !_this.props.unslick ? nextArrow : "", !_this.props.unslick ? dots : "");
+    });
+
+    _this.list = null;
+    _this.track = null;
+    _this.state = _objectSpread(_objectSpread({}, _initialState["default"]), {}, {
+      currentSlide: _this.props.initialSlide,
+      slideCount: _react["default"].Children.count(_this.props.children)
+    });
+    _this.callbackTimers = [];
+    _this.clickable = true;
+    _this.debouncedResize = null;
+
+    var ssrState = _this.ssrInit();
+
+    _this.state = _objectSpread(_objectSpread({}, _this.state), ssrState);
+    return _this;
+  }
+
+  _createClass(InnerSlider, [{
+    key: "didPropsChange",
+    value: function didPropsChange(prevProps) {
+      var setTrackStyle = false;
+
+      for (var _i3 = 0, _Object$keys = Object.keys(this.props); _i3 < _Object$keys.length; _i3++) {
+        var key = _Object$keys[_i3];
+
+        if (!prevProps.hasOwnProperty(key)) {
+          setTrackStyle = true;
+          break;
+        }
+
+        if (_typeof(prevProps[key]) === "object" || typeof prevProps[key] === "function") {
+          continue;
+        }
+
+        if (prevProps[key] !== this.props[key]) {
+          setTrackStyle = true;
+          break;
+        }
+      }
+
+      return setTrackStyle || _react["default"].Children.count(this.props.children) !== _react["default"].Children.count(prevProps.children);
+    }
+  }]);
+
+  return InnerSlider;
+}(_react["default"].Component);
+
+exports.InnerSlider = InnerSlider;
+
+/***/ }),
+
+/***/ "./node_modules/react-slick/lib/slider.js":
+/*!************************************************!*\
+  !*** ./node_modules/react-slick/lib/slider.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
+
+var _innerSlider = __webpack_require__(/*! ./inner-slider */ "./node_modules/react-slick/lib/inner-slider.js");
+
+var _json2mq = _interopRequireDefault(__webpack_require__(/*! json2mq */ "./node_modules/json2mq/index.js"));
+
+var _defaultProps = _interopRequireDefault(__webpack_require__(/*! ./default-props */ "./node_modules/react-slick/lib/default-props.js"));
+
+var _innerSliderUtils = __webpack_require__(/*! ./utils/innerSliderUtils */ "./node_modules/react-slick/lib/utils/innerSliderUtils.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var enquire = (0, _innerSliderUtils.canUseDOM)() && __webpack_require__(/*! enquire.js */ "./node_modules/enquire.js/src/index.js");
+
+var Slider = /*#__PURE__*/function (_React$Component) {
+  _inherits(Slider, _React$Component);
+
+  var _super = _createSuper(Slider);
+
+  function Slider(props) {
+    var _this;
+
+    _classCallCheck(this, Slider);
+
+    _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "innerSliderRefHandler", function (ref) {
+      return _this.innerSlider = ref;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "slickPrev", function () {
+      return _this.innerSlider.slickPrev();
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "slickNext", function () {
+      return _this.innerSlider.slickNext();
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "slickGoTo", function (slide) {
+      var dontAnimate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      return _this.innerSlider.slickGoTo(slide, dontAnimate);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "slickPause", function () {
+      return _this.innerSlider.pause("paused");
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "slickPlay", function () {
+      return _this.innerSlider.autoPlay("play");
+    });
+
+    _this.state = {
+      breakpoint: null
+    };
+    _this._responsiveMediaHandlers = [];
+    return _this;
+  }
+
+  _createClass(Slider, [{
+    key: "media",
+    value: function media(query, handler) {
+      // javascript handler for  css media query
+      enquire.register(query, handler);
+
+      this._responsiveMediaHandlers.push({
+        query: query,
+        handler: handler
+      });
+    } // handles responsive breakpoints
+
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      // performance monitoring
+      //if (process.env.NODE_ENV !== 'production') {
+      //const { whyDidYouUpdate } = require('why-did-you-update')
+      //whyDidYouUpdate(React)
+      //}
+      if (this.props.responsive) {
+        var breakpoints = this.props.responsive.map(function (breakpt) {
+          return breakpt.breakpoint;
+        }); // sort them in increasing order of their numerical value
+
+        breakpoints.sort(function (x, y) {
+          return x - y;
+        });
+        breakpoints.forEach(function (breakpoint, index) {
+          // media query for each breakpoint
+          var bQuery;
+
+          if (index === 0) {
+            bQuery = (0, _json2mq["default"])({
+              minWidth: 0,
+              maxWidth: breakpoint
+            });
+          } else {
+            bQuery = (0, _json2mq["default"])({
+              minWidth: breakpoints[index - 1] + 1,
+              maxWidth: breakpoint
+            });
+          } // when not using server side rendering
+
+
+          (0, _innerSliderUtils.canUseDOM)() && _this2.media(bQuery, function () {
+            _this2.setState({
+              breakpoint: breakpoint
+            });
+          });
+        }); // Register media query for full screen. Need to support resize from small to large
+        // convert javascript object to media query string
+
+        var query = (0, _json2mq["default"])({
+          minWidth: breakpoints.slice(-1)[0]
+        });
+        (0, _innerSliderUtils.canUseDOM)() && this.media(query, function () {
+          _this2.setState({
+            breakpoint: null
+          });
+        });
+      }
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this._responsiveMediaHandlers.forEach(function (obj) {
+        enquire.unregister(obj.query, obj.handler);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var settings;
+      var newProps;
+
+      if (this.state.breakpoint) {
+        newProps = this.props.responsive.filter(function (resp) {
+          return resp.breakpoint === _this3.state.breakpoint;
+        });
+        settings = newProps[0].settings === "unslick" ? "unslick" : _objectSpread(_objectSpread(_objectSpread({}, _defaultProps["default"]), this.props), newProps[0].settings);
+      } else {
+        settings = _objectSpread(_objectSpread({}, _defaultProps["default"]), this.props);
+      } // force scrolling by one if centerMode is on
+
+
+      if (settings.centerMode) {
+        if (settings.slidesToScroll > 1 && "development" !== "production") {
+          console.warn("slidesToScroll should be equal to 1 in centerMode, you are using ".concat(settings.slidesToScroll));
+        }
+
+        settings.slidesToScroll = 1;
+      } // force showing one slide and scrolling by one if the fade mode is on
+
+
+      if (settings.fade) {
+        if (settings.slidesToShow > 1 && "development" !== "production") {
+          console.warn("slidesToShow should be equal to 1 when fade is true, you're using ".concat(settings.slidesToShow));
+        }
+
+        if (settings.slidesToScroll > 1 && "development" !== "production") {
+          console.warn("slidesToScroll should be equal to 1 when fade is true, you're using ".concat(settings.slidesToScroll));
+        }
+
+        settings.slidesToShow = 1;
+        settings.slidesToScroll = 1;
+      } // makes sure that children is an array, even when there is only 1 child
+
+
+      var children = _react["default"].Children.toArray(this.props.children); // Children may contain false or null, so we should filter them
+      // children may also contain string filled with spaces (in certain cases where we use jsx strings)
+
+
+      children = children.filter(function (child) {
+        if (typeof child === "string") {
+          return !!child.trim();
+        }
+
+        return !!child;
+      }); // rows and slidesPerRow logic is handled here
+
+      if (settings.variableWidth && (settings.rows > 1 || settings.slidesPerRow > 1)) {
+        console.warn("variableWidth is not supported in case of rows > 1 or slidesPerRow > 1");
+        settings.variableWidth = false;
+      }
+
+      var newChildren = [];
+      var currentWidth = null;
+
+      for (var i = 0; i < children.length; i += settings.rows * settings.slidesPerRow) {
+        var newSlide = [];
+
+        for (var j = i; j < i + settings.rows * settings.slidesPerRow; j += settings.slidesPerRow) {
+          var row = [];
+
+          for (var k = j; k < j + settings.slidesPerRow; k += 1) {
+            if (settings.variableWidth && children[k].props.style) {
+              currentWidth = children[k].props.style.width;
+            }
+
+            if (k >= children.length) break;
+            row.push( /*#__PURE__*/_react["default"].cloneElement(children[k], {
+              key: 100 * i + 10 * j + k,
+              tabIndex: -1,
+              style: {
+                width: "".concat(100 / settings.slidesPerRow, "%"),
+                display: "inline-block"
+              }
+            }));
+          }
+
+          newSlide.push( /*#__PURE__*/_react["default"].createElement("div", {
+            key: 10 * i + j
+          }, row));
+        }
+
+        if (settings.variableWidth) {
+          newChildren.push( /*#__PURE__*/_react["default"].createElement("div", {
+            key: i,
+            style: {
+              width: currentWidth
+            }
+          }, newSlide));
+        } else {
+          newChildren.push( /*#__PURE__*/_react["default"].createElement("div", {
+            key: i
+          }, newSlide));
+        }
+      }
+
+      if (settings === "unslick") {
+        var className = "regular slider " + (this.props.className || "");
+        return /*#__PURE__*/_react["default"].createElement("div", {
+          className: className
+        }, children);
+      } else if (newChildren.length <= settings.slidesToShow) {
+        settings.unslick = true;
+      }
+
+      return /*#__PURE__*/_react["default"].createElement(_innerSlider.InnerSlider, _extends({
+        style: this.props.style,
+        ref: this.innerSliderRefHandler
+      }, settings), newChildren);
+    }
+  }]);
+
+  return Slider;
+}(_react["default"].Component);
+
+exports["default"] = Slider;
+
+/***/ }),
+
+/***/ "./node_modules/react-slick/lib/track.js":
+/*!***********************************************!*\
+  !*** ./node_modules/react-slick/lib/track.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.Track = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
+
+var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
+
+var _innerSliderUtils = __webpack_require__(/*! ./utils/innerSliderUtils */ "./node_modules/react-slick/lib/utils/innerSliderUtils.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// given specifications/props for a slide, fetch all the classes that need to be applied to the slide
+var getSlideClasses = function getSlideClasses(spec) {
+  var slickActive, slickCenter, slickCloned;
+  var centerOffset, index;
+
+  if (spec.rtl) {
+    index = spec.slideCount - 1 - spec.index;
+  } else {
+    index = spec.index;
+  }
+
+  slickCloned = index < 0 || index >= spec.slideCount;
+
+  if (spec.centerMode) {
+    centerOffset = Math.floor(spec.slidesToShow / 2);
+    slickCenter = (index - spec.currentSlide) % spec.slideCount === 0;
+
+    if (index > spec.currentSlide - centerOffset - 1 && index <= spec.currentSlide + centerOffset) {
+      slickActive = true;
+    }
+  } else {
+    slickActive = spec.currentSlide <= index && index < spec.currentSlide + spec.slidesToShow;
+  }
+
+  var focusedSlide;
+
+  if (spec.targetSlide < 0) {
+    focusedSlide = spec.targetSlide + spec.slideCount;
+  } else if (spec.targetSlide >= spec.slideCount) {
+    focusedSlide = spec.targetSlide - spec.slideCount;
+  } else {
+    focusedSlide = spec.targetSlide;
+  }
+
+  var slickCurrent = index === focusedSlide;
+  return {
+    "slick-slide": true,
+    "slick-active": slickActive,
+    "slick-center": slickCenter,
+    "slick-cloned": slickCloned,
+    "slick-current": slickCurrent // dubious in case of RTL
+
+  };
+};
+
+var getSlideStyle = function getSlideStyle(spec) {
+  var style = {};
+
+  if (spec.variableWidth === undefined || spec.variableWidth === false) {
+    style.width = spec.slideWidth;
+  }
+
+  if (spec.fade) {
+    style.position = "relative";
+
+    if (spec.vertical) {
+      style.top = -spec.index * parseInt(spec.slideHeight);
+    } else {
+      style.left = -spec.index * parseInt(spec.slideWidth);
+    }
+
+    style.opacity = spec.currentSlide === spec.index ? 1 : 0;
+
+    if (spec.useCSS) {
+      style.transition = "opacity " + spec.speed + "ms " + spec.cssEase + ", " + "visibility " + spec.speed + "ms " + spec.cssEase;
+    }
+  }
+
+  return style;
+};
+
+var getKey = function getKey(child, fallbackKey) {
+  return child.key || fallbackKey;
+};
+
+var renderSlides = function renderSlides(spec) {
+  var key;
+  var slides = [];
+  var preCloneSlides = [];
+  var postCloneSlides = [];
+
+  var childrenCount = _react["default"].Children.count(spec.children);
+
+  var startIndex = (0, _innerSliderUtils.lazyStartIndex)(spec);
+  var endIndex = (0, _innerSliderUtils.lazyEndIndex)(spec);
+
+  _react["default"].Children.forEach(spec.children, function (elem, index) {
+    var child;
+    var childOnClickOptions = {
+      message: "children",
+      index: index,
+      slidesToScroll: spec.slidesToScroll,
+      currentSlide: spec.currentSlide
+    }; // in case of lazyLoad, whether or not we want to fetch the slide
+
+    if (!spec.lazyLoad || spec.lazyLoad && spec.lazyLoadedList.indexOf(index) >= 0) {
+      child = elem;
+    } else {
+      child = /*#__PURE__*/_react["default"].createElement("div", null);
+    }
+
+    var childStyle = getSlideStyle(_objectSpread(_objectSpread({}, spec), {}, {
+      index: index
+    }));
+    var slideClass = child.props.className || "";
+    var slideClasses = getSlideClasses(_objectSpread(_objectSpread({}, spec), {}, {
+      index: index
+    })); // push a cloned element of the desired slide
+
+    slides.push( /*#__PURE__*/_react["default"].cloneElement(child, {
+      key: "original" + getKey(child, index),
+      "data-index": index,
+      className: (0, _classnames["default"])(slideClasses, slideClass),
+      tabIndex: "-1",
+      "aria-hidden": !slideClasses["slick-active"],
+      style: _objectSpread(_objectSpread({
+        outline: "none"
+      }, child.props.style || {}), childStyle),
+      onClick: function onClick(e) {
+        child.props && child.props.onClick && child.props.onClick(e);
+
+        if (spec.focusOnSelect) {
+          spec.focusOnSelect(childOnClickOptions);
+        }
+      }
+    })); // if slide needs to be precloned or postcloned
+
+    if (spec.infinite && spec.fade === false) {
+      var preCloneNo = childrenCount - index;
+
+      if (preCloneNo <= (0, _innerSliderUtils.getPreClones)(spec) && childrenCount !== spec.slidesToShow) {
+        key = -preCloneNo;
+
+        if (key >= startIndex) {
+          child = elem;
+        }
+
+        slideClasses = getSlideClasses(_objectSpread(_objectSpread({}, spec), {}, {
+          index: key
+        }));
+        preCloneSlides.push( /*#__PURE__*/_react["default"].cloneElement(child, {
+          key: "precloned" + getKey(child, key),
+          "data-index": key,
+          tabIndex: "-1",
+          className: (0, _classnames["default"])(slideClasses, slideClass),
+          "aria-hidden": !slideClasses["slick-active"],
+          style: _objectSpread(_objectSpread({}, child.props.style || {}), childStyle),
+          onClick: function onClick(e) {
+            child.props && child.props.onClick && child.props.onClick(e);
+
+            if (spec.focusOnSelect) {
+              spec.focusOnSelect(childOnClickOptions);
+            }
+          }
+        }));
+      }
+
+      if (childrenCount !== spec.slidesToShow) {
+        key = childrenCount + index;
+
+        if (key < endIndex) {
+          child = elem;
+        }
+
+        slideClasses = getSlideClasses(_objectSpread(_objectSpread({}, spec), {}, {
+          index: key
+        }));
+        postCloneSlides.push( /*#__PURE__*/_react["default"].cloneElement(child, {
+          key: "postcloned" + getKey(child, key),
+          "data-index": key,
+          tabIndex: "-1",
+          className: (0, _classnames["default"])(slideClasses, slideClass),
+          "aria-hidden": !slideClasses["slick-active"],
+          style: _objectSpread(_objectSpread({}, child.props.style || {}), childStyle),
+          onClick: function onClick(e) {
+            child.props && child.props.onClick && child.props.onClick(e);
+
+            if (spec.focusOnSelect) {
+              spec.focusOnSelect(childOnClickOptions);
+            }
+          }
+        }));
+      }
+    }
+  });
+
+  if (spec.rtl) {
+    return preCloneSlides.concat(slides, postCloneSlides).reverse();
+  } else {
+    return preCloneSlides.concat(slides, postCloneSlides);
+  }
+};
+
+var Track = /*#__PURE__*/function (_React$PureComponent) {
+  _inherits(Track, _React$PureComponent);
+
+  var _super = _createSuper(Track);
+
+  function Track() {
+    var _this;
+
+    _classCallCheck(this, Track);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "node", null);
+
+    _defineProperty(_assertThisInitialized(_this), "handleRef", function (ref) {
+      _this.node = ref;
+    });
+
+    return _this;
+  }
+
+  _createClass(Track, [{
+    key: "render",
+    value: function render() {
+      var slides = renderSlides(this.props);
+      var _this$props = this.props,
+          onMouseEnter = _this$props.onMouseEnter,
+          onMouseOver = _this$props.onMouseOver,
+          onMouseLeave = _this$props.onMouseLeave;
+      var mouseEvents = {
+        onMouseEnter: onMouseEnter,
+        onMouseOver: onMouseOver,
+        onMouseLeave: onMouseLeave
+      };
+      return /*#__PURE__*/_react["default"].createElement("div", _extends({
+        ref: this.handleRef,
+        className: "slick-track",
+        style: this.props.trackStyle
+      }, mouseEvents), slides);
+    }
+  }]);
+
+  return Track;
+}(_react["default"].PureComponent);
+
+exports.Track = Track;
+
+/***/ }),
+
+/***/ "./node_modules/react-slick/lib/utils/innerSliderUtils.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-slick/lib/utils/innerSliderUtils.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.checkSpecKeys = exports.checkNavigable = exports.changeSlide = exports.canUseDOM = exports.canGoNext = void 0;
+exports.clamp = clamp;
+exports.swipeStart = exports.swipeMove = exports.swipeEnd = exports.slidesOnRight = exports.slidesOnLeft = exports.slideHandler = exports.siblingDirection = exports.safePreventDefault = exports.lazyStartIndex = exports.lazySlidesOnRight = exports.lazySlidesOnLeft = exports.lazyEndIndex = exports.keyHandler = exports.initializedState = exports.getWidth = exports.getTrackLeft = exports.getTrackCSS = exports.getTrackAnimateCSS = exports.getTotalSlides = exports.getSwipeDirection = exports.getSlideCount = exports.getRequiredLazySlides = exports.getPreClones = exports.getPostClones = exports.getOnDemandLazySlides = exports.getNavigableIndexes = exports.getHeight = exports.extractObject = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function clamp(number, lowerBound, upperBound) {
+  return Math.max(lowerBound, Math.min(number, upperBound));
+}
+
+var safePreventDefault = function safePreventDefault(event) {
+  var passiveEvents = ["onTouchStart", "onTouchMove", "onWheel"];
+
+  if (!passiveEvents.includes(event._reactName)) {
+    event.preventDefault();
+  }
+};
+
+exports.safePreventDefault = safePreventDefault;
+
+var getOnDemandLazySlides = function getOnDemandLazySlides(spec) {
+  var onDemandSlides = [];
+  var startIndex = lazyStartIndex(spec);
+  var endIndex = lazyEndIndex(spec);
+
+  for (var slideIndex = startIndex; slideIndex < endIndex; slideIndex++) {
+    if (spec.lazyLoadedList.indexOf(slideIndex) < 0) {
+      onDemandSlides.push(slideIndex);
+    }
+  }
+
+  return onDemandSlides;
+}; // return list of slides that need to be present
+
+
+exports.getOnDemandLazySlides = getOnDemandLazySlides;
+
+var getRequiredLazySlides = function getRequiredLazySlides(spec) {
+  var requiredSlides = [];
+  var startIndex = lazyStartIndex(spec);
+  var endIndex = lazyEndIndex(spec);
+
+  for (var slideIndex = startIndex; slideIndex < endIndex; slideIndex++) {
+    requiredSlides.push(slideIndex);
+  }
+
+  return requiredSlides;
+}; // startIndex that needs to be present
+
+
+exports.getRequiredLazySlides = getRequiredLazySlides;
+
+var lazyStartIndex = function lazyStartIndex(spec) {
+  return spec.currentSlide - lazySlidesOnLeft(spec);
+};
+
+exports.lazyStartIndex = lazyStartIndex;
+
+var lazyEndIndex = function lazyEndIndex(spec) {
+  return spec.currentSlide + lazySlidesOnRight(spec);
+};
+
+exports.lazyEndIndex = lazyEndIndex;
+
+var lazySlidesOnLeft = function lazySlidesOnLeft(spec) {
+  return spec.centerMode ? Math.floor(spec.slidesToShow / 2) + (parseInt(spec.centerPadding) > 0 ? 1 : 0) : 0;
+};
+
+exports.lazySlidesOnLeft = lazySlidesOnLeft;
+
+var lazySlidesOnRight = function lazySlidesOnRight(spec) {
+  return spec.centerMode ? Math.floor((spec.slidesToShow - 1) / 2) + 1 + (parseInt(spec.centerPadding) > 0 ? 1 : 0) : spec.slidesToShow;
+}; // get width of an element
+
+
+exports.lazySlidesOnRight = lazySlidesOnRight;
+
+var getWidth = function getWidth(elem) {
+  return elem && elem.offsetWidth || 0;
+};
+
+exports.getWidth = getWidth;
+
+var getHeight = function getHeight(elem) {
+  return elem && elem.offsetHeight || 0;
+};
+
+exports.getHeight = getHeight;
+
+var getSwipeDirection = function getSwipeDirection(touchObject) {
+  var verticalSwiping = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  var xDist, yDist, r, swipeAngle;
+  xDist = touchObject.startX - touchObject.curX;
+  yDist = touchObject.startY - touchObject.curY;
+  r = Math.atan2(yDist, xDist);
+  swipeAngle = Math.round(r * 180 / Math.PI);
+
+  if (swipeAngle < 0) {
+    swipeAngle = 360 - Math.abs(swipeAngle);
+  }
+
+  if (swipeAngle <= 45 && swipeAngle >= 0 || swipeAngle <= 360 && swipeAngle >= 315) {
+    return "left";
+  }
+
+  if (swipeAngle >= 135 && swipeAngle <= 225) {
+    return "right";
+  }
+
+  if (verticalSwiping === true) {
+    if (swipeAngle >= 35 && swipeAngle <= 135) {
+      return "up";
+    } else {
+      return "down";
+    }
+  }
+
+  return "vertical";
+}; // whether or not we can go next
+
+
+exports.getSwipeDirection = getSwipeDirection;
+
+var canGoNext = function canGoNext(spec) {
+  var canGo = true;
+
+  if (!spec.infinite) {
+    if (spec.centerMode && spec.currentSlide >= spec.slideCount - 1) {
+      canGo = false;
+    } else if (spec.slideCount <= spec.slidesToShow || spec.currentSlide >= spec.slideCount - spec.slidesToShow) {
+      canGo = false;
+    }
+  }
+
+  return canGo;
+}; // given an object and a list of keys, return new object with given keys
+
+
+exports.canGoNext = canGoNext;
+
+var extractObject = function extractObject(spec, keys) {
+  var newObject = {};
+  keys.forEach(function (key) {
+    return newObject[key] = spec[key];
+  });
+  return newObject;
+}; // get initialized state
+
+
+exports.extractObject = extractObject;
+
+var initializedState = function initializedState(spec) {
+  // spec also contains listRef, trackRef
+  var slideCount = _react["default"].Children.count(spec.children);
+
+  var listNode = spec.listRef;
+  var listWidth = Math.ceil(getWidth(listNode));
+  var trackNode = spec.trackRef && spec.trackRef.node;
+  var trackWidth = Math.ceil(getWidth(trackNode));
+  var slideWidth;
+
+  if (!spec.vertical) {
+    var centerPaddingAdj = spec.centerMode && parseInt(spec.centerPadding) * 2;
+
+    if (typeof spec.centerPadding === "string" && spec.centerPadding.slice(-1) === "%") {
+      centerPaddingAdj *= listWidth / 100;
+    }
+
+    slideWidth = Math.ceil((listWidth - centerPaddingAdj) / spec.slidesToShow);
+  } else {
+    slideWidth = listWidth;
+  }
+
+  var slideHeight = listNode && getHeight(listNode.querySelector('[data-index="0"]'));
+  var listHeight = slideHeight * spec.slidesToShow;
+  var currentSlide = spec.currentSlide === undefined ? spec.initialSlide : spec.currentSlide;
+
+  if (spec.rtl && spec.currentSlide === undefined) {
+    currentSlide = slideCount - 1 - spec.initialSlide;
+  }
+
+  var lazyLoadedList = spec.lazyLoadedList || [];
+  var slidesToLoad = getOnDemandLazySlides(_objectSpread(_objectSpread({}, spec), {}, {
+    currentSlide: currentSlide,
+    lazyLoadedList: lazyLoadedList
+  }));
+  lazyLoadedList = lazyLoadedList.concat(slidesToLoad);
+  var state = {
+    slideCount: slideCount,
+    slideWidth: slideWidth,
+    listWidth: listWidth,
+    trackWidth: trackWidth,
+    currentSlide: currentSlide,
+    slideHeight: slideHeight,
+    listHeight: listHeight,
+    lazyLoadedList: lazyLoadedList
+  };
+
+  if (spec.autoplaying === null && spec.autoplay) {
+    state["autoplaying"] = "playing";
+  }
+
+  return state;
+};
+
+exports.initializedState = initializedState;
+
+var slideHandler = function slideHandler(spec) {
+  var waitForAnimate = spec.waitForAnimate,
+      animating = spec.animating,
+      fade = spec.fade,
+      infinite = spec.infinite,
+      index = spec.index,
+      slideCount = spec.slideCount,
+      lazyLoad = spec.lazyLoad,
+      currentSlide = spec.currentSlide,
+      centerMode = spec.centerMode,
+      slidesToScroll = spec.slidesToScroll,
+      slidesToShow = spec.slidesToShow,
+      useCSS = spec.useCSS;
+  var lazyLoadedList = spec.lazyLoadedList;
+  if (waitForAnimate && animating) return {};
+  var animationSlide = index,
+      finalSlide,
+      animationLeft,
+      finalLeft;
+  var state = {},
+      nextState = {};
+  var targetSlide = infinite ? index : clamp(index, 0, slideCount - 1);
+
+  if (fade) {
+    if (!infinite && (index < 0 || index >= slideCount)) return {};
+
+    if (index < 0) {
+      animationSlide = index + slideCount;
+    } else if (index >= slideCount) {
+      animationSlide = index - slideCount;
+    }
+
+    if (lazyLoad && lazyLoadedList.indexOf(animationSlide) < 0) {
+      lazyLoadedList = lazyLoadedList.concat(animationSlide);
+    }
+
+    state = {
+      animating: true,
+      currentSlide: animationSlide,
+      lazyLoadedList: lazyLoadedList,
+      targetSlide: animationSlide
+    };
+    nextState = {
+      animating: false,
+      targetSlide: animationSlide
+    };
+  } else {
+    finalSlide = animationSlide;
+
+    if (animationSlide < 0) {
+      finalSlide = animationSlide + slideCount;
+      if (!infinite) finalSlide = 0;else if (slideCount % slidesToScroll !== 0) finalSlide = slideCount - slideCount % slidesToScroll;
+    } else if (!canGoNext(spec) && animationSlide > currentSlide) {
+      animationSlide = finalSlide = currentSlide;
+    } else if (centerMode && animationSlide >= slideCount) {
+      animationSlide = infinite ? slideCount : slideCount - 1;
+      finalSlide = infinite ? 0 : slideCount - 1;
+    } else if (animationSlide >= slideCount) {
+      finalSlide = animationSlide - slideCount;
+      if (!infinite) finalSlide = slideCount - slidesToShow;else if (slideCount % slidesToScroll !== 0) finalSlide = 0;
+    }
+
+    if (!infinite && animationSlide + slidesToShow >= slideCount) {
+      finalSlide = slideCount - slidesToShow;
+    }
+
+    animationLeft = getTrackLeft(_objectSpread(_objectSpread({}, spec), {}, {
+      slideIndex: animationSlide
+    }));
+    finalLeft = getTrackLeft(_objectSpread(_objectSpread({}, spec), {}, {
+      slideIndex: finalSlide
+    }));
+
+    if (!infinite) {
+      if (animationLeft === finalLeft) animationSlide = finalSlide;
+      animationLeft = finalLeft;
+    }
+
+    if (lazyLoad) {
+      lazyLoadedList = lazyLoadedList.concat(getOnDemandLazySlides(_objectSpread(_objectSpread({}, spec), {}, {
+        currentSlide: animationSlide
+      })));
+    }
+
+    if (!useCSS) {
+      state = {
+        currentSlide: finalSlide,
+        trackStyle: getTrackCSS(_objectSpread(_objectSpread({}, spec), {}, {
+          left: finalLeft
+        })),
+        lazyLoadedList: lazyLoadedList,
+        targetSlide: targetSlide
+      };
+    } else {
+      state = {
+        animating: true,
+        currentSlide: finalSlide,
+        trackStyle: getTrackAnimateCSS(_objectSpread(_objectSpread({}, spec), {}, {
+          left: animationLeft
+        })),
+        lazyLoadedList: lazyLoadedList,
+        targetSlide: targetSlide
+      };
+      nextState = {
+        animating: false,
+        currentSlide: finalSlide,
+        trackStyle: getTrackCSS(_objectSpread(_objectSpread({}, spec), {}, {
+          left: finalLeft
+        })),
+        swipeLeft: null,
+        targetSlide: targetSlide
+      };
+    }
+  }
+
+  return {
+    state: state,
+    nextState: nextState
+  };
+};
+
+exports.slideHandler = slideHandler;
+
+var changeSlide = function changeSlide(spec, options) {
+  var indexOffset, previousInt, slideOffset, unevenOffset, targetSlide;
+  var slidesToScroll = spec.slidesToScroll,
+      slidesToShow = spec.slidesToShow,
+      slideCount = spec.slideCount,
+      currentSlide = spec.currentSlide,
+      previousTargetSlide = spec.targetSlide,
+      lazyLoad = spec.lazyLoad,
+      infinite = spec.infinite;
+  unevenOffset = slideCount % slidesToScroll !== 0;
+  indexOffset = unevenOffset ? 0 : (slideCount - currentSlide) % slidesToScroll;
+
+  if (options.message === "previous") {
+    slideOffset = indexOffset === 0 ? slidesToScroll : slidesToShow - indexOffset;
+    targetSlide = currentSlide - slideOffset;
+
+    if (lazyLoad && !infinite) {
+      previousInt = currentSlide - slideOffset;
+      targetSlide = previousInt === -1 ? slideCount - 1 : previousInt;
+    }
+
+    if (!infinite) {
+      targetSlide = previousTargetSlide - slidesToScroll;
+    }
+  } else if (options.message === "next") {
+    slideOffset = indexOffset === 0 ? slidesToScroll : indexOffset;
+    targetSlide = currentSlide + slideOffset;
+
+    if (lazyLoad && !infinite) {
+      targetSlide = (currentSlide + slidesToScroll) % slideCount + indexOffset;
+    }
+
+    if (!infinite) {
+      targetSlide = previousTargetSlide + slidesToScroll;
+    }
+  } else if (options.message === "dots") {
+    // Click on dots
+    targetSlide = options.index * options.slidesToScroll;
+  } else if (options.message === "children") {
+    // Click on the slides
+    targetSlide = options.index;
+
+    if (infinite) {
+      var direction = siblingDirection(_objectSpread(_objectSpread({}, spec), {}, {
+        targetSlide: targetSlide
+      }));
+
+      if (targetSlide > options.currentSlide && direction === "left") {
+        targetSlide = targetSlide - slideCount;
+      } else if (targetSlide < options.currentSlide && direction === "right") {
+        targetSlide = targetSlide + slideCount;
+      }
+    }
+  } else if (options.message === "index") {
+    targetSlide = Number(options.index);
+  }
+
+  return targetSlide;
+};
+
+exports.changeSlide = changeSlide;
+
+var keyHandler = function keyHandler(e, accessibility, rtl) {
+  if (e.target.tagName.match("TEXTAREA|INPUT|SELECT") || !accessibility) return "";
+  if (e.keyCode === 37) return rtl ? "next" : "previous";
+  if (e.keyCode === 39) return rtl ? "previous" : "next";
+  return "";
+};
+
+exports.keyHandler = keyHandler;
+
+var swipeStart = function swipeStart(e, swipe, draggable) {
+  e.target.tagName === "IMG" && safePreventDefault(e);
+  if (!swipe || !draggable && e.type.indexOf("mouse") !== -1) return "";
+  return {
+    dragging: true,
+    touchObject: {
+      startX: e.touches ? e.touches[0].pageX : e.clientX,
+      startY: e.touches ? e.touches[0].pageY : e.clientY,
+      curX: e.touches ? e.touches[0].pageX : e.clientX,
+      curY: e.touches ? e.touches[0].pageY : e.clientY
+    }
+  };
+};
+
+exports.swipeStart = swipeStart;
+
+var swipeMove = function swipeMove(e, spec) {
+  // spec also contains, trackRef and slideIndex
+  var scrolling = spec.scrolling,
+      animating = spec.animating,
+      vertical = spec.vertical,
+      swipeToSlide = spec.swipeToSlide,
+      verticalSwiping = spec.verticalSwiping,
+      rtl = spec.rtl,
+      currentSlide = spec.currentSlide,
+      edgeFriction = spec.edgeFriction,
+      edgeDragged = spec.edgeDragged,
+      onEdge = spec.onEdge,
+      swiped = spec.swiped,
+      swiping = spec.swiping,
+      slideCount = spec.slideCount,
+      slidesToScroll = spec.slidesToScroll,
+      infinite = spec.infinite,
+      touchObject = spec.touchObject,
+      swipeEvent = spec.swipeEvent,
+      listHeight = spec.listHeight,
+      listWidth = spec.listWidth;
+  if (scrolling) return;
+  if (animating) return safePreventDefault(e);
+  if (vertical && swipeToSlide && verticalSwiping) safePreventDefault(e);
+  var swipeLeft,
+      state = {};
+  var curLeft = getTrackLeft(spec);
+  touchObject.curX = e.touches ? e.touches[0].pageX : e.clientX;
+  touchObject.curY = e.touches ? e.touches[0].pageY : e.clientY;
+  touchObject.swipeLength = Math.round(Math.sqrt(Math.pow(touchObject.curX - touchObject.startX, 2)));
+  var verticalSwipeLength = Math.round(Math.sqrt(Math.pow(touchObject.curY - touchObject.startY, 2)));
+
+  if (!verticalSwiping && !swiping && verticalSwipeLength > 10) {
+    return {
+      scrolling: true
+    };
+  }
+
+  if (verticalSwiping) touchObject.swipeLength = verticalSwipeLength;
+  var positionOffset = (!rtl ? 1 : -1) * (touchObject.curX > touchObject.startX ? 1 : -1);
+  if (verticalSwiping) positionOffset = touchObject.curY > touchObject.startY ? 1 : -1;
+  var dotCount = Math.ceil(slideCount / slidesToScroll);
+  var swipeDirection = getSwipeDirection(spec.touchObject, verticalSwiping);
+  var touchSwipeLength = touchObject.swipeLength;
+
+  if (!infinite) {
+    if (currentSlide === 0 && (swipeDirection === "right" || swipeDirection === "down") || currentSlide + 1 >= dotCount && (swipeDirection === "left" || swipeDirection === "up") || !canGoNext(spec) && (swipeDirection === "left" || swipeDirection === "up")) {
+      touchSwipeLength = touchObject.swipeLength * edgeFriction;
+
+      if (edgeDragged === false && onEdge) {
+        onEdge(swipeDirection);
+        state["edgeDragged"] = true;
+      }
+    }
+  }
+
+  if (!swiped && swipeEvent) {
+    swipeEvent(swipeDirection);
+    state["swiped"] = true;
+  }
+
+  if (!vertical) {
+    if (!rtl) {
+      swipeLeft = curLeft + touchSwipeLength * positionOffset;
+    } else {
+      swipeLeft = curLeft - touchSwipeLength * positionOffset;
+    }
+  } else {
+    swipeLeft = curLeft + touchSwipeLength * (listHeight / listWidth) * positionOffset;
+  }
+
+  if (verticalSwiping) {
+    swipeLeft = curLeft + touchSwipeLength * positionOffset;
+  }
+
+  state = _objectSpread(_objectSpread({}, state), {}, {
+    touchObject: touchObject,
+    swipeLeft: swipeLeft,
+    trackStyle: getTrackCSS(_objectSpread(_objectSpread({}, spec), {}, {
+      left: swipeLeft
+    }))
+  });
+
+  if (Math.abs(touchObject.curX - touchObject.startX) < Math.abs(touchObject.curY - touchObject.startY) * 0.8) {
+    return state;
+  }
+
+  if (touchObject.swipeLength > 10) {
+    state["swiping"] = true;
+    safePreventDefault(e);
+  }
+
+  return state;
+};
+
+exports.swipeMove = swipeMove;
+
+var swipeEnd = function swipeEnd(e, spec) {
+  var dragging = spec.dragging,
+      swipe = spec.swipe,
+      touchObject = spec.touchObject,
+      listWidth = spec.listWidth,
+      touchThreshold = spec.touchThreshold,
+      verticalSwiping = spec.verticalSwiping,
+      listHeight = spec.listHeight,
+      swipeToSlide = spec.swipeToSlide,
+      scrolling = spec.scrolling,
+      onSwipe = spec.onSwipe,
+      targetSlide = spec.targetSlide,
+      currentSlide = spec.currentSlide,
+      infinite = spec.infinite;
+
+  if (!dragging) {
+    if (swipe) safePreventDefault(e);
+    return {};
+  }
+
+  var minSwipe = verticalSwiping ? listHeight / touchThreshold : listWidth / touchThreshold;
+  var swipeDirection = getSwipeDirection(touchObject, verticalSwiping); // reset the state of touch related state variables.
+
+  var state = {
+    dragging: false,
+    edgeDragged: false,
+    scrolling: false,
+    swiping: false,
+    swiped: false,
+    swipeLeft: null,
+    touchObject: {}
+  };
+
+  if (scrolling) {
+    return state;
+  }
+
+  if (!touchObject.swipeLength) {
+    return state;
+  }
+
+  if (touchObject.swipeLength > minSwipe) {
+    safePreventDefault(e);
+
+    if (onSwipe) {
+      onSwipe(swipeDirection);
+    }
+
+    var slideCount, newSlide;
+    var activeSlide = infinite ? currentSlide : targetSlide;
+
+    switch (swipeDirection) {
+      case "left":
+      case "up":
+        newSlide = activeSlide + getSlideCount(spec);
+        slideCount = swipeToSlide ? checkNavigable(spec, newSlide) : newSlide;
+        state["currentDirection"] = 0;
+        break;
+
+      case "right":
+      case "down":
+        newSlide = activeSlide - getSlideCount(spec);
+        slideCount = swipeToSlide ? checkNavigable(spec, newSlide) : newSlide;
+        state["currentDirection"] = 1;
+        break;
+
+      default:
+        slideCount = activeSlide;
+    }
+
+    state["triggerSlideHandler"] = slideCount;
+  } else {
+    // Adjust the track back to it's original position.
+    var currentLeft = getTrackLeft(spec);
+    state["trackStyle"] = getTrackAnimateCSS(_objectSpread(_objectSpread({}, spec), {}, {
+      left: currentLeft
+    }));
+  }
+
+  return state;
+};
+
+exports.swipeEnd = swipeEnd;
+
+var getNavigableIndexes = function getNavigableIndexes(spec) {
+  var max = spec.infinite ? spec.slideCount * 2 : spec.slideCount;
+  var breakpoint = spec.infinite ? spec.slidesToShow * -1 : 0;
+  var counter = spec.infinite ? spec.slidesToShow * -1 : 0;
+  var indexes = [];
+
+  while (breakpoint < max) {
+    indexes.push(breakpoint);
+    breakpoint = counter + spec.slidesToScroll;
+    counter += Math.min(spec.slidesToScroll, spec.slidesToShow);
+  }
+
+  return indexes;
+};
+
+exports.getNavigableIndexes = getNavigableIndexes;
+
+var checkNavigable = function checkNavigable(spec, index) {
+  var navigables = getNavigableIndexes(spec);
+  var prevNavigable = 0;
+
+  if (index > navigables[navigables.length - 1]) {
+    index = navigables[navigables.length - 1];
+  } else {
+    for (var n in navigables) {
+      if (index < navigables[n]) {
+        index = prevNavigable;
+        break;
+      }
+
+      prevNavigable = navigables[n];
+    }
+  }
+
+  return index;
+};
+
+exports.checkNavigable = checkNavigable;
+
+var getSlideCount = function getSlideCount(spec) {
+  var centerOffset = spec.centerMode ? spec.slideWidth * Math.floor(spec.slidesToShow / 2) : 0;
+
+  if (spec.swipeToSlide) {
+    var swipedSlide;
+    var slickList = spec.listRef;
+    var slides = slickList.querySelectorAll && slickList.querySelectorAll(".slick-slide") || [];
+    Array.from(slides).every(function (slide) {
+      if (!spec.vertical) {
+        if (slide.offsetLeft - centerOffset + getWidth(slide) / 2 > spec.swipeLeft * -1) {
+          swipedSlide = slide;
+          return false;
+        }
+      } else {
+        if (slide.offsetTop + getHeight(slide) / 2 > spec.swipeLeft * -1) {
+          swipedSlide = slide;
+          return false;
+        }
+      }
+
+      return true;
+    });
+
+    if (!swipedSlide) {
+      return 0;
+    }
+
+    var currentIndex = spec.rtl === true ? spec.slideCount - spec.currentSlide : spec.currentSlide;
+    var slidesTraversed = Math.abs(swipedSlide.dataset.index - currentIndex) || 1;
+    return slidesTraversed;
+  } else {
+    return spec.slidesToScroll;
+  }
+};
+
+exports.getSlideCount = getSlideCount;
+
+var checkSpecKeys = function checkSpecKeys(spec, keysArray) {
+  return keysArray.reduce(function (value, key) {
+    return value && spec.hasOwnProperty(key);
+  }, true) ? null : console.error("Keys Missing:", spec);
+};
+
+exports.checkSpecKeys = checkSpecKeys;
+
+var getTrackCSS = function getTrackCSS(spec) {
+  checkSpecKeys(spec, ["left", "variableWidth", "slideCount", "slidesToShow", "slideWidth"]);
+  var trackWidth, trackHeight;
+  var trackChildren = spec.slideCount + 2 * spec.slidesToShow;
+
+  if (!spec.vertical) {
+    trackWidth = getTotalSlides(spec) * spec.slideWidth;
+  } else {
+    trackHeight = trackChildren * spec.slideHeight;
+  }
+
+  var style = {
+    opacity: 1,
+    transition: "",
+    WebkitTransition: ""
+  };
+
+  if (spec.useTransform) {
+    var WebkitTransform = !spec.vertical ? "translate3d(" + spec.left + "px, 0px, 0px)" : "translate3d(0px, " + spec.left + "px, 0px)";
+    var transform = !spec.vertical ? "translate3d(" + spec.left + "px, 0px, 0px)" : "translate3d(0px, " + spec.left + "px, 0px)";
+    var msTransform = !spec.vertical ? "translateX(" + spec.left + "px)" : "translateY(" + spec.left + "px)";
+    style = _objectSpread(_objectSpread({}, style), {}, {
+      WebkitTransform: WebkitTransform,
+      transform: transform,
+      msTransform: msTransform
+    });
+  } else {
+    if (spec.vertical) {
+      style["top"] = spec.left;
+    } else {
+      style["left"] = spec.left;
+    }
+  }
+
+  if (spec.fade) style = {
+    opacity: 1
+  };
+  if (trackWidth) style.width = trackWidth;
+  if (trackHeight) style.height = trackHeight; // Fallback for IE8
+
+  if (window && !window.addEventListener && window.attachEvent) {
+    if (!spec.vertical) {
+      style.marginLeft = spec.left + "px";
+    } else {
+      style.marginTop = spec.left + "px";
+    }
+  }
+
+  return style;
+};
+
+exports.getTrackCSS = getTrackCSS;
+
+var getTrackAnimateCSS = function getTrackAnimateCSS(spec) {
+  checkSpecKeys(spec, ["left", "variableWidth", "slideCount", "slidesToShow", "slideWidth", "speed", "cssEase"]);
+  var style = getTrackCSS(spec); // useCSS is true by default so it can be undefined
+
+  if (spec.useTransform) {
+    style.WebkitTransition = "-webkit-transform " + spec.speed + "ms " + spec.cssEase;
+    style.transition = "transform " + spec.speed + "ms " + spec.cssEase;
+  } else {
+    if (spec.vertical) {
+      style.transition = "top " + spec.speed + "ms " + spec.cssEase;
+    } else {
+      style.transition = "left " + spec.speed + "ms " + spec.cssEase;
+    }
+  }
+
+  return style;
+};
+
+exports.getTrackAnimateCSS = getTrackAnimateCSS;
+
+var getTrackLeft = function getTrackLeft(spec) {
+  if (spec.unslick) {
+    return 0;
+  }
+
+  checkSpecKeys(spec, ["slideIndex", "trackRef", "infinite", "centerMode", "slideCount", "slidesToShow", "slidesToScroll", "slideWidth", "listWidth", "variableWidth", "slideHeight"]);
+  var slideIndex = spec.slideIndex,
+      trackRef = spec.trackRef,
+      infinite = spec.infinite,
+      centerMode = spec.centerMode,
+      slideCount = spec.slideCount,
+      slidesToShow = spec.slidesToShow,
+      slidesToScroll = spec.slidesToScroll,
+      slideWidth = spec.slideWidth,
+      listWidth = spec.listWidth,
+      variableWidth = spec.variableWidth,
+      slideHeight = spec.slideHeight,
+      fade = spec.fade,
+      vertical = spec.vertical;
+  var slideOffset = 0;
+  var targetLeft;
+  var targetSlide;
+  var verticalOffset = 0;
+
+  if (fade || spec.slideCount === 1) {
+    return 0;
+  }
+
+  var slidesToOffset = 0;
+
+  if (infinite) {
+    slidesToOffset = -getPreClones(spec); // bring active slide to the beginning of visual area
+    // if next scroll doesn't have enough children, just reach till the end of original slides instead of shifting slidesToScroll children
+
+    if (slideCount % slidesToScroll !== 0 && slideIndex + slidesToScroll > slideCount) {
+      slidesToOffset = -(slideIndex > slideCount ? slidesToShow - (slideIndex - slideCount) : slideCount % slidesToScroll);
+    } // shift current slide to center of the frame
+
+
+    if (centerMode) {
+      slidesToOffset += parseInt(slidesToShow / 2);
+    }
+  } else {
+    if (slideCount % slidesToScroll !== 0 && slideIndex + slidesToScroll > slideCount) {
+      slidesToOffset = slidesToShow - slideCount % slidesToScroll;
+    }
+
+    if (centerMode) {
+      slidesToOffset = parseInt(slidesToShow / 2);
+    }
+  }
+
+  slideOffset = slidesToOffset * slideWidth;
+  verticalOffset = slidesToOffset * slideHeight;
+
+  if (!vertical) {
+    targetLeft = slideIndex * slideWidth * -1 + slideOffset;
+  } else {
+    targetLeft = slideIndex * slideHeight * -1 + verticalOffset;
+  }
+
+  if (variableWidth === true) {
+    var targetSlideIndex;
+    var trackElem = trackRef && trackRef.node;
+    targetSlideIndex = slideIndex + getPreClones(spec);
+    targetSlide = trackElem && trackElem.childNodes[targetSlideIndex];
+    targetLeft = targetSlide ? targetSlide.offsetLeft * -1 : 0;
+
+    if (centerMode === true) {
+      targetSlideIndex = infinite ? slideIndex + getPreClones(spec) : slideIndex;
+      targetSlide = trackElem && trackElem.children[targetSlideIndex];
+      targetLeft = 0;
+
+      for (var slide = 0; slide < targetSlideIndex; slide++) {
+        targetLeft -= trackElem && trackElem.children[slide] && trackElem.children[slide].offsetWidth;
+      }
+
+      targetLeft -= parseInt(spec.centerPadding);
+      targetLeft += targetSlide && (listWidth - targetSlide.offsetWidth) / 2;
+    }
+  }
+
+  return targetLeft;
+};
+
+exports.getTrackLeft = getTrackLeft;
+
+var getPreClones = function getPreClones(spec) {
+  if (spec.unslick || !spec.infinite) {
+    return 0;
+  }
+
+  if (spec.variableWidth) {
+    return spec.slideCount;
+  }
+
+  return spec.slidesToShow + (spec.centerMode ? 1 : 0);
+};
+
+exports.getPreClones = getPreClones;
+
+var getPostClones = function getPostClones(spec) {
+  if (spec.unslick || !spec.infinite) {
+    return 0;
+  }
+
+  return spec.slideCount;
+};
+
+exports.getPostClones = getPostClones;
+
+var getTotalSlides = function getTotalSlides(spec) {
+  return spec.slideCount === 1 ? 1 : getPreClones(spec) + spec.slideCount + getPostClones(spec);
+};
+
+exports.getTotalSlides = getTotalSlides;
+
+var siblingDirection = function siblingDirection(spec) {
+  if (spec.targetSlide > spec.currentSlide) {
+    if (spec.targetSlide > spec.currentSlide + slidesOnRight(spec)) {
+      return "left";
+    }
+
+    return "right";
+  } else {
+    if (spec.targetSlide < spec.currentSlide - slidesOnLeft(spec)) {
+      return "right";
+    }
+
+    return "left";
+  }
+};
+
+exports.siblingDirection = siblingDirection;
+
+var slidesOnRight = function slidesOnRight(_ref) {
+  var slidesToShow = _ref.slidesToShow,
+      centerMode = _ref.centerMode,
+      rtl = _ref.rtl,
+      centerPadding = _ref.centerPadding;
+
+  // returns no of slides on the right of active slide
+  if (centerMode) {
+    var right = (slidesToShow - 1) / 2 + 1;
+    if (parseInt(centerPadding) > 0) right += 1;
+    if (rtl && slidesToShow % 2 === 0) right += 1;
+    return right;
+  }
+
+  if (rtl) {
+    return 0;
+  }
+
+  return slidesToShow - 1;
+};
+
+exports.slidesOnRight = slidesOnRight;
+
+var slidesOnLeft = function slidesOnLeft(_ref2) {
+  var slidesToShow = _ref2.slidesToShow,
+      centerMode = _ref2.centerMode,
+      rtl = _ref2.rtl,
+      centerPadding = _ref2.centerPadding;
+
+  // returns no of slides on the left of active slide
+  if (centerMode) {
+    var left = (slidesToShow - 1) / 2 + 1;
+    if (parseInt(centerPadding) > 0) left += 1;
+    if (!rtl && slidesToShow % 2 === 0) left += 1;
+    return left;
+  }
+
+  if (rtl) {
+    return slidesToShow - 1;
+  }
+
+  return 0;
+};
+
+exports.slidesOnLeft = slidesOnLeft;
+
+var canUseDOM = function canUseDOM() {
+  return !!(typeof window !== "undefined" && window.document && window.document.createElement);
+};
+
+exports.canUseDOM = canUseDOM;
+
+/***/ }),
+
+/***/ "./node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/**
+ * A collection of shims that provide minimal functionality of the ES6 collections.
+ *
+ * These implementations are not meant to be used outside of the ResizeObserver
+ * modules as they cover only a limited range of use cases.
+ */
+/* eslint-disable require-jsdoc, valid-jsdoc */
+var MapShim = (function () {
+    if (typeof Map !== 'undefined') {
+        return Map;
+    }
+    /**
+     * Returns index in provided array that matches the specified key.
+     *
+     * @param {Array<Array>} arr
+     * @param {*} key
+     * @returns {number}
+     */
+    function getIndex(arr, key) {
+        var result = -1;
+        arr.some(function (entry, index) {
+            if (entry[0] === key) {
+                result = index;
+                return true;
+            }
+            return false;
+        });
+        return result;
+    }
+    return /** @class */ (function () {
+        function class_1() {
+            this.__entries__ = [];
+        }
+        Object.defineProperty(class_1.prototype, "size", {
+            /**
+             * @returns {boolean}
+             */
+            get: function () {
+                return this.__entries__.length;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        /**
+         * @param {*} key
+         * @returns {*}
+         */
+        class_1.prototype.get = function (key) {
+            var index = getIndex(this.__entries__, key);
+            var entry = this.__entries__[index];
+            return entry && entry[1];
+        };
+        /**
+         * @param {*} key
+         * @param {*} value
+         * @returns {void}
+         */
+        class_1.prototype.set = function (key, value) {
+            var index = getIndex(this.__entries__, key);
+            if (~index) {
+                this.__entries__[index][1] = value;
+            }
+            else {
+                this.__entries__.push([key, value]);
+            }
+        };
+        /**
+         * @param {*} key
+         * @returns {void}
+         */
+        class_1.prototype.delete = function (key) {
+            var entries = this.__entries__;
+            var index = getIndex(entries, key);
+            if (~index) {
+                entries.splice(index, 1);
+            }
+        };
+        /**
+         * @param {*} key
+         * @returns {void}
+         */
+        class_1.prototype.has = function (key) {
+            return !!~getIndex(this.__entries__, key);
+        };
+        /**
+         * @returns {void}
+         */
+        class_1.prototype.clear = function () {
+            this.__entries__.splice(0);
+        };
+        /**
+         * @param {Function} callback
+         * @param {*} [ctx=null]
+         * @returns {void}
+         */
+        class_1.prototype.forEach = function (callback, ctx) {
+            if (ctx === void 0) { ctx = null; }
+            for (var _i = 0, _a = this.__entries__; _i < _a.length; _i++) {
+                var entry = _a[_i];
+                callback.call(ctx, entry[1], entry[0]);
+            }
+        };
+        return class_1;
+    }());
+})();
+
+/**
+ * Detects whether window and document objects are available in current environment.
+ */
+var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined' && window.document === document;
+
+// Returns global object of a current environment.
+var global$1 = (function () {
+    if (typeof __webpack_require__.g !== 'undefined' && __webpack_require__.g.Math === Math) {
+        return __webpack_require__.g;
+    }
+    if (typeof self !== 'undefined' && self.Math === Math) {
+        return self;
+    }
+    if (typeof window !== 'undefined' && window.Math === Math) {
+        return window;
+    }
+    // eslint-disable-next-line no-new-func
+    return Function('return this')();
+})();
+
+/**
+ * A shim for the requestAnimationFrame which falls back to the setTimeout if
+ * first one is not supported.
+ *
+ * @returns {number} Requests' identifier.
+ */
+var requestAnimationFrame$1 = (function () {
+    if (typeof requestAnimationFrame === 'function') {
+        // It's required to use a bounded function because IE sometimes throws
+        // an "Invalid calling object" error if rAF is invoked without the global
+        // object on the left hand side.
+        return requestAnimationFrame.bind(global$1);
+    }
+    return function (callback) { return setTimeout(function () { return callback(Date.now()); }, 1000 / 60); };
+})();
+
+// Defines minimum timeout before adding a trailing call.
+var trailingTimeout = 2;
+/**
+ * Creates a wrapper function which ensures that provided callback will be
+ * invoked only once during the specified delay period.
+ *
+ * @param {Function} callback - Function to be invoked after the delay period.
+ * @param {number} delay - Delay after which to invoke callback.
+ * @returns {Function}
+ */
+function throttle (callback, delay) {
+    var leadingCall = false, trailingCall = false, lastCallTime = 0;
+    /**
+     * Invokes the original callback function and schedules new invocation if
+     * the "proxy" was called during current request.
+     *
+     * @returns {void}
+     */
+    function resolvePending() {
+        if (leadingCall) {
+            leadingCall = false;
+            callback();
+        }
+        if (trailingCall) {
+            proxy();
+        }
+    }
+    /**
+     * Callback invoked after the specified delay. It will further postpone
+     * invocation of the original function delegating it to the
+     * requestAnimationFrame.
+     *
+     * @returns {void}
+     */
+    function timeoutCallback() {
+        requestAnimationFrame$1(resolvePending);
+    }
+    /**
+     * Schedules invocation of the original function.
+     *
+     * @returns {void}
+     */
+    function proxy() {
+        var timeStamp = Date.now();
+        if (leadingCall) {
+            // Reject immediately following calls.
+            if (timeStamp - lastCallTime < trailingTimeout) {
+                return;
+            }
+            // Schedule new call to be in invoked when the pending one is resolved.
+            // This is important for "transitions" which never actually start
+            // immediately so there is a chance that we might miss one if change
+            // happens amids the pending invocation.
+            trailingCall = true;
+        }
+        else {
+            leadingCall = true;
+            trailingCall = false;
+            setTimeout(timeoutCallback, delay);
+        }
+        lastCallTime = timeStamp;
+    }
+    return proxy;
+}
+
+// Minimum delay before invoking the update of observers.
+var REFRESH_DELAY = 20;
+// A list of substrings of CSS properties used to find transition events that
+// might affect dimensions of observed elements.
+var transitionKeys = ['top', 'right', 'bottom', 'left', 'width', 'height', 'size', 'weight'];
+// Check if MutationObserver is available.
+var mutationObserverSupported = typeof MutationObserver !== 'undefined';
+/**
+ * Singleton controller class which handles updates of ResizeObserver instances.
+ */
+var ResizeObserverController = /** @class */ (function () {
+    /**
+     * Creates a new instance of ResizeObserverController.
+     *
+     * @private
+     */
+    function ResizeObserverController() {
+        /**
+         * Indicates whether DOM listeners have been added.
+         *
+         * @private {boolean}
+         */
+        this.connected_ = false;
+        /**
+         * Tells that controller has subscribed for Mutation Events.
+         *
+         * @private {boolean}
+         */
+        this.mutationEventsAdded_ = false;
+        /**
+         * Keeps reference to the instance of MutationObserver.
+         *
+         * @private {MutationObserver}
+         */
+        this.mutationsObserver_ = null;
+        /**
+         * A list of connected observers.
+         *
+         * @private {Array<ResizeObserverSPI>}
+         */
+        this.observers_ = [];
+        this.onTransitionEnd_ = this.onTransitionEnd_.bind(this);
+        this.refresh = throttle(this.refresh.bind(this), REFRESH_DELAY);
+    }
+    /**
+     * Adds observer to observers list.
+     *
+     * @param {ResizeObserverSPI} observer - Observer to be added.
+     * @returns {void}
+     */
+    ResizeObserverController.prototype.addObserver = function (observer) {
+        if (!~this.observers_.indexOf(observer)) {
+            this.observers_.push(observer);
+        }
+        // Add listeners if they haven't been added yet.
+        if (!this.connected_) {
+            this.connect_();
+        }
+    };
+    /**
+     * Removes observer from observers list.
+     *
+     * @param {ResizeObserverSPI} observer - Observer to be removed.
+     * @returns {void}
+     */
+    ResizeObserverController.prototype.removeObserver = function (observer) {
+        var observers = this.observers_;
+        var index = observers.indexOf(observer);
+        // Remove observer if it's present in registry.
+        if (~index) {
+            observers.splice(index, 1);
+        }
+        // Remove listeners if controller has no connected observers.
+        if (!observers.length && this.connected_) {
+            this.disconnect_();
+        }
+    };
+    /**
+     * Invokes the update of observers. It will continue running updates insofar
+     * it detects changes.
+     *
+     * @returns {void}
+     */
+    ResizeObserverController.prototype.refresh = function () {
+        var changesDetected = this.updateObservers_();
+        // Continue running updates if changes have been detected as there might
+        // be future ones caused by CSS transitions.
+        if (changesDetected) {
+            this.refresh();
+        }
+    };
+    /**
+     * Updates every observer from observers list and notifies them of queued
+     * entries.
+     *
+     * @private
+     * @returns {boolean} Returns "true" if any observer has detected changes in
+     *      dimensions of it's elements.
+     */
+    ResizeObserverController.prototype.updateObservers_ = function () {
+        // Collect observers that have active observations.
+        var activeObservers = this.observers_.filter(function (observer) {
+            return observer.gatherActive(), observer.hasActive();
+        });
+        // Deliver notifications in a separate cycle in order to avoid any
+        // collisions between observers, e.g. when multiple instances of
+        // ResizeObserver are tracking the same element and the callback of one
+        // of them changes content dimensions of the observed target. Sometimes
+        // this may result in notifications being blocked for the rest of observers.
+        activeObservers.forEach(function (observer) { return observer.broadcastActive(); });
+        return activeObservers.length > 0;
+    };
+    /**
+     * Initializes DOM listeners.
+     *
+     * @private
+     * @returns {void}
+     */
+    ResizeObserverController.prototype.connect_ = function () {
+        // Do nothing if running in a non-browser environment or if listeners
+        // have been already added.
+        if (!isBrowser || this.connected_) {
+            return;
+        }
+        // Subscription to the "Transitionend" event is used as a workaround for
+        // delayed transitions. This way it's possible to capture at least the
+        // final state of an element.
+        document.addEventListener('transitionend', this.onTransitionEnd_);
+        window.addEventListener('resize', this.refresh);
+        if (mutationObserverSupported) {
+            this.mutationsObserver_ = new MutationObserver(this.refresh);
+            this.mutationsObserver_.observe(document, {
+                attributes: true,
+                childList: true,
+                characterData: true,
+                subtree: true
+            });
+        }
+        else {
+            document.addEventListener('DOMSubtreeModified', this.refresh);
+            this.mutationEventsAdded_ = true;
+        }
+        this.connected_ = true;
+    };
+    /**
+     * Removes DOM listeners.
+     *
+     * @private
+     * @returns {void}
+     */
+    ResizeObserverController.prototype.disconnect_ = function () {
+        // Do nothing if running in a non-browser environment or if listeners
+        // have been already removed.
+        if (!isBrowser || !this.connected_) {
+            return;
+        }
+        document.removeEventListener('transitionend', this.onTransitionEnd_);
+        window.removeEventListener('resize', this.refresh);
+        if (this.mutationsObserver_) {
+            this.mutationsObserver_.disconnect();
+        }
+        if (this.mutationEventsAdded_) {
+            document.removeEventListener('DOMSubtreeModified', this.refresh);
+        }
+        this.mutationsObserver_ = null;
+        this.mutationEventsAdded_ = false;
+        this.connected_ = false;
+    };
+    /**
+     * "Transitionend" event handler.
+     *
+     * @private
+     * @param {TransitionEvent} event
+     * @returns {void}
+     */
+    ResizeObserverController.prototype.onTransitionEnd_ = function (_a) {
+        var _b = _a.propertyName, propertyName = _b === void 0 ? '' : _b;
+        // Detect whether transition may affect dimensions of an element.
+        var isReflowProperty = transitionKeys.some(function (key) {
+            return !!~propertyName.indexOf(key);
+        });
+        if (isReflowProperty) {
+            this.refresh();
+        }
+    };
+    /**
+     * Returns instance of the ResizeObserverController.
+     *
+     * @returns {ResizeObserverController}
+     */
+    ResizeObserverController.getInstance = function () {
+        if (!this.instance_) {
+            this.instance_ = new ResizeObserverController();
+        }
+        return this.instance_;
+    };
+    /**
+     * Holds reference to the controller's instance.
+     *
+     * @private {ResizeObserverController}
+     */
+    ResizeObserverController.instance_ = null;
+    return ResizeObserverController;
+}());
+
+/**
+ * Defines non-writable/enumerable properties of the provided target object.
+ *
+ * @param {Object} target - Object for which to define properties.
+ * @param {Object} props - Properties to be defined.
+ * @returns {Object} Target object.
+ */
+var defineConfigurable = (function (target, props) {
+    for (var _i = 0, _a = Object.keys(props); _i < _a.length; _i++) {
+        var key = _a[_i];
+        Object.defineProperty(target, key, {
+            value: props[key],
+            enumerable: false,
+            writable: false,
+            configurable: true
+        });
+    }
+    return target;
+});
+
+/**
+ * Returns the global object associated with provided element.
+ *
+ * @param {Object} target
+ * @returns {Object}
+ */
+var getWindowOf = (function (target) {
+    // Assume that the element is an instance of Node, which means that it
+    // has the "ownerDocument" property from which we can retrieve a
+    // corresponding global object.
+    var ownerGlobal = target && target.ownerDocument && target.ownerDocument.defaultView;
+    // Return the local global object if it's not possible extract one from
+    // provided element.
+    return ownerGlobal || global$1;
+});
+
+// Placeholder of an empty content rectangle.
+var emptyRect = createRectInit(0, 0, 0, 0);
+/**
+ * Converts provided string to a number.
+ *
+ * @param {number|string} value
+ * @returns {number}
+ */
+function toFloat(value) {
+    return parseFloat(value) || 0;
+}
+/**
+ * Extracts borders size from provided styles.
+ *
+ * @param {CSSStyleDeclaration} styles
+ * @param {...string} positions - Borders positions (top, right, ...)
+ * @returns {number}
+ */
+function getBordersSize(styles) {
+    var positions = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        positions[_i - 1] = arguments[_i];
+    }
+    return positions.reduce(function (size, position) {
+        var value = styles['border-' + position + '-width'];
+        return size + toFloat(value);
+    }, 0);
+}
+/**
+ * Extracts paddings sizes from provided styles.
+ *
+ * @param {CSSStyleDeclaration} styles
+ * @returns {Object} Paddings box.
+ */
+function getPaddings(styles) {
+    var positions = ['top', 'right', 'bottom', 'left'];
+    var paddings = {};
+    for (var _i = 0, positions_1 = positions; _i < positions_1.length; _i++) {
+        var position = positions_1[_i];
+        var value = styles['padding-' + position];
+        paddings[position] = toFloat(value);
+    }
+    return paddings;
+}
+/**
+ * Calculates content rectangle of provided SVG element.
+ *
+ * @param {SVGGraphicsElement} target - Element content rectangle of which needs
+ *      to be calculated.
+ * @returns {DOMRectInit}
+ */
+function getSVGContentRect(target) {
+    var bbox = target.getBBox();
+    return createRectInit(0, 0, bbox.width, bbox.height);
+}
+/**
+ * Calculates content rectangle of provided HTMLElement.
+ *
+ * @param {HTMLElement} target - Element for which to calculate the content rectangle.
+ * @returns {DOMRectInit}
+ */
+function getHTMLElementContentRect(target) {
+    // Client width & height properties can't be
+    // used exclusively as they provide rounded values.
+    var clientWidth = target.clientWidth, clientHeight = target.clientHeight;
+    // By this condition we can catch all non-replaced inline, hidden and
+    // detached elements. Though elements with width & height properties less
+    // than 0.5 will be discarded as well.
+    //
+    // Without it we would need to implement separate methods for each of
+    // those cases and it's not possible to perform a precise and performance
+    // effective test for hidden elements. E.g. even jQuery's ':visible' filter
+    // gives wrong results for elements with width & height less than 0.5.
+    if (!clientWidth && !clientHeight) {
+        return emptyRect;
+    }
+    var styles = getWindowOf(target).getComputedStyle(target);
+    var paddings = getPaddings(styles);
+    var horizPad = paddings.left + paddings.right;
+    var vertPad = paddings.top + paddings.bottom;
+    // Computed styles of width & height are being used because they are the
+    // only dimensions available to JS that contain non-rounded values. It could
+    // be possible to utilize the getBoundingClientRect if only it's data wasn't
+    // affected by CSS transformations let alone paddings, borders and scroll bars.
+    var width = toFloat(styles.width), height = toFloat(styles.height);
+    // Width & height include paddings and borders when the 'border-box' box
+    // model is applied (except for IE).
+    if (styles.boxSizing === 'border-box') {
+        // Following conditions are required to handle Internet Explorer which
+        // doesn't include paddings and borders to computed CSS dimensions.
+        //
+        // We can say that if CSS dimensions + paddings are equal to the "client"
+        // properties then it's either IE, and thus we don't need to subtract
+        // anything, or an element merely doesn't have paddings/borders styles.
+        if (Math.round(width + horizPad) !== clientWidth) {
+            width -= getBordersSize(styles, 'left', 'right') + horizPad;
+        }
+        if (Math.round(height + vertPad) !== clientHeight) {
+            height -= getBordersSize(styles, 'top', 'bottom') + vertPad;
+        }
+    }
+    // Following steps can't be applied to the document's root element as its
+    // client[Width/Height] properties represent viewport area of the window.
+    // Besides, it's as well not necessary as the <html> itself neither has
+    // rendered scroll bars nor it can be clipped.
+    if (!isDocumentElement(target)) {
+        // In some browsers (only in Firefox, actually) CSS width & height
+        // include scroll bars size which can be removed at this step as scroll
+        // bars are the only difference between rounded dimensions + paddings
+        // and "client" properties, though that is not always true in Chrome.
+        var vertScrollbar = Math.round(width + horizPad) - clientWidth;
+        var horizScrollbar = Math.round(height + vertPad) - clientHeight;
+        // Chrome has a rather weird rounding of "client" properties.
+        // E.g. for an element with content width of 314.2px it sometimes gives
+        // the client width of 315px and for the width of 314.7px it may give
+        // 314px. And it doesn't happen all the time. So just ignore this delta
+        // as a non-relevant.
+        if (Math.abs(vertScrollbar) !== 1) {
+            width -= vertScrollbar;
+        }
+        if (Math.abs(horizScrollbar) !== 1) {
+            height -= horizScrollbar;
+        }
+    }
+    return createRectInit(paddings.left, paddings.top, width, height);
+}
+/**
+ * Checks whether provided element is an instance of the SVGGraphicsElement.
+ *
+ * @param {Element} target - Element to be checked.
+ * @returns {boolean}
+ */
+var isSVGGraphicsElement = (function () {
+    // Some browsers, namely IE and Edge, don't have the SVGGraphicsElement
+    // interface.
+    if (typeof SVGGraphicsElement !== 'undefined') {
+        return function (target) { return target instanceof getWindowOf(target).SVGGraphicsElement; };
+    }
+    // If it's so, then check that element is at least an instance of the
+    // SVGElement and that it has the "getBBox" method.
+    // eslint-disable-next-line no-extra-parens
+    return function (target) { return (target instanceof getWindowOf(target).SVGElement &&
+        typeof target.getBBox === 'function'); };
+})();
+/**
+ * Checks whether provided element is a document element (<html>).
+ *
+ * @param {Element} target - Element to be checked.
+ * @returns {boolean}
+ */
+function isDocumentElement(target) {
+    return target === getWindowOf(target).document.documentElement;
+}
+/**
+ * Calculates an appropriate content rectangle for provided html or svg element.
+ *
+ * @param {Element} target - Element content rectangle of which needs to be calculated.
+ * @returns {DOMRectInit}
+ */
+function getContentRect(target) {
+    if (!isBrowser) {
+        return emptyRect;
+    }
+    if (isSVGGraphicsElement(target)) {
+        return getSVGContentRect(target);
+    }
+    return getHTMLElementContentRect(target);
+}
+/**
+ * Creates rectangle with an interface of the DOMRectReadOnly.
+ * Spec: https://drafts.fxtf.org/geometry/#domrectreadonly
+ *
+ * @param {DOMRectInit} rectInit - Object with rectangle's x/y coordinates and dimensions.
+ * @returns {DOMRectReadOnly}
+ */
+function createReadOnlyRect(_a) {
+    var x = _a.x, y = _a.y, width = _a.width, height = _a.height;
+    // If DOMRectReadOnly is available use it as a prototype for the rectangle.
+    var Constr = typeof DOMRectReadOnly !== 'undefined' ? DOMRectReadOnly : Object;
+    var rect = Object.create(Constr.prototype);
+    // Rectangle's properties are not writable and non-enumerable.
+    defineConfigurable(rect, {
+        x: x, y: y, width: width, height: height,
+        top: y,
+        right: x + width,
+        bottom: height + y,
+        left: x
+    });
+    return rect;
+}
+/**
+ * Creates DOMRectInit object based on the provided dimensions and the x/y coordinates.
+ * Spec: https://drafts.fxtf.org/geometry/#dictdef-domrectinit
+ *
+ * @param {number} x - X coordinate.
+ * @param {number} y - Y coordinate.
+ * @param {number} width - Rectangle's width.
+ * @param {number} height - Rectangle's height.
+ * @returns {DOMRectInit}
+ */
+function createRectInit(x, y, width, height) {
+    return { x: x, y: y, width: width, height: height };
+}
+
+/**
+ * Class that is responsible for computations of the content rectangle of
+ * provided DOM element and for keeping track of it's changes.
+ */
+var ResizeObservation = /** @class */ (function () {
+    /**
+     * Creates an instance of ResizeObservation.
+     *
+     * @param {Element} target - Element to be observed.
+     */
+    function ResizeObservation(target) {
+        /**
+         * Broadcasted width of content rectangle.
+         *
+         * @type {number}
+         */
+        this.broadcastWidth = 0;
+        /**
+         * Broadcasted height of content rectangle.
+         *
+         * @type {number}
+         */
+        this.broadcastHeight = 0;
+        /**
+         * Reference to the last observed content rectangle.
+         *
+         * @private {DOMRectInit}
+         */
+        this.contentRect_ = createRectInit(0, 0, 0, 0);
+        this.target = target;
+    }
+    /**
+     * Updates content rectangle and tells whether it's width or height properties
+     * have changed since the last broadcast.
+     *
+     * @returns {boolean}
+     */
+    ResizeObservation.prototype.isActive = function () {
+        var rect = getContentRect(this.target);
+        this.contentRect_ = rect;
+        return (rect.width !== this.broadcastWidth ||
+            rect.height !== this.broadcastHeight);
+    };
+    /**
+     * Updates 'broadcastWidth' and 'broadcastHeight' properties with a data
+     * from the corresponding properties of the last observed content rectangle.
+     *
+     * @returns {DOMRectInit} Last observed content rectangle.
+     */
+    ResizeObservation.prototype.broadcastRect = function () {
+        var rect = this.contentRect_;
+        this.broadcastWidth = rect.width;
+        this.broadcastHeight = rect.height;
+        return rect;
+    };
+    return ResizeObservation;
+}());
+
+var ResizeObserverEntry = /** @class */ (function () {
+    /**
+     * Creates an instance of ResizeObserverEntry.
+     *
+     * @param {Element} target - Element that is being observed.
+     * @param {DOMRectInit} rectInit - Data of the element's content rectangle.
+     */
+    function ResizeObserverEntry(target, rectInit) {
+        var contentRect = createReadOnlyRect(rectInit);
+        // According to the specification following properties are not writable
+        // and are also not enumerable in the native implementation.
+        //
+        // Property accessors are not being used as they'd require to define a
+        // private WeakMap storage which may cause memory leaks in browsers that
+        // don't support this type of collections.
+        defineConfigurable(this, { target: target, contentRect: contentRect });
+    }
+    return ResizeObserverEntry;
+}());
+
+var ResizeObserverSPI = /** @class */ (function () {
+    /**
+     * Creates a new instance of ResizeObserver.
+     *
+     * @param {ResizeObserverCallback} callback - Callback function that is invoked
+     *      when one of the observed elements changes it's content dimensions.
+     * @param {ResizeObserverController} controller - Controller instance which
+     *      is responsible for the updates of observer.
+     * @param {ResizeObserver} callbackCtx - Reference to the public
+     *      ResizeObserver instance which will be passed to callback function.
+     */
+    function ResizeObserverSPI(callback, controller, callbackCtx) {
+        /**
+         * Collection of resize observations that have detected changes in dimensions
+         * of elements.
+         *
+         * @private {Array<ResizeObservation>}
+         */
+        this.activeObservations_ = [];
+        /**
+         * Registry of the ResizeObservation instances.
+         *
+         * @private {Map<Element, ResizeObservation>}
+         */
+        this.observations_ = new MapShim();
+        if (typeof callback !== 'function') {
+            throw new TypeError('The callback provided as parameter 1 is not a function.');
+        }
+        this.callback_ = callback;
+        this.controller_ = controller;
+        this.callbackCtx_ = callbackCtx;
+    }
+    /**
+     * Starts observing provided element.
+     *
+     * @param {Element} target - Element to be observed.
+     * @returns {void}
+     */
+    ResizeObserverSPI.prototype.observe = function (target) {
+        if (!arguments.length) {
+            throw new TypeError('1 argument required, but only 0 present.');
+        }
+        // Do nothing if current environment doesn't have the Element interface.
+        if (typeof Element === 'undefined' || !(Element instanceof Object)) {
+            return;
+        }
+        if (!(target instanceof getWindowOf(target).Element)) {
+            throw new TypeError('parameter 1 is not of type "Element".');
+        }
+        var observations = this.observations_;
+        // Do nothing if element is already being observed.
+        if (observations.has(target)) {
+            return;
+        }
+        observations.set(target, new ResizeObservation(target));
+        this.controller_.addObserver(this);
+        // Force the update of observations.
+        this.controller_.refresh();
+    };
+    /**
+     * Stops observing provided element.
+     *
+     * @param {Element} target - Element to stop observing.
+     * @returns {void}
+     */
+    ResizeObserverSPI.prototype.unobserve = function (target) {
+        if (!arguments.length) {
+            throw new TypeError('1 argument required, but only 0 present.');
+        }
+        // Do nothing if current environment doesn't have the Element interface.
+        if (typeof Element === 'undefined' || !(Element instanceof Object)) {
+            return;
+        }
+        if (!(target instanceof getWindowOf(target).Element)) {
+            throw new TypeError('parameter 1 is not of type "Element".');
+        }
+        var observations = this.observations_;
+        // Do nothing if element is not being observed.
+        if (!observations.has(target)) {
+            return;
+        }
+        observations.delete(target);
+        if (!observations.size) {
+            this.controller_.removeObserver(this);
+        }
+    };
+    /**
+     * Stops observing all elements.
+     *
+     * @returns {void}
+     */
+    ResizeObserverSPI.prototype.disconnect = function () {
+        this.clearActive();
+        this.observations_.clear();
+        this.controller_.removeObserver(this);
+    };
+    /**
+     * Collects observation instances the associated element of which has changed
+     * it's content rectangle.
+     *
+     * @returns {void}
+     */
+    ResizeObserverSPI.prototype.gatherActive = function () {
+        var _this = this;
+        this.clearActive();
+        this.observations_.forEach(function (observation) {
+            if (observation.isActive()) {
+                _this.activeObservations_.push(observation);
+            }
+        });
+    };
+    /**
+     * Invokes initial callback function with a list of ResizeObserverEntry
+     * instances collected from active resize observations.
+     *
+     * @returns {void}
+     */
+    ResizeObserverSPI.prototype.broadcastActive = function () {
+        // Do nothing if observer doesn't have active observations.
+        if (!this.hasActive()) {
+            return;
+        }
+        var ctx = this.callbackCtx_;
+        // Create ResizeObserverEntry instance for every active observation.
+        var entries = this.activeObservations_.map(function (observation) {
+            return new ResizeObserverEntry(observation.target, observation.broadcastRect());
+        });
+        this.callback_.call(ctx, entries, ctx);
+        this.clearActive();
+    };
+    /**
+     * Clears the collection of active observations.
+     *
+     * @returns {void}
+     */
+    ResizeObserverSPI.prototype.clearActive = function () {
+        this.activeObservations_.splice(0);
+    };
+    /**
+     * Tells whether observer has active observations.
+     *
+     * @returns {boolean}
+     */
+    ResizeObserverSPI.prototype.hasActive = function () {
+        return this.activeObservations_.length > 0;
+    };
+    return ResizeObserverSPI;
+}());
+
+// Registry of internal observers. If WeakMap is not available use current shim
+// for the Map collection as it has all required methods and because WeakMap
+// can't be fully polyfilled anyway.
+var observers = typeof WeakMap !== 'undefined' ? new WeakMap() : new MapShim();
+/**
+ * ResizeObserver API. Encapsulates the ResizeObserver SPI implementation
+ * exposing only those methods and properties that are defined in the spec.
+ */
+var ResizeObserver = /** @class */ (function () {
+    /**
+     * Creates a new instance of ResizeObserver.
+     *
+     * @param {ResizeObserverCallback} callback - Callback that is invoked when
+     *      dimensions of the observed elements change.
+     */
+    function ResizeObserver(callback) {
+        if (!(this instanceof ResizeObserver)) {
+            throw new TypeError('Cannot call a class as a function.');
+        }
+        if (!arguments.length) {
+            throw new TypeError('1 argument required, but only 0 present.');
+        }
+        var controller = ResizeObserverController.getInstance();
+        var observer = new ResizeObserverSPI(callback, controller, this);
+        observers.set(this, observer);
+    }
+    return ResizeObserver;
+}());
+// Expose public methods of ResizeObserver.
+[
+    'observe',
+    'unobserve',
+    'disconnect'
+].forEach(function (method) {
+    ResizeObserver.prototype[method] = function () {
+        var _a;
+        return (_a = observers.get(this))[method].apply(_a, arguments);
+    };
+});
+
+var index = (function () {
+    // Export existing implementation if available.
+    if (typeof global$1.ResizeObserver !== 'undefined') {
+        return global$1.ResizeObserver;
+    }
+    return ResizeObserver;
+})();
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (index);
+
+
+/***/ }),
+
+/***/ "./node_modules/string-convert/camel2hyphen.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/string-convert/camel2hyphen.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+var camel2hyphen = function (str) {
+  return str
+          .replace(/[A-Z]/g, function (match) {
+            return '-' + match.toLowerCase();
+          })
+          .toLowerCase();
+};
+
+module.exports = camel2hyphen;
+
+/***/ }),
+
+/***/ "react":
+/*!************************!*\
+  !*** external "React" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["React"];
+
+/***/ }),
+
+/***/ "@wordpress/block-editor":
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["blockEditor"];
+
+/***/ }),
+
+/***/ "@wordpress/blocks":
+/*!********************************!*\
+  !*** external ["wp","blocks"] ***!
+  \********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
+/***/ "@wordpress/data":
+/*!******************************!*\
+  !*** external ["wp","data"] ***!
+  \******************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["data"];
+
+/***/ }),
+
+/***/ "@wordpress/element":
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["element"];
+
+/***/ }),
+
+/***/ "@wordpress/i18n":
+/*!******************************!*\
+  !*** external ["wp","i18n"] ***!
+  \******************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "@wordpress/server-side-render":
+/*!******************************************!*\
+  !*** external ["wp","serverSideRender"] ***!
+  \******************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["wp"]["serverSideRender"];
+
+/***/ }),
+
+/***/ "./src/trip-list/block.json":
+/*!**********************************!*\
+  !*** ./src/trip-list/block.json ***!
+  \**********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trips-list","version":"0.1.0","title":"Trip List","category":"wp-travel-blocks","icon":"grid-view","description":"Display the Trips as per selected taxonomies (Trip Type, destination, activities, keywords etc.)","attributes":{"blockId":{"type":"string","default":"not set"},"relatedTrip":{"type":"boolean","default":false},"relatedTripBy":{"type":"string","default":"itinerary-types"},"inheritTrips":{"type":"boolean","default":false},"query":{"type":"object","default":{"numberOfItems":3,"orderBy":"title","order":"asc"}},"saleTrip":{"type":"boolean","default":false},"layoutType":{"type":"string","default":"default-layout"},"cardLayout":{"type":"string","default":"grid-view"},"featuredTrip":{"type":"boolean","default":false}},"supports":{"html":false,"color":true,"align":["wide","full"],"spacing":{"margin":["horizontal","vertical"],"padding":["horizontal","vertical"]}},"textdomain":"trips-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"trip-list/index": 0,
+/******/ 			"trip-list/style-index": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = globalThis["webpackChunkwp_travel_blocks"] = globalThis["webpackChunkwp_travel_blocks"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["trip-list/style-index"], () => (__webpack_require__("./src/trip-list/index.js")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;
+//# sourceMappingURL=index.js.map
