@@ -5,8 +5,8 @@
  * Requires at least: 	6.0
  * Requires Plugins:    wp-travel
  * Requires PHP:      	7.4
- * Version:         	3.8.3
- * Tested up to: 		6.7
+ * Version:         	3.9.0
+ * Tested up to: 		6.8
  * Author:           	WP Travel
  * Author URI: 			http://wptravel.io
  * License:          	GPLv3
@@ -41,7 +41,7 @@ class WP_Travel_Blocks {
 	 * 
 	 * @var string 
 	 */
-	public $version = '3.8.2';
+	public $version = '3.9.0';
 
 	/**
 	 * The single instance of the class
@@ -191,14 +191,7 @@ class WP_Travel_Blocks {
 		wp_enqueue_script( 'theia-sticky-js', plugin_dir_url( __FILE__ ) . 'assets/js/theia-sticky-sidebar.js' , array( 'jquery' ), '', true );
 		wp_enqueue_script( 'magnific-popup-js', plugin_dir_url( __FILE__ ) . 'assets/js/magnific-popup.js' , array( 'jquery' ), '', true );
 		wp_enqueue_script( 'matchheight-js', plugin_dir_url( __FILE__ ) . 'assets/js/matchheight.js' , array( 'jquery' ), '', true );
-
-		wp_enqueue_script( 'accordino-js', plugin_dir_url( __FILE__ ) . 'assets/js/accordino.js' , array( 'jquery' ), '', true );
-
-		wp_enqueue_script( 'progressbar-js', plugin_dir_url( __FILE__ ) . 'assets/js/progressbar.js' , array( 'jquery' ), '', true );
-		
 		wp_enqueue_script( 'splide-js', plugin_dir_url( __FILE__ ) . 'assets/js/splide.js' , array( 'jquery' ), '', true );
-		
-
 		wp_enqueue_script( 'slick-js', plugin_dir_url( __FILE__ ) . 'assets/js/slick.js' , array( 'jquery' ), '', true );
 		wp_enqueue_style( 'slick-css', plugin_dir_url( __FILE__ ) . 'assets/slick/slick.css');
 		wp_enqueue_style( 'slick-theme-css', plugin_dir_url( __FILE__ ) . 'assets/slick/slick-theme.css');
@@ -353,17 +346,14 @@ class WP_Travel_Blocks {
 			'render_callback' => 'wptravel_block_filterable_trips_render'
 		) );
 
-		register_block_type( __DIR__ . '/build/video-button', array(
-			'render_callback' => 'wptravel_block_video_button_render'
-		) );
-
 		register_block_type( __DIR__ . '/build/book-button', array(
 			'render_callback' => 'wptravel_block_book_button_render'
 		) );
 
-		register_block_type( __DIR__ . '/build/countdown', array(
-			'render_callback' => 'wptravel_block_countdown_render'
+		register_block_type( __DIR__ . '/build/trip-guide-list', array(
+			'render_callback' => 'wptravel_block_trip_guide_list_render'
 		) );
+
 		
 		// if( class_exists( 'WP_Travel_Pro' ) ){
 		// 	register_block_type( __DIR__ . '/build/templates' );
@@ -477,22 +467,23 @@ class WP_Travel_Blocks {
 		// 	'render_callback' => 'wptravel_block_post_slider_render'
 		// ) );
 
-		register_block_type( __DIR__ . '/build/counter' );
-
-		register_block_type( __DIR__ . '/build/progress-bar' );
-
-		register_block_type( __DIR__ . '/build/accordion' );
-		register_block_type( __DIR__ . '/build/accordion-item' );
-
 	}
 
 	public function wptravel_block_include_block_render_callback(){
 
+		$theme = wp_get_theme();
+
+		$theme_slug = $theme->get_stylesheet();
+
 		include sprintf( '%s/inc/breadcrumb-class.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/class-rest.php', dirname( __FILE__ ) );
 		// include sprintf( '%s/inc/class-templates.php', dirname( __FILE__ ) );
-		include sprintf( '%s/inc/importer/importer.php', dirname( __FILE__ ) );
-		include sprintf( '%s/inc/demo.php', dirname( __FILE__ ) );
+
+		// if( $theme_slug !== 'themepalace-fse-pro' ){
+		// 	include sprintf( '%s/inc/importer/importer.php', dirname( __FILE__ ) );
+		// 	include sprintf( '%s/inc/demo.php', dirname( __FILE__ ) );
+		// }
+
 		include sprintf( '%s/inc/post-slider-rest.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/migration.php', dirname( __FILE__ ) );
 
@@ -534,8 +525,8 @@ class WP_Travel_Blocks {
 		include sprintf( '%s/inc/block-render/filterable-trips.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/cart-button.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/book-button.php', dirname( __FILE__ ) );
-		include sprintf( '%s/inc/block-render/countdown.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/post-slider.php', dirname( __FILE__ ) );
+		include sprintf( '%s/inc/block-render/trip-guide-list.php', dirname( __FILE__ ) );
 
 		// Guide Render Blocks
 

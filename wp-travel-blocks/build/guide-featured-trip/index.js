@@ -68,6 +68,7 @@ function Edit(props) {
   } = props;
   const {
     layoutType,
+    patternSlug,
     cardLayout
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -92,11 +93,20 @@ function Edit(props) {
     }, {
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Layout Four', 'wp-travel-blocks'),
       value: 'layout-four'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Custom Layout', 'wp-travel-blocks'),
+      value: 'custom'
     }] || 0,
     onChange: val => setAttributes({
       layoutType: val
     })
-  }), layoutType != 'default-layout' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
+  }), layoutType == 'custom' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+    label: "Pattern Slug",
+    value: patternSlug,
+    onChange: value => setAttributes({
+      patternSlug: value
+    })
+  }) || (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, layoutType != 'default-layout' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Card Layout', 'wp-travel-blocks'),
     value: cardLayout,
     options: [{
@@ -109,7 +119,7 @@ function Edit(props) {
     onChange: val => setAttributes({
       cardLayout: val
     })
-  })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_5___default()), {
+  }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_wordpress_server_side_render__WEBPACK_IMPORTED_MODULE_5___default()), {
     block: "wp-travel-blocks/guide-featured-trip",
     attributes: props.attributes
   }));
@@ -293,7 +303,7 @@ module.exports = window["wp"]["serverSideRender"];
   \********************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/guide-featured-trip","version":"0.1.0","title":"Guide Featured Trip","category":"wp-travel-guide-blocks","icon":"grid-view","description":"Display guide featured trips.","attributes":{"layoutType":{"type":"string","default":"default-layout"},"cardLayout":{"type":"string","default":"grid-view"}},"supports":{"html":false,"color":{"background":false,"color":true},"align":["wide","full"],"typography":{"fontSize":true}},"textdomain":"guide-featured-trip","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/guide-featured-trip","version":"0.1.0","title":"Guide Featured Trip","category":"wp-travel-guide-blocks","icon":"grid-view","description":"Display guide featured trips.","attributes":{"layoutType":{"type":"string","default":"default-layout"},"patternSlug":{"type":"string","default":""},"cardLayout":{"type":"string","default":"grid-view"}},"supports":{"html":false,"color":{"background":false,"color":true},"align":["wide","full"],"typography":{"fontSize":true}},"textdomain":"guide-featured-trip","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

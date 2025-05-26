@@ -12,15 +12,48 @@ function wptravel_block_guide_featured_trip_render( $attributes ) {
     $layout_type = isset( $attributes['layoutType'] ) ? $attributes['layoutType'] : 'default-layout' ;
 	$card_layout = isset( $attributes['cardLayout'] ) ? $attributes['cardLayout'] : 'grid-view' ;
 
+    $pattern_slug = $attributes['patternSlug'];
+    $pattern = '';
+    if($pattern_slug){
+        $args = array(
+            'name'        => $pattern_slug,
+            'post_type'   => 'wp_block',
+            'post_status' => 'publish',
+            'numberposts' => 1
+        );
+        $query = new WP_Query($args);
+        if ($query->have_posts()) {
+            while ($query->have_posts()) {
+                $query->the_post();
+                $pattern = get_the_content();
+            }
+        }
+        wp_reset_postdata();
+    }
+
     ?>
 
     <div id="wptravel-block-trips-list" class="wptravel-block-wrapper wptravel-guide-featured-trips wptravel-block-preview <?php echo esc_attr( $layout_type ).' '.'block-id-'.hash( 'sha256', json_encode($attributes) ); ?>">
-        <div class="wp-travel-itinerary-items">
+        <?php 
+            if( empty( get_user_meta( $guide_data->ID, 'trip_list', true ) ) ){ 
+                if( !$guide_data ){
+                    echo __( 'Guide Featured Trip block only visible in frontend.', 'wp-travel-pro' );
+                }else{
+                    echo __( 'No Trips Found.', 'wp-travel-blocks' );
+                }
+               
+            }else{
+        ?>     
+         <div class="wp-travel-itinerary-items">
             <?php
 
             if ( !$guide_data && empty( get_user_meta( $guide_data->ID, 'trip_list', true ) ) ) {
                 echo __( 'Guide Featured Trip block only visible in frontend.', 'wp-travel-pro' );
             } else {
+                if( empty( get_user_meta( $guide_data->ID, 'trip_list', true ) ) ){
+                    echo __( 'No Trips Found.', 'wp-travel-blocks' );
+                    // return;
+                }
                 $args = array(
                     'post_type' => 'itineraries',
                     'post__in'  => get_user_meta( $guide_data->ID, 'trip_list', true ),
@@ -72,6 +105,12 @@ function wptravel_block_guide_featured_trip_render( $attributes ) {
                                 include( WP_TRAVEL_BLOCKS_ABS_PATH . "inc/layouts/grid-layouts/layout-three.php" );
                             } elseif( $layout_type == 'layout-four' ) {
                                 include( WP_TRAVEL_BLOCKS_ABS_PATH . "inc/layouts/grid-layouts/layout-four.php" );
+                            } elseif( $layout_type == 'custom' ){
+                                if( $pattern_slug ){
+                                    echo do_blocks( $pattern );
+                                }else{
+                                    wptravel_get_block_template_part( 'v2/content', 'archive-itineraries' );
+                                }
                             }
 
                             /**
@@ -462,7 +501,9 @@ function wptravel_block_guide_featured_trip_render( $attributes ) {
                     echo esc_html__( 'No featured trips found..', 'wp-travel-blocks' );
                 } }?>
             
-        </div>
+        </div> 
+        <?php } ?>
+       
     </div>
     <style>
         .wptravel-guide-featured-trips.<?php echo 'block-id-'.hash( 'sha256', json_encode($attributes) )?>,

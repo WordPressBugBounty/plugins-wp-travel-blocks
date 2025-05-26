@@ -66,11 +66,6 @@ jQuery(document).ready(function($) {
         additionalMarginTop: 30
     });
 
-	$('#wptravel-block-video-button').magnificPopup({
-		type: 'iframe',
-		mainClass: 'mfp-fade',
-		preloader: true,
-	});
 
 	$('.wptravel-block-trip-gallery').magnificPopup({
         delegate: 'a', // child items selector, by clicking on it popup will open
@@ -130,59 +125,6 @@ jQuery(document).ready(function($) {
 		element.classList.add("wp-block-button__link");
 	}
 
-	const counter = $('.counter-item');
-
-	if( counter.length > 0 ){
-
-		counter.each(function() {
-			let $item = $(this);
-			let counterInnerText = parseInt($item.text(), 10);
-
-			let count = 1;
-
-			function counterUp() {
-				$item.text(count++);
-				if (counterInnerText < count) {
-					clearInterval(stop);
-				}
-			}
-
-			const stop = setInterval(() => {
-				counterUp();
-			}, 10);
-		});
-
-	}
-
-	const barCounter = $('.progressbar-item');
-
-	if (barCounter.length > 0) {
-		barCounter.each(function() {
-			let $item = $(this);
-
-			// Check the bar type and initialize the appropriate progress bar
-			if ($item.attr('bar-type') === 'circle') {
-				new ProgressBar.Circle($item[0], {
-					strokeWidth: 5,
-					easing: 'easeInOut',
-					duration: 1400,
-					color: $item.attr('bar-color'),
-					trailColor: $item.attr('bar-path-color'),
-					trailWidth: 3,
-					svgStyle: { width: $item.attr('bar-width'), height: $item.attr('bar-width') }
-				}).animate($item.attr('bar-progress-count') / 100);
-			} else {
-				new ProgressBar.Line($item[0], {
-					strokeWidth: 3,
-					easing: 'easeInOut',
-					duration: 1400,
-					color: $item.attr('bar-color'),
-					trailColor: $item.attr('bar-path-color'),
-					trailWidth: 2
-				}).animate($item.attr('bar-progress-count') / 100);
-			}
-		});
-	}
 
 	//modal code 
 	$('.wp-travel-blocks-main-modal svg').click(function() {
@@ -228,15 +170,5 @@ jQuery(document).ready(function($) {
 			document.querySelector('.wptravel-book-your-trips').textContent = btnLabel;
 		}
 	}
-});
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Accordion for each container
-    const accordions = document.querySelectorAll('.accordion-container');
-    accordions.forEach(container => {
-        new Accordion(container);
-    });
 });
 

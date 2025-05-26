@@ -12,6 +12,10 @@
       "type": "string",
       "default": "default-layout"
     },
+    "patternSlug": {
+      "type": "string",
+      "default": ""
+    },
     "cardLayout": {
       "type": "string",
       "default": "grid-view"

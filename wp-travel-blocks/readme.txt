@@ -3,9 +3,9 @@ Contributors:       wptravel
 Tags:               gutenberg blocks editor, blocks, tour booking, tour operator, travel agency
 Donate link:        https://wptravel.io/
 Requires at least:  6.0.0
-Tested up to:       6.7
+Tested up to:       6.8
 Requires PHP:       7.4.0
-Stable tag:         3.8.3
+Stable tag:         3.9.0
 License:            GPLv3
 License URI:        http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -234,6 +234,15 @@ WP Travel has a dedicated team for Support to resolve your issues and enquiries[
 Before updating the plugin please check ["our latest release notes"](#developers).
 
 == Changelog ==
+
+= 3.9.0 = 
+Release Date:  23th May 2025
+
+* Exclude "Trip Video", "Accordion", "Progress Bar", "Counter", "Countdown" blocks
+* Added support code to load pattern content on Guide Featured Trip block
+* Added New Block "Trip Pickup Points"
+* Added New Block "Trip Guide List"
+* Added pattern support to "Trip List" block
 
 = 3.8.3 = 
 Release Date:  19th February 2025

@@ -12,6 +12,10 @@
       "type": "string",
       "default": "not set"
     },
+    "patternSlug": {
+      "type": "string",
+      "default": ""
+    },
     "relatedTrip": {
       "type": "boolean",
       "default": false

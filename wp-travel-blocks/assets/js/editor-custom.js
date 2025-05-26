@@ -24,16 +24,4 @@ jQuery(document).ready(function($) {
 
 	}
 
-
-	// var bar = new ProgressBar.Circle('.progressbar-item', {
-	// 	strokeWidth: 5,
-	// 	easing: 'easeInOut',
-	// 	duration: 1400,
-	// 	color: '#FFEA82',
-	// 	trailColor: '#eee',
-	// 	trailWidth: 3,
-	//   });
-	  
-	//   bar.animate(0.5);
-	
 });

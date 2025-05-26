@@ -7,6 +7,26 @@
  */
 function wptravel_block_trip_list_render($attributes, $content)
 {
+	$layout_type = isset( $attributes['layoutType'] ) ? $attributes['layoutType'] : 'default-layout' ;
+
+    $pattern_slug = $attributes['patternSlug'];
+    $pattern = '';
+    if($pattern_slug){
+        $args = array(
+            'name'        => $pattern_slug,
+            'post_type'   => 'wp_block',
+            'post_status' => 'publish',
+            'numberposts' => 1
+        );
+        $query = new WP_Query($args);
+        if ($query->have_posts()) {
+            while ($query->have_posts()) {
+                $query->the_post();
+                $pattern = get_the_content();
+            }
+        }
+        wp_reset_postdata();
+    }
 
 	$query_args = isset($attributes['query']) ? $attributes['query'] : array();
 	$sale_trip = '';
@@ -642,12 +662,16 @@ function wptravel_block_trip_list_render($attributes, $content)
 									)
 								);
 
-								if ($card_layout == 'grid-view' || $card_layout == 'slider-view') {
+								if ( $layout_type == 'custom' ){
+									echo do_blocks( $pattern);
+								}
+
+								if ( $layout_type !== 'custom' && ( $card_layout == 'grid-view' || $card_layout == 'slider-view' ) ) {
 									/**
 									 * 
 									 */
 									if ($layout_type == 'default-layout') {
-										wptravel_get_block_template_part('v2/content', 'archive-itineraries');
+										include(WP_TRAVEL_BLOCKS_ABS_PATH . "inc/layouts/grid-layouts/layout-default.php");
 									} elseif ($layout_type == 'layout-one') {
 										include(WP_TRAVEL_BLOCKS_ABS_PATH . "inc/layouts/grid-layouts/layout-one.php");
 									} elseif ($layout_type == 'layout-two') {
@@ -664,7 +688,7 @@ function wptravel_block_trip_list_render($attributes, $content)
 									// wp_travel_get_template_layout( $layout_type );
 								}
 
-								if ($card_layout == 'list-view') {
+								if ( $layout_type !== 'custom' && $card_layout == 'list-view') {
 									if ($layout_type == 'default-layout') {
 										wptravel_get_block_template_part('v2/content', 'archive-itineraries');
 									} elseif ($layout_type == 'layout-one') { ?>
