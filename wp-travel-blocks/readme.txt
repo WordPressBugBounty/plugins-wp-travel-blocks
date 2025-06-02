@@ -5,7 +5,7 @@ Donate link:        https://wptravel.io/
 Requires at least:  6.0.0
 Tested up to:       6.8
 Requires PHP:       7.4.0
-Stable tag:         3.9.0
+Stable tag:         3.9.1
 License:            GPLv3
 License URI:        http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -234,6 +234,11 @@ WP Travel has a dedicated team for Support to resolve your issues and enquiries[
 Before updating the plugin please check ["our latest release notes"](#developers).
 
 == Changelog ==
+
+= 3.9.1 = 
+Release Date:  02nd June 2025
+
+* Fixed vulnerable to Local File Inclusion issue
 
 = 3.9.0 = 
 Release Date:  23th May 2025

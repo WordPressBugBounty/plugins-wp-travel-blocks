@@ -5,7 +5,7 @@
  * Requires at least: 	6.0
  * Requires Plugins:    wp-travel
  * Requires PHP:      	7.4
- * Version:         	3.9.0
+ * Version:         	3.9.1
  * Tested up to: 		6.8
  * Author:           	WP Travel
  * Author URI: 			http://wptravel.io
@@ -41,7 +41,7 @@ class WP_Travel_Blocks {
 	 * 
 	 * @var string 
 	 */
-	public $version = '3.9.0';
+	public $version = '3.9.1';
 
 	/**
 	 * The single instance of the class
@@ -476,7 +476,7 @@ class WP_Travel_Blocks {
 		$theme_slug = $theme->get_stylesheet();
 
 		include sprintf( '%s/inc/breadcrumb-class.php', dirname( __FILE__ ) );
-		include sprintf( '%s/inc/class-rest.php', dirname( __FILE__ ) );
+		// include sprintf( '%s/inc/class-rest.php', dirname( __FILE__ ) );
 		// include sprintf( '%s/inc/class-templates.php', dirname( __FILE__ ) );
 
 		// if( $theme_slug !== 'themepalace-fse-pro' ){
@@ -485,7 +485,7 @@ class WP_Travel_Blocks {
 		// }
 
 		include sprintf( '%s/inc/post-slider-rest.php', dirname( __FILE__ ) );
-		include sprintf( '%s/inc/migration.php', dirname( __FILE__ ) );
+		// include sprintf( '%s/inc/migration.php', dirname( __FILE__ ) );
 
 		//render block 
 		include sprintf( '%s/inc/block-render/trip-search.php', dirname( __FILE__ ) );
@@ -518,7 +518,7 @@ class WP_Travel_Blocks {
 		include sprintf( '%s/inc/block-render/trip-downloads.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/breadcrumb.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/trip-slider.php', dirname( __FILE__ ) );
-		include sprintf( '%s/inc/block-render/video-button.php', dirname( __FILE__ ) );
+		// include sprintf( '%s/inc/block-render/video-button.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/trip-button.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/slider.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/trip-featured-category.php', dirname( __FILE__ ) );
