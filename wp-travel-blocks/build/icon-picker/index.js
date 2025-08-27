@@ -101,8 +101,14 @@ function Edit(props) {
   const {
     icon,
     linkURL,
-    textAlign
+    textAlign,
+    iconType,
+    style,
+    customSVG
   } = attributes;
+  const [isModalOpen, setIsModalOpen] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [searchTerm, setSearchTerm] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+  // const [tempSVG, setTempSVG] = useState(iconType === 'customsvg' ? icon : '');
   const icons = {
     'Accessibility': ['fas fa-wheelchair', 'fas fa-universal-access', 'fas fa-tty', 'fas fa-sign-language', 'fas fa-question-circle', 'fas fa-phone-volume', 'fas fa-low-vision', 'fas fa-deaf', 'fas fa-closed-captioning', 'fas fa-braille', 'fas fa-blind', 'fas fa-audio-description', 'fas fa-assistive-listening-systems', 'fas fa-american-sign-language-interpreting', 'fab fa-accessible-icon', 'far fa-question-circle', 'far fa-closed-captioning'],
     'Alert': ['fas fa-skull-crossbones', 'fas fa-exclamation-triangle', 'fas fa-exclamation-circle', 'fas fa-exclamation', 'fas fa-bell-slash', 'fas fa-bell', 'far fa-bell-slash', 'far fa-bell'],
@@ -158,34 +164,67 @@ function Edit(props) {
     'Objects': ['fas fa-wrench', 'fas fa-wine-glass', 'fas fa-wheelchair', 'fas fa-weight', 'fas fa-wallet', 'fas fa-utensils', 'fas fa-utensil-spoon', 'fas fa-unlock-alt', 'fas fa-unlock', 'fas fa-university', 'fas fa-umbrella', 'fas fa-tv', 'fas fa-truck', 'fas fa-trophy', 'fas fa-tree', 'fas fa-trash-alt', 'fas fa-trash', 'fas fa-train', 'fas fa-toolbox', 'fas fa-ticket-alt', 'fas fa-thumbtack', 'fas fa-taxi', 'fas fa-tags', 'fas fa-tag', 'fas fa-tachometer-alt', 'fas fa-tablet-alt', 'fas fa-tablet', 'fas fa-sun', 'fas fa-suitcase', 'fas fa-subway', 'fas fa-stroopwafel', 'fas fa-stopwatch', 'fas fa-sticky-note', 'fas fa-star', 'fas fa-space-shuttle', 'fas fa-snowflake', 'fas fa-skull-crossbones', 'fas fa-shower', 'fas fa-shopping-cart', 'fas fa-shopping-basket', 'fas fa-shopping-bag', 'fas fa-shield-alt', 'fas fa-search', 'fas fa-scroll', 'fas fa-screwdriver', 'fas fa-school', 'fas fa-save', 'fas fa-ruler-vertical', 'fas fa-ruler-horizontal', 'fas fa-ruler-combined', 'fas fa-rocket', 'fas fa-road', 'fas fa-ring', 'fas fa-puzzle-piece', 'fas fa-print', 'fas fa-plug', 'fas fa-plane', 'fas fa-phone', 'fas fa-pencil-alt', 'fas fa-pen-nib', 'fas fa-pen-fancy', 'fas fa-pen-alt', 'fas fa-pen', 'fas fa-paw', 'fas fa-paste', 'fas fa-paperclip', 'fas fa-paper-plane', 'fas fa-paint-brush', 'fas fa-newspaper', 'fas fa-motorcycle', 'fas fa-moon', 'fas fa-money-check-alt', 'fas fa-money-check', 'fas fa-money-bill-alt', 'fas fa-money-bill', 'fas fa-mobile-alt', 'fas fa-mobile', 'fas fa-microphone-alt', 'fas fa-microphone', 'fas fa-memory', 'fas fa-medkit', 'fas fa-medal', 'fas fa-marker', 'fas fa-map-signs', 'fas fa-map-pin', 'fas fa-map-marker-alt', 'fas fa-map-marker', 'fas fa-map', 'fas fa-magnet', 'fas fa-magic', 'fas fa-lock-open', 'fas fa-lock', 'fas fa-lightbulb', 'fas fa-life-ring', 'fas fa-lemon', 'fas fa-leaf', 'fas fa-laptop', 'fas fa-keyboard', 'fas fa-key', 'fas fa-industry', 'fas fa-images', 'fas fa-image', 'fas fa-hourglass', 'fas fa-hospital', 'fas fa-home', 'fas fa-highlighter', 'fas fa-helicopter', 'fas fa-heart', 'fas fa-headset', 'fas fa-headphones-alt', 'fas fa-headphones', 'fas fa-hdd', 'fas fa-hat-wizard', 'fas fa-graduation-cap', 'fas fa-globe', 'fas fa-glasses', 'fas fa-glass-martini', 'fas fa-gift', 'fas fa-gem', 'fas fa-gavel', 'fas fa-gamepad', 'fas fa-futbol', 'fas fa-flask', 'fas fa-flag-checkered', 'fas fa-flag', 'fas fa-fire-extinguisher', 'fas fa-fire', 'fas fa-film', 'fas fa-file-prescription', 'fas fa-file-alt', 'fas fa-file', 'fas fa-fighter-jet', 'fas fa-feather-alt', 'fas fa-feather', 'fas fa-fax', 'fas fa-eye-dropper', 'fas fa-eye', 'fas fa-eraser', 'fas fa-envelope-open', 'fas fa-envelope', 'fas fa-drum-steelpan', 'fas fa-drum', 'fas fa-door-open', 'fas fa-door-closed', 'fas fa-digital-tachograph', 'fas fa-dice-two', 'fas fa-dice-three', 'fas fa-dice-six', 'fas fa-dice-one', 'fas fa-dice-four', 'fas fa-dice-five', 'fas fa-dice-d6', 'fas fa-dice-d20', 'fas fa-dice', 'fas fa-cut', 'fas fa-cubes', 'fas fa-cube', 'fas fa-copy', 'fas fa-cookie-bite', 'fas fa-cookie', 'fas fa-compass', 'fas fa-cogs', 'fas fa-cog', 'fas fa-coffee', 'fas fa-cloud', 'fas fa-clipboard', 'fas fa-church', 'fas fa-car', 'fas fa-camera-retro', 'fas fa-camera', 'fas fa-calendar-alt', 'fas fa-calendar', 'fas fa-calculator', 'fas fa-bus', 'fas fa-bullseye', 'fas fa-bullhorn', 'fas fa-building', 'fas fa-bug', 'fas fa-broadcast-tower', 'fas fa-briefcase', 'fas fa-bookmark', 'fas fa-book-dead', 'fas fa-book', 'fas fa-bomb', 'fas fa-blender', 'fas fa-birthday-cake', 'fas fa-binoculars', 'fas fa-bicycle', 'fas fa-bell', 'fas fa-beer', 'fas fa-bed', 'fas fa-bath', 'fas fa-balance-scale', 'fas fa-award', 'fas fa-archive', 'fas fa-anchor', 'fas fa-ambulance', 'far fa-trash-alt', 'far fa-sun', 'far fa-sticky-note', 'far fa-star', 'far fa-snowflake', 'far fa-save', 'far fa-paper-plane', 'far fa-newspaper', 'far fa-moon', 'far fa-money-bill-alt', 'far fa-map', 'far fa-lightbulb', 'far fa-life-ring', 'far fa-lemon', 'far fa-keyboard', 'far fa-images', 'far fa-image', 'far fa-hourglass', 'far fa-hospital', 'far fa-heart', 'far fa-hdd', 'far fa-gem', 'far fa-futbol', 'far fa-flag', 'far fa-file-alt', 'far fa-file', 'far fa-eye', 'far fa-envelope-open', 'far fa-envelope', 'far fa-copy', 'far fa-compass', 'far fa-clipboard', 'far fa-calendar-alt', 'far fa-calendar', 'far fa-building', 'far fa-bookmark', 'far fa-bell'],
     'Payments & Shopping': ['fas fa-trophy', 'fas fa-thumbs-up', 'fas fa-thumbs-down', 'fas fa-tags', 'fas fa-tag', 'fas fa-star', 'fas fa-shopping-cart', 'fas fa-shopping-basket', 'fas fa-shopping-bag', 'fas fa-receipt', 'fas fa-money-check-alt', 'fas fa-money-check', 'fas fa-key', 'fas fa-heart', 'fas fa-handshake', 'fas fa-gift', 'fas fa-gem', 'fas fa-credit-card', 'fas fa-certificate', 'fas fa-cart-plus', 'fas fa-cart-arrow-down', 'fas fa-camera-retro', 'fas fa-camera', 'fas fa-bullhorn', 'fas fa-bookmark', 'fas fa-bell', 'fab fa-stripe-s', 'fab fa-stripe', 'fab fa-paypal', 'fab fa-google-wallet', 'fab fa-ethereum', 'fab fa-cc-visa', 'fab fa-cc-stripe', 'fab fa-cc-paypal', 'fab fa-cc-mastercard', 'fab fa-cc-jcb', 'fab fa-cc-discover', 'fab fa-cc-diners-club', 'fab fa-cc-apple-pay', 'fab fa-cc-amex', 'fab fa-cc-amazon-pay', 'fab fa-btc', 'fab fa-bitcoin', 'fab fa-apple-pay', 'fab fa-amazon-pay', 'fab fa-alipay', 'far fa-thumbs-up', 'far fa-thumbs-down', 'far fa-star', 'far fa-heart', 'far fa-handshake', 'far fa-gem', 'far fa-credit-card', 'far fa-bookmark', 'far fa-bell'],
     'Pharmacy': ['fas fa-vials', 'fas fa-vial', 'fas fa-thermometer', 'fas fa-tablets', 'fas fa-syringe', 'fas fa-skull-crossbones', 'fas fa-receipt', 'fas fa-prescription-bottle-alt', 'fas fa-prescription-bottle', 'fas fa-prescription', 'fas fa-pills', 'fas fa-notes-medical', 'fas fa-mortar-pestle', 'fas fa-joint', 'fas fa-history', 'fas fa-flask', 'fas fa-first-aid', 'fas fa-file-prescription', 'fas fa-file-medical', 'fas fa-eye-dropper', 'fas fa-capsules', 'fas fa-cannabis', 'fas fa-band-aid'],
-    'Political': ['fas fa-vote-yea', 'fas fa-republican', 'fas fa-piggy-bank', 'fas fa-person-booth', 'fas fa-handshake', 'fas fa-flag-usa', 'fas fa-fist-raised', 'fas fa-dove', 'fas fa-donate', 'fas fa-democrat', 'fas fa-check-double', 'fas fa-bullhorn', 'fas fa-balance-scale', 'fas fa-award', 'far fa-handshake'],
-    'Religion': ['fas fa-yin-yang', 'fas fa-vihara', 'fas fa-torii-gate', 'fas fa-torah', 'fas fa-synagogue', 'fas fa-star-of-david', 'fas fa-star-and-crescent', 'fas fa-quran', 'fas fa-praying-hands', 'fas fa-pray', 'fas fa-place-of-worship', 'fas fa-peace', 'fas fa-pastafarianism', 'fas fa-om', 'fas fa-mosque', 'fas fa-menorah', 'fas fa-khanda', 'fas fa-kaaba', 'fas fa-journal-whills', 'fas fa-jedi', 'fas fa-hanukiah', 'fas fa-hamsa', 'fas fa-gopuram', 'fas fa-dove', 'fas fa-dharmachakra', 'fas fa-cross', 'fas fa-church', 'fas fa-bible', 'fas fa-bahai', 'fas fa-atom', 'fas fa-ankh'],
-    'Science': ['fas fa-vials', 'fas fa-vial', 'fas fa-temperature-low', 'fas fa-temperature-high', 'fas fa-tablets', 'fas fa-syringe', 'fas fa-skull-crossbones', 'fas fa-seedling', 'fas fa-prescription-bottle', 'fas fa-pills', 'fas fa-mortar-pestle', 'fas fa-microscope', 'fas fa-magnet', 'fas fa-frog', 'fas fa-flask', 'fas fa-fire', 'fas fa-filter', 'fas fa-eye-dropper', 'fas fa-dna', 'fas fa-clipboard-check', 'fas fa-capsules', 'fas fa-burn', 'fas fa-brain', 'fas fa-atom'],
-    'Science Fiction': ['fas fa-user-astronaut', 'fas fa-space-shuttle', 'fas fa-rocket', 'fas fa-robot', 'fas fa-moon', 'fas fa-meteor', 'fas fa-journal-whills', 'fas fa-jedi', 'fas fa-hand-spock', 'fas fa-globe', 'fas fa-atom', 'fab fa-old-republic', 'fab fa-jedi-order', 'fab fa-galactic-senate', 'fab fa-galactic-republic', 'far fa-moon', 'far fa-hand-spock'],
+    'Political': ['fas fa-piggy-bank', 'fas fa-handshake', 'fas fa-fist-raised', 'fas fa-dove', 'fas fa-donate', 'fas fa-check-double', 'fas fa-bullhorn', 'fas fa-balance-scale', 'fas fa-award', 'far fa-handshake'],
+    'Religion': ['fas fa-yin-yang', 'fas fa-vihara', 'fas fa-torii-gate', 'fas fa-torah', 'fas fa-synagogue', 'fas fa-star-of-david', 'fas fa-star-and-crescent', 'fas fa-quran', 'fas fa-praying-hands', 'fas fa-pray', 'fas fa-place-of-worship', 'fas fa-peace', 'fas fa-pastafarianism', 'fas fa-om', 'fas fa-mosque', 'fas fa-menorah', 'fas fa-khanda', 'fas fa-kaaba', 'fas fa-journal-whills', 'fas fa-jedi', 'fas fa-hanukiah', 'fas fa-hamsa', 'fas fa-gopuram', 'fas fa-dove', 'fas fa-dharmachakra', 'fas fa-cross', 'fas fa-church', 'fas fa-bible', 'fas fa-atom', 'fas fa-ankh'],
+    'Science': ['fas fa-vials', 'fas fa-vial', 'fas fa-tablets', 'fas fa-syringe', 'fas fa-skull-crossbones', 'fas fa-seedling', 'fas fa-prescription-bottle', 'fas fa-pills', 'fas fa-mortar-pestle', 'fas fa-microscope', 'fas fa-magnet', 'fas fa-frog', 'fas fa-flask', 'fas fa-fire', 'fas fa-filter', 'fas fa-eye-dropper', 'fas fa-dna', 'fas fa-clipboard-check', 'fas fa-capsules', 'fas fa-burn', 'fas fa-brain', 'fas fa-atom'],
+    'Science Fiction': ['fas fa-user-astronaut', 'fas fa-space-shuttle', 'fas fa-rocket', 'fas fa-robot', 'fas fa-moon', 'fas fa-journal-whills', 'fas fa-jedi', 'fas fa-hand-spock', 'fas fa-globe', 'fas fa-atom', 'fab fa-old-republic', 'fab fa-jedi-order', 'fab fa-galactic-senate', 'fab fa-galactic-republic', 'far fa-moon', 'far fa-hand-spock'],
     'Security': ['fas fa-user-shield', 'fas fa-user-secret', 'fas fa-user-lock', 'fas fa-unlock-alt', 'fas fa-unlock', 'fas fa-shield-alt', 'fas fa-passport', 'fas fa-mask', 'fas fa-lock-open', 'fas fa-lock', 'fas fa-key', 'fas fa-id-card-alt', 'fas fa-id-card', 'fas fa-id-badge', 'fas fa-fingerprint', 'fas fa-file-signature', 'fas fa-file-contract', 'fas fa-eye-slash', 'fas fa-eye', 'fas fa-dungeon', 'fas fa-door-open', 'fas fa-door-closed', 'fas fa-bug', 'fas fa-ban', 'far fa-id-card', 'far fa-id-badge', 'far fa-eye-slash', 'far fa-eye'],
     'Shapes': ['fas fa-star', 'fas fa-square', 'fas fa-shapes', 'fas fa-play', 'fas fa-map-marker', 'fas fa-heart', 'fas fa-folder', 'fas fa-file', 'fas fa-comment', 'fas fa-cloud', 'fas fa-circle', 'fas fa-certificate', 'fas fa-calendar', 'fas fa-bookmark', 'far fa-star', 'far fa-square', 'far fa-heart', 'far fa-folder', 'far fa-file', 'far fa-comment', 'far fa-circle', 'far fa-calendar', 'far fa-bookmark'],
-    'Shopping': ['fas fa-tshirt', 'fas fa-truck', 'fas fa-store-slash', 'fas fa-store-alt-slash', 'fas fa-store-alt', 'fas fa-store', 'fas fa-shopping-cart', 'fas fa-shopping-basket', 'fas fa-shopping-bag', 'fas fa-shipping-fast', 'fas fa-receipt', 'fas fa-person-booth', 'fas fa-gift', 'fas fa-cash-register', 'fas fa-cart-plus', 'fas fa-cart-arrow-down', 'fas fa-barcode'],
+    'Shopping': ['fas fa-tshirt', 'fas fa-truck', 'fas fa-store-alt', 'fas fa-store', 'fas fa-shopping-cart', 'fas fa-shopping-basket', 'fas fa-shopping-bag', 'fas fa-shipping-fast', 'fas fa-receipt', 'fas fa-gift', 'fas fa-cart-plus', 'fas fa-cart-arrow-down', 'fas fa-barcode'],
     'Social': ['fas fa-video', 'fas fa-users', 'fas fa-user-plus', 'fas fa-user-friends', 'fas fa-user-circle', 'fas fa-user', 'fas fa-thumbtack', 'fas fa-thumbs-up', 'fas fa-thumbs-down', 'fas fa-star', 'fas fa-share-square', 'fas fa-share-alt', 'fas fa-share', 'fas fa-retweet', 'fas fa-poll-h', 'fas fa-poll', 'fas fa-map-marker-alt', 'fas fa-map-marker', 'fas fa-images', 'fas fa-image', 'fas fa-heart', 'fas fa-hashtag', 'fas fa-envelope', 'fas fa-comment-alt', 'fas fa-comment', 'fas fa-camera', 'fas fa-birthday-cake', 'fas fa-bell', 'far fa-user-circle', 'far fa-user', 'far fa-thumbs-up', 'far fa-thumbs-down', 'far fa-star', 'far fa-share-square', 'far fa-images', 'far fa-image', 'far fa-heart', 'far fa-envelope', 'far fa-comment-alt', 'far fa-comment', 'far fa-bell'],
     'Spinners': ['fas fa-yin-yang', 'fas fa-sync-alt', 'fas fa-sync', 'fas fa-sun', 'fas fa-stroopwafel', 'fas fa-spinner', 'fas fa-snowflake', 'fas fa-slash', 'fas fa-ring', 'fas fa-palette', 'fas fa-life-ring', 'fas fa-dharmachakra', 'fas fa-crosshairs', 'fas fa-compass', 'fas fa-compact-disc', 'fas fa-cog', 'fas fa-circle-notch', 'fas fa-certificate', 'fas fa-bahai', 'fas fa-atom', 'fas fa-asterisk', 'far fa-sun', 'far fa-snowflake', 'far fa-life-ring', 'far fa-compass'],
-    'Sports': ['fas fa-volleyball-ball', 'fas fa-table-tennis', 'fas fa-swimmer', 'fas fa-snowboarding', 'fas fa-skiing-nordic', 'fas fa-skiing', 'fas fa-skating', 'fas fa-running', 'fas fa-quidditch', 'fas fa-hockey-puck', 'fas fa-golf-ball', 'fas fa-futbol', 'fas fa-football-ball', 'fas fa-dumbbell', 'fas fa-bowling-ball', 'fas fa-basketball-ball', 'fas fa-baseball-ball', 'far fa-futbol'],
-    'Spring': ['fas fa-umbrella', 'fas fa-seedling', 'fas fa-rainbow', 'fas fa-frog', 'fas fa-cloud-sun-rain', 'fas fa-cloud-sun', 'fas fa-broom', 'fas fa-allergies'],
-    'Status': ['fas fa-wifi', 'fas fa-volume-up', 'fas fa-volume-off', 'fas fa-volume-mute', 'fas fa-volume-down', 'fas fa-video-slash', 'fas fa-video', 'fas fa-user-slash', 'fas fa-user-alt-slash', 'fas fa-user-alt', 'fas fa-user', 'fas fa-unlock-alt', 'fas fa-unlock', 'fas fa-toggle-on', 'fas fa-toggle-off', 'fas fa-tint-slash', 'fas fa-tint', 'fas fa-thumbs-up', 'fas fa-thumbs-down', 'fas fa-thermometer-three-quarters', 'fas fa-thermometer-quarter', 'fas fa-thermometer-half', 'fas fa-thermometer-full', 'fas fa-thermometer-empty', 'fas fa-stream', 'fas fa-star-half-alt', 'fas fa-star-half', 'fas fa-star', 'fas fa-smoking-ban', 'fas fa-signal', 'fas fa-sign-out-alt', 'fas fa-sign-in-alt', 'fas fa-shopping-cart', 'fas fa-shield-alt', 'fas fa-question-circle', 'fas fa-question', 'fas fa-print', 'fas fa-plus-square', 'fas fa-plus-circle', 'fas fa-plus', 'fas fa-phone-slash', 'fas fa-phone', 'fas fa-parking', 'fas fa-minus-square', 'fas fa-minus-circle', 'fas fa-minus', 'fas fa-microphone-slash', 'fas fa-microphone-alt-slash', 'fas fa-microphone-alt', 'fas fa-microphone', 'fas fa-map-marker-alt', 'fas fa-map-marker', 'fas fa-lock-open', 'fas fa-lock', 'fas fa-lightbulb', 'fas fa-info-circle', 'fas fa-info', 'fas fa-gas-pump', 'fas fa-folder-open', 'fas fa-folder', 'fas fa-file-alt', 'fas fa-file', 'fas fa-eye-slash', 'fas fa-eye', 'fas fa-exclamation-triangle', 'fas fa-exclamation-circle', 'fas fa-exclamation', 'fas fa-door-open', 'fas fa-door-closed', 'fas fa-compass', 'fas fa-comment-slash', 'fas fa-comment-alt', 'fas fa-comment', 'fas fa-cart-plus', 'fas fa-cart-arrow-down', 'fas fa-calendar-week', 'fas fa-calendar-times', 'fas fa-calendar-plus', 'fas fa-calendar-minus', 'fas fa-calendar-day', 'fas fa-calendar-check', 'fas fa-calendar-alt', 'fas fa-calendar', 'fas fa-bell-slash', 'fas fa-bell', 'fas fa-battery-three-quarters', 'fas fa-battery-quarter', 'fas fa-battery-half', 'fas fa-battery-full', 'fas fa-battery-empty', 'fas fa-ban', 'far fa-user', 'far fa-thumbs-up', 'far fa-thumbs-down', 'far fa-star-half', 'far fa-star', 'far fa-question-circle', 'far fa-plus-square', 'far fa-minus-square', 'far fa-lightbulb', 'far fa-folder-open', 'far fa-folder', 'far fa-file-alt', 'far fa-file', 'far fa-eye-slash', 'far fa-eye', 'far fa-compass', 'far fa-comment-alt', 'far fa-comment', 'far fa-calendar-times', 'far fa-calendar-plus', 'far fa-calendar-minus', 'far fa-calendar-check', 'far fa-calendar-alt', 'far fa-calendar', 'far fa-bell-slash', 'far fa-bell'],
+    'Sports': ['fas fa-volleyball-ball', 'fas fa-table-tennis', 'fas fa-swimmer', 'fas fa-running', 'fas fa-quidditch', 'fas fa-hockey-puck', 'fas fa-golf-ball', 'fas fa-futbol', 'fas fa-football-ball', 'fas fa-dumbbell', 'fas fa-bowling-ball', 'fas fa-basketball-ball', 'fas fa-baseball-ball', 'far fa-futbol'],
+    'Spring': ['fas fa-umbrella', 'fas fa-seedling', 'fas fa-frog', 'fas fa-cloud-sun', 'fas fa-broom', 'fas fa-allergies'],
+    'Status': ['fas fa-wifi', 'fas fa-volume-up', 'fas fa-volume-off', 'fas fa-volume-mute', 'fas fa-volume-down', 'fas fa-video-slash', 'fas fa-video', 'fas fa-user-slash', 'fas fa-user-alt-slash', 'fas fa-user-alt', 'fas fa-user', 'fas fa-unlock-alt', 'fas fa-unlock', 'fas fa-toggle-on', 'fas fa-toggle-off', 'fas fa-tint-slash', 'fas fa-tint', 'fas fa-thumbs-up', 'fas fa-thumbs-down', 'fas fa-thermometer-three-quarters', 'fas fa-thermometer-quarter', 'fas fa-thermometer-half', 'fas fa-thermometer-full', 'fas fa-thermometer-empty', 'fas fa-stream', 'fas fa-star-half-alt', 'fas fa-star-half', 'fas fa-star', 'fas fa-smoking-ban', 'fas fa-signal', 'fas fa-sign-out-alt', 'fas fa-sign-in-alt', 'fas fa-shopping-cart', 'fas fa-shield-alt', 'fas fa-question-circle', 'fas fa-question', 'fas fa-print', 'fas fa-plus-square', 'fas fa-plus-circle', 'fas fa-plus', 'fas fa-phone-slash', 'fas fa-phone', 'fas fa-parking', 'fas fa-minus-square', 'fas fa-minus-circle', 'fas fa-minus', 'fas fa-microphone-slash', 'fas fa-microphone-alt-slash', 'fas fa-microphone-alt', 'fas fa-microphone', 'fas fa-map-marker-alt', 'fas fa-map-marker', 'fas fa-lock-open', 'fas fa-lock', 'fas fa-lightbulb', 'fas fa-info-circle', 'fas fa-info', 'fas fa-gas-pump', 'fas fa-folder-open', 'fas fa-folder', 'fas fa-file-alt', 'fas fa-file', 'fas fa-eye-slash', 'fas fa-eye', 'fas fa-exclamation-triangle', 'fas fa-exclamation-circle', 'fas fa-exclamation', 'fas fa-door-open', 'fas fa-door-closed', 'fas fa-compass', 'fas fa-comment-slash', 'fas fa-comment-alt', 'fas fa-comment', 'fas fa-cart-plus', 'fas fa-cart-arrow-down', 'fas fa-calendar-times', 'fas fa-calendar-plus', 'fas fa-calendar-minus', 'fas fa-calendar-check', 'fas fa-calendar-alt', 'fas fa-calendar', 'fas fa-bell-slash', 'fas fa-bell', 'fas fa-battery-three-quarters', 'fas fa-battery-quarter', 'fas fa-battery-half', 'fas fa-battery-full', 'fas fa-battery-empty', 'fas fa-ban', 'far fa-user', 'far fa-thumbs-up', 'far fa-thumbs-down', 'far fa-star-half', 'far fa-star', 'far fa-question-circle', 'far fa-plus-square', 'far fa-minus-square', 'far fa-lightbulb', 'far fa-folder-open', 'far fa-folder', 'far fa-file-alt', 'far fa-file', 'far fa-eye-slash', 'far fa-eye', 'far fa-compass', 'far fa-comment-alt', 'far fa-comment', 'far fa-calendar-times', 'far fa-calendar-plus', 'far fa-calendar-minus', 'far fa-calendar-check', 'far fa-calendar-alt', 'far fa-calendar', 'far fa-bell-slash', 'far fa-bell'],
     'Summer': ['fas fa-volleyball-ball', 'fas fa-umbrella-beach', 'fas fa-swimming-pool', 'fas fa-swimmer', 'fas fa-sun', 'fas fa-lemon', 'fas fa-fish', 'fas fa-anchor', 'far fa-sun', 'far fa-lemon'],
     'Toggle': ['fas fa-wifi', 'fas fa-toggle-on', 'fas fa-toggle-off', 'fas fa-star-half-alt', 'fas fa-star-half', 'fas fa-star', 'fas fa-microphone-slash', 'fas fa-microphone', 'fas fa-dot-circle', 'fas fa-circle', 'fas fa-check-circle', 'fas fa-bullseye', 'far fa-star-half', 'far fa-star', 'far fa-dot-circle', 'far fa-circle', 'far fa-check-circle'],
     'Travel': ['fas fa-wine-glass-alt', 'fas fa-wine-glass', 'fas fa-umbrella-beach', 'fas fa-tv', 'fas fa-taxi', 'fas fa-swimming-pool', 'fas fa-swimmer', 'fas fa-suitcase-rolling', 'fas fa-suitcase', 'fas fa-spa', 'fas fa-shuttle-van', 'fas fa-plane-departure', 'fas fa-plane-arrival', 'fas fa-plane', 'fas fa-passport', 'fas fa-monument', 'fas fa-map-marked-alt', 'fas fa-map-marked', 'fas fa-map', 'fas fa-luggage-cart', 'fas fa-hotel', 'fas fa-hot-tub', 'fas fa-globe-europe', 'fas fa-globe-asia', 'fas fa-globe-americas', 'fas fa-globe-africa', 'fas fa-glass-martini-alt', 'fas fa-glass-martini', 'fas fa-dumbbell', 'fas fa-concierge-bell', 'fas fa-cocktail', 'fas fa-bus-alt', 'fas fa-bus', 'fas fa-bed', 'fas fa-atlas', 'fas fa-archway', 'far fa-map'],
-    'Users & people': ['fas fa-wheelchair', 'fas fa-walking', 'fas fa-users-slash', 'fas fa-users-cog', 'fas fa-users', 'fas fa-user-times', 'fas fa-user-tie', 'fas fa-user-tag', 'fas fa-user-slash', 'fas fa-user-shield', 'fas fa-user-secret', 'fas fa-user-plus', 'fas fa-user-ninja', 'fas fa-user-minus', 'fas fa-user-md', 'fas fa-user-lock', 'fas fa-user-injured', 'fas fa-user-graduate', 'fas fa-user-friends', 'fas fa-user-edit', 'fas fa-user-cog', 'fas fa-user-clock', 'fas fa-user-circle', 'fas fa-user-check', 'fas fa-user-astronaut', 'fas fa-user-alt-slash', 'fas fa-user-alt', 'fas fa-user', 'fas fa-swimmer', 'fas fa-street-view', 'fas fa-snowboarding', 'fas fa-smile', 'fas fa-skiing-nordic', 'fas fa-skiing', 'fas fa-skating', 'fas fa-running', 'fas fa-restroom', 'fas fa-pray', 'fas fa-power-off', 'fas fa-portrait', 'fas fa-poo', 'fas fa-person-booth', 'fas fa-people-carry', 'fas fa-people-arrows', 'fas fa-meh', 'fas fa-male', 'fas fa-id-card-alt', 'fas fa-id-card', 'fas fa-id-badge', 'fas fa-hiking', 'fas fa-frown', 'fas fa-female', 'fas fa-child', 'fas fa-chalkboard-teacher', 'fas fa-blind', 'fas fa-bed', 'fas fa-baby', 'fas fa-address-card', 'fas fa-address-book', 'fab fa-accessible-icon', 'far fa-user-circle', 'far fa-user', 'far fa-smile', 'far fa-meh', 'far fa-id-card', 'far fa-id-badge', 'far fa-frown', 'far fa-address-card', 'far fa-address-book'],
+    'Users & people': ['fas fa-wheelchair', 'fas fa-walking', 'fas fa-users-cog', 'fas fa-users', 'fas fa-user-times', 'fas fa-user-tie', 'fas fa-user-tag', 'fas fa-user-slash', 'fas fa-user-shield', 'fas fa-user-secret', 'fas fa-user-plus', 'fas fa-user-ninja', 'fas fa-user-minus', 'fas fa-user-md', 'fas fa-user-lock', 'fas fa-user-injured', 'fas fa-user-graduate', 'fas fa-user-friends', 'fas fa-user-edit', 'fas fa-user-cog', 'fas fa-user-clock', 'fas fa-user-circle', 'fas fa-user-check', 'fas fa-user-astronaut', 'fas fa-user-alt-slash', 'fas fa-user-alt', 'fas fa-user', 'fas fa-swimmer', 'fas fa-street-view', 'fas fa-smile', 'fas fa-running', 'fas fa-pray', 'fas fa-power-off', 'fas fa-portrait', 'fas fa-poo', 'fas fa-people-carry', 'fas fa-meh', 'fas fa-male', 'fas fa-id-card-alt', 'fas fa-id-card', 'fas fa-id-badge', 'fas fa-hiking', 'fas fa-frown', 'fas fa-female', 'fas fa-child', 'fas fa-chalkboard-teacher', 'fas fa-blind', 'fas fa-bed', 'fas fa-address-card', 'fas fa-address-book', 'fab fa-accessible-icon', 'far fa-user-circle', 'far fa-user', 'far fa-smile', 'far fa-meh', 'far fa-id-card', 'far fa-id-badge', 'far fa-frown', 'far fa-address-card', 'far fa-address-book'],
     'Vehicles': ['fas fa-wheelchair', 'fas fa-truck-pickup', 'fas fa-truck-monster', 'fas fa-truck', 'fas fa-train', 'fas fa-tractor', 'fas fa-taxi', 'fas fa-subway', 'fas fa-space-shuttle', 'fas fa-shuttle-van', 'fas fa-shopping-cart', 'fas fa-ship', 'fas fa-rocket', 'fas fa-plane', 'fas fa-paper-plane', 'fas fa-motorcycle', 'fas fa-horse', 'fas fa-helicopter', 'fas fa-fighter-jet', 'fas fa-car-side', 'fas fa-car-crash', 'fas fa-car-alt', 'fas fa-car', 'fas fa-bus-alt', 'fas fa-bus', 'fas fa-bicycle', 'fas fa-ambulance', 'far fa-paper-plane', 'fab fa-accessible-icon'],
-    'Weather': ['fas fa-wind', 'fas fa-umbrella', 'fas fa-temperature-low', 'fas fa-temperature-high', 'fas fa-sun', 'fas fa-snowflake', 'fas fa-smog', 'fas fa-rainbow', 'fas fa-poo-storm', 'fas fa-moon', 'fas fa-meteor', 'fas fa-cloud-sun-rain', 'fas fa-cloud-sun', 'fas fa-cloud-showers-heavy', 'fas fa-cloud-rain', 'fas fa-cloud-moon-rain', 'fas fa-cloud-moon', 'fas fa-cloud', 'fas fa-bolt', 'far fa-sun', 'far fa-snowflake', 'far fa-moon'],
-    'Winter': ['fas fa-snowboarding', 'fas fa-skiing-nordic', 'fas fa-skiing', 'fas fa-skating', 'fas fa-igloo', 'fas fa-icicles'],
+    'Weather': ['fas fa-wind', 'fas fa-umbrella', 'fas fa-sun', 'fas fa-snowflake', 'fas fa-moon', 'fas fa-cloud-sun', 'fas fa-cloud-moon', 'fas fa-cloud', 'fas fa-bolt', 'far fa-sun', 'far fa-snowflake', 'far fa-moon'],
     'Writing': ['fas fa-thumbtack', 'fas fa-sticky-note', 'fas fa-quote-right', 'fas fa-quote-left', 'fas fa-pencil-alt', 'fas fa-pen-square', 'fas fa-pen-alt', 'fas fa-pen', 'fas fa-paragraph', 'fas fa-paperclip', 'fas fa-paper-plane', 'fas fa-newspaper', 'fas fa-keyboard', 'fas fa-folder-open', 'fas fa-folder', 'fas fa-file-alt', 'fas fa-file', 'fas fa-eraser', 'fas fa-envelope-open', 'fas fa-envelope', 'fas fa-edit', 'fas fa-bookmark', 'fas fa-book', 'fas fa-archive', 'far fa-sticky-note', 'far fa-paper-plane', 'far fa-newspaper', 'far fa-keyboard', 'far fa-folder-open', 'far fa-folder', 'far fa-file-alt', 'far fa-file', 'far fa-envelope-open', 'far fa-envelope', 'far fa-edit', 'far fa-bookmark']
   };
-  const onChangeIcon = newIcon => {
+  const handleIconClick = selectedIcon => {
     setAttributes({
-      icon: newIcon
+      icon: selectedIcon
     });
+    setIsModalOpen(false);
   };
+  const handleSVGSave = () => {
+    // setAttributes({ icon: tempSVG, iconType: 'customsvg' });
+    setIsModalOpen(false);
+  };
+  const filterIcons = iconArray => iconArray.filter(name => name.toLowerCase().includes(searchTerm.toLowerCase()));
+  const getStyleVariable = () => {
+    const variables = {};
+
+    // Handle link color
+    const linkColorToken = style?.elements?.link?.color?.text;
+    if (linkColorToken) {
+      const match = linkColorToken.match(/var:preset\|color\|(.+)/);
+      if (match) {
+        variables['--var-svg-color'] = `var(--wp--preset--color--${match[1]})`;
+      }
+    }
+
+    // Handle font size
+    const fontSizeToken = style?.typography?.fontSize;
+    if (fontSizeToken) {
+      const match = fontSizeToken.match(/var:preset\|font-size\|(.+)/);
+      if (match) {
+        variables['--var-svg-font-size'] = `var(--wp--preset--font-size--${match[1]})`;
+      } else {
+        // If it's a raw value like '20px', use it directly
+        variables['--var-svg-font-size'] = fontSizeToken;
+      }
+    }
+    return variables;
+  };
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
+    style: getStyleVariable()
+  });
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
+    ...blockProps
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.AlignmentControl, {
     value: textAlign,
     onChange: nextAlign => {
@@ -196,37 +235,101 @@ function Edit(props) {
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, {
     key: "setting"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.PanelBody, {
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Select Icon'),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Select Icon', "wens-haelo-pro"),
     initialOpen: false
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((_fonticonpicker_react_fonticonpicker__WEBPACK_IMPORTED_MODULE_3___default()), {
-    icons: icons,
-    value: icon,
-    onChange: value => setAttributes({
-      icon: value
-    })
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
-    label: "Link",
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Button, {
+    id: "icon-picker",
+    variant: "primary",
+    onClick: () => setIsModalOpen(true)
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Pick Icon', 'icon-picker')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Link", "wens-haelo-pro"),
     value: linkURL,
     onChange: value => setAttributes({
       linkURL: value
     })
   })))), attributes.linkURL == "" || attributes.linkURL == null ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    id: "wptravel-blocks-template-icon",
+    id: "wptravel-blocks-icon",
     style: {
       textAlign: textAlign
     }
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
-    className: icon
+  }, iconType === 'fontawesome' ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: icon,
+    "aria-hidden": "true"
+  }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "custom-svg-icon",
+    dangerouslySetInnerHTML: {
+      __html: customSVG
+    }
   })) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    id: "wptravel-blocks-template-icon",
+    id: "wptravel-blocks-icon",
     style: {
       textAlign: textAlign
     }
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: linkURL
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
-    className: icon
-  }))));
+  }, iconType === 'fontawesome' ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: icon,
+    "aria-hidden": "true"
+  }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "custom-svg-icon",
+    dangerouslySetInnerHTML: {
+      __html: customSVG
+    }
+  }))), isModalOpen && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Modal, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Select an Icon Type', 'icon-picker'),
+    onRequestClose: () => setIsModalOpen(false),
+    className: "icon-picker-modal"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.RadioControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Icon Source', 'icon-picker'),
+    selected: iconType,
+    options: [{
+      label: 'Font Awesome',
+      value: 'fontawesome'
+    }, {
+      label: 'Custom SVG',
+      value: 'customsvg'
+    }],
+    onChange: value => {
+      setAttributes({
+        iconType: value
+      });
+      if (value === 'customsvg') {
+        setTempSVG(iconType === 'customsvg' ? icon : '');
+      }
+    }
+  }), iconType === 'fontawesome' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextControl, {
+    placeholder: "Search icons...",
+    value: searchTerm,
+    onChange: setSearchTerm
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "icon-group-container"
+  }, Object.entries(icons).map(([group, icons]) => {
+    const filtered = filterIcons(icons);
+    if (!filtered.length) return null;
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      key: group,
+      className: "icon-group"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, group), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "icon-grid"
+    }, filtered.map(iconClass => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Button, {
+      key: iconClass,
+      className: "icon-button",
+      onClick: () => handleIconClick(iconClass)
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      className: iconClass
+    })))));
+  }))), iconType === 'customsvg' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.TextareaControl, {
+    label: "Enter SVG Markup",
+    value: customSVG,
+    onChange: value => setAttributes({
+      customSVG: value
+    }),
+    rows: 6
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_6__.Button, {
+    variant: "primary",
+    onClick: handleSVGSave,
+    className: "svg-save-button"
+  }, "Save SVG"))));
 }
 
 /***/ }),
@@ -301,7 +404,9 @@ __webpack_require__.r(__webpack_exports__);
       padding: true,
       // Enable padding UI control.
       blockGap: true // Enables block spacing UI control.
-    }
+    },
+
+    __experimentalStyle: true
   }
 });
 
@@ -347,26 +452,78 @@ function save(props) {
   const {
     textAlign,
     icon,
-    linkURL
+    linkURL,
+    iconType,
+    style,
+    customSVG
   } = attributes;
+  const getStyleVariable = () => {
+    const variables = {};
+
+    // Handle link color
+    const linkColorToken = style?.elements?.link?.color?.text;
+    if (linkColorToken) {
+      const match = linkColorToken.match(/var:preset\|color\|(.+)/);
+      if (match) {
+        variables['--var-svg-color'] = `var(--wp--preset--color--${match[1]})`;
+      }
+    }
+
+    // Handle font size
+    const fontSizeToken = style?.typography?.fontSize;
+    if (fontSizeToken) {
+      const match = fontSizeToken.match(/var:preset\|font-size\|(.+)/);
+      if (match) {
+        variables['--var-svg-font-size'] = `var(--wp--preset--font-size--${match[1]})`;
+      } else {
+        // If it's a raw value like '20px', use it directly
+        variables['--var-svg-font-size'] = fontSizeToken;
+      }
+    }
+    return variables;
+  };
+  ;
+  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
+    style: getStyleVariable()
+  });
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, linkURL == "" || linkURL == null ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
+    id: "wptravel-blocks-icon",
+    style: {
+      textAlign: textAlign
+    },
+    ...blockProps
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     style: {
       textAlign: textAlign
     }
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
-    className: icon
+  }, iconType === 'fontawesome' ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: icon,
+    "aria-hidden": "true"
+  }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "custom-svg-icon",
+    dangerouslySetInnerHTML: {
+      __html: customSVG
+    }
   }))) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
+    id: "wptravel-blocks-icon",
+    style: {
+      textAlign: textAlign
+    },
+    ...blockProps
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     style: {
       textAlign: textAlign
     }
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     href: linkURL
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
-    className: icon
+  }, iconType === 'fontawesome' ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: icon,
+    "aria-hidden": "true"
+  }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "custom-svg-icon",
+    dangerouslySetInnerHTML: {
+      __html: customSVG
+    }
   })))));
 }
 
@@ -3915,7 +4072,7 @@ function _setPrototypeOf(o, p) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/icon-picker","version":"0.1.0","title":"Icon Picker","category":"wp-travel-blocks","icon":"info","description":"FontAwesome icons for you to use.","attributes":{"textAlign":{"type":"string","default":"left"},"icon":{"type":"string","default":"fas fa-user"},"linkURL":{"type":"string","default":""}},"supports":{"html":false},"textdomain":"icon-picker","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/icon-picker","version":"0.1.0","title":"Icon Picker","category":"wp-travel-blocks","icon":"info","description":"FontAwesome icons for you to use.","attributes":{"textAlign":{"type":"string","default":"left"},"icon":{"type":"string","default":"fas fa-user-alt"},"iconType":{"type":"string","default":"fontawesome"},"customSVG":{"type":"string","default":""},"linkURL":{"type":"string","default":""}},"supports":{"html":false},"textdomain":"icon-picker","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

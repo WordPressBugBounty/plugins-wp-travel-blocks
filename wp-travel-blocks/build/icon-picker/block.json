@@ -14,7 +14,15 @@
     },
     "icon": {
       "type": "string",
-      "default": "fas fa-user"
+      "default": "fas fa-user-alt"
+    },
+    "iconType": {
+      "type": "string",
+      "default": "fontawesome"
+    },
+    "customSVG": {
+      "type": "string",
+      "default": ""
     },
     "linkURL": {
       "type": "string",

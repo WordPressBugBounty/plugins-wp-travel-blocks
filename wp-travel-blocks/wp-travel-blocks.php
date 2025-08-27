@@ -5,7 +5,7 @@
  * Requires at least: 	6.0
  * Requires Plugins:    wp-travel
  * Requires PHP:      	7.4
- * Version:         	3.9.1
+ * Version:         	3.9.2
  * Tested up to: 		6.8
  * Author:           	WP Travel
  * Author URI: 			http://wptravel.io
@@ -113,9 +113,6 @@ class WP_Travel_Blocks {
 
 		$this->wptravel_block_include_block_render_callback();
 
-		// add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
-		
-		
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ));
 
 		add_filter('body_class',  array( $this, 'wp_travel_blocks_body_classes' ));
@@ -144,23 +141,6 @@ class WP_Travel_Blocks {
 		return $classes;
 	}
 	
-	
-	// public function admin_scripts(){
-
-	// 	wp_enqueue_style( 
-	// 		'wp-travel-blocks-admin-demo-style', 
-	// 		plugin_dir_url( __FILE__ ) . 'assets/css/admin-style.css', 
-	// 	);
-
-	// 	wp_enqueue_script( 
-	// 		'wp-travel-blocks-admin-demo-script', 
-	// 		plugin_dir_url( __FILE__ ) . 'build/demo/index.js' , 
-	// 		array( 'jquery' ), 
-	// 		'', 
-	// 		true 
-	// 	);
-
-	// }
 	
 	public function block_editor_scripts(){
 
@@ -326,6 +306,14 @@ class WP_Travel_Blocks {
 			'render_callback' => 'wptravel_block_trip_downloads_render'
 		) );
 
+		register_block_type( __DIR__ . '/build/trip-custom-content', array(
+			'render_callback' => 'wptravel_block_trip_custom_content_render'
+		) );
+
+		register_block_type( __DIR__ . '/build/trip-date-countdown', array(
+			'render_callback' => 'wptravel_block_trip_date_countdown_render'
+		) );
+
 		register_block_type( __DIR__ . '/build/breadcrumb', array(
 			'render_callback' => 'wptravel_block_breadcrumb_render'
 		) );
@@ -354,10 +342,6 @@ class WP_Travel_Blocks {
 			'render_callback' => 'wptravel_block_trip_guide_list_render'
 		) );
 
-		
-		// if( class_exists( 'WP_Travel_Pro' ) ){
-		// 	register_block_type( __DIR__ . '/build/templates' );
-		// }
 	
 		if( function_exists('wptravel_get_settings') && isset( wptravel_get_settings()['modules']['show_wp_travel_tour_guide']['value'] ) && wptravel_get_settings()['modules']['show_wp_travel_tour_guide']['value'] == 'yes' ){
 			register_block_type( __DIR__ . '/build/guide-image', array(
@@ -461,12 +445,6 @@ class WP_Travel_Blocks {
 
 		register_block_type( __DIR__ . '/build/icon-picker' );
 
-		// register_block_type( __DIR__ . '/build/modal' );
-
-		// register_block_type( __DIR__ . '/build/post-slider', array(
-		// 	'render_callback' => 'wptravel_block_post_slider_render'
-		// ) );
-
 	}
 
 	public function wptravel_block_include_block_render_callback(){
@@ -476,16 +454,6 @@ class WP_Travel_Blocks {
 		$theme_slug = $theme->get_stylesheet();
 
 		include sprintf( '%s/inc/breadcrumb-class.php', dirname( __FILE__ ) );
-		// include sprintf( '%s/inc/class-rest.php', dirname( __FILE__ ) );
-		// include sprintf( '%s/inc/class-templates.php', dirname( __FILE__ ) );
-
-		// if( $theme_slug !== 'themepalace-fse-pro' ){
-		// 	include sprintf( '%s/inc/importer/importer.php', dirname( __FILE__ ) );
-		// 	include sprintf( '%s/inc/demo.php', dirname( __FILE__ ) );
-		// }
-
-		include sprintf( '%s/inc/post-slider-rest.php', dirname( __FILE__ ) );
-		// include sprintf( '%s/inc/migration.php', dirname( __FILE__ ) );
 
 		//render block 
 		include sprintf( '%s/inc/block-render/trip-search.php', dirname( __FILE__ ) );
@@ -516,16 +484,17 @@ class WP_Travel_Blocks {
 		include sprintf( '%s/inc/block-render/trip-sale.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/trip-departure.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/trip-downloads.php', dirname( __FILE__ ) );
+		include sprintf( '%s/inc/block-render/trip-custom-content.php', dirname( __FILE__ ) );
+		include sprintf( '%s/inc/block-render/trip-date-countdown.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/breadcrumb.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/trip-slider.php', dirname( __FILE__ ) );
-		// include sprintf( '%s/inc/block-render/video-button.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/trip-button.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/slider.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/trip-featured-category.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/filterable-trips.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/cart-button.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/book-button.php', dirname( __FILE__ ) );
-		include sprintf( '%s/inc/block-render/post-slider.php', dirname( __FILE__ ) );
+		// include sprintf( '%s/inc/block-render/post-slider.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/trip-guide-list.php', dirname( __FILE__ ) );
 
 		// Guide Render Blocks

@@ -20,4 +20,24 @@
   display: none;
 }
 
+#wptravel-blocks-icon .custom-svg-icon svg path,
+#wptravel-blocks-icon .custom-svg-icon svg {
+  fill: var(--var-svg-color) !important;
+}
+
+#wptravel-blocks-icon a:hover .custom-svg-icon svg path,
+#wptravel-blocks-icon a:hover .custom-svg-icon svg {
+  fill: var(--wp--preset--color--secondary) !important;
+}
+
+#wptravel-blocks-icon .custom-svg-icon svg {
+  height: var(--var-svg-font-size) !important;
+  width: var(--var-svg-font-size) !important;
+}
+
+.custom-svg-icon {
+  line-height: 0; /* Remove extra space below inline SVG */
+  padding: 0;
+}
+
 /*# sourceMappingURL=style-index.css.map*/

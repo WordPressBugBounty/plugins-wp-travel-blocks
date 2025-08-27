@@ -55,8 +55,91 @@
 }
 
 .rfipdropdown--default.rfipdropdown--open {
-  left: 0px !important;
-  max-width: 250px;
+  right: 0px !important;
+  width: 100%;
+  max-width: 60%;
+  position: fixed;
+  /* height: 66%; */
+  left: 0;
+  /* right: 0; */
+  margin: auto;
+  top: 100px;
+}
+
+#icon-picker {
+  margin-bottom: 30px;
+}
+
+#wens-haelo-pro-icon-picker .icon-preview {
+  text-align: center;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+#wens-haelo-pro-icon-picker .icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+#wens-haelo-pro-icon-picker .icon-button {
+  font-size: 1.5rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 8px;
+}
+
+#wens-haelo-pro-icon-picker .icon-group {
+  margin-top: 20px;
+}
+
+#wens-haelo-pro-icon-picker .icon-group h3 {
+  margin-bottom: 10px;
+}
+
+#wens-haelo-pro-icon-picker .custom-svg-icon {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+}
+
+.icon-picker-modal fieldset.components-radio-control {
+  margin-bottom: 40px;
+}
+
+.components-button.icon-button {
+  border: 1px solid;
+  padding: 5px 20px;
+  font-size: 20px;
+  height: 50px;
+  margin: 10px;
+}
+
+.icon-picker-modal fieldset.components-radio-control .components-flex {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.icon-picker-modal fieldset.components-radio-control .components-flex div {
+  width: auto;
+}
+
+#wptravel-blocks-icon .custom-svg-icon svg path,
+#wptravel-blocks-icon .custom-svg-icon svg {
+  fill: var(--var-svg-color) !important;
+}
+
+#wptravel-blocks-icon .custom-svg-icon svg {
+  height: var(--var-svg-font-size) !important;
+  width: var(--var-svg-font-size) !important;
+}
+
+.custom-svg-icon {
+  line-height: 0; /* Remove extra space below inline SVG */
+  padding: 0;
 }
 /*!**************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/icon-picker/font-awesome/css/fontawesome-all.min.css ***!

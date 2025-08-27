@@ -36,10 +36,10 @@ function wptravel_block_guide_fullname_render( $attributes ) {
         <?php 
             if( $guide_data ){ 
 
-                if( $enable_link  ){
+                if( $enable_link ){
                     echo "<a href='".esc_url(get_the_permalink())."'>" .esc_html( $guide_data->display_name ) ."</a>";
                 }else{
-                    echo esc_html( $guide_data );
+                    echo esc_html( $guide_data->display_name );
                 }
 
             }else{
