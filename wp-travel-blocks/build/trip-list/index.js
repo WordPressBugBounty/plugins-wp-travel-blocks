@@ -93,6 +93,8 @@ function Edit(props) {
   const {
     relatedTrip,
     patternSlug,
+    loadMore,
+    loadMoreLabel,
     inheritTrips,
     query,
     saleTrip,
@@ -208,6 +210,18 @@ function Edit(props) {
     onChange: () => setAttributes({
       relatedTrip: !relatedTrip
     })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Sale Trip', 'wp-travel-blocks'),
+    checked: saleTrip,
+    onChange: () => setAttributes({
+      saleTrip: !saleTrip
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Featured Trip', 'wp-travel-blocks'),
+    checked: featuredTrip,
+    onChange: () => setAttributes({
+      featuredTrip: !featuredTrip
+    })
   }), relatedTrip && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Related Trip By', 'wp-travel-blocks'),
     value: relatedTripBy,
@@ -286,7 +300,19 @@ function Edit(props) {
     onChange: val => setAttributes({
       cardLayout: val
     })
-  }), !inheritTrips && !relatedTrip && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.QueryControls, {
+  }), !inheritTrips && !relatedTrip && !saleTrip && !featuredTrip && cardLayout != 'slider-view' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Load More', 'wp-travel-blocks'),
+    checked: loadMore,
+    onChange: () => setAttributes({
+      loadMore: !loadMore
+    })
+  }), loadMore && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextControl, {
+    label: "Load More Button Label",
+    value: loadMoreLabel,
+    onChange: value => setAttributes({
+      loadMoreLabel: value
+    })
+  })), !inheritTrips && !relatedTrip && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.QueryControls, {
     orderBy,
     order,
     numberOfItems,
@@ -432,18 +458,6 @@ function Edit(props) {
         }
       });
     }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Sale Trip', 'wp-travel-blocks'),
-    checked: saleTrip,
-    onChange: () => setAttributes({
-      saleTrip: !saleTrip
-    })
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToggleControl, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Featured Trip', 'wp-travel-blocks'),
-    checked: featuredTrip,
-    onChange: () => setAttributes({
-      featuredTrip: !featuredTrip
-    })
   }))))), cardLayout === 'slider-view' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     id: "wptravel-block-trips-list",
     className: 'wptravel-block-wrapper wptravel-block-trips-list wptravel-block-preview ' + layoutType
@@ -5851,7 +5865,7 @@ module.exports = window["wp"]["serverSideRender"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trips-list","version":"0.1.0","title":"Trip List","category":"wp-travel-blocks","icon":"grid-view","description":"Display the Trips as per selected taxonomies (Trip Type, destination, activities, keywords etc.)","attributes":{"blockId":{"type":"string","default":"not set"},"patternSlug":{"type":"string","default":""},"relatedTrip":{"type":"boolean","default":false},"relatedTripBy":{"type":"string","default":"itinerary-types"},"inheritTrips":{"type":"boolean","default":false},"query":{"type":"object","default":{"numberOfItems":3,"orderBy":"title","order":"asc"}},"saleTrip":{"type":"boolean","default":false},"layoutType":{"type":"string","default":"default-layout"},"cardLayout":{"type":"string","default":"grid-view"},"featuredTrip":{"type":"boolean","default":false}},"supports":{"html":false,"color":true,"align":["wide","full"],"spacing":{"margin":["horizontal","vertical"],"padding":["horizontal","vertical"]}},"textdomain":"trips-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trips-list","version":"0.1.0","title":"Trip List","category":"wp-travel-blocks","icon":"grid-view","description":"Display the Trips as per selected taxonomies (Trip Type, destination, activities, keywords etc.)","attributes":{"blockId":{"type":"string","default":"not set"},"patternSlug":{"type":"string","default":""},"loadMore":{"type":"boolean","default":false},"loadMoreLabel":{"type":"string","default":"Load More"},"relatedTrip":{"type":"boolean","default":false},"relatedTripBy":{"type":"string","default":"itinerary-types"},"inheritTrips":{"type":"boolean","default":false},"query":{"type":"object","default":{"numberOfItems":3,"orderBy":"title","order":"asc"}},"saleTrip":{"type":"boolean","default":false},"layoutType":{"type":"string","default":"default-layout"},"cardLayout":{"type":"string","default":"grid-view"},"featuredTrip":{"type":"boolean","default":false}},"supports":{"html":false,"color":true,"align":["wide","full"],"spacing":{"margin":["horizontal","vertical"],"padding":["horizontal","vertical"]}},"textdomain":"trips-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

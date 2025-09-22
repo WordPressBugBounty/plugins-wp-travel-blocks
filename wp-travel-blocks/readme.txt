@@ -5,7 +5,7 @@ Donate link:        https://wptravel.io/
 Requires at least:  6.0.0
 Tested up to:       6.8
 Requires PHP:       7.4.0
-Stable tag:         3.9.2
+Stable tag:         3.9.3
 License:            GPLv3
 License URI:        http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -234,6 +234,12 @@ WP Travel has a dedicated team for Support to resolve your issues and enquiries[
 Before updating the plugin please check ["our latest release notes"](#developers).
 
 == Changelog ==
+
+= 3.9.3 = 
+Release Date:  22nd September 2025
+
+* Added "Load More" option on "Trip List" block
+* Fixed a Stored Cross-Site Scripting (XSS) vulnerability in the Breadcrumb block by properly escaping the seperator attribute before output. Reported via Patchstack.
 
 = 3.9.2 = 
 Release Date:  27th August 2025

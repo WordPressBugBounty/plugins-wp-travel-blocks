@@ -43,7 +43,7 @@ function wptravel_block_breadcrumb_render( $attributes ) {
 		<?php }	?>	
 
 		#wptravel-breadcrumb-block .trail-items li.trail-item::after {
-			content: "<?php echo htmlspecialchars_decode( $attributes['seperator'] ); ?>";
+			content: "<?php echo esc_attr( $attributes['seperator'] ); ?>";
 		}
 	
 	</style>

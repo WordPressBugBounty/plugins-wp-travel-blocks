@@ -5,7 +5,7 @@
  * Requires at least: 	6.0
  * Requires Plugins:    wp-travel
  * Requires PHP:      	7.4
- * Version:         	3.9.2
+ * Version:         	3.9.3
  * Tested up to: 		6.8
  * Author:           	WP Travel
  * Author URI: 			http://wptravel.io
@@ -41,7 +41,7 @@ class WP_Travel_Blocks {
 	 * 
 	 * @var string 
 	 */
-	public $version = '3.9.1';
+	public $version = '3.9.3';
 
 	/**
 	 * The single instance of the class
@@ -177,6 +177,11 @@ class WP_Travel_Blocks {
 		wp_enqueue_style( 'slick-theme-css', plugin_dir_url( __FILE__ ) . 'assets/slick/slick-theme.css');
 
 		wp_enqueue_script( 'wp-travel-blocks-custom-js', plugin_dir_url( __FILE__ ) . 'assets/js/custom.js' , array( 'jquery' ), '', true );
+		
+		wp_localize_script('wp-travel-blocks-custom-js', 'block_trip_ajax', [
+			'ajaxurl' => admin_url('admin-ajax.php'),
+			'nonce'   => wp_create_nonce('block_trip_load_more_nonce'),
+		]);
 	}
 
 	public function block_init() {
@@ -452,6 +457,8 @@ class WP_Travel_Blocks {
 		$theme = wp_get_theme();
 
 		$theme_slug = $theme->get_stylesheet();
+
+		include sprintf( '%s/inc/load-more.php', dirname( __FILE__ ) );
 
 		include sprintf( '%s/inc/breadcrumb-class.php', dirname( __FILE__ ) );
 

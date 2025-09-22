@@ -10,7 +10,7 @@
   "attributes": {
     "seperator": {
       "type": "string",
-      "default": ">"
+      "default": "/"
     },
     "textAlign": {
       "type": "string",

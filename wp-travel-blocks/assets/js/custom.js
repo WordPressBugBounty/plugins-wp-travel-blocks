@@ -172,3 +172,35 @@ jQuery(document).ready(function($) {
 	}
 });
 
+jQuery(function ($) {
+  $('#load-more-trips').on('click', function () {
+
+    const button = $(this);
+    const container = $('#wptravel-block-trips-list');
+    const mainContainer = $('#wptravel-block-trips-list .wp-travel-itinerary-items.wptravel-archive-wrapper');
+    const offset = parseInt(button.attr('data-offset'));
+    const perPage = parseInt(container.data('posts_per_page'));
+
+    button.text('Loading...');
+
+    $.ajax({
+      url: block_trip_ajax.ajaxurl,
+      type: 'POST',
+      data: {
+        action: 'block_trip_load_more',
+        nonce: block_trip_ajax.nonce,
+        offset: offset,
+        settings: container.data('setting'),
+      },
+      success: function (res) {
+        if (res.trim() !== '') {
+
+          mainContainer.append(res);
+          button.attr('data-offset', offset + perPage).text('Load More');
+        } else {
+          button.hide();
+        }
+      },
+    });
+  });
+});

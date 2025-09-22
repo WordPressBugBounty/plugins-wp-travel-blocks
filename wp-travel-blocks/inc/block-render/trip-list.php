@@ -616,8 +616,14 @@ function wptravel_block_trip_list_render($attributes, $content)
 				</div>
 			</div>
 		<?php
-		} else { ?>
-			<div id="wptravel-block-trips-list" class="wptravel-block-wrapper wptravel-block-trips-list wptravel-block-preview <?php echo esc_attr( $layout_type ). ' ' . 'block-id-' . hash('sha256', json_encode($attributes)); ?>">
+		} else { 
+
+			?>
+			<div id="wptravel-block-trips-list" 
+				class="wptravel-block-wrapper wptravel-block-trips-list wptravel-block-preview <?php echo esc_attr( $layout_type ). ' ' . 'block-id-' . hash('sha256', json_encode($attributes)); ?>"
+				data-setting="<?php echo esc_attr( wp_json_encode( $attributes ) ); ?>"
+				data-posts_per_page="<?php echo esc_attr($attributes['query']['numberOfItems']); ?>"
+			>
 				<div class="wp-travel-itinerary-items">
 					<?php
 					if ($sale_trip || $featured_trip) {
@@ -1068,6 +1074,21 @@ function wptravel_block_trip_list_render($attributes, $content)
 						echo esc_html__('No related trips found..', 'wp-travel-blocks');
 					} ?>
 				</div>
+				<?php if( $attributes['loadMore'] ): ?>
+					<div class="load-more-btn-wrapper" style="text-align: center; margin-top: 30px;">
+						<button id="load-more-trips" class="btn-load-more" data-offset="<?php echo esc_attr($attributes['query']['numberOfItems']); ?>" 
+						style="
+							cursor: pointer;
+							padding: 10px 20px;
+							background: #000;
+							border-color: #000;
+							color: #fff;
+							font-size: 18px;"
+						>
+							<?php echo esc_html($attributes['loadMoreLabel']); ?>
+						</button>
+					</div>
+				<?php endif; ?>
 			</div>
 		<?php }
 		?>

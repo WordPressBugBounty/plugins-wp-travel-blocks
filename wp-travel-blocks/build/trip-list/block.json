@@ -16,6 +16,14 @@
       "type": "string",
       "default": ""
     },
+    "loadMore": {
+      "type": "boolean",
+      "default": false
+    },
+    "loadMoreLabel": {
+      "type": "string",
+      "default": "Load More"
+    },
     "relatedTrip": {
       "type": "boolean",
       "default": false
