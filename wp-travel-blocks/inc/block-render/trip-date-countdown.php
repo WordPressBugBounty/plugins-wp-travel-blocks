@@ -35,8 +35,26 @@ function wptravel_block_trip_date_countdown_render( $attributes ) {
 				<div class="time-unit"><span class="time-number" id="seconds">00</span><span class="time-label">Seconds</span></div>
 			</div>
 		</div>
-	<?php endif;
-	
+		<style>
+			<?php if( $attributes['labelTextColor'] ): ?>
+				.wptravel-tour-date-countdown > span{
+					color: <?php echo esc_attr($attributes['labelTextColor']); ?>
+				}
+			<?php endif; ?>
+			
+			<?php if( $attributes['counterBgColor'] ): ?>
+				.wptravel-tour-date-countdown .time-unit{
+					background-color: <?php echo esc_attr($attributes['counterBgColor']); ?>
+				}
+			<?php endif; ?>
+			
+			<?php if( $attributes['counterTextColor'] ): ?>
+				.wptravel-tour-date-countdown .time-unit span{
+					color: <?php echo esc_attr($attributes['counterTextColor']); ?>
+				}
+			<?php endif; ?>
+		</style>
+	<?php endif;	
 
 	return ob_get_clean();
 }

@@ -5,7 +5,7 @@
  * Requires at least: 	6.0
  * Requires Plugins:    wp-travel
  * Requires PHP:      	7.4
- * Version:         	3.9.3
+ * Version:         	3.9.4
  * Tested up to: 		6.8
  * Author:           	WP Travel
  * Author URI: 			http://wptravel.io
@@ -41,7 +41,7 @@ class WP_Travel_Blocks {
 	 * 
 	 * @var string 
 	 */
-	public $version = '3.9.3';
+	public $version = '3.9.4';
 
 	/**
 	 * The single instance of the class
@@ -319,6 +319,14 @@ class WP_Travel_Blocks {
 			'render_callback' => 'wptravel_block_trip_date_countdown_render'
 		) );
 
+		register_block_type( __DIR__ . '/build/trip-booking-close-countdown', array(
+			'render_callback' => 'wptravel_block_trip_booking_close_countdown_render'
+		) );
+
+		register_block_type( __DIR__ . '/build/trip-whatsapp-enquiry-button', array(
+			'render_callback' => 'wptravel_block_trip_whatsapp_enquiry_button_render'
+		) );
+
 		register_block_type( __DIR__ . '/build/breadcrumb', array(
 			'render_callback' => 'wptravel_block_breadcrumb_render'
 		) );
@@ -493,6 +501,8 @@ class WP_Travel_Blocks {
 		include sprintf( '%s/inc/block-render/trip-downloads.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/trip-custom-content.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/trip-date-countdown.php', dirname( __FILE__ ) );
+		include sprintf( '%s/inc/block-render/trip-booking-close-countdown.php', dirname( __FILE__ ) );
+		include sprintf( '%s/inc/block-render/trip-whatsapp-enquiry-button.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/breadcrumb.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/trip-slider.php', dirname( __FILE__ ) );
 		include sprintf( '%s/inc/block-render/trip-button.php', dirname( __FILE__ ) );

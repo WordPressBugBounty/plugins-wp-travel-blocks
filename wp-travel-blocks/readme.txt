@@ -5,7 +5,7 @@ Donate link:        https://wptravel.io/
 Requires at least:  6.0.0
 Tested up to:       6.8
 Requires PHP:       7.4.0
-Stable tag:         3.9.3
+Stable tag:         3.9.4
 License:            GPLv3
 License URI:        http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -234,6 +234,14 @@ WP Travel has a dedicated team for Support to resolve your issues and enquiries[
 Before updating the plugin please check ["our latest release notes"](#developers).
 
 == Changelog ==
+
+= 3.9.4 = 
+Release Date:  11th March 2026
+
+* Added new block "Tour Date CountDown".
+* Added new block "Booking Close CountDown".
+* Added new block "WhatsApp Enquiry Button".
+
 
 = 3.9.3 = 
 Release Date:  22nd September 2025
