@@ -5,7 +5,7 @@
  * Requires at least: 	6.0
  * Requires Plugins:    wp-travel
  * Requires PHP:      	7.4
- * Version:         	3.9.4
+ * Version:         	3.9.5
  * Tested up to: 		6.8
  * Author:           	WP Travel
  * Author URI: 			http://wptravel.io
@@ -41,7 +41,7 @@ class WP_Travel_Blocks {
 	 * 
 	 * @var string 
 	 */
-	public $version = '3.9.4';
+	public $version = '3.9.5';
 
 	/**
 	 * The single instance of the class

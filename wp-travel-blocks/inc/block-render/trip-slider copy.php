@@ -48,28 +48,17 @@ function wptravel_block_get_trip_lists( $attributes ){
 		'posts_per_page'  => $numberposts
 	);
 
-	$args['orderby'] = 'post_date';
-	
 	if ( isset( $query_args['orderBy'] ) ) {
-		$allowed_orderby = [
-			'title' => 'post_title',
-			'date'  => 'post_date'
-		];
-
-		if (isset($query_args['orderBy']) && isset($allowed_orderby[$query_args['orderBy']])) {
-			$args['orderby'] = $allowed_orderby[$query_args['orderBy']];
+		switch ( $query_args['orderBy'] ) {
+			case 'title':
+				$args['orderby'] = 'post_title';
+				break;
+			case 'date':
+				$args['orderby'] = 'post_date';
+				break;
 		}
-		
+		$args['order'] = $query_args['order'];
 	}
-
-	$order = isset($query_args['order']) ? strtoupper($query_args['order']) : 'DESC';
-
-	if (!in_array($order, ['ASC', 'DESC'], true)) {
-		$order = 'DESC';
-	}
-
-	$args['order'] = $order;
-	
 	if ( isset( $query_args['selectedTripTypes'] ) && ! empty( $query_args['selectedTripTypes'] ) ) {
 		$args['itinerary_types'] = wp_list_pluck( $query_args['selectedTripTypes'], 'slug' );
 	}
@@ -139,167 +128,89 @@ function wptravel_block_trip_slider_render( $attributes ){
 	ob_start();
 
 	?>
-		<?php if( $attributes['layoutType'] == 'design-one' ): ?>
-			<div id="wptravel-block-trip-slider" class="wptravel-block-trip-slider <?php echo 'block-id-'.hash( 'sha256', json_encode($attributes) )?>">			
-				<div class="wp-travel-trip-slider">
-					<?php foreach( $block_content as $content ){ ?>
-						<div class="item">
-							<div class="overlay"></div>
-							<img src="<?php echo esc_url($content['image']) ?>" alt="<?php echo esc_attr( $content['title'] ); ?>">
-							<div class="wp-travel-entry-content">
-								<div class="trip-title">
-									<h2><?php echo esc_html( $content['title'] ) ?></h2>
-								</div>
-								<div class="trip-price">
-									<span class="price-from">
-										<?php echo esc_html( $strings['from'] ); ?>
-									</span>
-									<span class="person-count">
-										<ins>
-											<span><?php echo wptravel_get_formated_price_currency( $content['id'] ); ?></span>
-										</ins>
-									</span>
-								</div>
-								<div class="trip-excerpt">
-									<p><?php echo esc_html( $content['excerpt'] ) ?></p>
-								</div>
-								<div class="read-more">
-									<a href="<?php echo esc_url($content['url']) ?>" class="btn"><?php echo esc_html( 'Book Now', 'wp-travel-blocks' ); ?></a>
-								</div>
+		<div id="wptravel-block-trip-slider" class="wptravel-block-trip-slider <?php echo 'block-id-'.hash( 'sha256', json_encode($attributes) )?>">			
+			<div class="wp-travel-trip-slider">
+				<?php foreach( $block_content as $content ){ ?>
+					<div class="item">
+						<div class="overlay"></div>
+						<img src="<?php echo esc_url($content['image']) ?>" alt="<?php echo esc_attr( $content['title'] ); ?>">
+						<div class="wp-travel-entry-content">
+							<div class="trip-title">
+								<h2><?php echo esc_html( $content['title'] ) ?></h2>
+							</div>
+							<div class="trip-price">
+								<span class="price-from">
+									<?php echo esc_html( $strings['from'] ); ?>
+								</span>
+								<span class="person-count">
+									<ins>
+										<span><?php echo wptravel_get_formated_price_currency( $content['id'] ); ?></span>
+									</ins>
+								</span>
+							</div>
+							<div class="trip-excerpt">
+								<p><?php echo esc_html( $content['excerpt'] ) ?></p>
+							</div>
+							<div class="read-more">
+								<a href="<?php echo esc_url($content['url']) ?>" class="btn"><?php echo esc_html( 'Book Now', 'wp-travel-blocks' ); ?></a>
 							</div>
 						</div>
-					<?php } ?>
-				</div>				
-			</div>
-		<?php endif; ?>
+					</div>
+				<?php } ?>
+			</div>				
+		</div>
 
-		<?php if( $attributes['layoutType'] == 'design-two' ): ?>
-			<div id="wptravel-block-trip-slider" class="wptravel-block-trip-slider <?php echo 'block-id-'.hash( 'sha256', json_encode($attributes) )?> design-two">			
-				<div class="wp-travel-trip-slider">
-					<?php foreach( $block_content as $content ){ 
-						$trip_locations = get_the_terms($content['id'], 'travel_locations');
+		<!-- Design Two  -->
+		 <div id="wptravel-block-trip-slider" class="wptravel-block-trip-slider <?php echo 'block-id-'.hash( 'sha256', json_encode($attributes) )?> design-two">			
+			<div class="wp-travel-trip-slider">
+				<?php foreach( $block_content as $content ){ 
+				    $trip_locations = get_the_terms($content['id'], 'travel_locations');
 
-						if ($trip_locations && is_array($trip_locations)) {
-							$first_location = array_shift($trip_locations);
-							$location_name  = $first_location->name;
-							$location_link  = get_term_link($first_location->term_id, 'travel_locations');
-						}
-					?>
-						<div class="item">
-							<div class="overlay"></div>
-							<img src="<?php echo esc_url($content['image']) ?>" alt="<?php echo esc_attr( $content['title'] ); ?>">
-							<div class="wp-travel-entry-content">
-								<div class="trip-title">
-									<?php if ($location_name) { ?>
-										<div class="wptravel-blocks-trip-meta">
-											<a href="<?php echo esc_url($location_link); ?>">
-												<?php echo esc_html($location_name); ?>
-											</a>
-										</div>
-									<?php } ?>
-									<h2><?php echo esc_html( $content['title'] ) ?></h2>
-									<div class="wptravel-blocks-trip-rating">
-										<?php echo wptravel_single_trip_rating( $content['id'] ); ?>
-									</div>
-								</div>
-								
-								<div class="trip-excerpt">
-									<p><?php echo esc_html( $content['excerpt'] ) ?></p>
-								</div>
-								<div class="trip-price">
-									<span class="price-from">
-										<?php echo esc_html( $strings['from'] ); ?>
-									</span>
-									<span class="person-count">
-										<ins>
-											<span><?php echo wptravel_get_formated_price_currency( $content['id'] ); ?></span>
-										</ins>
-									</span>
-								</div>
-								<div class="read-more">
-									<a href="<?php echo esc_url($content['url']) ?>" class="btn"><?php echo esc_html( 'Book Now', 'wp-travel-blocks' ); ?></a>
-								</div>
-							</div>
-						</div>
-					<?php } ?>
-				</div>				
-			</div>
-		<?php endif; ?>
-
-		<?php if( $attributes['layoutType'] == 'design-three' ): ?>
-			<div id="wptravel-block-trip-slider" class="wptravel-block-trip-slider <?php echo 'block-id-'.hash( 'sha256', json_encode($attributes) )?> design-three">			
-				<div class="wp-travel-trip-slider">
-					<?php foreach( $block_content as $content ){ 
-						$trip_locations = get_the_terms($content['id'], 'travel_locations');
-
-						if ($trip_locations && is_array($trip_locations)) {
-							$first_location = array_shift($trip_locations);
-							$location_name  = $first_location->name;
-							$location_link  = get_term_link($first_location->term_id, 'travel_locations');
-						}
-
-						$is_fixed_departure = WP_Travel_Helpers_Trip_Dates::is_fixed_departure($content['id']);
-						$group_size = wptravel_get_group_size($content['id']);
-					?>
-						<div class="item">
-							<div class="overlay"></div>
-							<img src="<?php echo esc_url($content['image']) ?>" alt="<?php echo esc_attr( $content['title'] ); ?>">
-							<div class="wp-travel-entry-content">
-								<div class="trip-title">
-									<div class="wptravel-blocks-trip-rating">
-										<i class="fas fa-star"></i> <?php echo wptravel_get_average_rating( $content['id'] ) . ' out of 5'; ?>
-									</div>
-									<div class="trip-price">
-										<span class="price-from">
-											<?php echo esc_html( $strings['from'] ); ?>
-										</span>
-										<span class="person-count">
-											<ins>
-												<span><?php echo wptravel_get_formated_price_currency( $content['id'] ); ?></span>
-											</ins>
-										</span>
-									</div>
-									<h2><?php echo esc_html( $content['title'] ) ?></h2>
+					if ($trip_locations && is_array($trip_locations)) {
+						$first_location = array_shift($trip_locations);
+						$location_name  = $first_location->name;
+						$location_link  = get_term_link($first_location->term_id, 'travel_locations');
+					}
+				?>
+					<div class="item">
+						<div class="overlay"></div>
+						<img src="<?php echo esc_url($content['image']) ?>" alt="<?php echo esc_attr( $content['title'] ); ?>">
+						<div class="wp-travel-entry-content">
+							<div class="trip-title">
+								<?php if ($location_name) { ?>
 									<div class="wptravel-blocks-trip-meta">
-										<?php if ($location_name) { ?>
-											<div class="wptravel-blocks-trip-meta-location">
-												<i class="fas fa-map-marker-alt"></i>
-												<a href="<?php echo esc_url($location_link); ?>">
-													<?php echo esc_html($location_name); ?>
-												</a>
-											</div>
-										<?php } ?>
-										<?php if( $is_fixed_departure ) { ?>
-											<div class="wptravel-blocks-trip-meta-detarture-date">
-												<i class='far fa-calendar-alt'></i> <?php echo wptravel_get_fixed_departure_date( $trip_id ); ?>
-											</div>
-											<?php } else { ?>
-												<div class="wptravel-blocks-trip-meta-duration">
-													<i class='far fa-clock'></i> <?php echo wp_travel_get_trip_durations( $trip_id ); ?>
-												</div>
-										<?php } ?>
-										<?php if( $group_size ) { ?>
-											<div class="wptravel-blocks-trip-meta-group">
-												<i class="fas fa-users"></i> <?php echo ( (int) $group_size && $group_size < 999 ) ?  wptravel_get_group_size( $trip_id ) : 'No Size Limit' ?>
-											</div>
-										<?php } ?>
+										<a href="<?php echo esc_url($location_link); ?>">
+											<?php echo esc_html($location_name); ?>
+										</a>
 									</div>
-									
-								</div>
-								
-								<div class="trip-excerpt">
-									<p><?php echo esc_html( $content['excerpt'] ) ?></p>
-								</div>
-								
-								<div class="read-more">
-									<a href="<?php echo esc_url($content['url']) ?>" class="btn"><?php echo esc_html( 'Book Now', 'wp-travel-blocks' ); ?></a>
+								<?php } ?>
+								<h2><?php echo esc_html( $content['title'] ) ?></h2>
+								<div class="wptravel-blocks-trip-rating">
+									<?php echo wptravel_single_trip_rating( $content['id'] ); ?>
 								</div>
 							</div>
+							
+							<div class="trip-excerpt">
+								<p><?php echo esc_html( $content['excerpt'] ) ?></p>
+							</div>
+							<div class="trip-price">
+								<span class="price-from">
+									<?php echo esc_html( $strings['from'] ); ?>
+								</span>
+								<span class="person-count">
+									<ins>
+										<span><?php echo wptravel_get_formated_price_currency( $content['id'] ); ?></span>
+									</ins>
+								</span>
+							</div>
+							<div class="read-more">
+								<a href="<?php echo esc_url($content['url']) ?>" class="btn"><?php echo esc_html( 'Book Now', 'wp-travel-blocks' ); ?></a>
+							</div>
 						</div>
-					<?php } ?>
-				</div>				
-			</div>
-		<?php endif; ?>
+					</div>
+				<?php } ?>
+			</div>				
+		</div>
 		
 		<style>
 			.wptravel-block-trip-slider.<?php echo 'block-id-'.hash( 'sha256', json_encode($attributes) )?>,

@@ -4072,7 +4072,7 @@ function _setPrototypeOf(o, p) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/icon-picker","version":"0.1.0","title":"Icon Picker","category":"wp-travel-blocks","icon":"info","description":"FontAwesome icons for you to use.","attributes":{"textAlign":{"type":"string","default":"left"},"icon":{"type":"string","default":"fas fa-user-alt"},"iconType":{"type":"string","default":"fontawesome"},"customSVG":{"type":"string","default":""},"linkURL":{"type":"string","default":""}},"supports":{"html":false},"textdomain":"icon-picker","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wp-travel-blocks/icon-picker","version":"0.1.0","title":"Icon Picker","category":"wp-travel-blocks","icon":"info","description":"FontAwesome icons for you to use.","attributes":{"textAlign":{"type":"string","default":"left"},"icon":{"type":"string","default":"fas fa-user-alt"},"iconType":{"type":"string","default":"fontawesome"},"customSVG":{"type":"string","default":""},"linkURL":{"type":"string","default":""}},"supports":{"html":false},"textdomain":"icon-picker","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

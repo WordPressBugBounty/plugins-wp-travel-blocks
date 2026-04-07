@@ -1,6 +1,6 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 2,
+  "apiVersion": 3,
   "name": "wp-travel-blocks/slider",
   "title": "Slider",
   "category": "wp-travel-blocks",
@@ -44,6 +44,10 @@
     "center": {
       "type": "boolean",
       "default": false
+    },
+    "gap": {
+      "type": "number",
+      "default": 16
     }
   },
   "supports": {

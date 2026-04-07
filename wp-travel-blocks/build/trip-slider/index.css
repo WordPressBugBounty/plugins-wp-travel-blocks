@@ -19,6 +19,14 @@
 #wptravel-block-trip-slider .wptravel-block-notice span {
   font-style: italic;
 }
+
+#wptravel-block-trip-slider .checked {
+  color: orange;
+}
+
+#wptravel-block-trip-slider .fa-star {
+  color: #9f9f9f;
+}
 /*!****************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./assets/slick/slick.css ***!
   \****************************************************************************************************************************************************************************/

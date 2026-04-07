@@ -248,7 +248,7 @@ module.exports = window["wp"]["serverSideRender"];
   \**********************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/tabs","version":"0.1.0","title":"Trip Tabs","category":"wp-travel-single-trip-blocks","icon":"table-row-after","description":"Display tabs added through global or individual trip settings for the trip.","attributes":{"textAlign":{"type":"string","default":"left"}},"supports":{"html":false},"textdomain":"tabs","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wp-travel-blocks/tabs","version":"0.1.0","title":"Trip Tabs","category":"wp-travel-single-trip-blocks","icon":"table-row-after","description":"Display tabs added through global or individual trip settings for the trip.","attributes":{"textAlign":{"type":"string","default":"left"}},"supports":{"html":false},"textdomain":"tabs","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

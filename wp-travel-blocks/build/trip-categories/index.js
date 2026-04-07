@@ -302,7 +302,7 @@ module.exports = window["wp"]["serverSideRender"];
   \****************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trip-categories","version":"0.1.0","title":"Trip Categories","category":"wp-travel-single-trip-blocks","icon":"category","description":"Display the categories(Trip Type, destination, activities, keywords etc.) if trip has been assigned to any.","attributes":{"extraClass":{"type":"string","default":""},"textAlign":{"type":"string","default":"left"},"tripTaxonomy":{"type":"string","default":"itinerary_types"},"textColor":{"type":"string"}},"supports":{"html":false},"textdomain":"trip-categories","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wp-travel-blocks/trip-categories","version":"0.1.0","title":"Trip Categories","category":"wp-travel-single-trip-blocks","icon":"category","description":"Display the categories(Trip Type, destination, activities, keywords etc.) if trip has been assigned to any.","attributes":{"extraClass":{"type":"string","default":""},"textAlign":{"type":"string","default":"left"},"tripTaxonomy":{"type":"string","default":"itinerary_types"},"textColor":{"type":"string"}},"supports":{"html":false},"textdomain":"trip-categories","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

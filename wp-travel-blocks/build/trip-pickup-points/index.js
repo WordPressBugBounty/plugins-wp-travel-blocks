@@ -261,7 +261,7 @@ module.exports = window["wp"]["serverSideRender"];
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/pickup-points","version":"0.1.0","title":"Trip Pickup Location","category":"wp-travel-single-trip-blocks","icon":"location-alt","description":"Display map for the location added for the trip.","attributes":{"pickupPointLabel":{"type":"string","default":"Pickup Points: "}},"supports":{"html":false},"textdomain":"pickup-points","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wp-travel-blocks/pickup-points","version":"0.1.0","title":"Trip Pickup Location","category":"wp-travel-single-trip-blocks","icon":"location-alt","description":"Display map for the location added for the trip.","attributes":{"pickupPointLabel":{"type":"string","default":"Pickup Points: "}},"supports":{"html":false},"textdomain":"pickup-points","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

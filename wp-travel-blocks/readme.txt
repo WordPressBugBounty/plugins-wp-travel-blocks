@@ -5,7 +5,7 @@ Donate link:        https://wptravel.io/
 Requires at least:  6.0.0
 Tested up to:       6.8
 Requires PHP:       7.4.0
-Stable tag:         3.9.4
+Stable tag:         3.9.5
 License:            GPLv3
 License URI:        http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -234,6 +234,13 @@ WP Travel has a dedicated team for Support to resolve your issues and enquiries[
 Before updating the plugin please check ["our latest release notes"](#developers).
 
 == Changelog ==
+
+= 3.9.5 = 
+Release Date:  07th April 2026
+
+* Added new layouts on Trip Slider block.
+* Update the blocks API Version to 3.
+* Improved query validation of Trip Slider block.
 
 = 3.9.4 = 
 Release Date:  11th March 2026

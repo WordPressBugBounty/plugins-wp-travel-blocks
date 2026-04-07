@@ -233,7 +233,7 @@ module.exports = window["wp"]["serverSideRender"];
   \**************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/guide-country","version":"0.1.0","title":"Guide Country","category":"wp-travel-guide-blocks","icon":"admin-site","description":"Display guide country.","attributes":{},"supports":{"html":false,"color":{"background":false,"color":true},"typography":{"fontSize":true}},"textdomain":"guide-country","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wp-travel-blocks/guide-country","version":"0.1.0","title":"Guide Country","category":"wp-travel-guide-blocks","icon":"admin-site","description":"Display guide country.","attributes":{},"supports":{"html":false,"color":{"background":false,"color":true},"typography":{"fontSize":true}},"textdomain":"guide-country","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

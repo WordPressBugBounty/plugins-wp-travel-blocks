@@ -273,7 +273,7 @@ module.exports = window["wp"]["serverSideRender"];
   \************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trip-rating","version":"0.1.0","title":"Trip Rating","category":"wp-travel-single-trip-blocks","icon":"star-half","description":"Rating of your Trip.","attributes":{"textAlign":{"type":"string","default":"left"},"reviewColor":{"type":"string","default":""}},"supports":{"html":false},"textdomain":"trip-rating","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wp-travel-blocks/trip-rating","version":"0.1.0","title":"Trip Rating","category":"wp-travel-single-trip-blocks","icon":"star-half","description":"Rating of your Trip.","attributes":{"textAlign":{"type":"string","default":"left"},"reviewColor":{"type":"string","default":""}},"supports":{"html":false},"textdomain":"trip-rating","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

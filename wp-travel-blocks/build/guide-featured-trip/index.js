@@ -303,7 +303,7 @@ module.exports = window["wp"]["serverSideRender"];
   \********************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/guide-featured-trip","version":"0.1.0","title":"Guide Featured Trip","category":"wp-travel-guide-blocks","icon":"grid-view","description":"Display guide featured trips.","attributes":{"layoutType":{"type":"string","default":"default-layout"},"patternSlug":{"type":"string","default":""},"cardLayout":{"type":"string","default":"grid-view"}},"supports":{"html":false,"color":{"background":false,"color":true},"align":["wide","full"],"typography":{"fontSize":true}},"textdomain":"guide-featured-trip","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wp-travel-blocks/guide-featured-trip","version":"0.1.0","title":"Guide Featured Trip","category":"wp-travel-guide-blocks","icon":"grid-view","description":"Display guide featured trips.","attributes":{"layoutType":{"type":"string","default":"default-layout"},"patternSlug":{"type":"string","default":""},"cardLayout":{"type":"string","default":"grid-view"}},"supports":{"html":false,"color":{"background":false,"color":true},"align":["wide","full"],"typography":{"fontSize":true}},"textdomain":"guide-featured-trip","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

@@ -5192,7 +5192,7 @@ module.exports = window["wp"]["serverSideRender"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trip-gallery","version":"0.1.0","title":"Trip Gallery","category":"wp-travel-single-trip-blocks","icon":"format-gallery","description":"Display trip gallery for the trip.","attributes":{"galleryDesign":{"type":"string","default":"gridStyle"},"sliderHeight":{"type":"number","default":400},"sliderAutoplay":{"type":"boolean","default":false},"sliderArrow":{"type":"boolean","default":false},"sliderDots":{"type":"boolean","default":false},"tripsToShow":{"type":"number","default":1}},"supports":{"html":false},"textdomain":"trip-gallery","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wp-travel-blocks/trip-gallery","version":"0.1.0","title":"Trip Gallery","category":"wp-travel-single-trip-blocks","icon":"format-gallery","description":"Display trip gallery for the trip.","attributes":{"galleryDesign":{"type":"string","default":"gridStyle"},"sliderHeight":{"type":"number","default":400},"sliderAutoplay":{"type":"boolean","default":false},"sliderArrow":{"type":"boolean","default":false},"sliderDots":{"type":"boolean","default":false},"tripsToShow":{"type":"number","default":1}},"supports":{"html":false},"textdomain":"trip-gallery","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

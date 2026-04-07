@@ -277,7 +277,7 @@ module.exports = window["wp"]["serverSideRender"];
   \*************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trip-outline","version":"0.1.0","title":"Trip Outline","category":"wp-travel-single-trip-blocks","icon":"feedback","description":"Display trip outline for the trip.","attributes":{"textAlign":{"type":"string","default":"left"},"layout":{"type":"string","default":"first-design"}},"supports":{"html":false},"textdomain":"trip-outline","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wp-travel-blocks/trip-outline","version":"0.1.0","title":"Trip Outline","category":"wp-travel-single-trip-blocks","icon":"feedback","description":"Display trip outline for the trip.","attributes":{"textAlign":{"type":"string","default":"left"},"layout":{"type":"string","default":"first-design"}},"supports":{"html":false},"textdomain":"trip-outline","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

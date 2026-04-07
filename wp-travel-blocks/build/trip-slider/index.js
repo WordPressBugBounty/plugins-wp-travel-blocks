@@ -93,6 +93,7 @@ function Edit(props) {
     saleTrip,
     featuredTrip,
     sliderHeight,
+    layoutType,
     sliderDots,
     sliderArrow,
     sliderAutoplay
@@ -386,7 +387,23 @@ function Edit(props) {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Slider Options', 'wp-travel-blocks')
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Select Layout', 'wp-travel-blocks'),
+    value: layoutType,
+    options: [{
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Design One', 'wp-travel-blocks'),
+      value: 'design-one'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Design Two', 'wp-travel-blocks'),
+      value: 'design-two'
+    }, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Design Three', 'wp-travel-blocks'),
+      value: 'design-three'
+    }],
+    onChange: val => setAttributes({
+      layoutType: val
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RangeControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Slider Height', 'wp-travel-blocks'),
     value: sliderHeight,
     onChange: value => setAttributes({
@@ -464,7 +481,7 @@ function Edit(props) {
     onChange: () => {
       onChangeFeaturedTrip();
     }
-  })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  })))), layoutType == 'design-one' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     id: "wptravel-block-trip-slider",
     className: "wptravel-block-trip-slider"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_slick__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -475,7 +492,7 @@ function Edit(props) {
     ...settings
   }, tripLists.map(data => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      class: "item"
+      className: "item"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "overlay"
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
@@ -485,26 +502,156 @@ function Edit(props) {
         height: sliderHeight + "px"
       }
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      class: "wp-travel-entry-content"
+      className: "wp-travel-entry-content"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      class: "trip-title"
+      className: "trip-title"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, data.title)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "trip-price"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "price-from"
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('From', 'wp-travel-blocks')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "person-count"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ins", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "wp-travel-trip-price-figure"
+    }, "100.00"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "wp-travel-trip-currency"
+    }, "$"))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "trip-excerpt"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, data.excerpt)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "read-more"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "{data.url}",
+      className: "btn"
+    }, "Book Now"))));
+  }), tripLists.length <= 0 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wptravel-block-notice"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: "fa fa-info-circle"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "No Trips Found! Make sure you have trips set up for selected filter.")))), layoutType == 'design-two' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    id: "wptravel-block-trip-slider",
+    className: "wptravel-block-trip-slider design-two"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_slick__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    className: "wp-travel-trip-slider",
+    style: {
+      height: sliderHeight + "px"
+    },
+    ...settings
+  }, tripLists.map(data => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "item"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "overlay"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: data.image,
+      alt: data.title,
+      style: {
+        height: sliderHeight + "px"
+      }
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wp-travel-entry-content"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "trip-title"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-meta"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "#",
+      tabindex: "0"
+    }, "Nepal")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, data.title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wptravel-blocks-trip-rating"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      class: "fa fa-star checked"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      class: "fa fa-star checked"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      class: "fa fa-star checked"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      class: "fa fa-star"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      class: "fa fa-star"
+    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "trip-excerpt"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, data.excerpt)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "trip-price"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "price-from"
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('From', 'wp-travel-blocks')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "person-count"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ins", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "wp-travel-trip-price-figure"
+    }, "100.00"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "wp-travel-trip-currency"
+    }, "$"))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "read-more"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "{data.url}",
+      className: "btn"
+    }, "Book Now"))));
+  }), tripLists.length <= 0 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "wptravel-block-notice"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    className: "fa fa-info-circle"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, "No Trips Found! Make sure you have trips set up for selected filter.")))), layoutType == 'design-three' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    id: "wptravel-block-trip-slider",
+    className: "wptravel-block-trip-slider design-three"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_slick__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    className: "wp-travel-trip-slider",
+    style: {
+      height: sliderHeight + "px"
+    },
+    ...settings
+  }, tripLists.map(data => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "item"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "overlay"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: data.image,
+      alt: data.title,
+      style: {
+        height: sliderHeight + "px"
+      }
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "wp-travel-entry-content"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "trip-title"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-rating"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "fas fa-star"
+    }), " 5 out of 5"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       class: "trip-price"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
       class: "price-from"
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('From', 'wp-travel-blocks')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    }, "From"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
       class: "person-count"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ins", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
       class: "wp-travel-trip-price-figure"
-    }, "100.00"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    }, "108.0000"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
       class: "wp-travel-trip-currency"
-    }, "$"))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      class: "trip-excerpt"
+    }, "$"))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, data.title), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-meta"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-meta-location"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "fas fa-map-marker-alt"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: "http://optimize.local/travel-locations/nepal/",
+      tabindex: "0"
+    }, "Nepal")), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-meta-detarture-date"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "far fa-calendar-alt"
+    }), " 6 Days"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      class: "wptravel-blocks-trip-meta-group"
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+      class: "fas fa-users"
+    }), " 15"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "trip-excerpt"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, data.excerpt)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      class: "read-more"
+      className: "read-more"
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       href: "{data.url}",
-      class: "btn"
+      className: "btn"
     }, "Book Now"))));
   }), tripLists.length <= 0 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "wptravel-block-notice"
@@ -5501,7 +5648,7 @@ module.exports = window["wp"]["i18n"];
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"wp-travel-blocks/trip-slider","version":"0.1.0","title":"Trip Slider","category":"wp-travel-blocks","icon":"slides","description":"Display trip slider as per selected taxonomies","attributes":{"query":{"type":"object","default":{"numberOfItems":3,"orderBy":"title","order":"asc"}},"saleTrip":{"type":"boolean","default":false},"featuredTrip":{"type":"boolean","default":false},"sliderHeight":{"type":"number","default":700},"sliderAutoplay":{"type":"boolean","default":false},"sliderArrow":{"type":"boolean","default":false},"sliderDots":{"type":"boolean","default":false},"tripLists":{"type":"object","default":[]}},"supports":{"html":false,"align":["wide","full"],"spacing":{"margin":["horizontal","vertical"]}},"textdomain":"trip-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"wp-travel-blocks/trip-slider","version":"0.1.0","title":"Trip Slider","category":"wp-travel-blocks","icon":"slides","description":"Display trip slider as per selected taxonomies","attributes":{"query":{"type":"object","default":{"numberOfItems":3,"orderBy":"title","order":"asc"}},"saleTrip":{"type":"boolean","default":false},"featuredTrip":{"type":"boolean","default":false},"sliderHeight":{"type":"number","default":700},"sliderAutoplay":{"type":"boolean","default":false},"sliderArrow":{"type":"boolean","default":false},"sliderDots":{"type":"boolean","default":false},"tripLists":{"type":"object","default":[]},"layoutType":{"type":"string","default":"design-one"}},"supports":{"html":false,"align":["wide","full"],"spacing":{"margin":["horizontal","vertical"]}},"textdomain":"trip-slider","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

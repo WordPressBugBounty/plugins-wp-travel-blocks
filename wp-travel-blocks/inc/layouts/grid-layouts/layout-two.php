@@ -53,13 +53,13 @@
         <div class="wptravel-blocks-card-footer">
             <div class="wptravel-blocks-footer-left">
                 <?php if( $is_fixed_departure ) { ?>
-                <div class="wptravel-blocks-trip-meta">
-                    <i class='far fa-calendar-alt'></i> <?php echo wptravel_get_fixed_departure_date( $trip_id ); ?>
-                </div>
-                <?php } else { ?>
-                    <div class="wptravel-blocks-trip-meta">
-                    <i class='far fa-clock'></i> <?php echo wp_travel_get_trip_durations( $trip_id ); ?>
-                </div>
+                    <div class="wptravel-blocks-trip-meta-detarture-date">
+                        <i class='far fa-calendar-alt'></i> <?php echo wptravel_get_fixed_departure_date( $trip_id ); ?>
+                    </div>
+                    <?php } else { ?>
+                        <div class="wptravel-blocks-trip-meta-duration">
+                            <i class='far fa-clock'></i> <?php echo wp_travel_get_trip_durations( $trip_id ); ?>
+                        </div>
                 <?php } ?>
                 <?php if( $group_size ) { ?>
                 <div class="wptravel-blocks-trip-meta">
